@@ -63,6 +63,43 @@ namespace Procesamiento_de_imágenes
             }
         }
 
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            // Verificamos que se tenga un bitmap instanciado
+            if(resultante != null)
+            {
+                // Obtenemos el objeto graphics
+                Graphics g = e.Graphics;
+
+                // Calculamos el scroll
+                AutoScrollMinSize = new Size(anchoVentana, altoVentana);
+
+                // Copiamos del bitmap a la ventana
+                g.DrawImage(resultante, new Rectangle(this.AutoScrollPosition.X, this.AutoScrollPosition.Y + 30, anchoVentana, altoVentana));
+
+                // Liberamos el recurso
+                g.Dispose();
+            }
+        }
+
+        private void testToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int x = 0;
+            int y = 0;
+
+            resultante = new Bitmap(original.Width, original.Height);
+
+            for(x=0; x<original.Width; x++)
+            {
+                for(y=0; y<original.Height; y++)
+                {
+                    resultante.SetPixel(x, y, Color.FromArgb(32, 68, 100));
+                }
+            }
+
+            this.Invalidate();
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
