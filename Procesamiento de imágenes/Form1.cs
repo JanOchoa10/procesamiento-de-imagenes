@@ -359,7 +359,38 @@ namespace Procesamiento_de_imágenes
 
         private void escalaDeGrisesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // Convertimos la imagen a escala de grises
+            int x = 0;
+            int y = 0;
+            resultante = new Bitmap(original.Width, original.Height);
+            Color rColor = new Color();
+            Color oColor = new Color();
 
+            float g = 0;
+
+            for (x = 0; x < original.Width; x++)
+            {
+                for (y = 0; y < original.Height; y++)
+                {
+                    // Obtenemos el color del pixel
+                    oColor = original.GetPixel(x, y);
+
+                    // Procesamos y obtenemos el nuevo color
+                    // 0.2126, 0.7152, 0.0722 // Colorimetrica, basada en percepción humana
+                    // 0.299,  0.587,  0.114  // Luma, basado en brillo
+                    // 0.267,  0.678,  0.0593 // Promedio de los 3 colores
+
+                    g = oColor.R * 0.299f + oColor.G * 0.587f + oColor.B * 0.114f;
+
+                    rColor = Color.FromArgb((int)g, (int)g, (int)g);
+
+                    // Colocamos el color resultante
+                    resultante.SetPixel(x, y, rColor);
+
+                }
+            }
+
+            this.Invalidate();
         }
 
         private void Form1_Load(object sender, EventArgs e)
