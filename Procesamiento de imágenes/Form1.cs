@@ -43,7 +43,7 @@ namespace Procesamiento_de_imágenes
 
         private void abrirImagenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 original = (Bitmap)(Bitmap.FromFile(openFileDialog1.FileName));
                 anchoVentana = original.Width;
@@ -57,7 +57,7 @@ namespace Procesamiento_de_imágenes
 
         private void guardarImagenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(saveFileDialog1.ShowDialog() == DialogResult.OK)
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 resultante.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Png);
             }
@@ -66,7 +66,7 @@ namespace Procesamiento_de_imágenes
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             // Verificamos que se tenga un bitmap instanciado
-            if(resultante != null)
+            if (resultante != null)
             {
                 // Obtenemos el objeto graphics
                 Graphics g = e.Graphics;
@@ -89,9 +89,9 @@ namespace Procesamiento_de_imágenes
 
             resultante = new Bitmap(original.Width, original.Height);
 
-            for(x=0; x<original.Width; x++)
+            for (x = 0; x < original.Width; x++)
             {
-                for(y=0; y<original.Height; y++)
+                for (y = 0; y < original.Height; y++)
                 {
                     resultante.SetPixel(x, y, Color.FromArgb(32, 68, 100));
                 }
@@ -109,9 +109,9 @@ namespace Procesamiento_de_imágenes
             Color rColor = new Color();
             Color oColor = new Color();
 
-            for(x = 0; x < original.Width; x++)
+            for (x = 0; x < original.Width; x++)
             {
-                for(y = 0; y < original.Height; y++)
+                for (y = 0; y < original.Height; y++)
                 {
                     // Obtenemos el color del pixel
                     oColor = original.GetPixel(x, y);
@@ -125,6 +125,241 @@ namespace Procesamiento_de_imágenes
             }
 
             this.Invalidate();
+        }
+
+        private void rojoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
+            int x = 0;
+            int y = 0;
+            resultante = new Bitmap(original.Width, original.Height);
+            Color rColor = new Color();
+            Color oColor = new Color();
+
+            for (x = 0; x < original.Width; x++)
+            {
+                for (y = 0; y < original.Height; y++)
+                {
+                    // Obtenemos el color del pixel
+                    oColor = original.GetPixel(x, y);
+
+                    // Procesamos y obtenemos el nuevo color
+                    rColor = Color.FromArgb(oColor.R, 0, 0);
+
+                    // Colocamos el color en resultante
+                    resultante.SetPixel(x, y, rColor);
+                }
+            }
+            this.Invalidate();
+        }
+
+        private void verdeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
+            int x = 0;
+            int y = 0;
+            resultante = new Bitmap(original.Width, original.Height);
+            Color rColor = new Color();
+            Color oColor = new Color();
+
+            for (x = 0; x < original.Width; x++)
+            {
+                for (y = 0; y < original.Height; y++)
+                {
+                    // Obtenemos el color del pixel
+                    oColor = original.GetPixel(x, y);
+
+                    // Procesamos y obtenemos el nuevo color
+                    rColor = Color.FromArgb(0, oColor.G, 0);
+
+                    // Colocamos el color en resultante
+                    resultante.SetPixel(x, y, rColor);
+                }
+            }
+            this.Invalidate();
+        }
+
+        private void azulToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
+            int x = 0;
+            int y = 0;
+            resultante = new Bitmap(original.Width, original.Height);
+            Color rColor = new Color();
+            Color oColor = new Color();
+
+            for (x = 0; x < original.Width; x++)
+            {
+                for (y = 0; y < original.Height; y++)
+                {
+                    // Obtenemos el color del pixel
+                    oColor = original.GetPixel(x, y);
+
+                    // Procesamos y obtenemos el nuevo color
+                    rColor = Color.FromArgb(0, 0, oColor.B);
+
+                    // Colocamos el color en resultante
+                    resultante.SetPixel(x, y, rColor);
+                }
+            }
+            this.Invalidate();
+        }
+
+        private void amarilloToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
+            int x = 0;
+            int y = 0;
+            resultante = new Bitmap(original.Width, original.Height);
+            Color rColor = new Color();
+            Color oColor = new Color();
+
+            for (x = 0; x < original.Width; x++)
+            {
+                for (y = 0; y < original.Height; y++)
+                {
+                    // Obtenemos el color del pixel
+                    oColor = original.GetPixel(x, y);
+
+                    // Procesamos y obtenemos el nuevo color
+                    rColor = Color.FromArgb(oColor.R, oColor.G, 0);
+
+                    // Colocamos el color en resultante
+                    resultante.SetPixel(x, y, rColor);
+                }
+            }
+            this.Invalidate();
+        }
+
+
+        private void violetaToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
+            int x = 0;
+            int y = 0;
+            resultante = new Bitmap(original.Width, original.Height);
+            Color rColor = new Color();
+            Color oColor = new Color();
+
+            for (x = 0; x < original.Width; x++)
+            {
+                for (y = 0; y < original.Height; y++)
+                {
+                    // Obtenemos el color del pixel
+                    oColor = original.GetPixel(x, y);
+
+                    // Procesamos y obtenemos el nuevo color
+                    rColor = Color.FromArgb(oColor.R, 0, oColor.B);
+
+                    // Colocamos el color en resultante
+                    resultante.SetPixel(x, y, rColor);
+                }
+            }
+            this.Invalidate();
+        }
+
+        private void cyanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
+            int x = 0;
+            int y = 0;
+            resultante = new Bitmap(original.Width, original.Height);
+            Color rColor = new Color();
+            Color oColor = new Color();
+
+            for (x = 0; x < original.Width; x++)
+            {
+                for (y = 0; y < original.Height; y++)
+                {
+                    // Obtenemos el color del pixel
+                    oColor = original.GetPixel(x, y);
+
+                    // Procesamos y obtenemos el nuevo color
+                    rColor = Color.FromArgb(0, oColor.G, oColor.B);
+
+                    // Colocamos el color en resultante
+                    resultante.SetPixel(x, y, rColor);
+                }
+            }
+            this.Invalidate();
+        }
+
+        private void revertirCambiosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
+            int x = 0;
+            int y = 0;
+            resultante = new Bitmap(original.Width, original.Height);
+            Color rColor = new Color();
+            Color oColor = new Color();
+
+            for (x = 0; x < original.Width; x++)
+            {
+                for (y = 0; y < original.Height; y++)
+                {
+                    // Obtenemos el color del pixel
+                    oColor = original.GetPixel(x, y);
+
+                    // Procesamos y obtenemos el nuevo color
+                    rColor = Color.FromArgb(oColor.R, oColor.G, oColor.B);
+
+                    // Colocamos el color en resultante
+                    resultante.SetPixel(x, y, rColor);
+                }
+            }
+            this.Invalidate();
+        }
+
+        private void aberraciónCromáticaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int x = 0;
+            int y = 0;
+            int a = 5; // Tamaño de la aberración
+
+            int r = 0;
+            int g = 0;
+            int b = 0;
+
+            resultante = new Bitmap(original.Width, original.Height);
+
+            for (x = 0; x < original.Width; x++)
+            {
+                for (y = 0; y < original.Height; y++)
+                {
+                    // Obtenemos el verde
+                    g = original.GetPixel(x, y).G;
+
+                    // Obtenemos el rojo
+                    if (x + a < original.Width)
+                    {
+                        r = original.GetPixel(x + a, y).R;
+                    }
+                    else
+                    {
+                        r = 0;
+                    }
+
+                    // Obtenemos el azul
+                    if (x - a >= 0)
+                    {
+                        b = original.GetPixel(x - a, y).B;
+                    }
+                    else
+                    {
+                        b = 0;
+                    }
+
+                    // Colocamos el pixel
+                    resultante.SetPixel(x, y, Color.FromArgb(r, g, b));
+                }
+            }
+            this.Invalidate();
+
+        }
+
+        private void escalaDeGrisesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
