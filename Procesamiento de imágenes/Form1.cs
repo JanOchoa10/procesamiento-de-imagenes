@@ -100,6 +100,33 @@ namespace Procesamiento_de_imágenes
             this.Invalidate();
         }
 
+        private void invertirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Invertimos la imagen, saca su negativo
+            int x = 0;
+            int y = 0;
+            resultante = new Bitmap(original.Width, original.Height);
+            Color rColor = new Color();
+            Color oColor = new Color();
+
+            for(x = 0; x < original.Width; x++)
+            {
+                for(y = 0; y < original.Height; y++)
+                {
+                    // Obtenemos el color del pixel
+                    oColor = original.GetPixel(x, y);
+
+                    // Procesamos y obtenemos el nuevo color
+                    rColor = Color.FromArgb(255 - oColor.R, 255 - oColor.G, 255 - oColor.B);
+
+                    // Colocamos el color en resultante
+                    resultante.SetPixel(x, y, rColor);
+                }
+            }
+
+            this.Invalidate();
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
