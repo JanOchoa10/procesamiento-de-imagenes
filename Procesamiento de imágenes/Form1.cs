@@ -49,7 +49,7 @@ namespace Procesamiento_de_imágenes
             this.Close();
         }
 
-        private void abrirImagenToolStripMenuItem_Click(object sender, EventArgs e)
+        private void abrirImagenToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -71,7 +71,7 @@ namespace Procesamiento_de_imágenes
             }
         }
 
-        private void Form1_Paint(object sender, PaintEventArgs e)
+        private void Filtros_Paint(object sender, PaintEventArgs e)
         {
             // Verificamos que se tenga un bitmap instanciado
             if (resultante != null)
@@ -108,7 +108,7 @@ namespace Procesamiento_de_imágenes
             this.Invalidate();
         }
 
-        private void invertirToolStripMenuItem_Click(object sender, EventArgs e)
+        private void invertirColoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Invertimos la imagen, saca su negativo
             int x = 0;
@@ -364,6 +364,7 @@ namespace Procesamiento_de_imágenes
             this.Invalidate();
 
         }
+
 
         private void escalaDeGrisesToolStripMenuItem_Click(object sender, EventArgs e)
         {

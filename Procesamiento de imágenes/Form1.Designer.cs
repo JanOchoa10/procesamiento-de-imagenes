@@ -33,12 +33,22 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
+            this.Filtros = new System.Windows.Forms.TabPage();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.abrirImagenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.revertirCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.guardarImagenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.básicosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.invertirColoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Reconocimiento = new System.Windows.Forms.TabPage();
             this.Acerca_de = new System.Windows.Forms.TabPage();
-            this.Filtros = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.materialTabControl1.SuspendLayout();
+            this.Filtros.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,6 +77,81 @@
             this.materialTabControl1.Size = new System.Drawing.Size(1131, 695);
             this.materialTabControl1.TabIndex = 1;
             // 
+            // Filtros
+            // 
+            this.Filtros.BackColor = System.Drawing.Color.White;
+            this.Filtros.Controls.Add(this.menuStrip1);
+            this.Filtros.ImageKey = "filtrar.png";
+            this.Filtros.Location = new System.Drawing.Point(4, 39);
+            this.Filtros.Name = "Filtros";
+            this.Filtros.Padding = new System.Windows.Forms.Padding(3);
+            this.Filtros.Size = new System.Drawing.Size(1123, 652);
+            this.Filtros.TabIndex = 3;
+            this.Filtros.Text = "Filtros";
+            this.Filtros.Paint += new System.Windows.Forms.PaintEventHandler(this.Filtros_Paint);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.archivoToolStripMenuItem,
+            this.básicosToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(3, 3);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1117, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // archivoToolStripMenuItem
+            // 
+            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.abrirImagenToolStripMenuItem,
+            this.revertirCambiosToolStripMenuItem,
+            this.guardarImagenToolStripMenuItem});
+            this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.archivoToolStripMenuItem.Text = "Archivo";
+            // 
+            // abrirImagenToolStripMenuItem
+            // 
+            this.abrirImagenToolStripMenuItem.Name = "abrirImagenToolStripMenuItem";
+            this.abrirImagenToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.abrirImagenToolStripMenuItem.Text = "Abrir imagen";
+            this.abrirImagenToolStripMenuItem.Click += new System.EventHandler(this.abrirImagenToolStripMenuItem_Click_1);
+            // 
+            // revertirCambiosToolStripMenuItem
+            // 
+            this.revertirCambiosToolStripMenuItem.Name = "revertirCambiosToolStripMenuItem";
+            this.revertirCambiosToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.revertirCambiosToolStripMenuItem.Text = "Revertir cambios";
+            // 
+            // guardarImagenToolStripMenuItem
+            // 
+            this.guardarImagenToolStripMenuItem.Name = "guardarImagenToolStripMenuItem";
+            this.guardarImagenToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.guardarImagenToolStripMenuItem.Text = "Guardar imagen";
+            // 
+            // básicosToolStripMenuItem
+            // 
+            this.básicosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.invertirColoresToolStripMenuItem,
+            this.colorearToolStripMenuItem});
+            this.básicosToolStripMenuItem.Name = "básicosToolStripMenuItem";
+            this.básicosToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.básicosToolStripMenuItem.Text = "Básicos";
+            // 
+            // invertirColoresToolStripMenuItem
+            // 
+            this.invertirColoresToolStripMenuItem.Name = "invertirColoresToolStripMenuItem";
+            this.invertirColoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.invertirColoresToolStripMenuItem.Text = "Invertir colores";
+            this.invertirColoresToolStripMenuItem.Click += new System.EventHandler(this.invertirColoresToolStripMenuItem_Click);
+            // 
+            // colorearToolStripMenuItem
+            // 
+            this.colorearToolStripMenuItem.Name = "colorearToolStripMenuItem";
+            this.colorearToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.colorearToolStripMenuItem.Text = "Colorear";
+            // 
             // Reconocimiento
             // 
             this.Reconocimiento.BackColor = System.Drawing.Color.White;
@@ -88,17 +173,6 @@
             this.Acerca_de.Size = new System.Drawing.Size(1123, 652);
             this.Acerca_de.TabIndex = 2;
             this.Acerca_de.Text = "Acerca de Chinchi";
-            // 
-            // Filtros
-            // 
-            this.Filtros.BackColor = System.Drawing.Color.White;
-            this.Filtros.ImageKey = "filtrar.png";
-            this.Filtros.Location = new System.Drawing.Point(4, 39);
-            this.Filtros.Name = "Filtros";
-            this.Filtros.Padding = new System.Windows.Forms.Padding(3);
-            this.Filtros.Size = new System.Drawing.Size(1123, 652);
-            this.Filtros.TabIndex = 3;
-            this.Filtros.Text = "Filtros";
             // 
             // imageList1
             // 
@@ -137,8 +211,11 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "    CHINCHI";
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.materialTabControl1.ResumeLayout(false);
+            this.Filtros.ResumeLayout(false);
+            this.Filtros.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -153,6 +230,14 @@
         private System.Windows.Forms.TabPage Filtros;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem abrirImagenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem revertirCambiosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem guardarImagenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem básicosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem invertirColoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem colorearToolStripMenuItem;
     }
 }
 
