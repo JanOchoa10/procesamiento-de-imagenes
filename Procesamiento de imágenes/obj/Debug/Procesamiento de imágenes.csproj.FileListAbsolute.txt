@@ -9,3 +9,5 @@ C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágen
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Debug\Procesamiento de imágenes.csproj.CoreCompileInputs.cache
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Debug\Procesamiento de imágenes.exe
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Debug\Procesamiento de imágenes.pdb
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Debug\MaterialSkin.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Debug\Procesamiento de imágenes.csproj.CopyComplete
