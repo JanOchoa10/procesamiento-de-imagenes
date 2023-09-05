@@ -34,6 +34,7 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.Filtros = new System.Windows.Forms.TabPage();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirImagenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,14 +43,46 @@
             this.básicosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.invertirColoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rojoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verdeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.azulToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.amarilloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.violetaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cyanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aberraciónCromáticaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.escalaDeGrisesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Reconocimiento = new System.Windows.Forms.TabPage();
+            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.archivoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.abrirImagenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.básicosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.Acerca_de = new System.Windows.Forms.TabPage();
+            this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
+            this.materialSlider1 = new MaterialSkin.Controls.MaterialSlider();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.materialTabControl1.SuspendLayout();
             this.Filtros.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.Reconocimiento.SuspendLayout();
+            this.materialCard1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.menuStrip2.SuspendLayout();
+            this.Acerca_de.SuspendLayout();
+            this.materialCard2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -69,26 +102,38 @@
             this.materialTabControl1.Depth = 0;
             this.materialTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialTabControl1.ImageList = this.imageList1;
-            this.materialTabControl1.Location = new System.Drawing.Point(3, 64);
+            this.materialTabControl1.Location = new System.Drawing.Point(0, 64);
             this.materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabControl1.Multiline = true;
             this.materialTabControl1.Name = "materialTabControl1";
             this.materialTabControl1.SelectedIndex = 0;
-            this.materialTabControl1.Size = new System.Drawing.Size(1131, 695);
+            this.materialTabControl1.Size = new System.Drawing.Size(1134, 695);
             this.materialTabControl1.TabIndex = 1;
             // 
             // Filtros
             // 
             this.Filtros.BackColor = System.Drawing.Color.White;
+            this.Filtros.Controls.Add(this.pictureBox3);
             this.Filtros.Controls.Add(this.menuStrip1);
             this.Filtros.ImageKey = "filtrar.png";
             this.Filtros.Location = new System.Drawing.Point(4, 39);
             this.Filtros.Name = "Filtros";
             this.Filtros.Padding = new System.Windows.Forms.Padding(3);
-            this.Filtros.Size = new System.Drawing.Size(1123, 652);
+            this.Filtros.Size = new System.Drawing.Size(1126, 652);
             this.Filtros.TabIndex = 3;
             this.Filtros.Text = "Filtros";
             this.Filtros.Paint += new System.Windows.Forms.PaintEventHandler(this.Filtros_Paint);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBox3.Location = new System.Drawing.Point(541, 91);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(339, 307);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 1;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox3_Paint);
             // 
             // menuStrip1
             // 
@@ -97,7 +142,7 @@
             this.básicosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(3, 3);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1117, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1120, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -123,18 +168,22 @@
             this.revertirCambiosToolStripMenuItem.Name = "revertirCambiosToolStripMenuItem";
             this.revertirCambiosToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.revertirCambiosToolStripMenuItem.Text = "Revertir cambios";
+            this.revertirCambiosToolStripMenuItem.Click += new System.EventHandler(this.revertirCambiosToolStripMenuItem_Click);
             // 
             // guardarImagenToolStripMenuItem
             // 
             this.guardarImagenToolStripMenuItem.Name = "guardarImagenToolStripMenuItem";
             this.guardarImagenToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.guardarImagenToolStripMenuItem.Text = "Guardar imagen";
+            this.guardarImagenToolStripMenuItem.Click += new System.EventHandler(this.guardarImagenToolStripMenuItem_Click);
             // 
             // básicosToolStripMenuItem
             // 
             this.básicosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.invertirColoresToolStripMenuItem,
-            this.colorearToolStripMenuItem});
+            this.colorearToolStripMenuItem,
+            this.aberraciónCromáticaToolStripMenuItem,
+            this.escalaDeGrisesToolStripMenuItem});
             this.básicosToolStripMenuItem.Name = "básicosToolStripMenuItem";
             this.básicosToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.básicosToolStripMenuItem.Text = "Básicos";
@@ -142,37 +191,231 @@
             // invertirColoresToolStripMenuItem
             // 
             this.invertirColoresToolStripMenuItem.Name = "invertirColoresToolStripMenuItem";
-            this.invertirColoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.invertirColoresToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.invertirColoresToolStripMenuItem.Text = "Invertir colores";
             this.invertirColoresToolStripMenuItem.Click += new System.EventHandler(this.invertirColoresToolStripMenuItem_Click);
             // 
             // colorearToolStripMenuItem
             // 
+            this.colorearToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rojoToolStripMenuItem,
+            this.verdeToolStripMenuItem,
+            this.azulToolStripMenuItem,
+            this.amarilloToolStripMenuItem,
+            this.violetaToolStripMenuItem,
+            this.cyanToolStripMenuItem});
             this.colorearToolStripMenuItem.Name = "colorearToolStripMenuItem";
-            this.colorearToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.colorearToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.colorearToolStripMenuItem.Text = "Colorear";
+            // 
+            // rojoToolStripMenuItem
+            // 
+            this.rojoToolStripMenuItem.Name = "rojoToolStripMenuItem";
+            this.rojoToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.rojoToolStripMenuItem.Text = "Rojo";
+            this.rojoToolStripMenuItem.Click += new System.EventHandler(this.rojoToolStripMenuItem_Click);
+            // 
+            // verdeToolStripMenuItem
+            // 
+            this.verdeToolStripMenuItem.Name = "verdeToolStripMenuItem";
+            this.verdeToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.verdeToolStripMenuItem.Text = "Verde";
+            this.verdeToolStripMenuItem.Click += new System.EventHandler(this.verdeToolStripMenuItem_Click);
+            // 
+            // azulToolStripMenuItem
+            // 
+            this.azulToolStripMenuItem.Name = "azulToolStripMenuItem";
+            this.azulToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.azulToolStripMenuItem.Text = "Azul";
+            this.azulToolStripMenuItem.Click += new System.EventHandler(this.azulToolStripMenuItem_Click);
+            // 
+            // amarilloToolStripMenuItem
+            // 
+            this.amarilloToolStripMenuItem.Name = "amarilloToolStripMenuItem";
+            this.amarilloToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.amarilloToolStripMenuItem.Text = "Amarillo";
+            this.amarilloToolStripMenuItem.Click += new System.EventHandler(this.amarilloToolStripMenuItem_Click);
+            // 
+            // violetaToolStripMenuItem
+            // 
+            this.violetaToolStripMenuItem.Name = "violetaToolStripMenuItem";
+            this.violetaToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.violetaToolStripMenuItem.Text = "Violeta";
+            this.violetaToolStripMenuItem.Click += new System.EventHandler(this.violetaToolStripMenuItem_Click);
+            // 
+            // cyanToolStripMenuItem
+            // 
+            this.cyanToolStripMenuItem.Name = "cyanToolStripMenuItem";
+            this.cyanToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.cyanToolStripMenuItem.Text = "Cyan";
+            this.cyanToolStripMenuItem.Click += new System.EventHandler(this.cyanToolStripMenuItem_Click);
+            // 
+            // aberraciónCromáticaToolStripMenuItem
+            // 
+            this.aberraciónCromáticaToolStripMenuItem.Name = "aberraciónCromáticaToolStripMenuItem";
+            this.aberraciónCromáticaToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.aberraciónCromáticaToolStripMenuItem.Text = "Aberración cromática";
+            this.aberraciónCromáticaToolStripMenuItem.Click += new System.EventHandler(this.aberraciónCromáticaToolStripMenuItem_Click);
+            // 
+            // escalaDeGrisesToolStripMenuItem
+            // 
+            this.escalaDeGrisesToolStripMenuItem.Name = "escalaDeGrisesToolStripMenuItem";
+            this.escalaDeGrisesToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.escalaDeGrisesToolStripMenuItem.Text = "Escala de grises";
+            this.escalaDeGrisesToolStripMenuItem.Click += new System.EventHandler(this.escalaDeGrisesToolStripMenuItem_Click);
             // 
             // Reconocimiento
             // 
             this.Reconocimiento.BackColor = System.Drawing.Color.White;
+            this.Reconocimiento.Controls.Add(this.materialCard1);
             this.Reconocimiento.ImageKey = "reconocimiento-facial.png";
             this.Reconocimiento.Location = new System.Drawing.Point(4, 39);
             this.Reconocimiento.Name = "Reconocimiento";
             this.Reconocimiento.Padding = new System.Windows.Forms.Padding(3);
-            this.Reconocimiento.Size = new System.Drawing.Size(1123, 652);
+            this.Reconocimiento.Size = new System.Drawing.Size(1126, 652);
             this.Reconocimiento.TabIndex = 1;
             this.Reconocimiento.Text = "Reconocimiento";
+            // 
+            // materialCard1
+            // 
+            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.pictureBox2);
+            this.materialCard1.Controls.Add(this.materialButton1);
+            this.materialCard1.Controls.Add(this.menuStrip2);
+            this.materialCard1.Depth = 0;
+            this.materialCard1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard1.Location = new System.Drawing.Point(3, 3);
+            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard1.Name = "materialCard1";
+            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard1.Size = new System.Drawing.Size(1120, 646);
+            this.materialCard1.TabIndex = 0;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(17, 57);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(455, 320);
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
+            // 
+            // materialButton1
+            // 
+            this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton1.Depth = 0;
+            this.materialButton1.HighEmphasis = true;
+            this.materialButton1.Icon = null;
+            this.materialButton1.Location = new System.Drawing.Point(676, 206);
+            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButton1.Name = "materialButton1";
+            this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton1.Size = new System.Drawing.Size(158, 36);
+            this.materialButton1.TabIndex = 1;
+            this.materialButton1.Text = "materialButton1";
+            this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButton1.UseAccentColor = false;
+            this.materialButton1.UseVisualStyleBackColor = true;
+            this.materialButton1.Click += new System.EventHandler(this.materialButton1_Click);
+            // 
+            // menuStrip2
+            // 
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.archivoToolStripMenuItem1,
+            this.básicosToolStripMenuItem1});
+            this.menuStrip2.Location = new System.Drawing.Point(14, 14);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(1092, 24);
+            this.menuStrip2.TabIndex = 0;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // archivoToolStripMenuItem1
+            // 
+            this.archivoToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.abrirImagenToolStripMenuItem1});
+            this.archivoToolStripMenuItem1.Name = "archivoToolStripMenuItem1";
+            this.archivoToolStripMenuItem1.Size = new System.Drawing.Size(60, 20);
+            this.archivoToolStripMenuItem1.Text = "Archivo";
+            // 
+            // abrirImagenToolStripMenuItem1
+            // 
+            this.abrirImagenToolStripMenuItem1.Name = "abrirImagenToolStripMenuItem1";
+            this.abrirImagenToolStripMenuItem1.Size = new System.Drawing.Size(143, 22);
+            this.abrirImagenToolStripMenuItem1.Text = "Abrir Imagen";
+            // 
+            // básicosToolStripMenuItem1
+            // 
+            this.básicosToolStripMenuItem1.Name = "básicosToolStripMenuItem1";
+            this.básicosToolStripMenuItem1.Size = new System.Drawing.Size(58, 20);
+            this.básicosToolStripMenuItem1.Text = "Básicos";
             // 
             // Acerca_de
             // 
             this.Acerca_de.BackColor = System.Drawing.Color.White;
+            this.Acerca_de.Controls.Add(this.materialCard2);
             this.Acerca_de.ImageKey = "informacion.png";
             this.Acerca_de.Location = new System.Drawing.Point(4, 39);
             this.Acerca_de.Name = "Acerca_de";
             this.Acerca_de.Padding = new System.Windows.Forms.Padding(3);
-            this.Acerca_de.Size = new System.Drawing.Size(1123, 652);
+            this.Acerca_de.Size = new System.Drawing.Size(1126, 652);
             this.Acerca_de.TabIndex = 2;
             this.Acerca_de.Text = "Acerca de Chinchi";
+            // 
+            // materialCard2
+            // 
+            this.materialCard2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard2.Controls.Add(this.panel2);
+            this.materialCard2.Controls.Add(this.panel1);
+            this.materialCard2.Depth = 0;
+            this.materialCard2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard2.Location = new System.Drawing.Point(3, 3);
+            this.materialCard2.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard2.Name = "materialCard2";
+            this.materialCard2.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard2.Size = new System.Drawing.Size(1120, 646);
+            this.materialCard2.TabIndex = 0;
+            this.materialCard2.Paint += new System.Windows.Forms.PaintEventHandler(this.materialCard2_Paint);
+            // 
+            // materialSlider1
+            // 
+            this.materialSlider1.Depth = 0;
+            this.materialSlider1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialSlider1.Location = new System.Drawing.Point(44, 8);
+            this.materialSlider1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialSlider1.Name = "materialSlider1";
+            this.materialSlider1.RangeMax = 19;
+            this.materialSlider1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.materialSlider1.ShowValue = false;
+            this.materialSlider1.Size = new System.Drawing.Size(561, 40);
+            this.materialSlider1.TabIndex = 1;
+            this.materialSlider1.Text = "Zoom 0%";
+            this.materialSlider1.Value = 9;
+            this.materialSlider1.onValueChanged += new MaterialSkin.Controls.MaterialSlider.ValueChanged(this.materialSlider1_onValueChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.pictureBox4);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(14, 14);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1092, 563);
+            this.panel1.TabIndex = 0;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(1920, 1080);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox4.TabIndex = 0;
+            this.pictureBox4.TabStop = false;
             // 
             // imageList1
             // 
@@ -197,6 +440,24 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(809, 9);
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(104, 45);
+            this.trackBar1.TabIndex = 2;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.trackBar1);
+            this.panel2.Controls.Add(this.materialSlider1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(14, 577);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1092, 54);
+            this.panel2.TabIndex = 3;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -207,16 +468,33 @@
             this.DrawerShowIconsWhenHidden = true;
             this.DrawerTabControl = this.materialTabControl1;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip2;
             this.Name = "Form1";
+            this.Padding = new System.Windows.Forms.Padding(0, 64, 3, 3);
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "    CHINCHI";
             this.materialTabControl1.ResumeLayout(false);
             this.Filtros.ResumeLayout(false);
             this.Filtros.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.Reconocimiento.ResumeLayout(false);
+            this.materialCard1.ResumeLayout(false);
+            this.materialCard1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
+            this.Acerca_de.ResumeLayout(false);
+            this.materialCard2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -238,6 +516,28 @@
         private System.Windows.Forms.ToolStripMenuItem básicosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem invertirColoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem colorearToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rojoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verdeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem azulToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem amarilloToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem violetaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cyanToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aberraciónCromáticaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem escalaDeGrisesToolStripMenuItem;
+        private MaterialSkin.Controls.MaterialCard materialCard1;
+        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem abrirImagenToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem básicosToolStripMenuItem1;
+        private MaterialSkin.Controls.MaterialButton materialButton1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private MaterialSkin.Controls.MaterialCard materialCard2;
+        private MaterialSkin.Controls.MaterialSlider materialSlider1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 

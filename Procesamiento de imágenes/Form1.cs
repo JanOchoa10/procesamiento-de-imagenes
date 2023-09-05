@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin.Controls;
+using MaterialSkin;
 
 namespace Procesamiento_de_imágenes
 {
@@ -35,12 +36,25 @@ namespace Procesamiento_de_imágenes
             materialSkinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Indigo500, MaterialSkin.Primary.Indigo700, MaterialSkin.Primary.Indigo100, MaterialSkin.Accent.Pink200, MaterialSkin.TextShade.WHITE);
 
+
             // Creamos el bitmap resultante del cuadro
             resultante = new Bitmap(800, 600);
 
             // Colocamos los valores para el dibujo con scrolls
             anchoVentana = 800;
             altoVentana = 600;
+        }
+
+        private void materialFloatingActionButton1_Click(object sender, EventArgs e)
+        {
+            // Agrega aquí la lógica que deseas que se ejecute cuando se hace clic en el FAB.
+            MessageBox.Show("FAB clickeado"); // Ejemplo de mensaje
+        }
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+            // Agrega aquí la lógica que deseas que se ejecute cuando se hace clic en el FAB.
+            MessageBox.Show("MaterialButton clickeado"); // Ejemplo de mensaje
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -71,24 +85,38 @@ namespace Procesamiento_de_imágenes
             }
         }
 
-        private void Filtros_Paint(object sender, PaintEventArgs e)
+        // Función para realizar el dibujo que se puede reutilizar
+        private void DibujarImagenEnGraphics(Graphics g)
         {
             // Verificamos que se tenga un bitmap instanciado
             if (resultante != null)
             {
-                // Obtenemos el objeto graphics
-                Graphics g = e.Graphics;
-
                 // Calculamos el scroll
-                AutoScrollMinSize = new Size(anchoVentana, altoVentana);
+                // AutoScrollMinSize = new Size(anchoVentana, altoVentana);
 
                 // Copiamos del bitmap a la ventana
                 g.DrawImage(resultante, new Rectangle(this.AutoScrollPosition.X, this.AutoScrollPosition.Y + 30, anchoVentana, altoVentana));
-
-                // Liberamos el recurso
-                g.Dispose();
             }
         }
+
+        private void Filtros_Paint(object sender, PaintEventArgs e)
+        {
+            // Obtenemos el objeto graphics
+            Graphics g = e.Graphics;
+
+            // Llamar a la función de dibujo
+            DibujarImagenEnGraphics(g);
+        }
+
+        private void pictureBox3_Paint(object sender, PaintEventArgs e)
+        {
+            // Obtenemos el objeto graphics
+            Graphics g = e.Graphics;
+
+            // Llamar a la función de dibujo
+            DibujarImagenEnGraphics(g);
+        }
+
 
         private void testToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -239,8 +267,7 @@ namespace Procesamiento_de_imágenes
             this.Invalidate();
         }
 
-
-        private void violetaToolStripMenuItem_Click_1(object sender, EventArgs e)
+        private void violetaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
             int x = 0;
@@ -365,6 +392,83 @@ namespace Procesamiento_de_imágenes
 
         }
 
+        Image ZoomPicture(Image img, SizeF size)
+        {
+            int newWidth = (int)(img.Width * size.Width);
+            int newHeight = (int)(img.Height * size.Height);
+
+            Bitmap bm = new Bitmap(newWidth, newHeight);
+            Graphics gpu = Graphics.FromImage(bm);
+            gpu.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            gpu.DrawImage(img, new Rectangle(0, 0, newWidth, newHeight));
+            return bm;
+        }
+
+
+
+        PictureBox org;
+
+        private void materialCard2_Paint(object sender, PaintEventArgs e)
+        {
+            //materialSlider1.Minimum = -6; // Establece el valor mínimo en negativo
+            //materialSlider1.Maximum = 6; // Establece el valor máximo en positivo
+            //materialSlider1.SmallChange = 1;
+            //materialSlider1.LargeChange = 1;
+            //trackBar1.UseWaitCursor = false;
+
+            this.DoubleBuffered = true;
+            org = new PictureBox();
+            org.Image = pictureBox4.Image;
+
+            //    materialSlider1.MinimumSize = 1;
+            //    materialSlider1.MaximumSize = 6;
+            //    materialSlider1.UseWaitCursor = false;
+
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            // El valor del TrackBar representa la escala del zoom.
+            float scaleFactor = 1.0f + (float)trackBar1.Value / 10.0f; // 10 es un factor de ajuste
+
+            // Aplica el zoom utilizando la función ZoomPicture.
+            pictureBox4.Image = ZoomPicture(org.Image, new SizeF(scaleFactor, scaleFactor));
+        }
+
+        private void materialSlider1_onValueChanged(object sender, int newValue)
+        {
+            int sliderValue = materialSlider1.Value;
+
+            sliderValue += 1;
+
+            int sliderRange = 10;
+            int sliderZoom = 100 / sliderRange;
+
+            // Ajusta el valor para considerar 5 como 0
+            if (sliderValue > sliderRange)
+            {
+                sliderValue -= sliderRange; // Valores mayores a 5 se vuelven positivos
+            }
+            else if (sliderValue < sliderRange)
+            {
+                sliderValue -= sliderRange; // Valores menores a 5 se vuelven negativos
+            }
+            else
+            {
+                sliderValue = 0; // 5 se considera como 0
+            }
+
+            if (sliderValue > -sliderRange)
+            {
+                // Escala el valor para el zoom
+                float scaleFactor = 1.0f + (float)sliderValue / 10.0f; // 10 es un factor de ajuste
+
+                // Aplica el zoom utilizando la función ZoomPicture.
+                pictureBox4.Image = ZoomPicture(org.Image, new SizeF(scaleFactor, scaleFactor));
+            }
+            // Actualiza el texto del label
+            materialSlider1.Text = $"Zoom {sliderValue * sliderZoom}%";
+        }
 
         private void escalaDeGrisesToolStripMenuItem_Click(object sender, EventArgs e)
         {
