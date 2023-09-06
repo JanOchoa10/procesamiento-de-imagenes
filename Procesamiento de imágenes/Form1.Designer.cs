@@ -530,12 +530,9 @@
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "sliders-solid.jpg");
-            this.imageList1.Images.SetKeyName(1, "eye-solid.jpg");
-            this.imageList1.Images.SetKeyName(2, "circle-info-solid.jpg");
-            this.imageList1.Images.SetKeyName(3, "filtrar.png");
-            this.imageList1.Images.SetKeyName(4, "reconocimiento-facial.png");
-            this.imageList1.Images.SetKeyName(5, "informacion.png");
+            this.imageList1.Images.SetKeyName(0, "filtrar.png");
+            this.imageList1.Images.SetKeyName(1, "reconocimiento-facial.png");
+            this.imageList1.Images.SetKeyName(2, "informacion.png");
             // 
             // pictureBox1
             // 
