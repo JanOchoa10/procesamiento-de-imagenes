@@ -1,13 +1,13 @@
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Debug\Procesamiento de imágenes.exe.config
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Debug\Procesamiento de imágenes.exe
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Debug\Procesamiento de imágenes.pdb
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Debug\MaterialSkin.dll
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Debug\Procesamiento de imágenes.csproj.AssemblyReference.cache
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Debug\Procesamiento de imágenes.csproj.SuggestedBindingRedirects.cache
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Debug\Procesamiento_de_imágenes.Form1.resources
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Debug\Procesamiento_de_imágenes.Properties.Resources.resources
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Debug\Procesamiento de imágenes.csproj.GenerateResource.cache
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Debug\Procesamiento de imágenes.csproj.CoreCompileInputs.cache
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Debug\Procesamiento de imágenes.csproj.CopyComplete
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Debug\Procesamiento de imágenes.exe
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Debug\Procesamiento de imágenes.pdb
-C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Debug\MaterialSkin.dll
-C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Debug\Procesamiento de imágenes.csproj.CopyComplete

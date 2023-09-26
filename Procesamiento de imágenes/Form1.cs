@@ -92,7 +92,7 @@ namespace Procesamiento_de_imágenes
             //    pictureBox4.Load(od.FileName);
             //}
 
-            materialSlider1.Value = 9;
+            //materialSlider1.Value = 9;
         }
 
         private void guardarImagenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -184,44 +184,44 @@ namespace Procesamiento_de_imágenes
         //    pictureBox4.Image = ZoomPicture(org.Image, new SizeF(scaleFactor, scaleFactor));
         //}
 
-        private void materialSlider1_onValueChanged(object sender, int newValue)
-        {
-            int sliderValue = materialSlider1.Value;
+        //private void materialSlider1_onValueChanged(object sender, int newValue)
+        //{
+        //    int sliderValue = materialSlider1.Value;
 
-            sliderValue += 1;
+        //    sliderValue += 1;
 
-            int sliderRange = 10;
-            int sliderZoom = 100 / sliderRange;
+        //    int sliderRange = 10;
+        //    int sliderZoom = 100 / sliderRange;
 
-            // Ajusta el valor para considerar 5 como 0
-            if (sliderValue > sliderRange)
-            {
-                sliderValue -= sliderRange; // Valores mayores a 5 se vuelven positivos
-            }
-            else if (sliderValue < sliderRange)
-            {
-                sliderValue -= sliderRange; // Valores menores a 5 se vuelven negativos
-            }
-            else
-            {
-                sliderValue = 0; // 5 se considera como 0
-            }
+        //    // Ajusta el valor para considerar 5 como 0
+        //    if (sliderValue > sliderRange)
+        //    {
+        //        sliderValue -= sliderRange; // Valores mayores a 5 se vuelven positivos
+        //    }
+        //    else if (sliderValue < sliderRange)
+        //    {
+        //        sliderValue -= sliderRange; // Valores menores a 5 se vuelven negativos
+        //    }
+        //    else
+        //    {
+        //        sliderValue = 0; // 5 se considera como 0
+        //    }
 
-            // Verifica si org.Image y pictureBox4.Image son diferentes de null antes de aplicar el zoom
-            if (org != null && org.Image != null && pictureBox4.Image != null)
-            {
-                if (sliderValue > -sliderRange)
-                {
-                    // Escala el valor para el zoom
-                    float scaleFactor = 1.0f + (float)sliderValue / 10.0f; // 10 es un factor de ajuste
+        //    // Verifica si org.Image y pictureBox4.Image son diferentes de null antes de aplicar el zoom
+        //    if (org != null && org.Image != null && pictureBox4.Image != null)
+        //    {
+        //        if (sliderValue > -sliderRange)
+        //        {
+        //            // Escala el valor para el zoom
+        //            float scaleFactor = 1.0f + (float)sliderValue / 10.0f; // 10 es un factor de ajuste
 
-                    // Aplica el zoom utilizando la función ZoomPicture.
-                    pictureBox4.Image = ZoomPicture(org.Image, new SizeF(scaleFactor, scaleFactor));
-                }
-            }
-            // Actualiza el texto del label
-            materialSlider1.Text = $"Zoom {sliderValue * sliderZoom}%";
-        }
+        //            // Aplica el zoom utilizando la función ZoomPicture.
+        //            pictureBox4.Image = ZoomPicture(org.Image, new SizeF(scaleFactor, scaleFactor));
+        //        }
+        //    }
+        //    // Actualiza el texto del label
+        //    materialSlider1.Text = $"Zoom {sliderValue * sliderZoom}%";
+        //}
 
         private void materialCard3_Paint(object sender, PaintEventArgs e)
         {
@@ -300,16 +300,16 @@ namespace Procesamiento_de_imágenes
 
             // Asignar resultante a pictureBox4 manteniendo el mismo tamaño
 
-            pictureBox4.Image = resultante;
+            pictureBox5.Image = resultante;
 
             // Refrescar el PictureBox
-            pictureBox4.Refresh();
+            pictureBox5.Refresh();
 
             // Limpiar la imagen original copiada
             originalCopy.Dispose();
 
 
-            materialSlider1_onValueChanged(sender, 0);
+            //materialSlider1_onValueChanged(sender, 0);
         }
 
 
@@ -491,16 +491,16 @@ namespace Procesamiento_de_imágenes
             }
             // Asignar resultante a pictureBox4 manteniendo el mismo tamaño
 
-            pictureBox4.Image = resultante;
+            pictureBox5.Image = resultante;
 
             // Refrescar el PictureBox
-            pictureBox4.Refresh();
+            pictureBox5.Refresh();
 
             // Limpiar la imagen original copiada
             originalCopy.Dispose();
 
 
-            materialSlider1_onValueChanged(sender, 0);
+            //materialSlider1_onValueChanged(sender, 0);
         }
 
         private void aberraciónCromáticaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -577,16 +577,16 @@ namespace Procesamiento_de_imágenes
 
             // Asignar la copia al pictureBox4
             org.Image = resultante;
-            pictureBox4.Image = resultante;
+            pictureBox5.Image = resultante;
 
             // Refrescar el PictureBox
-            pictureBox4.Refresh();
+            pictureBox5.Refresh();
 
             // No es necesario liberar la memoria de la copia aquí, ya que no es necesario.
             originalCopy.Dispose();
 
 
-            materialSlider1_onValueChanged(sender, 0);
+            //materialSlider1_onValueChanged(sender, 0);
         }
 
 
