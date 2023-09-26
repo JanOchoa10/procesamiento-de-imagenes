@@ -73,13 +73,14 @@
             this.materialSwitch1 = new MaterialSkin.Controls.MaterialSwitch();
             this.Acerca_de = new System.Windows.Forms.TabPage();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
-            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialFloatingActionButton2 = new MaterialSkin.Controls.MaterialFloatingActionButton();
-            this.materialFloatingActionButton1 = new MaterialSkin.Controls.MaterialFloatingActionButton();
-            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialFloatingActionButton1 = new MaterialSkin.Controls.MaterialFloatingActionButton();
+            this.materialFloatingActionButton2 = new MaterialSkin.Controls.MaterialFloatingActionButton();
             this.materialTabControl1.SuspendLayout();
             this.Filtros.SuspendLayout();
             this.materialCard3.SuspendLayout();
@@ -95,8 +96,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.Acerca_de.SuspendLayout();
             this.materialCard2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -321,21 +323,21 @@
             // abrirImagenToolStripMenuItem
             // 
             this.abrirImagenToolStripMenuItem.Name = "abrirImagenToolStripMenuItem";
-            this.abrirImagenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.abrirImagenToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.abrirImagenToolStripMenuItem.Text = "Abrir imagen";
             this.abrirImagenToolStripMenuItem.Click += new System.EventHandler(this.abrirImagenToolStripMenuItem_Click_1);
             // 
             // revertirCambiosToolStripMenuItem
             // 
             this.revertirCambiosToolStripMenuItem.Name = "revertirCambiosToolStripMenuItem";
-            this.revertirCambiosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.revertirCambiosToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.revertirCambiosToolStripMenuItem.Text = "Revertir cambios";
             this.revertirCambiosToolStripMenuItem.Click += new System.EventHandler(this.revertirCambiosToolStripMenuItem_Click);
             // 
             // guardarImagenToolStripMenuItem
             // 
             this.guardarImagenToolStripMenuItem.Name = "guardarImagenToolStripMenuItem";
-            this.guardarImagenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.guardarImagenToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.guardarImagenToolStripMenuItem.Text = "Guardar imagen";
             this.guardarImagenToolStripMenuItem.Click += new System.EventHandler(this.guardarImagenToolStripMenuItem_Click);
             // 
@@ -373,42 +375,42 @@
             // rojoToolStripMenuItem
             // 
             this.rojoToolStripMenuItem.Name = "rojoToolStripMenuItem";
-            this.rojoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rojoToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.rojoToolStripMenuItem.Text = "Rojo";
             this.rojoToolStripMenuItem.Click += new System.EventHandler(this.rojoToolStripMenuItem_Click);
             // 
             // verdeToolStripMenuItem
             // 
             this.verdeToolStripMenuItem.Name = "verdeToolStripMenuItem";
-            this.verdeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.verdeToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.verdeToolStripMenuItem.Text = "Verde";
             this.verdeToolStripMenuItem.Click += new System.EventHandler(this.verdeToolStripMenuItem_Click);
             // 
             // azulToolStripMenuItem
             // 
             this.azulToolStripMenuItem.Name = "azulToolStripMenuItem";
-            this.azulToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.azulToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.azulToolStripMenuItem.Text = "Azul";
             this.azulToolStripMenuItem.Click += new System.EventHandler(this.azulToolStripMenuItem_Click);
             // 
             // amarilloToolStripMenuItem
             // 
             this.amarilloToolStripMenuItem.Name = "amarilloToolStripMenuItem";
-            this.amarilloToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.amarilloToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.amarilloToolStripMenuItem.Text = "Amarillo";
             this.amarilloToolStripMenuItem.Click += new System.EventHandler(this.amarilloToolStripMenuItem_Click);
             // 
             // violetaToolStripMenuItem
             // 
             this.violetaToolStripMenuItem.Name = "violetaToolStripMenuItem";
-            this.violetaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.violetaToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.violetaToolStripMenuItem.Text = "Violeta";
             this.violetaToolStripMenuItem.Click += new System.EventHandler(this.violetaToolStripMenuItem_Click);
             // 
             // cyanToolStripMenuItem
             // 
             this.cyanToolStripMenuItem.Name = "cyanToolStripMenuItem";
-            this.cyanToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cyanToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.cyanToolStripMenuItem.Text = "Cyan";
             this.cyanToolStripMenuItem.Click += new System.EventHandler(this.cyanToolStripMenuItem_Click);
             // 
@@ -581,12 +583,7 @@
             // materialCard2
             // 
             this.materialCard2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard2.Controls.Add(this.materialLabel3);
-            this.materialCard2.Controls.Add(this.materialFloatingActionButton2);
-            this.materialCard2.Controls.Add(this.materialFloatingActionButton1);
-            this.materialCard2.Controls.Add(this.materialLabel2);
-            this.materialCard2.Controls.Add(this.materialLabel1);
-            this.materialCard2.Controls.Add(this.pictureBox2);
+            this.materialCard2.Controls.Add(this.tableLayoutPanel2);
             this.materialCard2.Depth = 0;
             this.materialCard2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -598,79 +595,28 @@
             this.materialCard2.Size = new System.Drawing.Size(1120, 646);
             this.materialCard2.TabIndex = 0;
             // 
-            // materialLabel3
+            // tableLayoutPanel2
             // 
-            this.materialLabel3.AutoSize = true;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel3.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
-            this.materialLabel3.Location = new System.Drawing.Point(420, 3);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(285, 41);
-            this.materialLabel3.TabIndex = 5;
-            this.materialLabel3.Text = "Manual de Usuario";
-            // 
-            // materialFloatingActionButton2
-            // 
-            this.materialFloatingActionButton2.Depth = 0;
-            this.materialFloatingActionButton2.Icon = ((System.Drawing.Image)(resources.GetObject("materialFloatingActionButton2.Icon")));
-            this.materialFloatingActionButton2.Location = new System.Drawing.Point(71, 300);
-            this.materialFloatingActionButton2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialFloatingActionButton2.Name = "materialFloatingActionButton2";
-            this.materialFloatingActionButton2.Size = new System.Drawing.Size(56, 56);
-            this.materialFloatingActionButton2.TabIndex = 4;
-            this.materialFloatingActionButton2.Text = "materialFloatingActionButton2";
-            this.materialFloatingActionButton2.UseVisualStyleBackColor = true;
-            // 
-            // materialFloatingActionButton1
-            // 
-            this.materialFloatingActionButton1.Depth = 0;
-            this.materialFloatingActionButton1.Icon = ((System.Drawing.Image)(resources.GetObject("materialFloatingActionButton1.Icon")));
-            this.materialFloatingActionButton1.Location = new System.Drawing.Point(966, 300);
-            this.materialFloatingActionButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialFloatingActionButton1.Name = "materialFloatingActionButton1";
-            this.materialFloatingActionButton1.Size = new System.Drawing.Size(56, 56);
-            this.materialFloatingActionButton1.TabIndex = 3;
-            this.materialFloatingActionButton1.Text = "materialFloatingActionButton1";
-            this.materialFloatingActionButton1.UseVisualStyleBackColor = true;
-            // 
-            // materialLabel2
-            // 
-            this.materialLabel2.AutoSize = true;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.FontType = MaterialSkin.MaterialSkinManager.fontType.SubtleEmphasis;
-            this.materialLabel2.Location = new System.Drawing.Point(433, 623);
-            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(288, 14);
-            this.materialLabel2.TabIndex = 2;
-            this.materialLabel2.Text = "© 2023 By Jan Ochoa. Todos los derechos reservados.";
-            // 
-            // materialLabel1
-            // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel1.Location = new System.Drawing.Point(503, 594);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(127, 24);
-            this.materialLabel1.TabIndex = 1;
-            this.materialLabel1.Text = "Chinchi v1.0.1";
-            this.materialLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(143, 47);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(805, 539);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.Controls.Add(this.materialLabel1, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.pictureBox2, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.materialLabel2, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.materialLabel3, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.materialFloatingActionButton1, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.materialFloatingActionButton2, 2, 1);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(14, 14);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 4;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1092, 618);
+            this.tableLayoutPanel2.TabIndex = 6;
             // 
             // pictureBox1
             // 
@@ -683,6 +629,88 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
+            this.materialLabel1.Location = new System.Drawing.Point(112, 0);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(867, 61);
+            this.materialLabel1.TabIndex = 0;
+            this.materialLabel1.Text = "Manual de Usuario";
+            this.materialLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(112, 64);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(867, 488);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel2.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel2.Location = new System.Drawing.Point(112, 555);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(867, 30);
+            this.materialLabel2.TabIndex = 3;
+            this.materialLabel2.Text = "Chinchi v1.0.2";
+            this.materialLabel2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel3.FontType = MaterialSkin.MaterialSkinManager.fontType.SubtleEmphasis;
+            this.materialLabel3.Location = new System.Drawing.Point(112, 585);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(867, 33);
+            this.materialLabel3.TabIndex = 4;
+            this.materialLabel3.Text = "© 2023 By Jan Ochoa. Todos los derechos reservados.";
+            this.materialLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // materialFloatingActionButton1
+            // 
+            this.materialFloatingActionButton1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.materialFloatingActionButton1.Depth = 0;
+            this.materialFloatingActionButton1.Icon = ((System.Drawing.Image)(resources.GetObject("materialFloatingActionButton1.Icon")));
+            this.materialFloatingActionButton1.Location = new System.Drawing.Point(50, 280);
+            this.materialFloatingActionButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialFloatingActionButton1.Name = "materialFloatingActionButton1";
+            this.materialFloatingActionButton1.Size = new System.Drawing.Size(56, 56);
+            this.materialFloatingActionButton1.TabIndex = 5;
+            this.materialFloatingActionButton1.Text = "materialFloatingActionButton1";
+            this.materialFloatingActionButton1.UseVisualStyleBackColor = true;
+            // 
+            // materialFloatingActionButton2
+            // 
+            this.materialFloatingActionButton2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.materialFloatingActionButton2.Depth = 0;
+            this.materialFloatingActionButton2.Icon = ((System.Drawing.Image)(resources.GetObject("materialFloatingActionButton2.Icon")));
+            this.materialFloatingActionButton2.Location = new System.Drawing.Point(985, 280);
+            this.materialFloatingActionButton2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialFloatingActionButton2.Name = "materialFloatingActionButton2";
+            this.materialFloatingActionButton2.Size = new System.Drawing.Size(56, 56);
+            this.materialFloatingActionButton2.TabIndex = 6;
+            this.materialFloatingActionButton2.Text = "materialFloatingActionButton2";
+            this.materialFloatingActionButton2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -720,9 +748,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.Acerca_de.ResumeLayout(false);
             this.materialCard2.ResumeLayout(false);
-            this.materialCard2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -739,12 +768,6 @@
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private MaterialSkin.Controls.MaterialCard materialCard2;
         private MaterialSkin.Controls.MaterialCard materialCard3;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private MaterialSkin.Controls.MaterialFloatingActionButton materialFloatingActionButton1;
-        private MaterialSkin.Controls.MaterialLabel materialLabel2;
-        private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private MaterialSkin.Controls.MaterialFloatingActionButton materialFloatingActionButton2;
-        private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
         private MaterialSkin.Controls.MaterialComboBox materialComboBox1;
         private MaterialSkin.Controls.MaterialSwitch materialSwitch2;
@@ -778,6 +801,13 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel7;
         private MaterialSkin.Controls.MaterialLabel materialLabel9;
         private MaterialSkin.Controls.MaterialLabel materialLabel8;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private MaterialSkin.Controls.MaterialFloatingActionButton materialFloatingActionButton1;
+        private MaterialSkin.Controls.MaterialFloatingActionButton materialFloatingActionButton2;
     }
 }
 
