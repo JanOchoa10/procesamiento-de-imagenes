@@ -35,6 +35,34 @@
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.Filtros = new System.Windows.Forms.TabPage();
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.imagen = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.abrirImagenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.revertirCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.guardarImagenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filtrosBásicosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.invertirColoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rojoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verdeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.azulToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.amarilloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.violetaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cyanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aberraciónCromáticaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.escalaDeGrisesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.video = new System.Windows.Forms.TabPage();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.Reconocimiento = new System.Windows.Forms.TabPage();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -51,34 +79,17 @@
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.imagen = new System.Windows.Forms.TabPage();
-            this.video = new System.Windows.Forms.TabPage();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.abrirImagenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.revertirCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.guardarImagenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.filtrosBásicosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.invertirColoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.colorearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aberraciónCromáticaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.escalaDeGrisesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rojoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verdeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.azulToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.amarilloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.violetaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cyanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.materialTabControl1.SuspendLayout();
             this.Filtros.SuspendLayout();
             this.materialCard3.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.imagen.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.Reconocimiento.SuspendLayout();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -86,13 +97,6 @@
             this.materialCard2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            this.imagen.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -146,7 +150,302 @@
             this.materialCard3.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard3.Size = new System.Drawing.Size(1120, 646);
             this.materialCard3.TabIndex = 0;
-            this.materialCard3.Paint += new System.Windows.Forms.PaintEventHandler(this.materialCard3_Paint);
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.imagen);
+            this.tabControl1.Controls.Add(this.video);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.ImageList = this.imageList1;
+            this.tabControl1.Location = new System.Drawing.Point(14, 14);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1092, 618);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // imagen
+            // 
+            this.imagen.Controls.Add(this.panel1);
+            this.imagen.Controls.Add(this.menuStrip1);
+            this.imagen.ImageIndex = 3;
+            this.imagen.Location = new System.Drawing.Point(4, 39);
+            this.imagen.Name = "imagen";
+            this.imagen.Padding = new System.Windows.Forms.Padding(3);
+            this.imagen.Size = new System.Drawing.Size(1084, 575);
+            this.imagen.TabIndex = 0;
+            this.imagen.Text = "Imagen";
+            this.imagen.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.tableLayoutPanel1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 27);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1078, 545);
+            this.panel1.TabIndex = 0;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 6;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.5F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.5F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.5F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.5F));
+            this.tableLayoutPanel1.Controls.Add(this.materialLabel9, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.materialLabel8, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox4, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox5, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.materialLabel6, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.materialLabel7, 3, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1078, 545);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // materialLabel9
+            // 
+            this.materialLabel9.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.materialLabel9, 3);
+            this.materialLabel9.Depth = 0;
+            this.materialLabel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialLabel9.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel9.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            this.materialLabel9.Location = new System.Drawing.Point(540, 381);
+            this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel9.Name = "materialLabel9";
+            this.materialLabel9.Size = new System.Drawing.Size(535, 54);
+            this.materialLabel9.TabIndex = 4;
+            this.materialLabel9.Text = "Histogramas IE";
+            this.materialLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // materialLabel8
+            // 
+            this.materialLabel8.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.materialLabel8, 3);
+            this.materialLabel8.Depth = 0;
+            this.materialLabel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialLabel8.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel8.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            this.materialLabel8.Location = new System.Drawing.Point(3, 381);
+            this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel8.Name = "materialLabel8";
+            this.materialLabel8.Size = new System.Drawing.Size(531, 54);
+            this.materialLabel8.TabIndex = 3;
+            this.materialLabel8.Text = "Histogramas IC";
+            this.materialLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox4
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.pictureBox4, 3);
+            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox4.Location = new System.Drawing.Point(3, 57);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(531, 321);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 0;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.pictureBox5, 3);
+            this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox5.Location = new System.Drawing.Point(540, 57);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(535, 321);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 0;
+            this.pictureBox5.TabStop = false;
+            // 
+            // materialLabel6
+            // 
+            this.materialLabel6.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.materialLabel6, 3);
+            this.materialLabel6.Depth = 0;
+            this.materialLabel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel6.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
+            this.materialLabel6.Location = new System.Drawing.Point(3, 0);
+            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel6.Name = "materialLabel6";
+            this.materialLabel6.Size = new System.Drawing.Size(531, 54);
+            this.materialLabel6.TabIndex = 1;
+            this.materialLabel6.Text = "Imagen cargada";
+            this.materialLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // materialLabel7
+            // 
+            this.materialLabel7.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.materialLabel7, 3);
+            this.materialLabel7.Depth = 0;
+            this.materialLabel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialLabel7.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel7.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
+            this.materialLabel7.Location = new System.Drawing.Point(540, 0);
+            this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel7.Name = "materialLabel7";
+            this.materialLabel7.Size = new System.Drawing.Size(535, 54);
+            this.materialLabel7.TabIndex = 2;
+            this.materialLabel7.Text = "Imagen editada";
+            this.materialLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.archivoToolStripMenuItem,
+            this.filtrosBásicosToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(3, 3);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1078, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // archivoToolStripMenuItem
+            // 
+            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.abrirImagenToolStripMenuItem,
+            this.revertirCambiosToolStripMenuItem,
+            this.guardarImagenToolStripMenuItem});
+            this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.archivoToolStripMenuItem.Text = "Archivo";
+            // 
+            // abrirImagenToolStripMenuItem
+            // 
+            this.abrirImagenToolStripMenuItem.Name = "abrirImagenToolStripMenuItem";
+            this.abrirImagenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.abrirImagenToolStripMenuItem.Text = "Abrir imagen";
+            this.abrirImagenToolStripMenuItem.Click += new System.EventHandler(this.abrirImagenToolStripMenuItem_Click_1);
+            // 
+            // revertirCambiosToolStripMenuItem
+            // 
+            this.revertirCambiosToolStripMenuItem.Name = "revertirCambiosToolStripMenuItem";
+            this.revertirCambiosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.revertirCambiosToolStripMenuItem.Text = "Revertir cambios";
+            this.revertirCambiosToolStripMenuItem.Click += new System.EventHandler(this.revertirCambiosToolStripMenuItem_Click);
+            // 
+            // guardarImagenToolStripMenuItem
+            // 
+            this.guardarImagenToolStripMenuItem.Name = "guardarImagenToolStripMenuItem";
+            this.guardarImagenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.guardarImagenToolStripMenuItem.Text = "Guardar imagen";
+            this.guardarImagenToolStripMenuItem.Click += new System.EventHandler(this.guardarImagenToolStripMenuItem_Click);
+            // 
+            // filtrosBásicosToolStripMenuItem
+            // 
+            this.filtrosBásicosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.invertirColoresToolStripMenuItem,
+            this.colorearToolStripMenuItem,
+            this.aberraciónCromáticaToolStripMenuItem,
+            this.escalaDeGrisesToolStripMenuItem});
+            this.filtrosBásicosToolStripMenuItem.Name = "filtrosBásicosToolStripMenuItem";
+            this.filtrosBásicosToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
+            this.filtrosBásicosToolStripMenuItem.Text = "Filtros básicos";
+            // 
+            // invertirColoresToolStripMenuItem
+            // 
+            this.invertirColoresToolStripMenuItem.Name = "invertirColoresToolStripMenuItem";
+            this.invertirColoresToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.invertirColoresToolStripMenuItem.Text = "Invertir colores";
+            this.invertirColoresToolStripMenuItem.Click += new System.EventHandler(this.invertirColoresToolStripMenuItem_Click);
+            // 
+            // colorearToolStripMenuItem
+            // 
+            this.colorearToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rojoToolStripMenuItem,
+            this.verdeToolStripMenuItem,
+            this.azulToolStripMenuItem,
+            this.amarilloToolStripMenuItem,
+            this.violetaToolStripMenuItem,
+            this.cyanToolStripMenuItem});
+            this.colorearToolStripMenuItem.Name = "colorearToolStripMenuItem";
+            this.colorearToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.colorearToolStripMenuItem.Text = "Colorear";
+            // 
+            // rojoToolStripMenuItem
+            // 
+            this.rojoToolStripMenuItem.Name = "rojoToolStripMenuItem";
+            this.rojoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rojoToolStripMenuItem.Text = "Rojo";
+            this.rojoToolStripMenuItem.Click += new System.EventHandler(this.rojoToolStripMenuItem_Click);
+            // 
+            // verdeToolStripMenuItem
+            // 
+            this.verdeToolStripMenuItem.Name = "verdeToolStripMenuItem";
+            this.verdeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.verdeToolStripMenuItem.Text = "Verde";
+            this.verdeToolStripMenuItem.Click += new System.EventHandler(this.verdeToolStripMenuItem_Click);
+            // 
+            // azulToolStripMenuItem
+            // 
+            this.azulToolStripMenuItem.Name = "azulToolStripMenuItem";
+            this.azulToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.azulToolStripMenuItem.Text = "Azul";
+            this.azulToolStripMenuItem.Click += new System.EventHandler(this.azulToolStripMenuItem_Click);
+            // 
+            // amarilloToolStripMenuItem
+            // 
+            this.amarilloToolStripMenuItem.Name = "amarilloToolStripMenuItem";
+            this.amarilloToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.amarilloToolStripMenuItem.Text = "Amarillo";
+            this.amarilloToolStripMenuItem.Click += new System.EventHandler(this.amarilloToolStripMenuItem_Click);
+            // 
+            // violetaToolStripMenuItem
+            // 
+            this.violetaToolStripMenuItem.Name = "violetaToolStripMenuItem";
+            this.violetaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.violetaToolStripMenuItem.Text = "Violeta";
+            this.violetaToolStripMenuItem.Click += new System.EventHandler(this.violetaToolStripMenuItem_Click);
+            // 
+            // cyanToolStripMenuItem
+            // 
+            this.cyanToolStripMenuItem.Name = "cyanToolStripMenuItem";
+            this.cyanToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cyanToolStripMenuItem.Text = "Cyan";
+            this.cyanToolStripMenuItem.Click += new System.EventHandler(this.cyanToolStripMenuItem_Click);
+            // 
+            // aberraciónCromáticaToolStripMenuItem
+            // 
+            this.aberraciónCromáticaToolStripMenuItem.Name = "aberraciónCromáticaToolStripMenuItem";
+            this.aberraciónCromáticaToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.aberraciónCromáticaToolStripMenuItem.Text = "Aberración cromática";
+            this.aberraciónCromáticaToolStripMenuItem.Click += new System.EventHandler(this.aberraciónCromáticaToolStripMenuItem_Click);
+            // 
+            // escalaDeGrisesToolStripMenuItem
+            // 
+            this.escalaDeGrisesToolStripMenuItem.Name = "escalaDeGrisesToolStripMenuItem";
+            this.escalaDeGrisesToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.escalaDeGrisesToolStripMenuItem.Text = "Escala de grises";
+            this.escalaDeGrisesToolStripMenuItem.Click += new System.EventHandler(this.escalaDeGrisesToolStripMenuItem_Click);
+            // 
+            // video
+            // 
+            this.video.ImageIndex = 4;
+            this.video.Location = new System.Drawing.Point(4, 39);
+            this.video.Name = "video";
+            this.video.Padding = new System.Windows.Forms.Padding(3);
+            this.video.Size = new System.Drawing.Size(1084, 575);
+            this.video.TabIndex = 1;
+            this.video.Text = "Vídeo";
+            this.video.UseVisualStyleBackColor = true;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "filtrar.png");
+            this.imageList1.Images.SetKeyName(1, "reconocimiento-facial.png");
+            this.imageList1.Images.SetKeyName(2, "informacion.png");
+            this.imageList1.Images.SetKeyName(3, "edicion-de-imagen.png");
+            this.imageList1.Images.SetKeyName(4, "edicion-de-video.png");
             // 
             // Reconocimiento
             // 
@@ -298,7 +597,6 @@
             this.materialCard2.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard2.Size = new System.Drawing.Size(1120, 646);
             this.materialCard2.TabIndex = 0;
-            this.materialCard2.Paint += new System.Windows.Forms.PaintEventHandler(this.materialCard2_Paint);
             // 
             // materialLabel3
             // 
@@ -374,16 +672,6 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "filtrar.png");
-            this.imageList1.Images.SetKeyName(1, "reconocimiento-facial.png");
-            this.imageList1.Images.SetKeyName(2, "informacion.png");
-            this.imageList1.Images.SetKeyName(3, "edicion-de-imagen.png");
-            this.imageList1.Images.SetKeyName(4, "edicion-de-video.png");
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
@@ -395,214 +683,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.imagen);
-            this.tabControl1.Controls.Add(this.video);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.ImageList = this.imageList1;
-            this.tabControl1.Location = new System.Drawing.Point(14, 14);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1092, 618);
-            this.tabControl1.TabIndex = 0;
-            // 
-            // imagen
-            // 
-            this.imagen.Controls.Add(this.panel1);
-            this.imagen.Controls.Add(this.menuStrip1);
-            this.imagen.ImageIndex = 3;
-            this.imagen.Location = new System.Drawing.Point(4, 39);
-            this.imagen.Name = "imagen";
-            this.imagen.Padding = new System.Windows.Forms.Padding(3);
-            this.imagen.Size = new System.Drawing.Size(1084, 575);
-            this.imagen.TabIndex = 0;
-            this.imagen.Text = "Imagen";
-            this.imagen.UseVisualStyleBackColor = true;
-            // 
-            // video
-            // 
-            this.video.ImageIndex = 4;
-            this.video.Location = new System.Drawing.Point(4, 39);
-            this.video.Name = "video";
-            this.video.Padding = new System.Windows.Forms.Padding(3);
-            this.video.Size = new System.Drawing.Size(1084, 575);
-            this.video.TabIndex = 1;
-            this.video.Text = "Vídeo";
-            this.video.UseVisualStyleBackColor = true;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.archivoToolStripMenuItem,
-            this.filtrosBásicosToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(3, 3);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1078, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 27);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1078, 545);
-            this.panel1.TabIndex = 0;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 6;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.5F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.5F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.5F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.5F));
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox4, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox5, 3, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1078, 545);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // archivoToolStripMenuItem
-            // 
-            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.abrirImagenToolStripMenuItem,
-            this.revertirCambiosToolStripMenuItem,
-            this.guardarImagenToolStripMenuItem});
-            this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.archivoToolStripMenuItem.Text = "Archivo";
-            // 
-            // abrirImagenToolStripMenuItem
-            // 
-            this.abrirImagenToolStripMenuItem.Name = "abrirImagenToolStripMenuItem";
-            this.abrirImagenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.abrirImagenToolStripMenuItem.Text = "Abrir imagen";
-            this.abrirImagenToolStripMenuItem.Click += new System.EventHandler(this.abrirImagenToolStripMenuItem_Click_1);
-            // 
-            // revertirCambiosToolStripMenuItem
-            // 
-            this.revertirCambiosToolStripMenuItem.Name = "revertirCambiosToolStripMenuItem";
-            this.revertirCambiosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.revertirCambiosToolStripMenuItem.Text = "Revertir cambios";
-            this.revertirCambiosToolStripMenuItem.Click += new System.EventHandler(this.revertirCambiosToolStripMenuItem_Click);
-            // 
-            // guardarImagenToolStripMenuItem
-            // 
-            this.guardarImagenToolStripMenuItem.Name = "guardarImagenToolStripMenuItem";
-            this.guardarImagenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.guardarImagenToolStripMenuItem.Text = "Guardar imagen";
-            // 
-            // filtrosBásicosToolStripMenuItem
-            // 
-            this.filtrosBásicosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.invertirColoresToolStripMenuItem,
-            this.colorearToolStripMenuItem,
-            this.aberraciónCromáticaToolStripMenuItem,
-            this.escalaDeGrisesToolStripMenuItem});
-            this.filtrosBásicosToolStripMenuItem.Name = "filtrosBásicosToolStripMenuItem";
-            this.filtrosBásicosToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
-            this.filtrosBásicosToolStripMenuItem.Text = "Filtros básicos";
-            // 
-            // invertirColoresToolStripMenuItem
-            // 
-            this.invertirColoresToolStripMenuItem.Name = "invertirColoresToolStripMenuItem";
-            this.invertirColoresToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.invertirColoresToolStripMenuItem.Text = "Invertir colores";
-            this.invertirColoresToolStripMenuItem.Click += new System.EventHandler(this.invertirColoresToolStripMenuItem_Click);
-            // 
-            // colorearToolStripMenuItem
-            // 
-            this.colorearToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.rojoToolStripMenuItem,
-            this.verdeToolStripMenuItem,
-            this.azulToolStripMenuItem,
-            this.amarilloToolStripMenuItem,
-            this.violetaToolStripMenuItem,
-            this.cyanToolStripMenuItem});
-            this.colorearToolStripMenuItem.Name = "colorearToolStripMenuItem";
-            this.colorearToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.colorearToolStripMenuItem.Text = "Colorear";
-            // 
-            // aberraciónCromáticaToolStripMenuItem
-            // 
-            this.aberraciónCromáticaToolStripMenuItem.Name = "aberraciónCromáticaToolStripMenuItem";
-            this.aberraciónCromáticaToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.aberraciónCromáticaToolStripMenuItem.Text = "Aberración cromática";
-            // 
-            // escalaDeGrisesToolStripMenuItem
-            // 
-            this.escalaDeGrisesToolStripMenuItem.Name = "escalaDeGrisesToolStripMenuItem";
-            this.escalaDeGrisesToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.escalaDeGrisesToolStripMenuItem.Text = "Escala de grises";
-            this.escalaDeGrisesToolStripMenuItem.Click += new System.EventHandler(this.escalaDeGrisesToolStripMenuItem_Click);
-            // 
-            // rojoToolStripMenuItem
-            // 
-            this.rojoToolStripMenuItem.Name = "rojoToolStripMenuItem";
-            this.rojoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.rojoToolStripMenuItem.Text = "Rojo";
-            // 
-            // verdeToolStripMenuItem
-            // 
-            this.verdeToolStripMenuItem.Name = "verdeToolStripMenuItem";
-            this.verdeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.verdeToolStripMenuItem.Text = "Verde";
-            // 
-            // azulToolStripMenuItem
-            // 
-            this.azulToolStripMenuItem.Name = "azulToolStripMenuItem";
-            this.azulToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.azulToolStripMenuItem.Text = "Azul";
-            // 
-            // amarilloToolStripMenuItem
-            // 
-            this.amarilloToolStripMenuItem.Name = "amarilloToolStripMenuItem";
-            this.amarilloToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.amarilloToolStripMenuItem.Text = "Amarillo";
-            // 
-            // violetaToolStripMenuItem
-            // 
-            this.violetaToolStripMenuItem.Name = "violetaToolStripMenuItem";
-            this.violetaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.violetaToolStripMenuItem.Text = "Violeta";
-            // 
-            // cyanToolStripMenuItem
-            // 
-            this.cyanToolStripMenuItem.Name = "cyanToolStripMenuItem";
-            this.cyanToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cyanToolStripMenuItem.Text = "Cyan";
-            // 
-            // pictureBox4
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.pictureBox4, 3);
-            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox4.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(531, 430);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 0;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.pictureBox5, 3);
-            this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox5.Location = new System.Drawing.Point(540, 3);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(535, 430);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 0;
-            this.pictureBox5.TabStop = false;
             // 
             // Form1
             // 
@@ -624,6 +704,16 @@
             this.materialTabControl1.ResumeLayout(false);
             this.Filtros.ResumeLayout(false);
             this.materialCard3.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.imagen.ResumeLayout(false);
+            this.imagen.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.Reconocimiento.ResumeLayout(false);
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
@@ -633,15 +723,6 @@
             this.materialCard2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.imagen.ResumeLayout(false);
-            this.imagen.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -693,6 +774,10 @@
         private System.Windows.Forms.ToolStripMenuItem escalaDeGrisesToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private MaterialSkin.Controls.MaterialLabel materialLabel6;
+        private MaterialSkin.Controls.MaterialLabel materialLabel7;
+        private MaterialSkin.Controls.MaterialLabel materialLabel9;
+        private MaterialSkin.Controls.MaterialLabel materialLabel8;
     }
 }
 

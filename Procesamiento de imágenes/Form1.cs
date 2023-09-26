@@ -17,9 +17,9 @@ namespace Procesamiento_de_imágenes
         readonly MaterialSkin.MaterialSkinManager materialSkinManager;
 
         private Bitmap original;
-        private Bitmap resultante;
+        //private Bitmap resultante;
         private Bitmap aux;
-        private PictureBox org;
+        //private PictureBox org;
         private int[] histograma = new int[256];
         private int[,] conv3x3 = new int[3, 3];
         private int factor;
@@ -27,7 +27,7 @@ namespace Procesamiento_de_imágenes
 
         // Variables para el double buffer y evitar el flicker
 
-        private int anchoVentana, altoVentana;
+        //private int anchoVentana, altoVentana;
 
         public Form1()
         {
@@ -40,11 +40,11 @@ namespace Procesamiento_de_imágenes
 
 
             // Creamos el bitmap resultante del cuadro
-            resultante = new Bitmap(800, 600);
+            //original = new Bitmap(800, 600);
 
             // Colocamos los valores para el dibujo con scrolls
-            anchoVentana = 800;
-            altoVentana = 600;
+            //anchoVentana = 800;
+            //altoVentana = 600;
         }
 
         private void materialFloatingActionButton1_Click(object sender, EventArgs e)
@@ -59,29 +59,29 @@ namespace Procesamiento_de_imágenes
             MessageBox.Show("MaterialButton clickeado"); // Ejemplo de mensaje
         }
 
-        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // Cerramos la aplicación
-            this.Close();
-        }
+        //private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    // Cerramos la aplicación
+        //    this.Close();
+        //}
 
         private void abrirImagenToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 original = (Bitmap)(Bitmap.FromFile(openFileDialog1.FileName));
-                anchoVentana = original.Width;
-                altoVentana = original.Height;
+                //anchoVentana = original.Width;
+                //altoVentana = original.Height;
 
                 // Mantén una copia de la imagen original en 'aux'
                 aux = new Bitmap(original);
 
-                resultante = original;
+                //resultante = original;
                 
-                org = new PictureBox();
-                org.Image = resultante; // Carga la imagen original en el PictureBox org
-                pictureBox4.Image = resultante;
-                this.Invalidate();
+                //org = new PictureBox();
+                //org.Image = original; // Carga la imagen original en el PictureBox org
+                pictureBox4.Image = aux;
+                pictureBox4.Invalidate();
             }
 
             //OpenFileDialog od = new OpenFileDialog();
@@ -97,25 +97,31 @@ namespace Procesamiento_de_imágenes
 
         private void guardarImagenToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            if (!validacionDeImagenCargada())
+            {
+                return;
+            }
+
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                resultante.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Png);
+                original.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Png);
             }
         }
 
         // Función para realizar el dibujo que se puede reutilizar
-        private void DibujarImagenEnGraphics(Graphics g)
-        {
-            // Verificamos que se tenga un bitmap instanciado
-            if (resultante != null)
-            {
-                // Calculamos el scroll
-                // AutoScrollMinSize = new Size(anchoVentana, altoVentana);
+        //private void DibujarImagenEnGraphics(Graphics g)
+        //{
+        //    // Verificamos que se tenga un bitmap instanciado
+        //    if (resultante != null)
+        //    {
+        //        // Calculamos el scroll
+        //        // AutoScrollMinSize = new Size(anchoVentana, altoVentana);
 
-                // Copiamos del bitmap a la ventana
-                //g.DrawImage(resultante, new Rectangle(this.AutoScrollPosition.X, this.AutoScrollPosition.Y + 30, anchoVentana, altoVentana));
-            }
-        }
+        //        // Copiamos del bitmap a la ventana
+        //        //g.DrawImage(resultante, new Rectangle(this.AutoScrollPosition.X, this.AutoScrollPosition.Y + 30, anchoVentana, altoVentana));
+        //    }
+        //}
 
         //private void Filtros_Paint(object sender, PaintEventArgs e)
         //{
@@ -135,32 +141,32 @@ namespace Procesamiento_de_imágenes
         //    DibujarImagenEnGraphics(g);
         //}
 
-        private void pictureBox4_Paint(object sender, PaintEventArgs e)
-        {
-            // Obtenemos el objeto graphics
-            Graphics g = e.Graphics;
+        //private void pictureBox4_Paint(object sender, PaintEventArgs e)
+        //{
+        //    // Obtenemos el objeto graphics
+        //    Graphics g = e.Graphics;
 
-            // Llamar a la función de dibujo
-            DibujarImagenEnGraphics(g);
-        }
-
-
-        Image ZoomPicture(Image img, SizeF size)
-        {
-            int newWidth = (int)(img.Width * size.Width);
-            int newHeight = (int)(img.Height * size.Height);
-
-            Bitmap bm = new Bitmap(newWidth, newHeight);
-            Graphics gpu = Graphics.FromImage(bm);
-            gpu.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            gpu.DrawImage(img, new Rectangle(0, 0, newWidth, newHeight));
-            return bm;
-        }
+        //    // Llamar a la función de dibujo
+        //    DibujarImagenEnGraphics(g);
+        //}
 
 
+        //Image ZoomPicture(Image img, SizeF size)
+        //{
+        //    int newWidth = (int)(img.Width * size.Width);
+        //    int newHeight = (int)(img.Height * size.Height);
 
-        private void materialCard2_Paint(object sender, PaintEventArgs e)
-        {
+        //    Bitmap bm = new Bitmap(newWidth, newHeight);
+        //    Graphics gpu = Graphics.FromImage(bm);
+        //    gpu.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+        //    gpu.DrawImage(img, new Rectangle(0, 0, newWidth, newHeight));
+        //    return bm;
+        //}
+
+
+
+        //private void materialCard2_Paint(object sender, PaintEventArgs e)
+        //{
             //materialSlider1.Minimum = -6; // Establece el valor mínimo en negativo
             //materialSlider1.Maximum = 6; // Establece el valor máximo en positivo
             //materialSlider1.SmallChange = 1;
@@ -173,7 +179,7 @@ namespace Procesamiento_de_imágenes
             //    materialSlider1.MaximumSize = 6;
             //    materialSlider1.UseWaitCursor = false;
 
-        }
+        //}
 
         //private void trackBar1_Scroll(object sender, EventArgs e)
         //{
@@ -223,12 +229,12 @@ namespace Procesamiento_de_imágenes
         //    materialSlider1.Text = $"Zoom {sliderValue * sliderZoom}%";
         //}
 
-        private void materialCard3_Paint(object sender, PaintEventArgs e)
-        {
-            this.DoubleBuffered = true;
-            org = new PictureBox();
-            org.Image = pictureBox4.Image;
-        }
+        //private void materialCard3_Paint(object sender, PaintEventArgs e)
+        //{
+        //    this.DoubleBuffered = true;
+        //    org = new PictureBox();
+        //    org.Image = pictureBox4.Image;
+        //}
 
 
         //private void testToolStripMenuItem_Click(object sender, EventArgs e)
@@ -283,14 +289,20 @@ namespace Procesamiento_de_imágenes
 
         private void invertirColoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            if (!validacionDeImagenCargada())
+            {
+                return;
+            }
+
             // Invertimos los colores
             // Crear una copia de la imagen original
-            Bitmap originalCopy = new Bitmap(original.Width, original.Height, original.PixelFormat);
+            Bitmap resultante = new Bitmap(original.Width, original.Height, original.PixelFormat);
 
             // Invertir la imagen original y guardarla en resultante
-            for (int x = 0; x < originalCopy.Width; x++)
+            for (int x = 0; x < original.Width; x++)
             {
-                for (int y = 0; y < originalCopy.Height; y++)
+                for (int y = 0; y < original.Height; y++)
                 {
                     Color oColor = original.GetPixel(x, y);
                     Color rColor = Color.FromArgb(oColor.A, 255 - oColor.R, 255 - oColor.G, 255 - oColor.B);
@@ -298,186 +310,208 @@ namespace Procesamiento_de_imágenes
                 }
             }
 
-            // Asignar resultante a pictureBox4 manteniendo el mismo tamaño
-
+            original = resultante;
             pictureBox5.Image = resultante;
-
-            // Refrescar el PictureBox
-            pictureBox5.Refresh();
-
-            // Limpiar la imagen original copiada
-            originalCopy.Dispose();
-
-
-            //materialSlider1_onValueChanged(sender, 0);
+            pictureBox5.Invalidate();
         }
 
-
+#region Colorear
         private void rojoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
-            int x = 0;
-            int y = 0;
-            resultante = new Bitmap(original.Width, original.Height);
-            Color rColor = new Color();
-            Color oColor = new Color();
-
-            for (x = 0; x < original.Width; x++)
+            
+            if (!validacionDeImagenCargada())
             {
-                for (y = 0; y < original.Height; y++)
+                return;
+            }
+
+            // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
+            // Crear una copia de la imagen original
+            Bitmap resultante = new Bitmap(original.Width, original.Height, original.PixelFormat);
+
+            for (int x = 0; x < original.Width; x++)
+            {
+                for (int y = 0; y < original.Height; y++)
                 {
                     // Obtenemos el color del pixel
-                    oColor = original.GetPixel(x, y);
+                    Color oColor = original.GetPixel(x, y);
 
                     // Procesamos y obtenemos el nuevo color
-                    rColor = Color.FromArgb(oColor.R, 0, 0);
+                    Color rColor = Color.FromArgb(oColor.R, 0, 0);
 
                     // Colocamos el color en resultante
                     resultante.SetPixel(x, y, rColor);
                 }
             }
-            this.Invalidate();
+            original = resultante;
+            pictureBox5.Image = resultante;
+            pictureBox5.Invalidate();
         }
 
         private void verdeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
-            int x = 0;
-            int y = 0;
-            resultante = new Bitmap(original.Width, original.Height);
-            Color rColor = new Color();
-            Color oColor = new Color();
-
-            for (x = 0; x < original.Width; x++)
+            if (!validacionDeImagenCargada())
             {
-                for (y = 0; y < original.Height; y++)
+                return;
+            }
+
+            // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
+            // Crear una copia de la imagen original
+            Bitmap resultante = new Bitmap(original.Width, original.Height, original.PixelFormat);
+
+            for (int x = 0; x < original.Width; x++)
+            {
+                for (int y = 0; y < original.Height; y++)
                 {
                     // Obtenemos el color del pixel
-                    oColor = original.GetPixel(x, y);
+                    Color oColor = original.GetPixel(x, y);
 
                     // Procesamos y obtenemos el nuevo color
-                    rColor = Color.FromArgb(0, oColor.G, 0);
+                    Color rColor = Color.FromArgb(0, oColor.G, 0);
 
                     // Colocamos el color en resultante
                     resultante.SetPixel(x, y, rColor);
                 }
             }
-            this.Invalidate();
+            original = resultante;
+            pictureBox5.Image = resultante;
+            pictureBox5.Invalidate();
         }
 
         private void azulToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
-            int x = 0;
-            int y = 0;
-            resultante = new Bitmap(original.Width, original.Height);
-            Color rColor = new Color();
-            Color oColor = new Color();
-
-            for (x = 0; x < original.Width; x++)
+            if (!validacionDeImagenCargada())
             {
-                for (y = 0; y < original.Height; y++)
+                return;
+            }
+
+            // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
+            // Crear una copia de la imagen original
+            Bitmap resultante = new Bitmap(original.Width, original.Height, original.PixelFormat);
+
+            for (int x = 0; x < original.Width; x++)
+            {
+                for (int y = 0; y < original.Height; y++)
                 {
                     // Obtenemos el color del pixel
-                    oColor = original.GetPixel(x, y);
+                    Color oColor = original.GetPixel(x, y);
 
                     // Procesamos y obtenemos el nuevo color
-                    rColor = Color.FromArgb(0, 0, oColor.B);
+                    Color rColor = Color.FromArgb(0, 0, oColor.B);
 
                     // Colocamos el color en resultante
                     resultante.SetPixel(x, y, rColor);
                 }
             }
-            this.Invalidate();
+            original = resultante;
+            pictureBox5.Image = resultante;
+            pictureBox5.Invalidate();
         }
 
         private void amarilloToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
-            int x = 0;
-            int y = 0;
-            resultante = new Bitmap(original.Width, original.Height);
-            Color rColor = new Color();
-            Color oColor = new Color();
-
-            for (x = 0; x < original.Width; x++)
+            if (!validacionDeImagenCargada())
             {
-                for (y = 0; y < original.Height; y++)
+                return;
+            }
+
+            // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
+            // Crear una copia de la imagen original
+            Bitmap resultante = new Bitmap(original.Width, original.Height, original.PixelFormat);
+
+            for (int x = 0; x < original.Width; x++)
+            {
+                for (int y = 0; y < original.Height; y++)
                 {
                     // Obtenemos el color del pixel
-                    oColor = original.GetPixel(x, y);
+                    Color oColor = original.GetPixel(x, y);
 
                     // Procesamos y obtenemos el nuevo color
-                    rColor = Color.FromArgb(oColor.R, oColor.G, 0);
+                    Color rColor = Color.FromArgb(oColor.R, oColor.G, 0);
 
                     // Colocamos el color en resultante
                     resultante.SetPixel(x, y, rColor);
                 }
             }
-            this.Invalidate();
+            original = resultante;
+            pictureBox5.Image = resultante;
+            pictureBox5.Invalidate();
         }
 
         private void violetaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
-            int x = 0;
-            int y = 0;
-            resultante = new Bitmap(original.Width, original.Height);
-            Color rColor = new Color();
-            Color oColor = new Color();
-
-            for (x = 0; x < original.Width; x++)
+            if (!validacionDeImagenCargada())
             {
-                for (y = 0; y < original.Height; y++)
+                return;
+            }
+
+            // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
+            // Crear una copia de la imagen original
+            Bitmap resultante = new Bitmap(original.Width, original.Height, original.PixelFormat);
+
+            for (int x = 0; x < original.Width; x++)
+            {
+                for (int y = 0; y < original.Height; y++)
                 {
                     // Obtenemos el color del pixel
-                    oColor = original.GetPixel(x, y);
+                    Color oColor = original.GetPixel(x, y);
 
                     // Procesamos y obtenemos el nuevo color
-                    rColor = Color.FromArgb(oColor.R, 0, oColor.B);
+                    Color rColor = Color.FromArgb(oColor.R, 0, oColor.B);
 
                     // Colocamos el color en resultante
                     resultante.SetPixel(x, y, rColor);
                 }
             }
-            this.Invalidate();
+            original = resultante;
+            pictureBox5.Image = resultante;
+            pictureBox5.Invalidate();
         }
 
         private void cyanToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
-            int x = 0;
-            int y = 0;
-            resultante = new Bitmap(original.Width, original.Height);
-            Color rColor = new Color();
-            Color oColor = new Color();
-
-            for (x = 0; x < original.Width; x++)
+            if (!validacionDeImagenCargada())
             {
-                for (y = 0; y < original.Height; y++)
+                return;
+            }
+
+            // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
+            // Crear una copia de la imagen original
+            Bitmap resultante = new Bitmap(original.Width, original.Height, original.PixelFormat);
+
+            for (int x = 0; x < original.Width; x++)
+            {
+                for (int y = 0; y < original.Height; y++)
                 {
                     // Obtenemos el color del pixel
-                    oColor = original.GetPixel(x, y);
+                    Color oColor = original.GetPixel(x, y);
 
                     // Procesamos y obtenemos el nuevo color
-                    rColor = Color.FromArgb(0, oColor.G, oColor.B);
+                    Color rColor = Color.FromArgb(0, oColor.G, oColor.B);
 
                     // Colocamos el color en resultante
                     resultante.SetPixel(x, y, rColor);
                 }
             }
-            this.Invalidate();
+            original = resultante;
+            pictureBox5.Image = resultante;
+            pictureBox5.Invalidate();
         }
+#endregion
 
         private void revertirCambiosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
-            // Crear una copia de la imagen original
-            Bitmap originalCopy = new Bitmap(aux.Width, aux.Height, aux.PixelFormat);
-
-            for (int x = 0; x < originalCopy.Width; x++)
+            if (!validacionDeImagenCargada())
             {
-                for (int y = 0; y < originalCopy.Height; y++)
+                return;
+            }
+
+            // Revierte los cambios en la imagen, regresandola a su estado original
+            // Crear una copia de la imagen original
+            Bitmap resultante = new Bitmap(aux.Width, aux.Height, aux.PixelFormat);
+
+            for (int x = 0; x < aux.Width; x++)
+            {
+                for (int y = 0; y < aux.Height; y++)
                 {
                     // Obtenemos el color del pixel
                     Color oColor = aux.GetPixel(x, y);
@@ -489,47 +523,35 @@ namespace Procesamiento_de_imágenes
                     resultante.SetPixel(x, y, rColor);
                 }
             }
-            // Asignar resultante a pictureBox4 manteniendo el mismo tamaño
 
+            original = resultante;
             pictureBox5.Image = resultante;
-
-            // Refrescar el PictureBox
-            pictureBox5.Refresh();
-
-            // Limpiar la imagen original copiada
-            originalCopy.Dispose();
-
-
-            //materialSlider1_onValueChanged(sender, 0);
+            pictureBox5.Invalidate();
         }
 
         private void aberraciónCromáticaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int x = 0;
-            int y = 0;
+            if (!validacionDeImagenCargada())
+            {
+                return;
+            }
+
             int a = 5; // Tamaño de la aberración
 
-            int r = 0;
-            int g = 0;
-            int b = 0;
+            Bitmap resultante = new Bitmap(original.Width, original.Height, original.PixelFormat);
 
-            resultante = new Bitmap(original.Width, original.Height);
-
-            for (x = 0; x < original.Width; x++)
+            for (int x = 0; x < original.Width; x++)
             {
-                for (y = 0; y < original.Height; y++)
+                for (int y = 0; y < original.Height; y++)
                 {
-                    // Obtenemos el verde
-                    g = original.GetPixel(x, y).G;
+                    int r = 0;
+                    int g = original.GetPixel(x, y).G;
+                    int b = 0;
 
                     // Obtenemos el rojo
                     if (x + a < original.Width)
                     {
                         r = original.GetPixel(x + a, y).R;
-                    }
-                    else
-                    {
-                        r = 0;
                     }
 
                     // Obtenemos el azul
@@ -537,35 +559,37 @@ namespace Procesamiento_de_imágenes
                     {
                         b = original.GetPixel(x - a, y).B;
                     }
-                    else
-                    {
-                        b = 0;
-                    }
 
                     // Colocamos el pixel
                     resultante.SetPixel(x, y, Color.FromArgb(r, g, b));
                 }
             }
-            this.Invalidate();
 
+            original = resultante;
+            pictureBox5.Image = resultante;
+            pictureBox5.Invalidate();
         }
+
 
         private void escalaDeGrisesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Crear una copia de la imagen original con el mismo tamaño y formato
-            Bitmap originalCopy = new Bitmap(original.Width, original.Height, original.PixelFormat);
-
-            float g = 0;
-
-            for (int x = 0; x < originalCopy.Width; x++)
+            if (!validacionDeImagenCargada())
             {
-                for (int y = 0; y < originalCopy.Height; y++)
+                return;
+            }
+
+            // Crear una copia de la imagen original con el mismo tamaño y formato
+            Bitmap resultante = new Bitmap(original.Width, original.Height, original.PixelFormat);
+
+            for (int x = 0; x < original.Width; x++)
+            {
+                for (int y = 0; y < original.Height; y++)
                 {
                     // Obtenemos el color del pixel
                     Color oColor = original.GetPixel(x, y);
 
                     // Procesamos y obtenemos el nuevo color
-                    g = oColor.R * 0.299f + oColor.G * 0.587f + oColor.B * 0.114f;
+                    float g = oColor.R * 0.299f + oColor.G * 0.587f + oColor.B * 0.114f;
 
                     // Conservamos el canal alfa original
                     Color rColor = Color.FromArgb(oColor.A, (int)g, (int)g, (int)g);
@@ -575,20 +599,21 @@ namespace Procesamiento_de_imágenes
                 }
             }
 
-            // Asignar la copia al pictureBox4
-            org.Image = resultante;
+            original = resultante;
             pictureBox5.Image = resultante;
-
-            // Refrescar el PictureBox
-            pictureBox5.Refresh();
-
-            // No es necesario liberar la memoria de la copia aquí, ya que no es necesario.
-            originalCopy.Dispose();
-
-
-            //materialSlider1_onValueChanged(sender, 0);
+            pictureBox5.Invalidate();
         }
 
+        private bool validacionDeImagenCargada()
+        {
+            if (original == null)
+            {
+                MessageBox.Show("Cargue una imagen primero.");
+                return false;
+            }
 
+            return true;
+        }
     }
+    
 }
