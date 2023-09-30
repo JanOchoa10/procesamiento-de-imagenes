@@ -79,6 +79,9 @@ namespace Procesamiento_de_imágenes
                 //org.Image = original; // Carga la imagen original en el PictureBox org
                 pcImagenCargada.Image = aux;
                 pcImagenCargada.Invalidate();
+
+                // Carga los histogramas
+                cargarHistogramasIC(original);
             }
 
         }
@@ -125,6 +128,8 @@ namespace Procesamiento_de_imágenes
             original = resultante;
             pcImagenEditada.Image = resultante;
             pcImagenEditada.Invalidate();
+
+            cargarHistogramasIE(original);
         }
 
         #region Colorear
@@ -157,6 +162,8 @@ namespace Procesamiento_de_imágenes
             original = resultante;
             pcImagenEditada.Image = resultante;
             pcImagenEditada.Invalidate();
+
+            cargarHistogramasIE(original);
         }
 
         private void verdeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -187,6 +194,8 @@ namespace Procesamiento_de_imágenes
             original = resultante;
             pcImagenEditada.Image = resultante;
             pcImagenEditada.Invalidate();
+
+            cargarHistogramasIE(original);
         }
 
         private void azulToolStripMenuItem_Click(object sender, EventArgs e)
@@ -217,6 +226,8 @@ namespace Procesamiento_de_imágenes
             original = resultante;
             pcImagenEditada.Image = resultante;
             pcImagenEditada.Invalidate();
+
+            cargarHistogramasIE(original);
         }
 
         private void amarilloToolStripMenuItem_Click(object sender, EventArgs e)
@@ -247,6 +258,8 @@ namespace Procesamiento_de_imágenes
             original = resultante;
             pcImagenEditada.Image = resultante;
             pcImagenEditada.Invalidate();
+
+            cargarHistogramasIE(original);
         }
 
         private void violetaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -277,6 +290,8 @@ namespace Procesamiento_de_imágenes
             original = resultante;
             pcImagenEditada.Image = resultante;
             pcImagenEditada.Invalidate();
+
+            cargarHistogramasIE(original);
         }
 
         private void cyanToolStripMenuItem_Click(object sender, EventArgs e)
@@ -307,6 +322,9 @@ namespace Procesamiento_de_imágenes
             original = resultante;
             pcImagenEditada.Image = resultante;
             pcImagenEditada.Invalidate();
+
+
+            cargarHistogramasIE(original);
         }
         #endregion
 
@@ -339,6 +357,8 @@ namespace Procesamiento_de_imágenes
             original = resultante;
             pcImagenEditada.Image = resultante;
             pcImagenEditada.Invalidate();
+
+            cargarHistogramasIE(original);
         }
 
         private void aberraciónCromáticaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -380,8 +400,8 @@ namespace Procesamiento_de_imágenes
             original = resultante;
             pcImagenEditada.Image = resultante;
             pcImagenEditada.Invalidate();
+            cargarHistogramasIE(original);
         }
-
 
         private void escalaDeGrisesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -414,6 +434,8 @@ namespace Procesamiento_de_imágenes
             original = resultante;
             pcImagenEditada.Image = resultante;
             pcImagenEditada.Invalidate();
+
+            cargarHistogramasIE(original);
         }
 
         private bool validacionDeImagenCargada()
@@ -425,6 +447,75 @@ namespace Procesamiento_de_imágenes
             }
 
             return true;
+        }
+
+
+        private void cargarHistogramasIC(Bitmap imagen)
+        {
+            // Calcula los histogramas
+            int[] histogramaR = new int[256];
+            int[] histogramaG = new int[256];
+            int[] histogramaB = new int[256];
+
+            for (int x = 0; x < imagen.Width; x++)
+            {
+                for (int y = 0; y < imagen.Height; y++)
+                {
+                    Color pixel = imagen.GetPixel(x, y);
+                    histogramaR[pixel.R]++;
+                    histogramaG[pixel.G]++;
+                    histogramaB[pixel.B]++;
+                }
+            }
+
+            // Muestra los histogramas en los Picturebox correspondientes
+            mostrarHistograma(histogramaR, pcHistogramaRIC, Color.Red);
+            mostrarHistograma(histogramaG, pcHistogramaGIC, Color.Green);
+            mostrarHistograma(histogramaB, pcHistogramaBIC, Color.Blue);
+        }
+
+        private void cargarHistogramasIE(Bitmap imagen)
+        {
+            // Calcula los histogramas
+            int[] histogramaR = new int[256];
+            int[] histogramaG = new int[256];
+            int[] histogramaB = new int[256];
+
+            for (int x = 0; x < imagen.Width; x++)
+            {
+                for (int y = 0; y < imagen.Height; y++)
+                {
+                    Color pixel = imagen.GetPixel(x, y);
+                    histogramaR[pixel.R]++;
+                    histogramaG[pixel.G]++;
+                    histogramaB[pixel.B]++;
+                }
+            }
+
+            // Muestra los histogramas en los Picturebox correspondientes
+            mostrarHistograma(histogramaR, pcHistogramaRIE, Color.Red);
+            mostrarHistograma(histogramaG, pcHistogramaGIE, Color.Green);
+            mostrarHistograma(histogramaB, pcHistogramaBIE, Color.Blue);
+        }
+
+        private void mostrarHistograma(int[] histograma, PictureBox pictureBox, Color color)
+        {
+            Bitmap bmpHistograma = new Bitmap(pictureBox.Width, pictureBox.Height);
+
+            using (Graphics g = Graphics.FromImage(bmpHistograma))
+            {
+                g.Clear(Color.White);
+
+                int maxFrecuencia = histograma.Max();
+
+                for (int i = 0; i < 256; i++)
+                {
+                    int altura = (int)((double)histograma[i] / maxFrecuencia * pictureBox.Height);
+                    g.DrawLine(new Pen(color), i, pictureBox.Height, i, pictureBox.Height - altura);
+                }
+            }
+
+            pictureBox.Image = bmpHistograma;
         }
 
 
