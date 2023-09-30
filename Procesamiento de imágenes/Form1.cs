@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin.Controls;
 using MaterialSkin;
+using AForge.Video;
+using AForge.Video.DirectShow;
 
 namespace Procesamiento_de_imágenes
 {
@@ -59,11 +61,6 @@ namespace Procesamiento_de_imágenes
             MessageBox.Show("MaterialButton clickeado"); // Ejemplo de mensaje
         }
 
-        //private void salirToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    // Cerramos la aplicación
-        //    this.Close();
-        //}
 
         private void abrirImagenToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
@@ -77,22 +74,13 @@ namespace Procesamiento_de_imágenes
                 aux = new Bitmap(original);
 
                 //resultante = original;
-                
+
                 //org = new PictureBox();
                 //org.Image = original; // Carga la imagen original en el PictureBox org
-                pictureBox4.Image = aux;
-                pictureBox4.Invalidate();
+                pcImagenCargada.Image = aux;
+                pcImagenCargada.Invalidate();
             }
 
-            //OpenFileDialog od = new OpenFileDialog();
-            //if(od.ShowDialog() == DialogResult.OK)
-            //{
-            //    org = new PictureBox();
-            //    org.Load(od.FileName);
-            //    pictureBox4.Load(od.FileName);
-            //}
-
-            //materialSlider1.Value = 9;
         }
 
         private void guardarImagenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -109,183 +97,7 @@ namespace Procesamiento_de_imágenes
             }
         }
 
-        // Función para realizar el dibujo que se puede reutilizar
-        //private void DibujarImagenEnGraphics(Graphics g)
-        //{
-        //    // Verificamos que se tenga un bitmap instanciado
-        //    if (resultante != null)
-        //    {
-        //        // Calculamos el scroll
-        //        // AutoScrollMinSize = new Size(anchoVentana, altoVentana);
-
-        //        // Copiamos del bitmap a la ventana
-        //        //g.DrawImage(resultante, new Rectangle(this.AutoScrollPosition.X, this.AutoScrollPosition.Y + 30, anchoVentana, altoVentana));
-        //    }
-        //}
-
-        //private void Filtros_Paint(object sender, PaintEventArgs e)
-        //{
-        //    // Obtenemos el objeto graphics
-        //    Graphics g = e.Graphics;
-
-        //    // Llamar a la función de dibujo
-        //    DibujarImagenEnGraphics(g);
-        //}
-
-        //private void pictureBox3_Paint(object sender, PaintEventArgs e)
-        //{
-        //    // Obtenemos el objeto graphics
-        //    Graphics g = e.Graphics;
-
-        //    // Llamar a la función de dibujo
-        //    DibujarImagenEnGraphics(g);
-        //}
-
-        //private void pictureBox4_Paint(object sender, PaintEventArgs e)
-        //{
-        //    // Obtenemos el objeto graphics
-        //    Graphics g = e.Graphics;
-
-        //    // Llamar a la función de dibujo
-        //    DibujarImagenEnGraphics(g);
-        //}
-
-
-        //Image ZoomPicture(Image img, SizeF size)
-        //{
-        //    int newWidth = (int)(img.Width * size.Width);
-        //    int newHeight = (int)(img.Height * size.Height);
-
-        //    Bitmap bm = new Bitmap(newWidth, newHeight);
-        //    Graphics gpu = Graphics.FromImage(bm);
-        //    gpu.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-        //    gpu.DrawImage(img, new Rectangle(0, 0, newWidth, newHeight));
-        //    return bm;
-        //}
-
-
-
-        //private void materialCard2_Paint(object sender, PaintEventArgs e)
-        //{
-            //materialSlider1.Minimum = -6; // Establece el valor mínimo en negativo
-            //materialSlider1.Maximum = 6; // Establece el valor máximo en positivo
-            //materialSlider1.SmallChange = 1;
-            //materialSlider1.LargeChange = 1;
-            //trackBar1.UseWaitCursor = false;
-
-
-
-            //    materialSlider1.MinimumSize = 1;
-            //    materialSlider1.MaximumSize = 6;
-            //    materialSlider1.UseWaitCursor = false;
-
-        //}
-
-        //private void trackBar1_Scroll(object sender, EventArgs e)
-        //{
-        //    // El valor del TrackBar representa la escala del zoom.
-        //    float scaleFactor = 1.0f + (float)trackBar1.Value / 10.0f; // 10 es un factor de ajuste
-
-        //    // Aplica el zoom utilizando la función ZoomPicture.
-        //    pictureBox4.Image = ZoomPicture(org.Image, new SizeF(scaleFactor, scaleFactor));
-        //}
-
-        //private void materialSlider1_onValueChanged(object sender, int newValue)
-        //{
-        //    int sliderValue = materialSlider1.Value;
-
-        //    sliderValue += 1;
-
-        //    int sliderRange = 10;
-        //    int sliderZoom = 100 / sliderRange;
-
-        //    // Ajusta el valor para considerar 5 como 0
-        //    if (sliderValue > sliderRange)
-        //    {
-        //        sliderValue -= sliderRange; // Valores mayores a 5 se vuelven positivos
-        //    }
-        //    else if (sliderValue < sliderRange)
-        //    {
-        //        sliderValue -= sliderRange; // Valores menores a 5 se vuelven negativos
-        //    }
-        //    else
-        //    {
-        //        sliderValue = 0; // 5 se considera como 0
-        //    }
-
-        //    // Verifica si org.Image y pictureBox4.Image son diferentes de null antes de aplicar el zoom
-        //    if (org != null && org.Image != null && pictureBox4.Image != null)
-        //    {
-        //        if (sliderValue > -sliderRange)
-        //        {
-        //            // Escala el valor para el zoom
-        //            float scaleFactor = 1.0f + (float)sliderValue / 10.0f; // 10 es un factor de ajuste
-
-        //            // Aplica el zoom utilizando la función ZoomPicture.
-        //            pictureBox4.Image = ZoomPicture(org.Image, new SizeF(scaleFactor, scaleFactor));
-        //        }
-        //    }
-        //    // Actualiza el texto del label
-        //    materialSlider1.Text = $"Zoom {sliderValue * sliderZoom}%";
-        //}
-
-        //private void materialCard3_Paint(object sender, PaintEventArgs e)
-        //{
-        //    this.DoubleBuffered = true;
-        //    org = new PictureBox();
-        //    org.Image = pictureBox4.Image;
-        //}
-
-
-        //private void testToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    int x = 0;
-        //    int y = 0;
-
-        //    resultante = new Bitmap(original.Width, original.Height);
-
-        //    for (x = 0; x < original.Width; x++)
-        //    {
-        //        for (y = 0; y < original.Height; y++)
-        //        {
-        //            resultante.SetPixel(x, y, Color.FromArgb(32, 68, 100));
-        //        }
-        //    }
-
-        //    this.Invalidate();
-        //}
-
-        //private void invertirColoresToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    // Invertimos la imagen, saca su negativo
-        //    int x = 0;
-        //    int y = 0;
-        //    resultante = new Bitmap(original.Width, original.Height);
-        //    Color rColor = new Color();
-        //    Color oColor = new Color();
-
-        //    for (x = 0; x < original.Width; x++)
-        //    {
-        //        for (y = 0; y < original.Height; y++)
-        //        {
-        //            // Obtenemos el color del pixel
-        //            oColor = original.GetPixel(x, y);
-
-        //            // Procesamos y obtenemos el nuevo color
-        //            rColor = Color.FromArgb(255 - oColor.R, 255 - oColor.G, 255 - oColor.B);
-
-        //            // Colocamos el color en resultante
-        //            resultante.SetPixel(x, y, rColor);
-        //        }
-        //    }
-
-        //    org = new PictureBox();
-        //    org.Image = resultante; // Carga la imagen original en el PictureBox org
-        //    pictureBox4.Image = resultante;
-
-        //    this.Invalidate();
-
-        //}
+        
 
         private void invertirColoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -311,14 +123,14 @@ namespace Procesamiento_de_imágenes
             }
 
             original = resultante;
-            pictureBox5.Image = resultante;
-            pictureBox5.Invalidate();
+            pcImagenEditada.Image = resultante;
+            pcImagenEditada.Invalidate();
         }
 
-#region Colorear
+        #region Colorear
         private void rojoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
             if (!validacionDeImagenCargada())
             {
                 return;
@@ -343,8 +155,8 @@ namespace Procesamiento_de_imágenes
                 }
             }
             original = resultante;
-            pictureBox5.Image = resultante;
-            pictureBox5.Invalidate();
+            pcImagenEditada.Image = resultante;
+            pcImagenEditada.Invalidate();
         }
 
         private void verdeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -373,8 +185,8 @@ namespace Procesamiento_de_imágenes
                 }
             }
             original = resultante;
-            pictureBox5.Image = resultante;
-            pictureBox5.Invalidate();
+            pcImagenEditada.Image = resultante;
+            pcImagenEditada.Invalidate();
         }
 
         private void azulToolStripMenuItem_Click(object sender, EventArgs e)
@@ -403,8 +215,8 @@ namespace Procesamiento_de_imágenes
                 }
             }
             original = resultante;
-            pictureBox5.Image = resultante;
-            pictureBox5.Invalidate();
+            pcImagenEditada.Image = resultante;
+            pcImagenEditada.Invalidate();
         }
 
         private void amarilloToolStripMenuItem_Click(object sender, EventArgs e)
@@ -433,8 +245,8 @@ namespace Procesamiento_de_imágenes
                 }
             }
             original = resultante;
-            pictureBox5.Image = resultante;
-            pictureBox5.Invalidate();
+            pcImagenEditada.Image = resultante;
+            pcImagenEditada.Invalidate();
         }
 
         private void violetaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -463,8 +275,8 @@ namespace Procesamiento_de_imágenes
                 }
             }
             original = resultante;
-            pictureBox5.Image = resultante;
-            pictureBox5.Invalidate();
+            pcImagenEditada.Image = resultante;
+            pcImagenEditada.Invalidate();
         }
 
         private void cyanToolStripMenuItem_Click(object sender, EventArgs e)
@@ -493,10 +305,10 @@ namespace Procesamiento_de_imágenes
                 }
             }
             original = resultante;
-            pictureBox5.Image = resultante;
-            pictureBox5.Invalidate();
+            pcImagenEditada.Image = resultante;
+            pcImagenEditada.Invalidate();
         }
-#endregion
+        #endregion
 
         private void revertirCambiosToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -525,8 +337,8 @@ namespace Procesamiento_de_imágenes
             }
 
             original = resultante;
-            pictureBox5.Image = resultante;
-            pictureBox5.Invalidate();
+            pcImagenEditada.Image = resultante;
+            pcImagenEditada.Invalidate();
         }
 
         private void aberraciónCromáticaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -566,8 +378,8 @@ namespace Procesamiento_de_imágenes
             }
 
             original = resultante;
-            pictureBox5.Image = resultante;
-            pictureBox5.Invalidate();
+            pcImagenEditada.Image = resultante;
+            pcImagenEditada.Invalidate();
         }
 
 
@@ -600,8 +412,8 @@ namespace Procesamiento_de_imágenes
             }
 
             original = resultante;
-            pictureBox5.Image = resultante;
-            pictureBox5.Invalidate();
+            pcImagenEditada.Image = resultante;
+            pcImagenEditada.Invalidate();
         }
 
         private bool validacionDeImagenCargada()
@@ -614,6 +426,118 @@ namespace Procesamiento_de_imágenes
 
             return true;
         }
+
+
+        #region Reconocimiento
+
+
+        FilterInfoCollection filterInfoCollection;
+        VideoCaptureDevice videoCaptureDevice;
+        Image auxReconocimientoFacial;
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            foreach (FilterInfo filterInfo in filterInfoCollection)
+                cbCamara.Items.Add(filterInfo.Name);
+            cbCamara.SelectedIndex = 0;
+            videoCaptureDevice = new VideoCaptureDevice();
+
+            // Llena el combobox de resoluciones con las 5 resoluciones deseadas
+            string[] resolutions = { "1920 x 1080", "1280 x 720", "1024 x 576", "864 x 480", "640 x 480" };
+            cbResolucion.Items.AddRange(resolutions);
+            cbResolucion.SelectedIndex = 0;
+        }
+
+        private void btnEncenderCamara_CheckedChanged(object sender, EventArgs e)
+        {
+            if (btnEncenderCamara.Checked)
+            {
+                encenderCamara();
+            }
+            else
+            {
+                apagarCamara();
+            }
+        }
+
+        private void VideoCaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            pbTiempoReal.Image = (Bitmap)eventArgs.Frame.Clone();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            apagarCamara();
+        }
+
+        private void cbCamara_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (btnEncenderCamara.Checked)
+            {
+                apagarCamara();
+                encenderCamara();
+            }
+        }
+
+        private void cbResolucion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (btnEncenderCamara.Checked)
+            {
+                apagarCamara();
+                encenderCamara();
+            }
+        }
+
+        private void apagarCamara()
+        {
+            if (videoCaptureDevice.IsRunning)
+            {
+                videoCaptureDevice.Stop();
+                pbTiempoReal.Image = auxReconocimientoFacial;
+            }
+        }
+
+        private void encenderCamara()
+        {
+            auxReconocimientoFacial = pbTiempoReal.Image;
+            videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[cbCamara.SelectedIndex].MonikerString);
+
+            // Obtener la resolución seleccionada en cbResolucion
+            string selectedResolutionString = cbResolucion.SelectedItem.ToString();
+            string[] dimensions = selectedResolutionString.Split('x');
+            int selectedWidth = int.Parse(dimensions[0].Trim());
+            int selectedHeight = int.Parse(dimensions[1].Trim());
+
+            // Iterar sobre las resoluciones y seleccionar la primera compatible hacia abajo
+            VideoCapabilities selectedResolution = null;
+            foreach (VideoCapabilities resolution in videoCaptureDevice.VideoCapabilities)
+            {
+                if (resolution.FrameSize.Width >= selectedWidth && resolution.FrameSize.Height >= selectedHeight)
+                {
+                    selectedResolution = resolution;
+                    break;
+                }
+            }
+
+
+            // Establecer la resolución deseada si se encontró
+            if (selectedResolution != null)
+            {
+                videoCaptureDevice.VideoResolution = selectedResolution;
+
+                // Imprimir la información de la resolución seleccionada
+                Console.WriteLine($"Resolución seleccionada: {selectedResolution.FrameSize.Width} x {selectedResolution.FrameSize.Height}");
+            }
+
+            videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
+            videoCaptureDevice.Start();
+        }
+
+
+        #endregion
+
+        
     }
-    
+
 }

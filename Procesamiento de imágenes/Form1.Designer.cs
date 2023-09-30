@@ -41,8 +41,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pcImagenCargada = new System.Windows.Forms.PictureBox();
+            this.pcImagenEditada = new System.Windows.Forms.PictureBox();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -65,6 +65,13 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.Reconocimiento = new System.Windows.Forms.TabPage();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
+            this.pbTiempoReal = new System.Windows.Forms.PictureBox();
+            this.btnEncenderCamara = new MaterialSkin.Controls.MaterialSwitch();
+            this.materialSwitch2 = new MaterialSkin.Controls.MaterialSwitch();
+            this.cbCamara = new MaterialSkin.Controls.MaterialComboBox();
+            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.Acerca_de = new System.Windows.Forms.TabPage();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -75,13 +82,14 @@
             this.materialFloatingActionButton1 = new MaterialSkin.Controls.MaterialFloatingActionButton();
             this.materialFloatingActionButton2 = new MaterialSkin.Controls.MaterialFloatingActionButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.materialSwitch1 = new MaterialSkin.Controls.MaterialSwitch();
-            this.materialSwitch2 = new MaterialSkin.Controls.MaterialSwitch();
-            this.materialComboBox1 = new MaterialSkin.Controls.MaterialComboBox();
-            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
+            this.cbResolucion = new MaterialSkin.Controls.MaterialComboBox();
+            this.pcHistogramaRIC = new System.Windows.Forms.PictureBox();
+            this.pcHistogramaGIC = new System.Windows.Forms.PictureBox();
+            this.pcHistogramaBIC = new System.Windows.Forms.PictureBox();
+            this.pcHistogramaRIE = new System.Windows.Forms.PictureBox();
+            this.pcHistogramaGIE = new System.Windows.Forms.PictureBox();
+            this.pcHistogramaBIE = new System.Windows.Forms.PictureBox();
             this.materialTabControl1.SuspendLayout();
             this.Filtros.SuspendLayout();
             this.materialCard3.SuspendLayout();
@@ -89,18 +97,24 @@
             this.imagen.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcImagenCargada)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcImagenEditada)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.Reconocimiento.SuspendLayout();
             this.materialCard1.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTiempoReal)).BeginInit();
             this.Acerca_de.SuspendLayout();
             this.materialCard2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaRIC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaGIC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaBIC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaRIE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaGIE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaBIE)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -200,10 +214,16 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.5F));
             this.tableLayoutPanel1.Controls.Add(this.materialLabel9, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.materialLabel8, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox4, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox5, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.pcImagenCargada, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.pcImagenEditada, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.materialLabel6, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.materialLabel7, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.pcHistogramaRIC, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.pcHistogramaGIC, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.pcHistogramaBIC, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.pcHistogramaRIE, 3, 3);
+            this.tableLayoutPanel1.Controls.Add(this.pcHistogramaGIE, 4, 3);
+            this.tableLayoutPanel1.Controls.Add(this.pcHistogramaBIE, 5, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -247,27 +267,27 @@
             this.materialLabel8.Text = "Histogramas IC";
             this.materialLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox4
+            // pcImagenCargada
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.pictureBox4, 3);
-            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox4.Location = new System.Drawing.Point(3, 53);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(603, 295);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 0;
-            this.pictureBox4.TabStop = false;
+            this.tableLayoutPanel1.SetColumnSpan(this.pcImagenCargada, 3);
+            this.pcImagenCargada.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pcImagenCargada.Location = new System.Drawing.Point(3, 53);
+            this.pcImagenCargada.Name = "pcImagenCargada";
+            this.pcImagenCargada.Size = new System.Drawing.Size(603, 295);
+            this.pcImagenCargada.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcImagenCargada.TabIndex = 0;
+            this.pcImagenCargada.TabStop = false;
             // 
-            // pictureBox5
+            // pcImagenEditada
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.pictureBox5, 3);
-            this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox5.Location = new System.Drawing.Point(612, 53);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(606, 295);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 0;
-            this.pictureBox5.TabStop = false;
+            this.tableLayoutPanel1.SetColumnSpan(this.pcImagenEditada, 3);
+            this.pcImagenEditada.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pcImagenEditada.Location = new System.Drawing.Point(612, 53);
+            this.pcImagenEditada.Name = "pcImagenEditada";
+            this.pcImagenEditada.Size = new System.Drawing.Size(606, 295);
+            this.pcImagenEditada.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcImagenEditada.TabIndex = 0;
+            this.pcImagenEditada.TabStop = false;
             // 
             // materialLabel6
             // 
@@ -436,7 +456,7 @@
             this.video.Location = new System.Drawing.Point(4, 39);
             this.video.Name = "video";
             this.video.Padding = new System.Windows.Forms.Padding(3);
-            this.video.Size = new System.Drawing.Size(1084, 575);
+            this.video.Size = new System.Drawing.Size(1227, 533);
             this.video.TabIndex = 1;
             this.video.Text = "Vídeo";
             this.video.UseVisualStyleBackColor = true;
@@ -477,6 +497,127 @@
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard1.Size = new System.Drawing.Size(1263, 604);
             this.materialCard1.TabIndex = 0;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel3.Controls.Add(this.materialLabel4, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.pbTiempoReal, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.btnEncenderCamara, 1, 4);
+            this.tableLayoutPanel3.Controls.Add(this.materialSwitch2, 1, 5);
+            this.tableLayoutPanel3.Controls.Add(this.cbCamara, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.materialLabel5, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.materialLabel10, 1, 2);
+            this.tableLayoutPanel3.Controls.Add(this.cbResolucion, 1, 3);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(14, 14);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 7;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1235, 576);
+            this.tableLayoutPanel3.TabIndex = 8;
+            // 
+            // materialLabel4
+            // 
+            this.materialLabel4.Depth = 0;
+            this.materialLabel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel4.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
+            this.materialLabel4.Location = new System.Drawing.Point(3, 0);
+            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel4.Name = "materialLabel4";
+            this.materialLabel4.Size = new System.Drawing.Size(858, 57);
+            this.materialLabel4.TabIndex = 0;
+            this.materialLabel4.Text = "Reconocimiento facial";
+            this.materialLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pbTiempoReal
+            // 
+            this.pbTiempoReal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbTiempoReal.Image = global::Procesamiento_de_imágenes.Properties.Resources.reconocimiento_facial_;
+            this.pbTiempoReal.Location = new System.Drawing.Point(3, 60);
+            this.pbTiempoReal.Name = "pbTiempoReal";
+            this.tableLayoutPanel3.SetRowSpan(this.pbTiempoReal, 6);
+            this.pbTiempoReal.Size = new System.Drawing.Size(858, 513);
+            this.pbTiempoReal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbTiempoReal.TabIndex = 0;
+            this.pbTiempoReal.TabStop = false;
+            // 
+            // btnEncenderCamara
+            // 
+            this.btnEncenderCamara.Depth = 0;
+            this.btnEncenderCamara.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnEncenderCamara.Location = new System.Drawing.Point(864, 199);
+            this.btnEncenderCamara.Margin = new System.Windows.Forms.Padding(0);
+            this.btnEncenderCamara.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.btnEncenderCamara.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnEncenderCamara.Name = "btnEncenderCamara";
+            this.btnEncenderCamara.Ripple = true;
+            this.btnEncenderCamara.Size = new System.Drawing.Size(371, 28);
+            this.btnEncenderCamara.TabIndex = 0;
+            this.btnEncenderCamara.Text = "Encender cámara";
+            this.btnEncenderCamara.UseVisualStyleBackColor = true;
+            this.btnEncenderCamara.CheckedChanged += new System.EventHandler(this.btnEncenderCamara_CheckedChanged);
+            // 
+            // materialSwitch2
+            // 
+            this.materialSwitch2.Depth = 0;
+            this.materialSwitch2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialSwitch2.Location = new System.Drawing.Point(864, 227);
+            this.materialSwitch2.Margin = new System.Windows.Forms.Padding(0);
+            this.materialSwitch2.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.materialSwitch2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialSwitch2.Name = "materialSwitch2";
+            this.materialSwitch2.Ripple = true;
+            this.materialSwitch2.Size = new System.Drawing.Size(371, 28);
+            this.materialSwitch2.TabIndex = 0;
+            this.materialSwitch2.Text = "Activar reconocimiento facial";
+            this.materialSwitch2.UseVisualStyleBackColor = true;
+            // 
+            // cbCamara
+            // 
+            this.cbCamara.AutoResize = false;
+            this.cbCamara.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbCamara.Depth = 0;
+            this.cbCamara.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbCamara.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cbCamara.DropDownHeight = 174;
+            this.cbCamara.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCamara.DropDownWidth = 121;
+            this.cbCamara.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.cbCamara.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cbCamara.FormattingEnabled = true;
+            this.cbCamara.IntegralHeight = false;
+            this.cbCamara.ItemHeight = 43;
+            this.cbCamara.Location = new System.Drawing.Point(867, 60);
+            this.cbCamara.MaxDropDownItems = 4;
+            this.cbCamara.MouseState = MaterialSkin.MouseState.OUT;
+            this.cbCamara.Name = "cbCamara";
+            this.cbCamara.Size = new System.Drawing.Size(365, 49);
+            this.cbCamara.StartIndex = 0;
+            this.cbCamara.TabIndex = 1;
+            this.cbCamara.SelectedIndexChanged += new System.EventHandler(this.cbCamara_SelectedIndexChanged);
+            // 
+            // materialLabel5
+            // 
+            this.materialLabel5.AutoSize = true;
+            this.materialLabel5.Depth = 0;
+            this.materialLabel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel5.Location = new System.Drawing.Point(867, 38);
+            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel5.Name = "materialLabel5";
+            this.materialLabel5.Size = new System.Drawing.Size(365, 19);
+            this.materialLabel5.TabIndex = 2;
+            this.materialLabel5.Text = "Seleccionar cámara";
             // 
             // Acerca_de
             // 
@@ -622,120 +763,102 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // tableLayoutPanel3
+            // materialLabel10
             // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel3.Controls.Add(this.materialLabel4, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.pictureBox3, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.materialSwitch1, 1, 2);
-            this.tableLayoutPanel3.Controls.Add(this.materialSwitch2, 1, 3);
-            this.tableLayoutPanel3.Controls.Add(this.materialComboBox1, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.materialLabel5, 1, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(14, 14);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 5;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1235, 576);
-            this.tableLayoutPanel3.TabIndex = 8;
+            this.materialLabel10.AutoSize = true;
+            this.materialLabel10.Depth = 0;
+            this.materialLabel10.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.materialLabel10.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel10.Location = new System.Drawing.Point(867, 123);
+            this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel10.Name = "materialLabel10";
+            this.materialLabel10.Size = new System.Drawing.Size(365, 19);
+            this.materialLabel10.TabIndex = 3;
+            this.materialLabel10.Text = "Seleccionar resolución";
             // 
-            // materialLabel4
+            // cbResolucion
             // 
-            this.materialLabel4.Depth = 0;
-            this.materialLabel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel4.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
-            this.materialLabel4.Location = new System.Drawing.Point(3, 0);
-            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(858, 57);
-            this.materialLabel4.TabIndex = 0;
-            this.materialLabel4.Text = "Reconocimiento facial";
-            this.materialLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbResolucion.AutoResize = false;
+            this.cbResolucion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbResolucion.Depth = 0;
+            this.cbResolucion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbResolucion.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cbResolucion.DropDownHeight = 174;
+            this.cbResolucion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbResolucion.DropDownWidth = 121;
+            this.cbResolucion.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.cbResolucion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cbResolucion.FormattingEnabled = true;
+            this.cbResolucion.IntegralHeight = false;
+            this.cbResolucion.ItemHeight = 43;
+            this.cbResolucion.Location = new System.Drawing.Point(867, 145);
+            this.cbResolucion.MaxDropDownItems = 4;
+            this.cbResolucion.MouseState = MaterialSkin.MouseState.OUT;
+            this.cbResolucion.Name = "cbResolucion";
+            this.cbResolucion.Size = new System.Drawing.Size(365, 49);
+            this.cbResolucion.StartIndex = 0;
+            this.cbResolucion.TabIndex = 4;
+            this.cbResolucion.SelectedIndexChanged += new System.EventHandler(this.cbResolucion_SelectedIndexChanged);
             // 
-            // pictureBox3
+            // pcHistogramaRIC
             // 
-            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox3.Image = global::Procesamiento_de_imágenes.Properties.Resources.reconocimiento_facial_;
-            this.pictureBox3.Location = new System.Drawing.Point(3, 60);
-            this.pictureBox3.Name = "pictureBox3";
-            this.tableLayoutPanel3.SetRowSpan(this.pictureBox3, 4);
-            this.pictureBox3.Size = new System.Drawing.Size(858, 513);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
+            this.pcHistogramaRIC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pcHistogramaRIC.Location = new System.Drawing.Point(3, 404);
+            this.pcHistogramaRIC.Name = "pcHistogramaRIC";
+            this.pcHistogramaRIC.Size = new System.Drawing.Size(195, 96);
+            this.pcHistogramaRIC.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcHistogramaRIC.TabIndex = 5;
+            this.pcHistogramaRIC.TabStop = false;
             // 
-            // materialSwitch1
+            // pcHistogramaGIC
             // 
-            this.materialSwitch1.Depth = 0;
-            this.materialSwitch1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialSwitch1.Location = new System.Drawing.Point(864, 114);
-            this.materialSwitch1.Margin = new System.Windows.Forms.Padding(0);
-            this.materialSwitch1.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialSwitch1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSwitch1.Name = "materialSwitch1";
-            this.materialSwitch1.Ripple = true;
-            this.materialSwitch1.Size = new System.Drawing.Size(371, 28);
-            this.materialSwitch1.TabIndex = 0;
-            this.materialSwitch1.Text = "Encender cámara";
-            this.materialSwitch1.UseVisualStyleBackColor = true;
+            this.pcHistogramaGIC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pcHistogramaGIC.Location = new System.Drawing.Point(204, 404);
+            this.pcHistogramaGIC.Name = "pcHistogramaGIC";
+            this.pcHistogramaGIC.Size = new System.Drawing.Size(201, 96);
+            this.pcHistogramaGIC.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcHistogramaGIC.TabIndex = 6;
+            this.pcHistogramaGIC.TabStop = false;
             // 
-            // materialSwitch2
+            // pcHistogramaBIC
             // 
-            this.materialSwitch2.Depth = 0;
-            this.materialSwitch2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialSwitch2.Location = new System.Drawing.Point(864, 142);
-            this.materialSwitch2.Margin = new System.Windows.Forms.Padding(0);
-            this.materialSwitch2.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialSwitch2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSwitch2.Name = "materialSwitch2";
-            this.materialSwitch2.Ripple = true;
-            this.materialSwitch2.Size = new System.Drawing.Size(371, 28);
-            this.materialSwitch2.TabIndex = 0;
-            this.materialSwitch2.Text = "Activar reconocimiento facial";
-            this.materialSwitch2.UseVisualStyleBackColor = true;
+            this.pcHistogramaBIC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pcHistogramaBIC.Location = new System.Drawing.Point(411, 404);
+            this.pcHistogramaBIC.Name = "pcHistogramaBIC";
+            this.pcHistogramaBIC.Size = new System.Drawing.Size(195, 96);
+            this.pcHistogramaBIC.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcHistogramaBIC.TabIndex = 7;
+            this.pcHistogramaBIC.TabStop = false;
             // 
-            // materialComboBox1
+            // pcHistogramaRIE
             // 
-            this.materialComboBox1.AutoResize = false;
-            this.materialComboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialComboBox1.Depth = 0;
-            this.materialComboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.materialComboBox1.DropDownHeight = 174;
-            this.materialComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.materialComboBox1.DropDownWidth = 121;
-            this.materialComboBox1.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialComboBox1.FormattingEnabled = true;
-            this.materialComboBox1.IntegralHeight = false;
-            this.materialComboBox1.ItemHeight = 43;
-            this.materialComboBox1.Location = new System.Drawing.Point(867, 60);
-            this.materialComboBox1.MaxDropDownItems = 4;
-            this.materialComboBox1.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialComboBox1.Name = "materialComboBox1";
-            this.materialComboBox1.Size = new System.Drawing.Size(365, 49);
-            this.materialComboBox1.StartIndex = 0;
-            this.materialComboBox1.TabIndex = 1;
+            this.pcHistogramaRIE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pcHistogramaRIE.Location = new System.Drawing.Point(612, 404);
+            this.pcHistogramaRIE.Name = "pcHistogramaRIE";
+            this.pcHistogramaRIE.Size = new System.Drawing.Size(195, 96);
+            this.pcHistogramaRIE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcHistogramaRIE.TabIndex = 8;
+            this.pcHistogramaRIE.TabStop = false;
             // 
-            // materialLabel5
+            // pcHistogramaGIE
             // 
-            this.materialLabel5.AutoSize = true;
-            this.materialLabel5.Depth = 0;
-            this.materialLabel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel5.Location = new System.Drawing.Point(867, 38);
-            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(365, 19);
-            this.materialLabel5.TabIndex = 2;
-            this.materialLabel5.Text = "Seleccionar cámara";
+            this.pcHistogramaGIE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pcHistogramaGIE.Location = new System.Drawing.Point(813, 404);
+            this.pcHistogramaGIE.Name = "pcHistogramaGIE";
+            this.pcHistogramaGIE.Size = new System.Drawing.Size(201, 96);
+            this.pcHistogramaGIE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcHistogramaGIE.TabIndex = 9;
+            this.pcHistogramaGIE.TabStop = false;
+            // 
+            // pcHistogramaBIE
+            // 
+            this.pcHistogramaBIE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pcHistogramaBIE.Location = new System.Drawing.Point(1020, 404);
+            this.pcHistogramaBIE.Name = "pcHistogramaBIE";
+            this.pcHistogramaBIE.Size = new System.Drawing.Size(198, 96);
+            this.pcHistogramaBIE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcHistogramaBIE.TabIndex = 10;
+            this.pcHistogramaBIE.TabStop = false;
             // 
             // Form1
             // 
@@ -754,6 +877,8 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "    CHINCHI";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.materialTabControl1.ResumeLayout(false);
             this.Filtros.ResumeLayout(false);
             this.materialCard3.ResumeLayout(false);
@@ -763,21 +888,27 @@
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcImagenCargada)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcImagenEditada)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.Reconocimiento.ResumeLayout(false);
             this.materialCard1.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTiempoReal)).EndInit();
             this.Acerca_de.ResumeLayout(false);
             this.materialCard2.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaRIC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaGIC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaBIC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaRIE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaGIE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaBIE)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -815,8 +946,8 @@
         private System.Windows.Forms.ToolStripMenuItem cyanToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aberraciónCromáticaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem escalaDeGrisesToolStripMenuItem;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pcImagenCargada;
+        private System.Windows.Forms.PictureBox pcImagenEditada;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
         private MaterialSkin.Controls.MaterialLabel materialLabel7;
         private MaterialSkin.Controls.MaterialLabel materialLabel9;
@@ -830,11 +961,19 @@
         private MaterialSkin.Controls.MaterialFloatingActionButton materialFloatingActionButton2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private MaterialSkin.Controls.MaterialSwitch materialSwitch1;
+        private System.Windows.Forms.PictureBox pbTiempoReal;
+        private MaterialSkin.Controls.MaterialSwitch btnEncenderCamara;
         private MaterialSkin.Controls.MaterialSwitch materialSwitch2;
-        private MaterialSkin.Controls.MaterialComboBox materialComboBox1;
+        private MaterialSkin.Controls.MaterialComboBox cbCamara;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
+        private MaterialSkin.Controls.MaterialLabel materialLabel10;
+        private MaterialSkin.Controls.MaterialComboBox cbResolucion;
+        private System.Windows.Forms.PictureBox pcHistogramaRIC;
+        private System.Windows.Forms.PictureBox pcHistogramaGIC;
+        private System.Windows.Forms.PictureBox pcHistogramaBIC;
+        private System.Windows.Forms.PictureBox pcHistogramaRIE;
+        private System.Windows.Forms.PictureBox pcHistogramaGIE;
+        private System.Windows.Forms.PictureBox pcHistogramaBIE;
     }
 }
 

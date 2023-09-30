@@ -11,3 +11,9 @@ C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágen
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Debug\Procesamiento de imágenes.csproj.CopyComplete
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Debug\Procesamiento de imágenes.exe
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Debug\Procesamiento de imágenes.pdb
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Debug\AForge.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Debug\AForge.Video.DirectShow.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Debug\AForge.Video.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Debug\AForge.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Debug\AForge.Video.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Debug\AForge.Video.DirectShow.xml
