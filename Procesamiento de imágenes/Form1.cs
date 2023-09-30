@@ -12,6 +12,7 @@ using MaterialSkin;
 using AForge.Video;
 using AForge.Video.DirectShow;
 
+
 namespace Procesamiento_de_imágenes
 {
     public partial class Form1 : MaterialForm
@@ -31,6 +32,7 @@ namespace Procesamiento_de_imágenes
 
         //private int anchoVentana, altoVentana;
 
+        
         public Form1()
         {
             InitializeComponent();
@@ -47,7 +49,10 @@ namespace Procesamiento_de_imágenes
             // Colocamos los valores para el dibujo con scrolls
             //anchoVentana = 800;
             //altoVentana = 600;
+
+
         }
+
 
         private void materialFloatingActionButton1_Click(object sender, EventArgs e)
         {
@@ -519,6 +524,24 @@ namespace Procesamiento_de_imágenes
         }
 
 
+
+        #region Vídeo
+
+
+        private void abrirVídeoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog2.ShowDialog() == DialogResult.OK)
+            {
+                axWindowsMediaPlayer1.URL = openFileDialog2.FileName;
+                axWindowsMediaPlayer1.Ctlcontrols.play();
+            }
+        }
+
+
+
+        #endregion
+
+
         #region Reconocimiento
 
 
@@ -560,6 +583,8 @@ namespace Procesamiento_de_imágenes
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             apagarCamara();
+
+
         }
 
         private void cbCamara_SelectedIndexChanged(object sender, EventArgs e)
@@ -624,6 +649,7 @@ namespace Procesamiento_de_imágenes
             videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
             videoCaptureDevice.Start();
         }
+
 
 
         #endregion

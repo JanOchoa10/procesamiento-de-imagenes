@@ -45,6 +45,12 @@
             this.pcImagenEditada = new System.Windows.Forms.PictureBox();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
+            this.pcHistogramaRIC = new System.Windows.Forms.PictureBox();
+            this.pcHistogramaGIC = new System.Windows.Forms.PictureBox();
+            this.pcHistogramaBIC = new System.Windows.Forms.PictureBox();
+            this.pcHistogramaRIE = new System.Windows.Forms.PictureBox();
+            this.pcHistogramaGIE = new System.Windows.Forms.PictureBox();
+            this.pcHistogramaBIE = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirImagenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,6 +68,13 @@
             this.aberraciónCromáticaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.escalaDeGrisesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.video = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.archivoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.abrirVídeoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.revetirCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filtrosBásicosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.Reconocimiento = new System.Windows.Forms.TabPage();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
@@ -72,6 +85,8 @@
             this.materialSwitch2 = new MaterialSkin.Controls.MaterialSwitch();
             this.cbCamara = new MaterialSkin.Controls.MaterialComboBox();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
+            this.cbResolucion = new MaterialSkin.Controls.MaterialComboBox();
             this.Acerca_de = new System.Windows.Forms.TabPage();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -82,14 +97,7 @@
             this.materialFloatingActionButton1 = new MaterialSkin.Controls.MaterialFloatingActionButton();
             this.materialFloatingActionButton2 = new MaterialSkin.Controls.MaterialFloatingActionButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
-            this.cbResolucion = new MaterialSkin.Controls.MaterialComboBox();
-            this.pcHistogramaRIC = new System.Windows.Forms.PictureBox();
-            this.pcHistogramaGIC = new System.Windows.Forms.PictureBox();
-            this.pcHistogramaBIC = new System.Windows.Forms.PictureBox();
-            this.pcHistogramaRIE = new System.Windows.Forms.PictureBox();
-            this.pcHistogramaGIE = new System.Windows.Forms.PictureBox();
-            this.pcHistogramaBIE = new System.Windows.Forms.PictureBox();
+            this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.materialTabControl1.SuspendLayout();
             this.Filtros.SuspendLayout();
             this.materialCard3.SuspendLayout();
@@ -99,7 +107,17 @@
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcImagenCargada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcImagenEditada)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaRIC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaGIC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaBIC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaRIE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaGIE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaBIE)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.video.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
+            this.menuStrip2.SuspendLayout();
             this.Reconocimiento.SuspendLayout();
             this.materialCard1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -109,22 +127,17 @@
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaRIC)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaGIC)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaBIC)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaRIE)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaGIE)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaBIE)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.Filter = "Imagenes PNG|*.png|Imagenes JPG|*.jpg|Imagenes BitMap|*.bmp";
+            this.openFileDialog1.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
             // 
             // saveFileDialog1
             // 
-            this.saveFileDialog1.Filter = "Imagenes PNG|*.png";
+            this.saveFileDialog1.Filter = "Archivos JPEG (*.jpg; *.jpeg)|*.jpg;*.jpeg|Archivos PNG (*.png)|*.png|Archivos GI" +
+    "F (*.gif)|*.gif|Archivos BMP (*.bmp)|*.bmp";
             // 
             // materialTabControl1
             // 
@@ -321,6 +334,66 @@
             this.materialLabel7.Text = "Imagen editada";
             this.materialLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pcHistogramaRIC
+            // 
+            this.pcHistogramaRIC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pcHistogramaRIC.Location = new System.Drawing.Point(3, 404);
+            this.pcHistogramaRIC.Name = "pcHistogramaRIC";
+            this.pcHistogramaRIC.Size = new System.Drawing.Size(195, 96);
+            this.pcHistogramaRIC.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcHistogramaRIC.TabIndex = 5;
+            this.pcHistogramaRIC.TabStop = false;
+            // 
+            // pcHistogramaGIC
+            // 
+            this.pcHistogramaGIC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pcHistogramaGIC.Location = new System.Drawing.Point(204, 404);
+            this.pcHistogramaGIC.Name = "pcHistogramaGIC";
+            this.pcHistogramaGIC.Size = new System.Drawing.Size(201, 96);
+            this.pcHistogramaGIC.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcHistogramaGIC.TabIndex = 6;
+            this.pcHistogramaGIC.TabStop = false;
+            // 
+            // pcHistogramaBIC
+            // 
+            this.pcHistogramaBIC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pcHistogramaBIC.Location = new System.Drawing.Point(411, 404);
+            this.pcHistogramaBIC.Name = "pcHistogramaBIC";
+            this.pcHistogramaBIC.Size = new System.Drawing.Size(195, 96);
+            this.pcHistogramaBIC.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcHistogramaBIC.TabIndex = 7;
+            this.pcHistogramaBIC.TabStop = false;
+            // 
+            // pcHistogramaRIE
+            // 
+            this.pcHistogramaRIE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pcHistogramaRIE.Location = new System.Drawing.Point(612, 404);
+            this.pcHistogramaRIE.Name = "pcHistogramaRIE";
+            this.pcHistogramaRIE.Size = new System.Drawing.Size(195, 96);
+            this.pcHistogramaRIE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcHistogramaRIE.TabIndex = 8;
+            this.pcHistogramaRIE.TabStop = false;
+            // 
+            // pcHistogramaGIE
+            // 
+            this.pcHistogramaGIE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pcHistogramaGIE.Location = new System.Drawing.Point(813, 404);
+            this.pcHistogramaGIE.Name = "pcHistogramaGIE";
+            this.pcHistogramaGIE.Size = new System.Drawing.Size(201, 96);
+            this.pcHistogramaGIE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcHistogramaGIE.TabIndex = 9;
+            this.pcHistogramaGIE.TabStop = false;
+            // 
+            // pcHistogramaBIE
+            // 
+            this.pcHistogramaBIE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pcHistogramaBIE.Location = new System.Drawing.Point(1020, 404);
+            this.pcHistogramaBIE.Name = "pcHistogramaBIE";
+            this.pcHistogramaBIE.Size = new System.Drawing.Size(198, 96);
+            this.pcHistogramaBIE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcHistogramaBIE.TabIndex = 10;
+            this.pcHistogramaBIE.TabStop = false;
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -452,6 +525,8 @@
             // 
             // video
             // 
+            this.video.Controls.Add(this.tableLayoutPanel4);
+            this.video.Controls.Add(this.menuStrip2);
             this.video.ImageIndex = 4;
             this.video.Location = new System.Drawing.Point(4, 39);
             this.video.Name = "video";
@@ -460,6 +535,72 @@
             this.video.TabIndex = 1;
             this.video.Text = "Vídeo";
             this.video.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.axWindowsMediaPlayer1, 0, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 27);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1221, 503);
+            this.tableLayoutPanel4.TabIndex = 1;
+            // 
+            // axWindowsMediaPlayer1
+            // 
+            this.tableLayoutPanel4.SetColumnSpan(this.axWindowsMediaPlayer1, 2);
+            this.axWindowsMediaPlayer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(3, 3);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.tableLayoutPanel4.SetRowSpan(this.axWindowsMediaPlayer1, 2);
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(1215, 497);
+            this.axWindowsMediaPlayer1.TabIndex = 0;
+            // 
+            // menuStrip2
+            // 
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.archivoToolStripMenuItem1,
+            this.filtrosBásicosToolStripMenuItem1});
+            this.menuStrip2.Location = new System.Drawing.Point(3, 3);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(1221, 24);
+            this.menuStrip2.TabIndex = 0;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // archivoToolStripMenuItem1
+            // 
+            this.archivoToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.abrirVídeoToolStripMenuItem,
+            this.revetirCambiosToolStripMenuItem});
+            this.archivoToolStripMenuItem1.Name = "archivoToolStripMenuItem1";
+            this.archivoToolStripMenuItem1.Size = new System.Drawing.Size(60, 20);
+            this.archivoToolStripMenuItem1.Text = "Archivo";
+            // 
+            // abrirVídeoToolStripMenuItem
+            // 
+            this.abrirVídeoToolStripMenuItem.Name = "abrirVídeoToolStripMenuItem";
+            this.abrirVídeoToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.abrirVídeoToolStripMenuItem.Text = "Abrir vídeo";
+            this.abrirVídeoToolStripMenuItem.Click += new System.EventHandler(this.abrirVídeoToolStripMenuItem_Click);
+            // 
+            // revetirCambiosToolStripMenuItem
+            // 
+            this.revetirCambiosToolStripMenuItem.Name = "revetirCambiosToolStripMenuItem";
+            this.revetirCambiosToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.revetirCambiosToolStripMenuItem.Text = "Revertir cambios";
+            // 
+            // filtrosBásicosToolStripMenuItem1
+            // 
+            this.filtrosBásicosToolStripMenuItem1.Name = "filtrosBásicosToolStripMenuItem1";
+            this.filtrosBásicosToolStripMenuItem1.Size = new System.Drawing.Size(93, 20);
+            this.filtrosBásicosToolStripMenuItem1.Text = "Filtros básicos";
             // 
             // imageList1
             // 
@@ -619,6 +760,43 @@
             this.materialLabel5.TabIndex = 2;
             this.materialLabel5.Text = "Seleccionar cámara";
             // 
+            // materialLabel10
+            // 
+            this.materialLabel10.AutoSize = true;
+            this.materialLabel10.Depth = 0;
+            this.materialLabel10.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.materialLabel10.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel10.Location = new System.Drawing.Point(867, 123);
+            this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel10.Name = "materialLabel10";
+            this.materialLabel10.Size = new System.Drawing.Size(365, 19);
+            this.materialLabel10.TabIndex = 3;
+            this.materialLabel10.Text = "Seleccionar resolución";
+            // 
+            // cbResolucion
+            // 
+            this.cbResolucion.AutoResize = false;
+            this.cbResolucion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbResolucion.Depth = 0;
+            this.cbResolucion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbResolucion.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cbResolucion.DropDownHeight = 174;
+            this.cbResolucion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbResolucion.DropDownWidth = 121;
+            this.cbResolucion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.cbResolucion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cbResolucion.FormattingEnabled = true;
+            this.cbResolucion.IntegralHeight = false;
+            this.cbResolucion.ItemHeight = 43;
+            this.cbResolucion.Location = new System.Drawing.Point(867, 145);
+            this.cbResolucion.MaxDropDownItems = 4;
+            this.cbResolucion.MouseState = MaterialSkin.MouseState.OUT;
+            this.cbResolucion.Name = "cbResolucion";
+            this.cbResolucion.Size = new System.Drawing.Size(365, 49);
+            this.cbResolucion.StartIndex = 0;
+            this.cbResolucion.TabIndex = 4;
+            this.cbResolucion.SelectedIndexChanged += new System.EventHandler(this.cbResolucion_SelectedIndexChanged);
+            // 
             // Acerca_de
             // 
             this.Acerca_de.BackColor = System.Drawing.Color.White;
@@ -763,102 +941,10 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // materialLabel10
+            // openFileDialog2
             // 
-            this.materialLabel10.AutoSize = true;
-            this.materialLabel10.Depth = 0;
-            this.materialLabel10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.materialLabel10.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel10.Location = new System.Drawing.Point(867, 123);
-            this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel10.Name = "materialLabel10";
-            this.materialLabel10.Size = new System.Drawing.Size(365, 19);
-            this.materialLabel10.TabIndex = 3;
-            this.materialLabel10.Text = "Seleccionar resolución";
-            // 
-            // cbResolucion
-            // 
-            this.cbResolucion.AutoResize = false;
-            this.cbResolucion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cbResolucion.Depth = 0;
-            this.cbResolucion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbResolucion.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cbResolucion.DropDownHeight = 174;
-            this.cbResolucion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbResolucion.DropDownWidth = 121;
-            this.cbResolucion.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.cbResolucion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cbResolucion.FormattingEnabled = true;
-            this.cbResolucion.IntegralHeight = false;
-            this.cbResolucion.ItemHeight = 43;
-            this.cbResolucion.Location = new System.Drawing.Point(867, 145);
-            this.cbResolucion.MaxDropDownItems = 4;
-            this.cbResolucion.MouseState = MaterialSkin.MouseState.OUT;
-            this.cbResolucion.Name = "cbResolucion";
-            this.cbResolucion.Size = new System.Drawing.Size(365, 49);
-            this.cbResolucion.StartIndex = 0;
-            this.cbResolucion.TabIndex = 4;
-            this.cbResolucion.SelectedIndexChanged += new System.EventHandler(this.cbResolucion_SelectedIndexChanged);
-            // 
-            // pcHistogramaRIC
-            // 
-            this.pcHistogramaRIC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pcHistogramaRIC.Location = new System.Drawing.Point(3, 404);
-            this.pcHistogramaRIC.Name = "pcHistogramaRIC";
-            this.pcHistogramaRIC.Size = new System.Drawing.Size(195, 96);
-            this.pcHistogramaRIC.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcHistogramaRIC.TabIndex = 5;
-            this.pcHistogramaRIC.TabStop = false;
-            // 
-            // pcHistogramaGIC
-            // 
-            this.pcHistogramaGIC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pcHistogramaGIC.Location = new System.Drawing.Point(204, 404);
-            this.pcHistogramaGIC.Name = "pcHistogramaGIC";
-            this.pcHistogramaGIC.Size = new System.Drawing.Size(201, 96);
-            this.pcHistogramaGIC.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcHistogramaGIC.TabIndex = 6;
-            this.pcHistogramaGIC.TabStop = false;
-            // 
-            // pcHistogramaBIC
-            // 
-            this.pcHistogramaBIC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pcHistogramaBIC.Location = new System.Drawing.Point(411, 404);
-            this.pcHistogramaBIC.Name = "pcHistogramaBIC";
-            this.pcHistogramaBIC.Size = new System.Drawing.Size(195, 96);
-            this.pcHistogramaBIC.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcHistogramaBIC.TabIndex = 7;
-            this.pcHistogramaBIC.TabStop = false;
-            // 
-            // pcHistogramaRIE
-            // 
-            this.pcHistogramaRIE.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pcHistogramaRIE.Location = new System.Drawing.Point(612, 404);
-            this.pcHistogramaRIE.Name = "pcHistogramaRIE";
-            this.pcHistogramaRIE.Size = new System.Drawing.Size(195, 96);
-            this.pcHistogramaRIE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcHistogramaRIE.TabIndex = 8;
-            this.pcHistogramaRIE.TabStop = false;
-            // 
-            // pcHistogramaGIE
-            // 
-            this.pcHistogramaGIE.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pcHistogramaGIE.Location = new System.Drawing.Point(813, 404);
-            this.pcHistogramaGIE.Name = "pcHistogramaGIE";
-            this.pcHistogramaGIE.Size = new System.Drawing.Size(201, 96);
-            this.pcHistogramaGIE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcHistogramaGIE.TabIndex = 9;
-            this.pcHistogramaGIE.TabStop = false;
-            // 
-            // pcHistogramaBIE
-            // 
-            this.pcHistogramaBIE.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pcHistogramaBIE.Location = new System.Drawing.Point(1020, 404);
-            this.pcHistogramaBIE.Name = "pcHistogramaBIE";
-            this.pcHistogramaBIE.Size = new System.Drawing.Size(198, 96);
-            this.pcHistogramaBIE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcHistogramaBIE.TabIndex = 10;
-            this.pcHistogramaBIE.TabStop = false;
+            this.openFileDialog2.FileName = "openFileDialog2";
+            this.openFileDialog2.Filter = "Archivos de video|*.mp4;*.avi;*.mkv;*.wmv;*.mov";
             // 
             // Form1
             // 
@@ -890,8 +976,20 @@
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcImagenCargada)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcImagenEditada)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaRIC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaGIC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaBIC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaRIE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaGIE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaBIE)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.video.ResumeLayout(false);
+            this.video.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
             this.Reconocimiento.ResumeLayout(false);
             this.materialCard1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -903,12 +1001,6 @@
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaRIC)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaGIC)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaBIC)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaRIE)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaGIE)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaBIE)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -974,6 +1066,14 @@
         private System.Windows.Forms.PictureBox pcHistogramaRIE;
         private System.Windows.Forms.PictureBox pcHistogramaGIE;
         private System.Windows.Forms.PictureBox pcHistogramaBIE;
+        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem abrirVídeoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem revetirCambiosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem filtrosBásicosToolStripMenuItem1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog2;
     }
 }
 
