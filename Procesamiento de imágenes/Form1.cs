@@ -555,7 +555,7 @@ namespace Procesamiento_de_imágenes
             int blockHeight = 100;  // Ajusta la altura del bloque según tus necesidades
 
             List<Bitmap> invertedFrames = new List<Bitmap>();
-            int framesToProcessBeforeCleanup = 10;  // Ajusta según tus necesidades
+            int framesToProcessBeforeCleanup = 1;  // Ajusta según tus necesidades
 
             try
             {
@@ -595,7 +595,20 @@ namespace Procesamiento_de_imágenes
                                 // Escribir los frames invertidos en el archivo de vídeo
                                 foreach (var invertedFrame in invertedFrames)
                                 {
+                                    // Mostrar el fotograma actual en pbFrame antes de borrarlo
+                                    // Clonar la imagen antes de asignarla
+                                    Bitmap clonedFrame = (Bitmap)invertedFrame.Clone();
+
+                                    BeginInvoke(new Action(() =>
+                                    {
+                                        pbFrame.Image = clonedFrame;
+                                        pbFrame.Invalidate();
+                                    }));
+
+                                    // Escribir el fotograma invertido en el archivo de vídeo
                                     videoFileWriter.WriteVideoFrame(invertedFrame);
+
+                                    clonedFrame?.Dispose();
                                 }
 
                                 // Liberar memoria de los frames invertidos después de escribir
@@ -713,7 +726,6 @@ namespace Procesamiento_de_imágenes
                 return null; // o manejar de otra manera según tus necesidades
             }
         }
-
 
         private Bitmap ResizeBitmap(Bitmap original, Size newSize)
         {
