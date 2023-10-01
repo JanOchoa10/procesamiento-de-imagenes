@@ -70,12 +70,13 @@
             this.video = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
-            this.pcFrame = new System.Windows.Forms.PictureBox();
+            this.pbFrame = new System.Windows.Forms.PictureBox();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirVídeoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.revetirCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.filtrosBásicosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.invertirColoresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.Reconocimiento = new System.Windows.Forms.TabPage();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
@@ -99,6 +100,7 @@
             this.materialFloatingActionButton2 = new MaterialSkin.Controls.MaterialFloatingActionButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
+            this.lblFrames = new MaterialSkin.Controls.MaterialLabel();
             this.materialTabControl1.SuspendLayout();
             this.Filtros.SuspendLayout();
             this.materialCard3.SuspendLayout();
@@ -118,7 +120,7 @@
             this.video.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcFrame)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFrame)).BeginInit();
             this.menuStrip2.SuspendLayout();
             this.Reconocimiento.SuspendLayout();
             this.materialCard1.SuspendLayout();
@@ -541,10 +543,11 @@
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel4.Controls.Add(this.axWindowsMediaPlayer1, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.pcFrame, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.pbFrame, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.lblFrames, 1, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 27);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -562,19 +565,18 @@
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
             this.tableLayoutPanel4.SetRowSpan(this.axWindowsMediaPlayer1, 2);
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(604, 497);
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(848, 497);
             this.axWindowsMediaPlayer1.TabIndex = 0;
             // 
-            // pcFrame
+            // pbFrame
             // 
-            this.pcFrame.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pcFrame.Image = global::Procesamiento_de_imágenes.Properties.Resources.reconocimiento_facial_;
-            this.pcFrame.Location = new System.Drawing.Point(613, 3);
-            this.pcFrame.Name = "pcFrame";
-            this.pcFrame.Size = new System.Drawing.Size(605, 245);
-            this.pcFrame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcFrame.TabIndex = 1;
-            this.pcFrame.TabStop = false;
+            this.pbFrame.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbFrame.Location = new System.Drawing.Point(857, 3);
+            this.pbFrame.Name = "pbFrame";
+            this.pbFrame.Size = new System.Drawing.Size(361, 245);
+            this.pbFrame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbFrame.TabIndex = 1;
+            this.pbFrame.TabStop = false;
             // 
             // menuStrip2
             // 
@@ -612,9 +614,18 @@
             // 
             // filtrosBásicosToolStripMenuItem1
             // 
+            this.filtrosBásicosToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.invertirColoresToolStripMenuItem1});
             this.filtrosBásicosToolStripMenuItem1.Name = "filtrosBásicosToolStripMenuItem1";
             this.filtrosBásicosToolStripMenuItem1.Size = new System.Drawing.Size(93, 20);
             this.filtrosBásicosToolStripMenuItem1.Text = "Filtros básicos";
+            // 
+            // invertirColoresToolStripMenuItem1
+            // 
+            this.invertirColoresToolStripMenuItem1.Name = "invertirColoresToolStripMenuItem1";
+            this.invertirColoresToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.invertirColoresToolStripMenuItem1.Text = "Invertir colores";
+            this.invertirColoresToolStripMenuItem1.Click += new System.EventHandler(this.invertirColoresToolStripMenuItem1_Click);
             // 
             // imageList1
             // 
@@ -960,6 +971,21 @@
             this.openFileDialog2.FileName = "openFileDialog2";
             this.openFileDialog2.Filter = "Archivos de video|*.mp4;*.avi;*.mkv;*.wmv;*.mov";
             // 
+            // lblFrames
+            // 
+            this.lblFrames.AutoSize = true;
+            this.lblFrames.Depth = 0;
+            this.lblFrames.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblFrames.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.lblFrames.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            this.lblFrames.Location = new System.Drawing.Point(857, 251);
+            this.lblFrames.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblFrames.Name = "lblFrames";
+            this.lblFrames.Size = new System.Drawing.Size(361, 252);
+            this.lblFrames.TabIndex = 2;
+            this.lblFrames.Text = "¡Comencemos a editar!";
+            this.lblFrames.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1001,8 +1027,9 @@
             this.video.ResumeLayout(false);
             this.video.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcFrame)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFrame)).EndInit();
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.Reconocimiento.ResumeLayout(false);
@@ -1089,7 +1116,9 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         private System.Windows.Forms.OpenFileDialog openFileDialog2;
-        private System.Windows.Forms.PictureBox pcFrame;
+        private System.Windows.Forms.PictureBox pbFrame;
+        private System.Windows.Forms.ToolStripMenuItem invertirColoresToolStripMenuItem1;
+        private MaterialSkin.Controls.MaterialLabel lblFrames;
     }
 }
 

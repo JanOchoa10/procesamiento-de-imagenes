@@ -13,6 +13,7 @@ using MaterialSkin;
 using AForge.Video;
 using AForge.Video.DirectShow;
 using Accord.Video.FFMPEG;
+using System.Runtime.InteropServices;
 
 namespace Procesamiento_de_imágenes
 {
@@ -527,6 +528,7 @@ namespace Procesamiento_de_imágenes
 
         #region Vídeo
 
+        private VideoFileReader videoFileReader;
 
         private void abrirVídeoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -535,78 +537,200 @@ namespace Procesamiento_de_imágenes
                 axWindowsMediaPlayer1.URL = openFileDialog2.FileName;
                 axWindowsMediaPlayer1.Ctlcontrols.play();
 
+                // Inicializar el lector de archivos de vídeo
+                videoFileReader = new VideoFileReader();
+                videoFileReader.Open(openFileDialog2.FileName);
+            }
+        }
+
+        private async void invertirColoresToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (videoFileReader == null || !videoFileReader.IsOpen)
+            {
+                MessageBox.Show("Abre un vídeo primero.");
+                return;
+            }
+
+            int blockWidth = 100;  // Ajusta el ancho del bloque según tus necesidades
+            int blockHeight = 100;  // Ajusta la altura del bloque según tus necesidades
+
+            List<Bitmap> invertedFrames = new List<Bitmap>();
+            int framesToProcessBeforeCleanup = 10;  // Ajusta según tus necesidades
+
+            try
+            {
+                string outputVideoPath = "video_editado.mp4";
+                using (VideoFileWriter videoFileWriter = new VideoFileWriter())
+                {
+                    await Task.Run(() =>
+                    {
+                        int batchSize = 1;  // ajusta el tamaño del lote según tus necesidades
+
+                        for (int i = 0; i < videoFileReader.FrameCount; i += batchSize)
+                        {
+                            List<Bitmap> batchFrames = GetAllBitmapFramesFromVideo(videoFileReader, i, batchSize);
+
+                            Parallel.ForEach(batchFrames, frame =>
+                            {
+                                Bitmap invertedFrame = InvertColors(frame, blockWidth, blockHeight);
+                                invertedFrames.Add(invertedFrame);
+
+                                frame?.Dispose();
+                            });
+
+                            // Escribir los frames invertidos en el archivo de vídeo más frecuentemente
+                            if (i % framesToProcessBeforeCleanup == 0)
+                            {
+                                BeginInvoke(new Action(() =>
+                                {
+                                    lblFrames.Text = $"Procesando fotogramas {i + 1} al {Math.Min(i + framesToProcessBeforeCleanup, videoFileReader.FrameCount)} de {videoFileReader.FrameCount}";
+                                }));
+
+                                // Abrir el archivo de vídeo si no está abierto
+                                if (!videoFileWriter.IsOpen)
+                                {
+                                    videoFileWriter.Open(outputVideoPath, invertedFrames[0].Width, invertedFrames[0].Height, 30, VideoCodec.MPEG4);
+                                }
+
+                                // Escribir los frames invertidos en el archivo de vídeo
+                                foreach (var invertedFrame in invertedFrames)
+                                {
+                                    videoFileWriter.WriteVideoFrame(invertedFrame);
+                                }
+
+                                // Liberar memoria de los frames invertidos después de escribir
+                                foreach (var invertedFrame in invertedFrames)
+                                {
+                                    invertedFrame?.Dispose();
+                                }
+                                invertedFrames.Clear();
+                            }
+
+                            // Liberar memoria de los frames del lote
+                            foreach (var frame in batchFrames)
+                            {
+                                frame?.Dispose();
+                            }
+                        }
+                    });
+
+                    lblFrames.Text = "Proceso completado.";
+
+                    // Escribir los frames restantes en el archivo de vídeo
+                    foreach (var invertedFrame in invertedFrames)
+                    {
+                        videoFileWriter.WriteVideoFrame(invertedFrame);
+                    }
+                }
+
+                axWindowsMediaPlayer1.URL = outputVideoPath;
+                axWindowsMediaPlayer1.Ctlcontrols.play();
+
+                MessageBox.Show("Proceso completado. El vídeo se ha editado con éxito");
+            }
+            catch (System.OutOfMemoryException)
+            {
+                MessageBox.Show("Error: Memoria insuficiente. Intenta con bloques más pequeños o reduce la resolución.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
+        }
+
+        private List<Bitmap> GetAllBitmapFramesFromVideo(VideoFileReader videoReader, int startFrame, int frameCount, bool reducedResolution = false)
+        {
+            List<Bitmap> frames = new List<Bitmap>();
+
+            for (int frameNumber = startFrame; frameNumber < startFrame + frameCount; frameNumber++)
+            {
+                var frame = videoReader.ReadVideoFrame();
+                if (frame == null)
+                {
+                    // Fin del archivo, salir del bucle
+                    break;
+                }
+
+                if (reducedResolution)
+                {
+                    // Reducir resolución si es necesario
+                    frame = ResizeBitmap(frame, new Size(frame.Width / 2, frame.Height / 2));
+                }
+
+                frames.Add(frame);
+            }
+
+            return frames;
+        }
+
+        private Bitmap InvertColors(Bitmap original, int blockWidth, int blockHeight)
+        {
+            try
+            {
+                Bitmap invertedFrame = new Bitmap(original.Width, original.Height);
+                BitmapData originalData = original.LockBits(new Rectangle(0, 0, original.Width, original.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+                BitmapData invertedData = invertedFrame.LockBits(new Rectangle(0, 0, invertedFrame.Width, invertedFrame.Height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+
+                unsafe
+                {
+                    byte* originalPtr = (byte*)originalData.Scan0.ToPointer();
+                    byte* invertedPtr = (byte*)invertedData.Scan0.ToPointer();
+
+                    for (int y = 0; y < original.Height; y += blockHeight)
+                    {
+                        for (int x = 0; x < original.Width; x += blockWidth)
+                        {
+                            // Procesar un bloque
+                            for (int blockY = 0; blockY < blockHeight && y + blockY < original.Height; blockY++)
+                            {
+                                for (int blockX = 0; blockX < blockWidth && x + blockX < original.Width; blockX++)
+                                {
+                                    int index = (y + blockY) * originalData.Stride + (x + blockX) * 4;
+
+                                    // Invertir los componentes de color
+                                    invertedPtr[index] = (byte)(255 - originalPtr[index]); // Blue
+                                    invertedPtr[index + 1] = (byte)(255 - originalPtr[index + 1]); // Green
+                                    invertedPtr[index + 2] = (byte)(255 - originalPtr[index + 2]); // Red
+                                    invertedPtr[index + 3] = originalPtr[index + 3]; // Alpha
+                                }
+                            }
+                        }
+                    }
+                }
+
+                original.UnlockBits(originalData);
+                invertedFrame.UnlockBits(invertedData);
+
+                return invertedFrame;
+            }
+            catch (System.OutOfMemoryException)
+            {
+                throw; // Propagar la excepción para manejarla en el nivel superior
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al invertir colores: {ex.Message}");
+                return null; // o manejar de otra manera según tus necesidades
             }
         }
 
 
-        //private void GuardarFrameComoImagen()
-        //{
-        //    // Verificar si se ha cargado un video
-        //    if (string.IsNullOrEmpty(axWindowsMediaPlayer1.URL))
-        //    {
-        //        // Mostrar un mensaje indicando que no se ha cargado un video
-        //        MessageBox.Show("Por favor, carga un video antes de intentar guardar un frame.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //        return;
-        //    }
-
-        //    // Pausar el reproductor y establecer la posición del frame específico
-        //    axWindowsMediaPlayer1.Ctlcontrols.pause();
-
-        //    // Capturar la imagen del frame actual
-        //    //System.Drawing.Image ret = null;
-        //    //Bitmap frameImage = new Bitmap(axWindowsMediaPlayer1.Width, axWindowsMediaPlayer1.Height);
-        //    //axWindowsMediaPlayer1.DrawToBitmap(frameImage, axWindowsMediaPlayer1.ClientRectangle);
-
-        //    //pcFrame.Image = frameImage;
+        private Bitmap ResizeBitmap(Bitmap original, Size newSize)
+        {
+            Bitmap resizedBitmap = new Bitmap(newSize.Width, newSize.Height);
+            using (Graphics g = Graphics.FromImage(resizedBitmap))
+            {
+                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                g.DrawImage(original, 0, 0, newSize.Width, newSize.Height);
+            }
+            return resizedBitmap;
+        }
 
 
-        //    try
-        //    {
-        //        // take picture BEFORE saveFileDialog pops up!!
-        //        Bitmap bitmap = new Bitmap(axWindowsMediaPlayer1.Width, axWindowsMediaPlayer1.Height);
-        //        {
-        //            Graphics g = Graphics.FromImage(bitmap);
-        //            {
-        //                Graphics gg = axWindowsMediaPlayer1.CreateGraphics();
-        //                {
-        //                    //timerTakePicFromVideo.Start();
-        //                    this.BringToFront();
-        //                    g.CopyFromScreen(
-        //                        axWindowsMediaPlayer1.PointToScreen(
-        //                            new System.Drawing.Point()).X,
-        //                        axWindowsMediaPlayer1.PointToScreen(
-        //                            new System.Drawing.Point()).Y,
-        //                        0, 0,
-        //                        new System.Drawing.Size(
-        //                            axWindowsMediaPlayer1.Width,
-        //                            axWindowsMediaPlayer1.Height)
-        //                        );
-        //                }
-        //            }
-        //            // afterwards save bitmap file if user wants to
-        //            //if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-        //            //{
-        //            //    using (MemoryStream ms = new MemoryStream())
-        //            //    {
-        //            //        bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-        //            //        ret = System.Drawing.Image.FromStream(ms);
-        //            //        ret.Save(saveFileDialog1.FileName);
-        //            //    }
-        //            //}
-        //            pcFrame.Image = bitmap;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Debug.WriteLine(ex.Message);
-        //    }
 
-        //    // Reproducir desde la posición original
-        //    axWindowsMediaPlayer1.Ctlcontrols.play();
-        //}
         private void revetirCambiosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           // GuardarFrameComoImagen();
+
         }
 
         #endregion
@@ -719,6 +843,7 @@ namespace Procesamiento_de_imágenes
             videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
             videoCaptureDevice.Start();
         }
+
 
 
 
