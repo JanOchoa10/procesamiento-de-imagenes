@@ -586,37 +586,45 @@ namespace Procesamiento_de_imágenes
                                     lblFrames.Text = $"Procesando fotogramas {i + 1} al {Math.Min(i + framesToProcessBeforeCleanup, videoFileReader.FrameCount)} de {videoFileReader.FrameCount}";
                                 }));
 
-                                // Abrir el archivo de vídeo si no está abierto
-                                if (!videoFileWriter.IsOpen)
+                                // Verificar si hay suficientes elementos en invertedFrames antes de continuar
+                                if (invertedFrames.Count >= framesToProcessBeforeCleanup)
                                 {
-                                    videoFileWriter.Open(outputVideoPath, invertedFrames[0].Width, invertedFrames[0].Height, 30, VideoCodec.MPEG4);
-                                }
-
-                                // Escribir los frames invertidos en el archivo de vídeo
-                                foreach (var invertedFrame in invertedFrames)
-                                {
-                                    // Mostrar el fotograma actual en pbFrame antes de borrarlo
-                                    // Clonar la imagen antes de asignarla
-                                    Bitmap clonedFrame = (Bitmap)invertedFrame.Clone();
-
-                                    BeginInvoke(new Action(() =>
+                                    // Abrir el archivo de vídeo si no está abierto
+                                    if (!videoFileWriter.IsOpen)
                                     {
-                                        pbFrame.Image = clonedFrame;
-                                        pbFrame.Invalidate();
-                                    }));
+                                        videoFileWriter.Open(outputVideoPath, invertedFrames[0].Width, invertedFrames[0].Height, 30, VideoCodec.MPEG4);
+                                    }
 
-                                    // Escribir el fotograma invertido en el archivo de vídeo
-                                    videoFileWriter.WriteVideoFrame(invertedFrame);
+                                    // Escribir los frames invertidos en el archivo de vídeo
+                                    foreach (var invertedFrame in invertedFrames)
+                                    {
+                                        // Verificar si hay un fotograma antes de mostrarlo en pbFrame
+                                        if (invertedFrame != null)
+                                        {
+                                            // Mostrar el fotograma actual en pbFrame antes de borrarlo
+                                            // Clonar la imagen antes de asignarla
+                                            Bitmap clonedFrame = (Bitmap)invertedFrame.Clone();
 
-                                    clonedFrame?.Dispose();
+                                            BeginInvoke(new Action(() =>
+                                            {
+                                                pbFrame.Image = clonedFrame;
+                                                pbFrame.Invalidate();
+                                            }));
+
+                                            // Escribir el fotograma invertido en el archivo de vídeo
+                                            videoFileWriter.WriteVideoFrame(invertedFrame);
+
+                                            clonedFrame?.Dispose();
+                                        }
+                                    }
+
+                                    // Liberar memoria de los frames invertidos después de escribir
+                                    foreach (var invertedFrame in invertedFrames)
+                                    {
+                                        invertedFrame?.Dispose();
+                                    }
+                                    invertedFrames.Clear();
                                 }
-
-                                // Liberar memoria de los frames invertidos después de escribir
-                                foreach (var invertedFrame in invertedFrames)
-                                {
-                                    invertedFrame?.Dispose();
-                                }
-                                invertedFrames.Clear();
                             }
 
                             // Liberar memoria de los frames del lote
@@ -639,7 +647,7 @@ namespace Procesamiento_de_imágenes
                 axWindowsMediaPlayer1.URL = outputVideoPath;
                 axWindowsMediaPlayer1.Ctlcontrols.play();
 
-                MessageBox.Show("Proceso completado. El vídeo se ha editado con éxito");
+                //MessageBox.Show("Proceso completado. El vídeo se ha editado con éxito");
             }
             catch (System.OutOfMemoryException)
             {
