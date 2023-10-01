@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ using MaterialSkin.Controls;
 using MaterialSkin;
 using AForge.Video;
 using AForge.Video.DirectShow;
-
+using Accord.Video.FFMPEG;
 
 namespace Procesamiento_de_imágenes
 {
@@ -32,7 +33,6 @@ namespace Procesamiento_de_imágenes
 
         //private int anchoVentana, altoVentana;
 
-        
         public Form1()
         {
             InitializeComponent();
@@ -105,7 +105,7 @@ namespace Procesamiento_de_imágenes
             }
         }
 
-        
+
 
         private void invertirColoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -534,10 +534,80 @@ namespace Procesamiento_de_imágenes
             {
                 axWindowsMediaPlayer1.URL = openFileDialog2.FileName;
                 axWindowsMediaPlayer1.Ctlcontrols.play();
+
             }
         }
 
 
+        //private void GuardarFrameComoImagen()
+        //{
+        //    // Verificar si se ha cargado un video
+        //    if (string.IsNullOrEmpty(axWindowsMediaPlayer1.URL))
+        //    {
+        //        // Mostrar un mensaje indicando que no se ha cargado un video
+        //        MessageBox.Show("Por favor, carga un video antes de intentar guardar un frame.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        return;
+        //    }
+
+        //    // Pausar el reproductor y establecer la posición del frame específico
+        //    axWindowsMediaPlayer1.Ctlcontrols.pause();
+
+        //    // Capturar la imagen del frame actual
+        //    //System.Drawing.Image ret = null;
+        //    //Bitmap frameImage = new Bitmap(axWindowsMediaPlayer1.Width, axWindowsMediaPlayer1.Height);
+        //    //axWindowsMediaPlayer1.DrawToBitmap(frameImage, axWindowsMediaPlayer1.ClientRectangle);
+
+        //    //pcFrame.Image = frameImage;
+
+
+        //    try
+        //    {
+        //        // take picture BEFORE saveFileDialog pops up!!
+        //        Bitmap bitmap = new Bitmap(axWindowsMediaPlayer1.Width, axWindowsMediaPlayer1.Height);
+        //        {
+        //            Graphics g = Graphics.FromImage(bitmap);
+        //            {
+        //                Graphics gg = axWindowsMediaPlayer1.CreateGraphics();
+        //                {
+        //                    //timerTakePicFromVideo.Start();
+        //                    this.BringToFront();
+        //                    g.CopyFromScreen(
+        //                        axWindowsMediaPlayer1.PointToScreen(
+        //                            new System.Drawing.Point()).X,
+        //                        axWindowsMediaPlayer1.PointToScreen(
+        //                            new System.Drawing.Point()).Y,
+        //                        0, 0,
+        //                        new System.Drawing.Size(
+        //                            axWindowsMediaPlayer1.Width,
+        //                            axWindowsMediaPlayer1.Height)
+        //                        );
+        //                }
+        //            }
+        //            // afterwards save bitmap file if user wants to
+        //            //if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+        //            //{
+        //            //    using (MemoryStream ms = new MemoryStream())
+        //            //    {
+        //            //        bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+        //            //        ret = System.Drawing.Image.FromStream(ms);
+        //            //        ret.Save(saveFileDialog1.FileName);
+        //            //    }
+        //            //}
+        //            pcFrame.Image = bitmap;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Debug.WriteLine(ex.Message);
+        //    }
+
+        //    // Reproducir desde la posición original
+        //    axWindowsMediaPlayer1.Ctlcontrols.play();
+        //}
+        private void revetirCambiosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           // GuardarFrameComoImagen();
+        }
 
         #endregion
 
@@ -652,9 +722,10 @@ namespace Procesamiento_de_imágenes
 
 
 
+
         #endregion
 
-        
+
     }
 
 }

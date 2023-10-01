@@ -70,6 +70,7 @@
             this.video = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.pcFrame = new System.Windows.Forms.PictureBox();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirVídeoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -117,6 +118,7 @@
             this.video.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcFrame)).BeginInit();
             this.menuStrip2.SuspendLayout();
             this.Reconocimiento.SuspendLayout();
             this.materialCard1.SuspendLayout();
@@ -542,6 +544,7 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.Controls.Add(this.axWindowsMediaPlayer1, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.pcFrame, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 27);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -553,15 +556,25 @@
             // 
             // axWindowsMediaPlayer1
             // 
-            this.tableLayoutPanel4.SetColumnSpan(this.axWindowsMediaPlayer1, 2);
             this.axWindowsMediaPlayer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.axWindowsMediaPlayer1.Enabled = true;
             this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(3, 3);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
             this.tableLayoutPanel4.SetRowSpan(this.axWindowsMediaPlayer1, 2);
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(1215, 497);
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(604, 497);
             this.axWindowsMediaPlayer1.TabIndex = 0;
+            // 
+            // pcFrame
+            // 
+            this.pcFrame.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pcFrame.Image = global::Procesamiento_de_imágenes.Properties.Resources.reconocimiento_facial_;
+            this.pcFrame.Location = new System.Drawing.Point(613, 3);
+            this.pcFrame.Name = "pcFrame";
+            this.pcFrame.Size = new System.Drawing.Size(605, 245);
+            this.pcFrame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcFrame.TabIndex = 1;
+            this.pcFrame.TabStop = false;
             // 
             // menuStrip2
             // 
@@ -595,6 +608,7 @@
             this.revetirCambiosToolStripMenuItem.Name = "revetirCambiosToolStripMenuItem";
             this.revetirCambiosToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.revetirCambiosToolStripMenuItem.Text = "Revertir cambios";
+            this.revetirCambiosToolStripMenuItem.Click += new System.EventHandler(this.revetirCambiosToolStripMenuItem_Click);
             // 
             // filtrosBásicosToolStripMenuItem1
             // 
@@ -988,6 +1002,7 @@
             this.video.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcFrame)).EndInit();
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.Reconocimiento.ResumeLayout(false);
@@ -1074,6 +1089,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         private System.Windows.Forms.OpenFileDialog openFileDialog2;
+        private System.Windows.Forms.PictureBox pcFrame;
     }
 }
 
