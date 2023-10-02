@@ -71,7 +71,8 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.pbFrame = new System.Windows.Forms.PictureBox();
-            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.lblFrames = new MaterialSkin.Controls.MaterialLabel();
+            this.menuVideo = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirVídeoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.revetirCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -100,7 +101,9 @@
             this.materialFloatingActionButton2 = new MaterialSkin.Controls.MaterialFloatingActionButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
-            this.lblFrames = new MaterialSkin.Controls.MaterialLabel();
+            this.colorearToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.aberraciónCromáticaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.escalaDeGrisesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.materialTabControl1.SuspendLayout();
             this.Filtros.SuspendLayout();
             this.materialCard3.SuspendLayout();
@@ -121,7 +124,7 @@
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFrame)).BeginInit();
-            this.menuStrip2.SuspendLayout();
+            this.menuVideo.SuspendLayout();
             this.Reconocimiento.SuspendLayout();
             this.materialCard1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -530,7 +533,7 @@
             // video
             // 
             this.video.Controls.Add(this.tableLayoutPanel4);
-            this.video.Controls.Add(this.menuStrip2);
+            this.video.Controls.Add(this.menuVideo);
             this.video.ImageIndex = 4;
             this.video.Location = new System.Drawing.Point(4, 39);
             this.video.Name = "video";
@@ -578,16 +581,31 @@
             this.pbFrame.TabIndex = 1;
             this.pbFrame.TabStop = false;
             // 
-            // menuStrip2
+            // lblFrames
             // 
-            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblFrames.AutoSize = true;
+            this.lblFrames.Depth = 0;
+            this.lblFrames.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblFrames.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.lblFrames.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            this.lblFrames.Location = new System.Drawing.Point(857, 251);
+            this.lblFrames.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblFrames.Name = "lblFrames";
+            this.lblFrames.Size = new System.Drawing.Size(361, 252);
+            this.lblFrames.TabIndex = 2;
+            this.lblFrames.Text = "¡Comencemos a editar!";
+            this.lblFrames.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // menuVideo
+            // 
+            this.menuVideo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem1,
             this.filtrosBásicosToolStripMenuItem1});
-            this.menuStrip2.Location = new System.Drawing.Point(3, 3);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1221, 24);
-            this.menuStrip2.TabIndex = 0;
-            this.menuStrip2.Text = "menuStrip2";
+            this.menuVideo.Location = new System.Drawing.Point(3, 3);
+            this.menuVideo.Name = "menuVideo";
+            this.menuVideo.Size = new System.Drawing.Size(1221, 24);
+            this.menuVideo.TabIndex = 0;
+            this.menuVideo.Text = "menuStrip2";
             // 
             // archivoToolStripMenuItem1
             // 
@@ -615,7 +633,10 @@
             // filtrosBásicosToolStripMenuItem1
             // 
             this.filtrosBásicosToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.invertirColoresToolStripMenuItem1});
+            this.invertirColoresToolStripMenuItem1,
+            this.colorearToolStripMenuItem1,
+            this.aberraciónCromáticaToolStripMenuItem1,
+            this.escalaDeGrisesToolStripMenuItem1});
             this.filtrosBásicosToolStripMenuItem1.Name = "filtrosBásicosToolStripMenuItem1";
             this.filtrosBásicosToolStripMenuItem1.Size = new System.Drawing.Size(93, 20);
             this.filtrosBásicosToolStripMenuItem1.Text = "Filtros básicos";
@@ -623,7 +644,7 @@
             // invertirColoresToolStripMenuItem1
             // 
             this.invertirColoresToolStripMenuItem1.Name = "invertirColoresToolStripMenuItem1";
-            this.invertirColoresToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.invertirColoresToolStripMenuItem1.Size = new System.Drawing.Size(188, 22);
             this.invertirColoresToolStripMenuItem1.Text = "Invertir colores";
             this.invertirColoresToolStripMenuItem1.Click += new System.EventHandler(this.invertirColoresToolStripMenuItem1_Click);
             // 
@@ -971,20 +992,24 @@
             this.openFileDialog2.FileName = "openFileDialog2";
             this.openFileDialog2.Filter = "Archivos de video|*.mp4;*.avi;*.mkv;*.wmv;*.mov";
             // 
-            // lblFrames
+            // colorearToolStripMenuItem1
             // 
-            this.lblFrames.AutoSize = true;
-            this.lblFrames.Depth = 0;
-            this.lblFrames.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblFrames.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.lblFrames.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
-            this.lblFrames.Location = new System.Drawing.Point(857, 251);
-            this.lblFrames.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblFrames.Name = "lblFrames";
-            this.lblFrames.Size = new System.Drawing.Size(361, 252);
-            this.lblFrames.TabIndex = 2;
-            this.lblFrames.Text = "¡Comencemos a editar!";
-            this.lblFrames.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.colorearToolStripMenuItem1.Name = "colorearToolStripMenuItem1";
+            this.colorearToolStripMenuItem1.Size = new System.Drawing.Size(188, 22);
+            this.colorearToolStripMenuItem1.Text = "Colorear";
+            // 
+            // aberraciónCromáticaToolStripMenuItem1
+            // 
+            this.aberraciónCromáticaToolStripMenuItem1.Name = "aberraciónCromáticaToolStripMenuItem1";
+            this.aberraciónCromáticaToolStripMenuItem1.Size = new System.Drawing.Size(188, 22);
+            this.aberraciónCromáticaToolStripMenuItem1.Text = "Aberración cromática";
+            // 
+            // escalaDeGrisesToolStripMenuItem1
+            // 
+            this.escalaDeGrisesToolStripMenuItem1.Name = "escalaDeGrisesToolStripMenuItem1";
+            this.escalaDeGrisesToolStripMenuItem1.Size = new System.Drawing.Size(188, 22);
+            this.escalaDeGrisesToolStripMenuItem1.Text = "Escala de grises";
+            this.escalaDeGrisesToolStripMenuItem1.Click += new System.EventHandler(this.escalaDeGrisesToolStripMenuItem1_Click);
             // 
             // Form1
             // 
@@ -1030,8 +1055,8 @@
             this.tableLayoutPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFrame)).EndInit();
-            this.menuStrip2.ResumeLayout(false);
-            this.menuStrip2.PerformLayout();
+            this.menuVideo.ResumeLayout(false);
+            this.menuVideo.PerformLayout();
             this.Reconocimiento.ResumeLayout(false);
             this.materialCard1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -1108,7 +1133,7 @@
         private System.Windows.Forms.PictureBox pcHistogramaRIE;
         private System.Windows.Forms.PictureBox pcHistogramaGIE;
         private System.Windows.Forms.PictureBox pcHistogramaBIE;
-        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.MenuStrip menuVideo;
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem abrirVídeoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem revetirCambiosToolStripMenuItem;
@@ -1119,6 +1144,9 @@
         private System.Windows.Forms.PictureBox pbFrame;
         private System.Windows.Forms.ToolStripMenuItem invertirColoresToolStripMenuItem1;
         private MaterialSkin.Controls.MaterialLabel lblFrames;
+        private System.Windows.Forms.ToolStripMenuItem colorearToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem aberraciónCromáticaToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem escalaDeGrisesToolStripMenuItem1;
     }
 }
 

@@ -30,6 +30,9 @@ namespace Procesamiento_de_imágenes
         private int factor;
         private int offset;
 
+
+        int blockWidth = 100;  // Ajusta el ancho del bloque según tus necesidades
+        int blockHeight = 100;  // Ajusta la altura del bloque según tus necesidades
         // Variables para el double buffer y evitar el flicker
 
         //private int anchoVentana, altoVentana;
@@ -108,6 +111,36 @@ namespace Procesamiento_de_imágenes
 
 
 
+        //private void invertirColoresToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+
+        //    if (!validacionDeImagenCargada())
+        //    {
+        //        return;
+        //    }
+
+        //    // Invertimos los colores
+        //    // Crear una copia de la imagen original
+        //    Bitmap resultante = new Bitmap(original.Width, original.Height, original.PixelFormat);
+
+        //    // Invertir la imagen original y guardarla en resultante
+        //    for (int x = 0; x < original.Width; x++)
+        //    {
+        //        for (int y = 0; y < original.Height; y++)
+        //        {
+        //            Color oColor = original.GetPixel(x, y);
+        //            Color rColor = Color.FromArgb(oColor.A, 255 - oColor.R, 255 - oColor.G, 255 - oColor.B);
+        //            resultante.SetPixel(x, y, rColor);
+        //        }
+        //    }
+
+        //    original = resultante;
+        //    pcImagenEditada.Image = resultante;
+        //    pcImagenEditada.Invalidate();
+
+        //    cargarHistogramasIE(original);
+        //}
+
         private void invertirColoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -117,19 +150,7 @@ namespace Procesamiento_de_imágenes
             }
 
             // Invertimos los colores
-            // Crear una copia de la imagen original
-            Bitmap resultante = new Bitmap(original.Width, original.Height, original.PixelFormat);
-
-            // Invertir la imagen original y guardarla en resultante
-            for (int x = 0; x < original.Width; x++)
-            {
-                for (int y = 0; y < original.Height; y++)
-                {
-                    Color oColor = original.GetPixel(x, y);
-                    Color rColor = Color.FromArgb(oColor.A, 255 - oColor.R, 255 - oColor.G, 255 - oColor.B);
-                    resultante.SetPixel(x, y, rColor);
-                }
-            }
+            Bitmap resultante = InvertirColores(original, blockWidth, blockHeight);
 
             original = resultante;
             pcImagenEditada.Image = resultante;
@@ -417,25 +438,7 @@ namespace Procesamiento_de_imágenes
             }
 
             // Crear una copia de la imagen original con el mismo tamaño y formato
-            Bitmap resultante = new Bitmap(original.Width, original.Height, original.PixelFormat);
-
-            for (int x = 0; x < original.Width; x++)
-            {
-                for (int y = 0; y < original.Height; y++)
-                {
-                    // Obtenemos el color del pixel
-                    Color oColor = original.GetPixel(x, y);
-
-                    // Procesamos y obtenemos el nuevo color
-                    float g = oColor.R * 0.299f + oColor.G * 0.587f + oColor.B * 0.114f;
-
-                    // Conservamos el canal alfa original
-                    Color rColor = Color.FromArgb(oColor.A, (int)g, (int)g, (int)g);
-
-                    // Colocamos el color resultante en la copia
-                    resultante.SetPixel(x, y, rColor);
-                }
-            }
+            Bitmap resultante = EscalaDeGrises(original, blockWidth, blockHeight);
 
             original = resultante;
             pcImagenEditada.Image = resultante;
@@ -454,7 +457,6 @@ namespace Procesamiento_de_imágenes
 
             return true;
         }
-
 
         private void cargarHistogramasIC(Bitmap imagen)
         {
@@ -529,6 +531,7 @@ namespace Procesamiento_de_imágenes
         #region Vídeo
 
         private VideoFileReader videoFileReader;
+        private VideoFileWriter videoFileWriter;
 
         private void abrirVídeoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -537,13 +540,31 @@ namespace Procesamiento_de_imágenes
                 axWindowsMediaPlayer1.URL = openFileDialog2.FileName;
                 axWindowsMediaPlayer1.Ctlcontrols.play();
 
-                // Inicializar el lector de archivos de vídeo
+                // Liberar el lector de archivos de vídeo existente antes de crear uno nuevo
+                videoFileReader?.Close();
                 videoFileReader = new VideoFileReader();
                 videoFileReader.Open(openFileDialog2.FileName);
             }
         }
 
+
         private async void invertirColoresToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            await ProcesarVideo(ProcesoVideo.InvertirColores);
+        }
+
+        private async void escalaDeGrisesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            await ProcesarVideo(ProcesoVideo.EscalaDeGrises);
+        }
+
+        private enum ProcesoVideo
+        {
+            InvertirColores,
+            EscalaDeGrises
+        }
+
+        private async Task ProcesarVideo(ProcesoVideo proceso)
         {
             if (videoFileReader == null || !videoFileReader.IsOpen)
             {
@@ -551,112 +572,145 @@ namespace Procesamiento_de_imágenes
                 return;
             }
 
-            int blockWidth = 100;  // Ajusta el ancho del bloque según tus necesidades
-            int blockHeight = 100;  // Ajusta la altura del bloque según tus necesidades
-
-            List<Bitmap> invertedFrames = new List<Bitmap>();
+            List<Bitmap> processedFrames = new List<Bitmap>();
             int framesToProcessBeforeCleanup = 1;  // Ajusta según tus necesidades
 
+            string outputVideoPath = "video_editado.mp4";
             try
             {
-                string outputVideoPath = "video_editado.mp4";
-                using (VideoFileWriter videoFileWriter = new VideoFileWriter())
+                menuVideo.Enabled = false;
+                // Usar VideoFileWriter como un campo para poder cerrarlo más tarde
+                videoFileWriter = new VideoFileWriter();
+                videoFileWriter.Open(outputVideoPath, videoFileReader.Width, videoFileReader.Height, videoFileReader.FrameRate, VideoCodec.MPEG4);
+
+                await Task.Run(() =>
                 {
-                    await Task.Run(() =>
+                    int batchSize = 1;  // ajusta el tamaño del lote según tus necesidades
+
+                    for (int i = 0; i < videoFileReader.FrameCount; i += batchSize)
                     {
-                        int batchSize = 1;  // ajusta el tamaño del lote según tus necesidades
+                        List<Bitmap> batchFrames = GetAllBitmapFramesFromVideo(videoFileReader, i, batchSize);
 
-                        for (int i = 0; i < videoFileReader.FrameCount; i += batchSize)
+                        Parallel.ForEach(batchFrames, frame =>
                         {
-                            List<Bitmap> batchFrames = GetAllBitmapFramesFromVideo(videoFileReader, i, batchSize);
+                            Bitmap processedFrame = null;
+                            int currentFrameNumber = i + batchFrames.IndexOf(frame) + 1;
 
-                            Parallel.ForEach(batchFrames, frame =>
+                            switch (proceso)
                             {
-                                Bitmap invertedFrame = InvertColors(frame, blockWidth, blockHeight);
-                                invertedFrames.Add(invertedFrame);
+                                case ProcesoVideo.InvertirColores:
+                                    processedFrame = InvertirColores(frame, blockWidth, blockHeight);
+                                    break;
+                                case ProcesoVideo.EscalaDeGrises:
+                                    processedFrame = EscalaDeGrises(frame, blockWidth, blockHeight);
+                                    break;
+                                    // Agrega otros casos según sea necesario
+                            }
 
-                                frame?.Dispose();
-                            });
-
-                            // Escribir los frames invertidos en el archivo de vídeo más frecuentemente
-                            if (i % framesToProcessBeforeCleanup == 0)
+                            BeginInvoke(new Action(() =>
                             {
-                                BeginInvoke(new Action(() =>
-                                {
-                                    lblFrames.Text = $"Procesando fotogramas {i + 1} al {Math.Min(i + framesToProcessBeforeCleanup, videoFileReader.FrameCount)} de {videoFileReader.FrameCount}";
-                                }));
+                                lblFrames.Text = $"Procesando fotograma {currentFrameNumber} de {videoFileReader.FrameCount}";
+                            }));
 
-                                // Verificar si hay suficientes elementos en invertedFrames antes de continuar
-                                if (invertedFrames.Count >= framesToProcessBeforeCleanup)
-                                {
-                                    // Abrir el archivo de vídeo si no está abierto
-                                    if (!videoFileWriter.IsOpen)
-                                    {
-                                        videoFileWriter.Open(outputVideoPath, invertedFrames[0].Width, invertedFrames[0].Height, 30, VideoCodec.MPEG4);
-                                    }
+                            processedFrames.Add(processedFrame);
 
-                                    // Escribir los frames invertidos en el archivo de vídeo
-                                    foreach (var invertedFrame in invertedFrames)
+                            frame?.Dispose();
+                        });
+
+                        // Escribir los frames procesados en el archivo de vídeo más frecuentemente
+                        if (i % framesToProcessBeforeCleanup == 0)
+                        {
+                            // Verificar si hay suficientes elementos en processedFrames antes de continuar
+                            if (processedFrames.Count >= framesToProcessBeforeCleanup)
+                            {
+                                // Abrir el archivo de vídeo si no está abierto
+                                if (!videoFileWriter.IsOpen)
+                                {
+                                    videoFileWriter.Open(outputVideoPath, processedFrames[0].Width, processedFrames[0].Height, 30, VideoCodec.MPEG4);
+                                }
+
+                                // Escribir los frames procesados en el archivo de vídeo
+                                foreach (var processedFrame in processedFrames)
+                                {
+                                    // Verificar si hay un fotograma antes de mostrarlo en pbFrame
+                                    if (processedFrame != null)
                                     {
-                                        // Verificar si hay un fotograma antes de mostrarlo en pbFrame
-                                        if (invertedFrame != null)
+                                        // Mostrar el fotograma actual en pbFrame antes de borrarlo
+                                        // Clonar la imagen antes de asignarla
+                                        Bitmap clonedFrame = (Bitmap)processedFrame.Clone();
+
+                                        BeginInvoke(new Action(() =>
                                         {
-                                            // Mostrar el fotograma actual en pbFrame antes de borrarlo
-                                            // Clonar la imagen antes de asignarla
-                                            Bitmap clonedFrame = (Bitmap)invertedFrame.Clone();
-
-                                            BeginInvoke(new Action(() =>
+                                            try
                                             {
                                                 pbFrame.Image = clonedFrame;
                                                 pbFrame.Invalidate();
-                                            }));
+                                            }
+                                            catch (Exception ex)
+                                            {
+                                                //MessageBox.Show($"Error: {ex.Message}. Frame no válido, continuaré con los demás frames");
+                                            }
+                                        }));
 
-                                            // Escribir el fotograma invertido en el archivo de vídeo
-                                            videoFileWriter.WriteVideoFrame(invertedFrame);
+                                        // Escribir el fotograma procesado en el archivo de vídeo
+                                        videoFileWriter.WriteVideoFrame(processedFrame);
 
-                                            clonedFrame?.Dispose();
-                                        }
+                                        clonedFrame?.Dispose();
                                     }
-
-                                    // Liberar memoria de los frames invertidos después de escribir
-                                    foreach (var invertedFrame in invertedFrames)
-                                    {
-                                        invertedFrame?.Dispose();
-                                    }
-                                    invertedFrames.Clear();
                                 }
-                            }
 
-                            // Liberar memoria de los frames del lote
-                            foreach (var frame in batchFrames)
-                            {
-                                frame?.Dispose();
+                                // Liberar memoria de los frames procesados después de escribir
+                                foreach (var processedFrame in processedFrames)
+                                {
+                                    processedFrame?.Dispose();
+                                }
+                                processedFrames.Clear();
                             }
                         }
-                    });
 
-                    lblFrames.Text = "Proceso completado.";
-
-                    // Escribir los frames restantes en el archivo de vídeo
-                    foreach (var invertedFrame in invertedFrames)
-                    {
-                        videoFileWriter.WriteVideoFrame(invertedFrame);
+                        // Liberar memoria de los frames del lote
+                        foreach (var frame in batchFrames)
+                        {
+                            frame?.Dispose();
+                        }
                     }
-                }
 
-                axWindowsMediaPlayer1.URL = outputVideoPath;
-                axWindowsMediaPlayer1.Ctlcontrols.play();
-
-                //MessageBox.Show("Proceso completado. El vídeo se ha editado con éxito");
+                    // Cerrar VideoFileWriter después de terminar de escribir los frames
+                    videoFileWriter.Close();
+                });
             }
             catch (System.OutOfMemoryException)
             {
                 MessageBox.Show("Error: Memoria insuficiente. Intenta con bloques más pequeños o reduce la resolución.");
             }
+            catch (System.ArgumentException ex)
+            {
+                MessageBox.Show($"Error de argumento: {ex.Message}");
+                // También puedes agregar código para limpiar y restablecer el estado si es necesario
+                // ...
+            }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}");
             }
+            finally
+            {
+                // Asegúrate de liberar recursos
+                videoFileReader?.Close();
+                videoFileWriter?.Close();
+                menuVideo.Enabled = true;
+            }
+
+            lblFrames.Text = "Proceso completado.";
+
+            // Escribir los frames restantes en el archivo de vídeo
+            foreach (var processedFrame in processedFrames)
+            {
+                videoFileWriter.WriteVideoFrame(processedFrame);
+            }
+
+            axWindowsMediaPlayer1.URL = outputVideoPath;
+            axWindowsMediaPlayer1.Ctlcontrols.play();
         }
 
         private List<Bitmap> GetAllBitmapFramesFromVideo(VideoFileReader videoReader, int startFrame, int frameCount, bool reducedResolution = false)
@@ -675,7 +729,7 @@ namespace Procesamiento_de_imágenes
                 if (reducedResolution)
                 {
                     // Reducir resolución si es necesario
-                    frame = ResizeBitmap(frame, new Size(frame.Width / 2, frame.Height / 2));
+                    //frame = ResizeBitmap(frame, new Size(frame.Width / 2, frame.Height / 2));
                 }
 
                 frames.Add(frame);
@@ -684,7 +738,7 @@ namespace Procesamiento_de_imágenes
             return frames;
         }
 
-        private Bitmap InvertColors(Bitmap original, int blockWidth, int blockHeight)
+        private Bitmap InvertirColores(Bitmap original, int blockWidth, int blockHeight)
         {
             try
             {
@@ -735,16 +789,71 @@ namespace Procesamiento_de_imágenes
             }
         }
 
-        private Bitmap ResizeBitmap(Bitmap original, Size newSize)
+        //private Bitmap ResizeBitmap(Bitmap original, Size newSize)
+        //{
+        //    Bitmap resizedBitmap = new Bitmap(newSize.Width, newSize.Height);
+        //    using (Graphics g = Graphics.FromImage(resizedBitmap))
+        //    {
+        //        g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+        //        g.DrawImage(original, 0, 0, newSize.Width, newSize.Height);
+        //    }
+        //    return resizedBitmap;
+        //}
+
+        private Bitmap EscalaDeGrises(Bitmap original, int blockWidth, int blockHeight)
         {
-            Bitmap resizedBitmap = new Bitmap(newSize.Width, newSize.Height);
-            using (Graphics g = Graphics.FromImage(resizedBitmap))
+            try
             {
-                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-                g.DrawImage(original, 0, 0, newSize.Width, newSize.Height);
+                Bitmap grisesFrame = new Bitmap(original.Width, original.Height);
+                BitmapData originalData = original.LockBits(new Rectangle(0, 0, original.Width, original.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+                BitmapData grisesData = grisesFrame.LockBits(new Rectangle(0, 0, grisesFrame.Width, grisesFrame.Height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+
+                unsafe
+                {
+                    byte* originalPtr = (byte*)originalData.Scan0.ToPointer();
+                    byte* grisesPtr = (byte*)grisesData.Scan0.ToPointer();
+
+                    for (int y = 0; y < original.Height; y += blockHeight)
+                    {
+                        for (int x = 0; x < original.Width; x += blockWidth)
+                        {
+                            // Procesar un bloque
+                            for (int blockY = 0; blockY < blockHeight && y + blockY < original.Height; blockY++)
+                            {
+                                for (int blockX = 0; blockX < blockWidth && x + blockX < original.Width; blockX++)
+                                {
+                                    int index = (y + blockY) * originalData.Stride + (x + blockX) * 4;
+
+                                    // Convertir a escala de grises utilizando la fórmula
+                                    float grayValue = originalPtr[index] * 0.299f + originalPtr[index + 1] * 0.587f + originalPtr[index + 2] * 0.114f;
+
+                                    // Asignar el nuevo valor a cada componente de color
+                                    grisesPtr[index] = (byte)grayValue; // Blue
+                                    grisesPtr[index + 1] = (byte)grayValue; // Green
+                                    grisesPtr[index + 2] = (byte)grayValue; // Red
+                                    grisesPtr[index + 3] = originalPtr[index + 3]; // Alpha
+                                }
+                            }
+                        }
+                    }
+                }
+
+                original.UnlockBits(originalData);
+                grisesFrame.UnlockBits(grisesData);
+
+                return grisesFrame;
             }
-            return resizedBitmap;
+            catch (System.OutOfMemoryException)
+            {
+                throw; // Propagar la excepción para manejarla en el nivel superior
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al convertir a escala de grises: {ex.Message}");
+                return null; // o manejar de otra manera según tus necesidades
+            }
         }
+
 
 
 
@@ -752,6 +861,8 @@ namespace Procesamiento_de_imágenes
         {
 
         }
+
+
 
         #endregion
 
@@ -863,6 +974,7 @@ namespace Procesamiento_de_imágenes
             videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
             videoCaptureDevice.Start();
         }
+
 
 
 
