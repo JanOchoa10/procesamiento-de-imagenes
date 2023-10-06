@@ -160,3 +160,5 @@ C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágen
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Debug\Procesamiento de imágenes.csproj.CopyComplete
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Debug\Procesamiento de imágenes.exe
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Debug\Procesamiento de imágenes.pdb
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Debug\Accord.Video.DirectShow.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Debug\Accord.Video.DirectShow.xml

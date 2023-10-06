@@ -53,8 +53,15 @@ namespace Procesamiento_de_imágenes
             // Colocamos los valores para el dibujo con scrolls
             //anchoVentana = 800;
             //altoVentana = 600;
-
-
+            //listaImagenes.Add(Properties.Resources.Diapositiva1);
+            listaImagenes.Add(Properties.Resources.Diapositiva2);
+            listaImagenes.Add(Properties.Resources.Diapositiva3);
+            listaImagenes.Add(Properties.Resources.Diapositiva4);
+            listaImagenes.Add(Properties.Resources.Diapositiva5);
+            listaImagenes.Add(Properties.Resources.Diapositiva6);
+            listaImagenes.Add(Properties.Resources.Diapositiva7);
+            //listaImagenes.Add(Properties.Resources.Diapositiva8);
+            pbManualDeUsuario.Image = Properties.Resources.Diapositiva2;
         }
 
 
@@ -778,8 +785,14 @@ namespace Procesamiento_de_imágenes
 
                 return invertedFrame;
             }
+            catch (System.ArgumentException ex)
+            {
+                MessageBox.Show($"Error de argumento: {ex.Message}. Detalles: {ex.StackTrace}");
+                return null;
+            }
             catch (System.OutOfMemoryException)
             {
+                MessageBox.Show($"Error de memoria");
                 throw; // Propagar la excepción para manejarla en el nivel superior
             }
             catch (Exception ex)
@@ -980,9 +993,53 @@ namespace Procesamiento_de_imágenes
 
 
 
+
         #endregion
 
 
+        #region ManualDeUsuario
+
+        private int indiceActual = 0;
+        List<Image> listaImagenes = new List<Image>();
+        // Agrega tus imágenes a la lista
+
+        private void btnFlechaIzquierda_Click(object sender, EventArgs e)
+        {
+            
+            if (indiceActual > 0)
+            {
+                indiceActual--;
+            }
+            else
+            {
+                // Si estamos en la primera imagen, ir a la última
+                indiceActual = listaImagenes.Count - 1;
+            }
+
+            pbManualDeUsuario.Image = listaImagenes[indiceActual];
+        }
+
+        private void btnFlechaDerecha_Click(object sender, EventArgs e)
+        {
+            if (indiceActual < listaImagenes.Count - 1)
+            {
+                indiceActual++;
+            }
+            else
+            {
+                // Si estamos en la última imagen, ir a la primera
+                indiceActual = 0;
+            }
+
+            pbManualDeUsuario.Image = listaImagenes[indiceActual];
+        }
+
+
+
+
+        #endregion
+
+        
     }
 
 }

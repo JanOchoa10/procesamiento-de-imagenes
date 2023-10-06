@@ -121,4 +121,28 @@
   <data name="reconocimiento-facial-" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\reconocimiento-facial-.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Diapositiva1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Diapositiva1.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Diapositiva2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Diapositiva2.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Diapositiva3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Diapositiva3.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Diapositiva4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Diapositiva4.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Diapositiva5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Diapositiva5.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Diapositiva6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Diapositiva6.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Diapositiva7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Diapositiva7.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Diapositiva8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Diapositiva8.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
