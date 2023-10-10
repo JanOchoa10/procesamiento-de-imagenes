@@ -118,36 +118,6 @@ namespace Procesamiento_de_imágenes
 
 
 
-        //private void invertirColoresToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-
-        //    if (!validacionDeImagenCargada())
-        //    {
-        //        return;
-        //    }
-
-        //    // Invertimos los colores
-        //    // Crear una copia de la imagen original
-        //    Bitmap resultante = new Bitmap(original.Width, original.Height, original.PixelFormat);
-
-        //    // Invertir la imagen original y guardarla en resultante
-        //    for (int x = 0; x < original.Width; x++)
-        //    {
-        //        for (int y = 0; y < original.Height; y++)
-        //        {
-        //            Color oColor = original.GetPixel(x, y);
-        //            Color rColor = Color.FromArgb(oColor.A, 255 - oColor.R, 255 - oColor.G, 255 - oColor.B);
-        //            resultante.SetPixel(x, y, rColor);
-        //        }
-        //    }
-
-        //    original = resultante;
-        //    pcImagenEditada.Image = resultante;
-        //    pcImagenEditada.Invalidate();
-
-        //    cargarHistogramasIE(original);
-        //}
-
         private void invertirColoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -167,6 +137,8 @@ namespace Procesamiento_de_imágenes
         }
 
         #region Colorear
+
+
         private void rojoToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -177,22 +149,8 @@ namespace Procesamiento_de_imágenes
 
             // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
             // Crear una copia de la imagen original
-            Bitmap resultante = new Bitmap(original.Width, original.Height, original.PixelFormat);
+            Bitmap resultante = ColorearRojo(original, blockWidth, blockHeight);
 
-            for (int x = 0; x < original.Width; x++)
-            {
-                for (int y = 0; y < original.Height; y++)
-                {
-                    // Obtenemos el color del pixel
-                    Color oColor = original.GetPixel(x, y);
-
-                    // Procesamos y obtenemos el nuevo color
-                    Color rColor = Color.FromArgb(oColor.R, 0, 0);
-
-                    // Colocamos el color en resultante
-                    resultante.SetPixel(x, y, rColor);
-                }
-            }
             original = resultante;
             pcImagenEditada.Image = resultante;
             pcImagenEditada.Invalidate();
@@ -209,22 +167,8 @@ namespace Procesamiento_de_imágenes
 
             // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
             // Crear una copia de la imagen original
-            Bitmap resultante = new Bitmap(original.Width, original.Height, original.PixelFormat);
+            Bitmap resultante = ColorearVerde(original, blockWidth, blockHeight);
 
-            for (int x = 0; x < original.Width; x++)
-            {
-                for (int y = 0; y < original.Height; y++)
-                {
-                    // Obtenemos el color del pixel
-                    Color oColor = original.GetPixel(x, y);
-
-                    // Procesamos y obtenemos el nuevo color
-                    Color rColor = Color.FromArgb(0, oColor.G, 0);
-
-                    // Colocamos el color en resultante
-                    resultante.SetPixel(x, y, rColor);
-                }
-            }
             original = resultante;
             pcImagenEditada.Image = resultante;
             pcImagenEditada.Invalidate();
@@ -241,22 +185,8 @@ namespace Procesamiento_de_imágenes
 
             // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
             // Crear una copia de la imagen original
-            Bitmap resultante = new Bitmap(original.Width, original.Height, original.PixelFormat);
+            Bitmap resultante = ColorearAzul(original, blockWidth, blockHeight);
 
-            for (int x = 0; x < original.Width; x++)
-            {
-                for (int y = 0; y < original.Height; y++)
-                {
-                    // Obtenemos el color del pixel
-                    Color oColor = original.GetPixel(x, y);
-
-                    // Procesamos y obtenemos el nuevo color
-                    Color rColor = Color.FromArgb(0, 0, oColor.B);
-
-                    // Colocamos el color en resultante
-                    resultante.SetPixel(x, y, rColor);
-                }
-            }
             original = resultante;
             pcImagenEditada.Image = resultante;
             pcImagenEditada.Invalidate();
@@ -273,22 +203,8 @@ namespace Procesamiento_de_imágenes
 
             // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
             // Crear una copia de la imagen original
-            Bitmap resultante = new Bitmap(original.Width, original.Height, original.PixelFormat);
+            Bitmap resultante = ColorearAmarillo(original, blockWidth, blockHeight);
 
-            for (int x = 0; x < original.Width; x++)
-            {
-                for (int y = 0; y < original.Height; y++)
-                {
-                    // Obtenemos el color del pixel
-                    Color oColor = original.GetPixel(x, y);
-
-                    // Procesamos y obtenemos el nuevo color
-                    Color rColor = Color.FromArgb(oColor.R, oColor.G, 0);
-
-                    // Colocamos el color en resultante
-                    resultante.SetPixel(x, y, rColor);
-                }
-            }
             original = resultante;
             pcImagenEditada.Image = resultante;
             pcImagenEditada.Invalidate();
@@ -305,22 +221,8 @@ namespace Procesamiento_de_imágenes
 
             // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
             // Crear una copia de la imagen original
-            Bitmap resultante = new Bitmap(original.Width, original.Height, original.PixelFormat);
+            Bitmap resultante = ColorearVioleta(original, blockWidth, blockHeight);
 
-            for (int x = 0; x < original.Width; x++)
-            {
-                for (int y = 0; y < original.Height; y++)
-                {
-                    // Obtenemos el color del pixel
-                    Color oColor = original.GetPixel(x, y);
-
-                    // Procesamos y obtenemos el nuevo color
-                    Color rColor = Color.FromArgb(oColor.R, 0, oColor.B);
-
-                    // Colocamos el color en resultante
-                    resultante.SetPixel(x, y, rColor);
-                }
-            }
             original = resultante;
             pcImagenEditada.Image = resultante;
             pcImagenEditada.Invalidate();
@@ -337,26 +239,11 @@ namespace Procesamiento_de_imágenes
 
             // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
             // Crear una copia de la imagen original
-            Bitmap resultante = new Bitmap(original.Width, original.Height, original.PixelFormat);
+            Bitmap resultante = ColorearCyan(original, blockWidth, blockHeight);
 
-            for (int x = 0; x < original.Width; x++)
-            {
-                for (int y = 0; y < original.Height; y++)
-                {
-                    // Obtenemos el color del pixel
-                    Color oColor = original.GetPixel(x, y);
-
-                    // Procesamos y obtenemos el nuevo color
-                    Color rColor = Color.FromArgb(0, oColor.G, oColor.B);
-
-                    // Colocamos el color en resultante
-                    resultante.SetPixel(x, y, rColor);
-                }
-            }
             original = resultante;
             pcImagenEditada.Image = resultante;
             pcImagenEditada.Invalidate();
-
 
             cargarHistogramasIE(original);
         }
@@ -369,27 +256,8 @@ namespace Procesamiento_de_imágenes
                 return;
             }
 
-            // Revierte los cambios en la imagen, regresandola a su estado original
-            // Crear una copia de la imagen original
-            Bitmap resultante = new Bitmap(aux.Width, aux.Height, aux.PixelFormat);
-
-            for (int x = 0; x < aux.Width; x++)
-            {
-                for (int y = 0; y < aux.Height; y++)
-                {
-                    // Obtenemos el color del pixel
-                    Color oColor = aux.GetPixel(x, y);
-
-                    // Procesamos y obtenemos el nuevo color
-                    Color rColor = Color.FromArgb(oColor.A, oColor.R, oColor.G, oColor.B);
-
-                    // Colocamos el color en resultante
-                    resultante.SetPixel(x, y, rColor);
-                }
-            }
-
-            original = resultante;
-            pcImagenEditada.Image = resultante;
+            original = aux;
+            pcImagenEditada.Image = aux;
             pcImagenEditada.Invalidate();
 
             cargarHistogramasIE(original);
@@ -402,34 +270,7 @@ namespace Procesamiento_de_imágenes
                 return;
             }
 
-            int a = 5; // Tamaño de la aberración
-
-            Bitmap resultante = new Bitmap(original.Width, original.Height, original.PixelFormat);
-
-            for (int x = 0; x < original.Width; x++)
-            {
-                for (int y = 0; y < original.Height; y++)
-                {
-                    int r = 0;
-                    int g = original.GetPixel(x, y).G;
-                    int b = 0;
-
-                    // Obtenemos el rojo
-                    if (x + a < original.Width)
-                    {
-                        r = original.GetPixel(x + a, y).R;
-                    }
-
-                    // Obtenemos el azul
-                    if (x - a >= 0)
-                    {
-                        b = original.GetPixel(x - a, y).B;
-                    }
-
-                    // Colocamos el pixel
-                    resultante.SetPixel(x, y, Color.FromArgb(r, g, b));
-                }
-            }
+            Bitmap resultante = AberracionCromatica(original, 1);
 
             original = resultante;
             pcImagenEditada.Image = resultante;
@@ -446,6 +287,107 @@ namespace Procesamiento_de_imágenes
 
             // Crear una copia de la imagen original con el mismo tamaño y formato
             Bitmap resultante = EscalaDeGrises(original, blockWidth, blockHeight);
+
+            original = resultante;
+            pcImagenEditada.Image = resultante;
+            pcImagenEditada.Invalidate();
+
+            cargarHistogramasIE(original);
+        }
+        private void brilloToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!validacionDeImagenCargada())
+            {
+                return;
+            }
+
+            // Crear una copia de la imagen original con el mismo tamaño y formato
+            Bitmap resultante = Brillo(original, blockWidth, blockHeight);
+
+            original = resultante;
+            pcImagenEditada.Image = resultante;
+            pcImagenEditada.Invalidate();
+
+            cargarHistogramasIE(original);
+        }
+
+        private void contrasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!validacionDeImagenCargada())
+            {
+                return;
+            }
+
+            // Crear una copia de la imagen original con el mismo tamaño y formato
+            Bitmap resultante = Contraste(original, blockWidth, blockHeight);
+
+            original = resultante;
+            pcImagenEditada.Image = resultante;
+            pcImagenEditada.Invalidate();
+
+            cargarHistogramasIE(original);
+        }
+
+        private void gradienteDeColoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!validacionDeImagenCargada())
+            {
+                return;
+            }
+
+            // Crear una copia de la imagen original con el mismo tamaño y formato
+            Bitmap resultante = DegradadoColores(original);
+
+            original = resultante;
+            pcImagenEditada.Image = resultante;
+            pcImagenEditada.Invalidate();
+
+            cargarHistogramasIE(original);
+        }
+
+        private void ruidoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!validacionDeImagenCargada())
+            {
+                return;
+            }
+
+            // Crear una copia de la imagen original con el mismo tamaño y formato
+            Bitmap resultante = Ruido(original, blockWidth, blockHeight, 50);
+
+            original = resultante;
+            pcImagenEditada.Image = resultante;
+            pcImagenEditada.Invalidate();
+
+            cargarHistogramasIE(original);
+        }
+
+        private void pixelarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!validacionDeImagenCargada())
+            {
+                return;
+            }
+
+            // Crear una copia de la imagen original con el mismo tamaño y formato
+            Bitmap resultante = Pixelar(original, 10);
+
+            original = resultante;
+            pcImagenEditada.Image = resultante;
+            pcImagenEditada.Invalidate();
+
+            cargarHistogramasIE(original);
+        }
+
+        private void warpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!validacionDeImagenCargada())
+            {
+                return;
+            }
+
+            // Crear una copia de la imagen original con el mismo tamaño y formato
+            Bitmap resultante = Warp(original, 10, 3);
 
             original = resultante;
             pcImagenEditada.Image = resultante;
@@ -867,7 +809,796 @@ namespace Procesamiento_de_imágenes
             }
         }
 
+        private Bitmap AberracionCromatica(Bitmap original, double aPercentage)
+        {
+            try
+            {
+                int a = (int)(original.Width * (aPercentage / 100.0));
 
+                Bitmap aberratedFrame = new Bitmap(original.Width, original.Height);
+                BitmapData originalData = original.LockBits(new Rectangle(0, 0, original.Width, original.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+                BitmapData aberratedData = aberratedFrame.LockBits(new Rectangle(0, 0, aberratedFrame.Width, aberratedFrame.Height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+
+                unsafe
+                {
+                    byte* originalPtr = (byte*)originalData.Scan0.ToPointer();
+                    byte* aberratedPtr = (byte*)aberratedData.Scan0.ToPointer();
+
+                    for (int y = 0; y < original.Height; y++)
+                    {
+                        for (int x = 0; x < original.Width; x++)
+                        {
+                            int index = y * originalData.Stride + x * 4;
+
+                            int r = 0;
+                            int g = originalPtr[index + 1]; // Canal verde sin cambios
+                            int b = 0;
+
+                            // Obtener el rojo
+                            if (x + a < original.Width)
+                            {
+                                r = originalPtr[(y * originalData.Stride) + (x + a) * 4 + 2]; // Canal rojo
+                            }
+
+                            // Obtener el azul
+                            if (x - a >= 0)
+                            {
+                                b = originalPtr[(y * originalData.Stride) + (x - a) * 4]; // Canal azul
+                            }
+
+                            // Colocar el píxel aberrado
+                            aberratedPtr[index] = (byte)b;          // Canal azul
+                            aberratedPtr[index + 1] = (byte)g;      // Canal verde
+                            aberratedPtr[index + 2] = (byte)r;      // Canal rojo
+                            aberratedPtr[index + 3] = originalPtr[index + 3]; // Canal alfa
+                        }
+                    }
+                }
+
+                original.UnlockBits(originalData);
+                aberratedFrame.UnlockBits(aberratedData);
+
+                return aberratedFrame;
+            }
+            catch (System.ArgumentException ex)
+            {
+                MessageBox.Show($"Error de argumento: {ex.Message}. Detalles: {ex.StackTrace}");
+                return null;
+            }
+            catch (System.OutOfMemoryException)
+            {
+                MessageBox.Show($"Error de memoria");
+                throw; // Propagar la excepción para manejarla en el nivel superior
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al aplicar aberración cromática: {ex.Message}");
+                return null; // O manejar de otra manera según tus necesidades
+            }
+        }
+
+        private Bitmap ColorearRojo(Bitmap original, int blockWidth, int blockHeight)
+        {
+            try
+            {
+                Bitmap redFrame = new Bitmap(original.Width, original.Height);
+                BitmapData originalData = original.LockBits(new Rectangle(0, 0, original.Width, original.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+                BitmapData redData = redFrame.LockBits(new Rectangle(0, 0, redFrame.Width, redFrame.Height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+
+                unsafe
+                {
+                    byte* originalPtr = (byte*)originalData.Scan0.ToPointer();
+                    byte* redPtr = (byte*)redData.Scan0.ToPointer();
+
+                    for (int y = 0; y < original.Height; y += blockHeight)
+                    {
+                        for (int x = 0; x < original.Width; x += blockWidth)
+                        {
+                            // Procesar un bloque
+                            for (int blockY = 0; blockY < blockHeight && y + blockY < original.Height; blockY++)
+                            {
+                                for (int blockX = 0; blockX < blockWidth && x + blockX < original.Width; blockX++)
+                                {
+                                    int index = (y + blockY) * originalData.Stride + (x + blockX) * 4;
+
+                                    // Mantener solo el componente rojo, establecer los otros a 0
+                                    redPtr[index] = 0;                   // Blue a 0
+                                    redPtr[index + 1] = 0;                // Green a 0
+                                    redPtr[index + 2] = originalPtr[index + 2]; // Red a componente rojo original
+                                    redPtr[index + 3] = originalPtr[index + 3]; // Alpha sin cambios
+                                }
+                            }
+                        }
+                    }
+                }
+
+                original.UnlockBits(originalData);
+                redFrame.UnlockBits(redData);
+
+                return redFrame;
+            }
+            catch (System.ArgumentException ex)
+            {
+                MessageBox.Show($"Error de argumento: {ex.Message}. Detalles: {ex.StackTrace}");
+                return null;
+            }
+            catch (System.OutOfMemoryException)
+            {
+                MessageBox.Show($"Error de memoria");
+                throw; // Propagar la excepción para manejarla en el nivel superior
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al dejar solo el color rojo: {ex.Message}");
+                return null; // O manejar de otra manera según tus necesidades
+            }
+        }
+
+        private Bitmap ColorearVerde(Bitmap original, int blockWidth, int blockHeight)
+        {
+            try
+            {
+                Bitmap redFrame = new Bitmap(original.Width, original.Height);
+                BitmapData originalData = original.LockBits(new Rectangle(0, 0, original.Width, original.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+                BitmapData redData = redFrame.LockBits(new Rectangle(0, 0, redFrame.Width, redFrame.Height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+
+                unsafe
+                {
+                    byte* originalPtr = (byte*)originalData.Scan0.ToPointer();
+                    byte* redPtr = (byte*)redData.Scan0.ToPointer();
+
+                    for (int y = 0; y < original.Height; y += blockHeight)
+                    {
+                        for (int x = 0; x < original.Width; x += blockWidth)
+                        {
+                            // Procesar un bloque
+                            for (int blockY = 0; blockY < blockHeight && y + blockY < original.Height; blockY++)
+                            {
+                                for (int blockX = 0; blockX < blockWidth && x + blockX < original.Width; blockX++)
+                                {
+                                    int index = (y + blockY) * originalData.Stride + (x + blockX) * 4;
+
+                                    // Mantener solo el componente verde, establecer los otros a 0
+                                    redPtr[index] = 0;                   // Blue a 0
+                                    redPtr[index + 1] = originalPtr[index + 1];                // Green a tope
+                                    redPtr[index + 2] = 0; // Red a 0
+                                    redPtr[index + 3] = originalPtr[index + 3]; // Alpha sin cambios
+                                }
+                            }
+                        }
+                    }
+                }
+
+                original.UnlockBits(originalData);
+                redFrame.UnlockBits(redData);
+
+                return redFrame;
+            }
+            catch (System.ArgumentException ex)
+            {
+                MessageBox.Show($"Error de argumento: {ex.Message}. Detalles: {ex.StackTrace}");
+                return null;
+            }
+            catch (System.OutOfMemoryException)
+            {
+                MessageBox.Show($"Error de memoria");
+                throw; // Propagar la excepción para manejarla en el nivel superior
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al dejar solo el color rojo: {ex.Message}");
+                return null; // O manejar de otra manera según tus necesidades
+            }
+        }
+
+        private Bitmap ColorearAzul(Bitmap original, int blockWidth, int blockHeight)
+        {
+            try
+            {
+                Bitmap redFrame = new Bitmap(original.Width, original.Height);
+                BitmapData originalData = original.LockBits(new Rectangle(0, 0, original.Width, original.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+                BitmapData redData = redFrame.LockBits(new Rectangle(0, 0, redFrame.Width, redFrame.Height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+
+                unsafe
+                {
+                    byte* originalPtr = (byte*)originalData.Scan0.ToPointer();
+                    byte* redPtr = (byte*)redData.Scan0.ToPointer();
+
+                    for (int y = 0; y < original.Height; y += blockHeight)
+                    {
+                        for (int x = 0; x < original.Width; x += blockWidth)
+                        {
+                            // Procesar un bloque
+                            for (int blockY = 0; blockY < blockHeight && y + blockY < original.Height; blockY++)
+                            {
+                                for (int blockX = 0; blockX < blockWidth && x + blockX < original.Width; blockX++)
+                                {
+                                    int index = (y + blockY) * originalData.Stride + (x + blockX) * 4;
+
+                                    // Mantener solo el componente rojo, establecer los otros a 0
+                                    redPtr[index] = originalPtr[index];                   // Blue a tope
+                                    redPtr[index + 1] = 0;                // Green a 0
+                                    redPtr[index + 2] = 0; // Red a 0
+                                    redPtr[index + 3] = originalPtr[index + 3]; // Alpha sin cambios
+                                }
+                            }
+                        }
+                    }
+                }
+
+                original.UnlockBits(originalData);
+                redFrame.UnlockBits(redData);
+
+                return redFrame;
+            }
+            catch (System.ArgumentException ex)
+            {
+                MessageBox.Show($"Error de argumento: {ex.Message}. Detalles: {ex.StackTrace}");
+                return null;
+            }
+            catch (System.OutOfMemoryException)
+            {
+                MessageBox.Show($"Error de memoria");
+                throw; // Propagar la excepción para manejarla en el nivel superior
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al dejar solo el color rojo: {ex.Message}");
+                return null; // O manejar de otra manera según tus necesidades
+            }
+        }
+
+        private Bitmap ColorearAmarillo(Bitmap original, int blockWidth, int blockHeight)
+        {
+            try
+            {
+                Bitmap redFrame = new Bitmap(original.Width, original.Height);
+                BitmapData originalData = original.LockBits(new Rectangle(0, 0, original.Width, original.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+                BitmapData redData = redFrame.LockBits(new Rectangle(0, 0, redFrame.Width, redFrame.Height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+
+                unsafe
+                {
+                    byte* originalPtr = (byte*)originalData.Scan0.ToPointer();
+                    byte* redPtr = (byte*)redData.Scan0.ToPointer();
+
+                    for (int y = 0; y < original.Height; y += blockHeight)
+                    {
+                        for (int x = 0; x < original.Width; x += blockWidth)
+                        {
+                            // Procesar un bloque
+                            for (int blockY = 0; blockY < blockHeight && y + blockY < original.Height; blockY++)
+                            {
+                                for (int blockX = 0; blockX < blockWidth && x + blockX < original.Width; blockX++)
+                                {
+                                    int index = (y + blockY) * originalData.Stride + (x + blockX) * 4;
+
+                                    // Mantener solo el componente rojo, establecer los otros a 0
+                                    redPtr[index] = 0;                   // Blue a tope
+                                    redPtr[index + 1] = originalPtr[index + 1];                // Green a 0
+                                    redPtr[index + 2] = originalPtr[index + 2]; // Red a 0
+                                    redPtr[index + 3] = originalPtr[index + 3]; // Alpha sin cambios
+                                }
+                            }
+                        }
+                    }
+                }
+
+                original.UnlockBits(originalData);
+                redFrame.UnlockBits(redData);
+
+                return redFrame;
+            }
+            catch (System.ArgumentException ex)
+            {
+                MessageBox.Show($"Error de argumento: {ex.Message}. Detalles: {ex.StackTrace}");
+                return null;
+            }
+            catch (System.OutOfMemoryException)
+            {
+                MessageBox.Show($"Error de memoria");
+                throw; // Propagar la excepción para manejarla en el nivel superior
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al dejar solo el color rojo: {ex.Message}");
+                return null; // O manejar de otra manera según tus necesidades
+            }
+        }
+
+        private Bitmap ColorearVioleta(Bitmap original, int blockWidth, int blockHeight)
+        {
+            try
+            {
+                Bitmap redFrame = new Bitmap(original.Width, original.Height);
+                BitmapData originalData = original.LockBits(new Rectangle(0, 0, original.Width, original.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+                BitmapData redData = redFrame.LockBits(new Rectangle(0, 0, redFrame.Width, redFrame.Height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+
+                unsafe
+                {
+                    byte* originalPtr = (byte*)originalData.Scan0.ToPointer();
+                    byte* redPtr = (byte*)redData.Scan0.ToPointer();
+
+                    for (int y = 0; y < original.Height; y += blockHeight)
+                    {
+                        for (int x = 0; x < original.Width; x += blockWidth)
+                        {
+                            // Procesar un bloque
+                            for (int blockY = 0; blockY < blockHeight && y + blockY < original.Height; blockY++)
+                            {
+                                for (int blockX = 0; blockX < blockWidth && x + blockX < original.Width; blockX++)
+                                {
+                                    int index = (y + blockY) * originalData.Stride + (x + blockX) * 4;
+
+                                    // Mantener solo el componente rojo, establecer los otros a 0
+                                    redPtr[index] = originalPtr[index];                   // Blue a tope
+                                    redPtr[index + 1] = 0;                // Green a 0
+                                    redPtr[index + 2] = originalPtr[index + 2]; // Red a 0
+                                    redPtr[index + 3] = originalPtr[index + 3]; // Alpha sin cambios
+                                }
+                            }
+                        }
+                    }
+                }
+
+                original.UnlockBits(originalData);
+                redFrame.UnlockBits(redData);
+
+                return redFrame;
+            }
+            catch (System.ArgumentException ex)
+            {
+                MessageBox.Show($"Error de argumento: {ex.Message}. Detalles: {ex.StackTrace}");
+                return null;
+            }
+            catch (System.OutOfMemoryException)
+            {
+                MessageBox.Show($"Error de memoria");
+                throw; // Propagar la excepción para manejarla en el nivel superior
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al dejar solo el color rojo: {ex.Message}");
+                return null; // O manejar de otra manera según tus necesidades
+            }
+        }
+
+        private Bitmap ColorearCyan(Bitmap original, int blockWidth, int blockHeight)
+        {
+            try
+            {
+                Bitmap redFrame = new Bitmap(original.Width, original.Height);
+                BitmapData originalData = original.LockBits(new Rectangle(0, 0, original.Width, original.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+                BitmapData redData = redFrame.LockBits(new Rectangle(0, 0, redFrame.Width, redFrame.Height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+
+                unsafe
+                {
+                    byte* originalPtr = (byte*)originalData.Scan0.ToPointer();
+                    byte* redPtr = (byte*)redData.Scan0.ToPointer();
+
+                    for (int y = 0; y < original.Height; y += blockHeight)
+                    {
+                        for (int x = 0; x < original.Width; x += blockWidth)
+                        {
+                            // Procesar un bloque
+                            for (int blockY = 0; blockY < blockHeight && y + blockY < original.Height; blockY++)
+                            {
+                                for (int blockX = 0; blockX < blockWidth && x + blockX < original.Width; blockX++)
+                                {
+                                    int index = (y + blockY) * originalData.Stride + (x + blockX) * 4;
+
+                                    // Mantener solo el componente rojo, establecer los otros a 0
+                                    redPtr[index] = originalPtr[index];                   // Blue a tope
+                                    redPtr[index + 1] = originalPtr[index + 1];                // Green a 0
+                                    redPtr[index + 2] = 0; // Red a 0
+                                    redPtr[index + 3] = originalPtr[index + 3]; // Alpha sin cambios
+                                }
+                            }
+                        }
+                    }
+                }
+
+                original.UnlockBits(originalData);
+                redFrame.UnlockBits(redData);
+
+                return redFrame;
+            }
+            catch (System.ArgumentException ex)
+            {
+                MessageBox.Show($"Error de argumento: {ex.Message}. Detalles: {ex.StackTrace}");
+                return null;
+            }
+            catch (System.OutOfMemoryException)
+            {
+                MessageBox.Show($"Error de memoria");
+                throw; // Propagar la excepción para manejarla en el nivel superior
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al dejar solo el color rojo: {ex.Message}");
+                return null; // O manejar de otra manera según tus necesidades
+            }
+        }
+
+        private Bitmap DegradadoColores(Bitmap original)
+        {
+            try
+            {
+                Bitmap gradientImage = new Bitmap(original.Width, original.Height);
+                BitmapData originalData = original.LockBits(new Rectangle(0, 0, original.Width, original.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+                BitmapData gradientData = gradientImage.LockBits(new Rectangle(0, 0, gradientImage.Width, gradientImage.Height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+
+                unsafe
+                {
+                    byte* originalPtr = (byte*)originalData.Scan0.ToPointer();
+                    byte* gradientPtr = (byte*)gradientData.Scan0.ToPointer();
+
+                    for (int y = 0; y < original.Height; y++)
+                    {
+                        for (int x = 0; x < original.Width; x++)
+                        {
+                            int index = y * originalData.Stride + x * 4;
+
+                            // Asignar colores en función de la posición vertical
+                            byte gradientColor = (byte)(y * 255 / original.Height);
+
+                            // Establecer el color en la nueva imagen
+                            gradientPtr[index] = originalPtr[index]; // Blue
+                            gradientPtr[index + 1] = gradientColor;   // Green
+                            gradientPtr[index + 2] = gradientColor;   // Red
+                            gradientPtr[index + 3] = originalPtr[index + 3]; // Alpha
+                        }
+                    }
+                }
+
+                original.UnlockBits(originalData);
+                gradientImage.UnlockBits(gradientData);
+
+                return gradientImage;
+            }
+            catch (System.ArgumentException ex)
+            {
+                MessageBox.Show($"Error de argumento: {ex.Message}. Detalles: {ex.StackTrace}");
+                return null;
+            }
+            catch (System.OutOfMemoryException)
+            {
+                MessageBox.Show($"Error de memoria");
+                throw; // Propagar la excepción para manejarla en el nivel superior
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al aplicar el degradado de colores: {ex.Message}");
+                return null; // O manejar de otra manera según tus necesidades
+            }
+        }
+
+        private Bitmap Brillo(Bitmap original, int blockWidth, int blockHeight)
+        {
+            try
+            {
+                Bitmap brightenedImage = new Bitmap(original.Width, original.Height);
+                BitmapData originalData = original.LockBits(new Rectangle(0, 0, original.Width, original.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+                BitmapData brightenedData = brightenedImage.LockBits(new Rectangle(0, 0, brightenedImage.Width, brightenedImage.Height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+
+                unsafe
+                {
+                    byte* originalPtr = (byte*)originalData.Scan0.ToPointer();
+                    byte* brightenedPtr = (byte*)brightenedData.Scan0.ToPointer();
+
+                    for (int y = 0; y < original.Height; y += blockHeight)
+                    {
+                        for (int x = 0; x < original.Width; x += blockWidth)
+                        {
+                            // Procesar un bloque
+                            for (int blockY = 0; blockY < blockHeight && y + blockY < original.Height; blockY++)
+                            {
+                                for (int blockX = 0; blockX < blockWidth && x + blockX < original.Width; blockX++)
+                                {
+                                    int index = (y + blockY) * originalData.Stride + (x + blockX) * 4;
+
+                                    // Incrementar el brillo en un 10% para los componentes R, G, y B
+                                    for (int i = 0; i < 3; i++)
+                                    {
+                                        int newValue = (int)(originalPtr[index + i] * 1.1); // Aumentar en un 10%
+                                        brightenedPtr[index + i] = (byte)Math.Min(255, newValue);
+                                    }
+
+                                    // Mantener el componente alpha sin cambios
+                                    brightenedPtr[index + 3] = originalPtr[index + 3];
+                                }
+                            }
+                        }
+                    }
+                }
+
+                original.UnlockBits(originalData);
+                brightenedImage.UnlockBits(brightenedData);
+
+                return brightenedImage;
+            }
+            catch (System.ArgumentException ex)
+            {
+                MessageBox.Show($"Error de argumento: {ex.Message}. Detalles: {ex.StackTrace}");
+                return null;
+            }
+            catch (System.OutOfMemoryException)
+            {
+                MessageBox.Show($"Error de memoria");
+                throw; // Propagar la excepción para manejarla en el nivel superior
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al aumentar el brillo: {ex.Message}");
+                return null; // O manejar de otra manera según tus necesidades
+            }
+        }
+
+        private Bitmap Contraste(Bitmap original, int blockWidth, int blockHeight)
+        {
+            try
+            {
+                Bitmap highContrastImage = new Bitmap(original.Width, original.Height);
+                BitmapData originalData = original.LockBits(new Rectangle(0, 0, original.Width, original.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+                BitmapData highContrastData = highContrastImage.LockBits(new Rectangle(0, 0, highContrastImage.Width, highContrastImage.Height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+
+                unsafe
+                {
+                    byte* originalPtr = (byte*)originalData.Scan0.ToPointer();
+                    byte* highContrastPtr = (byte*)highContrastData.Scan0.ToPointer();
+
+                    for (int y = 0; y < original.Height; y += blockHeight)
+                    {
+                        for (int x = 0; x < original.Width; x += blockWidth)
+                        {
+                            // Procesar un bloque
+                            for (int blockY = 0; blockY < blockHeight && y + blockY < original.Height; blockY++)
+                            {
+                                for (int blockX = 0; blockX < blockWidth && x + blockX < original.Width; blockX++)
+                                {
+                                    int index = (y + blockY) * originalData.Stride + (x + blockX) * 4;
+
+                                    // Aumentar el contraste aplicando una fórmula
+                                    for (int i = 0; i < 3; i++)
+                                    {
+                                        double newValue = ((originalPtr[index + i] / 255.0) - 0.5) * 2.0; // Normalizar y ajustar al rango [-1, 1]
+                                        newValue = newValue * 1.5; // Ajustar el factor de contraste según sea necesario
+                                        newValue = (newValue / 2.0) + 0.5; // Desnormalizar al rango [0, 1]
+                                        newValue *= 255; // Escalar de nuevo al rango [0, 255]
+                                        highContrastPtr[index + i] = (byte)Math.Max(0, Math.Min(255, newValue));
+                                    }
+
+                                    // Mantener el componente alpha sin cambios
+                                    highContrastPtr[index + 3] = originalPtr[index + 3];
+                                }
+                            }
+                        }
+                    }
+                }
+
+                original.UnlockBits(originalData);
+                highContrastImage.UnlockBits(highContrastData);
+
+                return highContrastImage;
+            }
+            catch (System.ArgumentException ex)
+            {
+                MessageBox.Show($"Error de argumento: {ex.Message}. Detalles: {ex.StackTrace}");
+                return null;
+            }
+            catch (System.OutOfMemoryException)
+            {
+                MessageBox.Show($"Error de memoria");
+                throw; // Propagar la excepción para manejarla en el nivel superior
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al aumentar el contraste: {ex.Message}");
+                return null; // O manejar de otra manera según tus necesidades
+            }
+        }
+
+        private Bitmap Ruido(Bitmap original, int blockWidth, int blockHeight, double factorRuido)
+        {
+            try
+            {
+                Random random = new Random();
+                Bitmap noisyImage = new Bitmap(original.Width, original.Height);
+                BitmapData originalData = original.LockBits(new Rectangle(0, 0, original.Width, original.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+                BitmapData noisyData = noisyImage.LockBits(new Rectangle(0, 0, noisyImage.Width, noisyImage.Height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+
+                unsafe
+                {
+                    byte* originalPtr = (byte*)originalData.Scan0.ToPointer();
+                    byte* noisyPtr = (byte*)noisyData.Scan0.ToPointer();
+
+                    for (int y = 0; y < original.Height; y += blockHeight)
+                    {
+                        for (int x = 0; x < original.Width; x += blockWidth)
+                        {
+                            // Procesar un bloque
+                            for (int blockY = 0; blockY < blockHeight && y + blockY < original.Height; blockY++)
+                            {
+                                for (int blockX = 0; blockX < blockWidth && x + blockX < original.Width; blockX++)
+                                {
+                                    int index = (y + blockY) * originalData.Stride + (x + blockX) * 4;
+
+                                    // Añadir ruido a cada componente de color
+                                    for (int i = 0; i < 3; i++)
+                                    {
+                                        double noise = (random.NextDouble() * 2 - 1) * factorRuido;
+                                        int newValue = (int)Math.Min(255, Math.Max(0, originalPtr[index + i] + noise));
+                                        noisyPtr[index + i] = (byte)newValue;
+                                    }
+
+                                    // Mantener el componente alpha sin cambios
+                                    noisyPtr[index + 3] = originalPtr[index + 3];
+                                }
+                            }
+                        }
+                    }
+                }
+
+                original.UnlockBits(originalData);
+                noisyImage.UnlockBits(noisyData);
+
+                return noisyImage;
+            }
+            catch (System.ArgumentException ex)
+            {
+                MessageBox.Show($"Error de argumento: {ex.Message}. Detalles: {ex.StackTrace}");
+                return null;
+            }
+            catch (System.OutOfMemoryException)
+            {
+                MessageBox.Show($"Error de memoria");
+                throw; // Propagar la excepción para manejarla en el nivel superior
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al añadir ruido: {ex.Message}");
+                return null; // O manejar de otra manera según tus necesidades
+            }
+        }
+
+        private Bitmap Pixelar(Bitmap original, int blockSize)
+        {
+            try
+            {
+                Bitmap pixelatedImage = new Bitmap(original.Width, original.Height);
+                BitmapData originalData = original.LockBits(new Rectangle(0, 0, original.Width, original.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+                BitmapData pixelatedData = pixelatedImage.LockBits(new Rectangle(0, 0, pixelatedImage.Width, pixelatedImage.Height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+
+                unsafe
+                {
+                    byte* originalPtr = (byte*)originalData.Scan0.ToPointer();
+                    byte* pixelatedPtr = (byte*)pixelatedData.Scan0.ToPointer();
+
+                    for (int y = 0; y < original.Height; y += blockSize)
+                    {
+                        for (int x = 0; x < original.Width; x += blockSize)
+                        {
+                            // Procesar un bloque
+                            int sumR = 0, sumG = 0, sumB = 0, sumA = 0;
+                            int pixelCount = 0;
+
+                            for (int blockY = 0; blockY < blockSize && y + blockY < original.Height; blockY++)
+                            {
+                                for (int blockX = 0; blockX < blockSize && x + blockX < original.Width; blockX++)
+                                {
+                                    int index = (y + blockY) * originalData.Stride + (x + blockX) * 4;
+
+                                    // Sumar los componentes de color del bloque
+                                    sumR += originalPtr[index];
+                                    sumG += originalPtr[index + 1];
+                                    sumB += originalPtr[index + 2];
+                                    sumA += originalPtr[index + 3];
+                                    pixelCount++;
+                                }
+                            }
+
+                            // Calcular el promedio de color para el bloque
+                            int avgR = sumR / pixelCount;
+                            int avgG = sumG / pixelCount;
+                            int avgB = sumB / pixelCount;
+                            int avgA = sumA / pixelCount;
+
+                            // Establecer el mismo color promedio para todos los píxeles en el bloque
+                            for (int blockY = 0; blockY < blockSize && y + blockY < original.Height; blockY++)
+                            {
+                                for (int blockX = 0; blockX < blockSize && x + blockX < original.Width; blockX++)
+                                {
+                                    int index = (y + blockY) * originalData.Stride + (x + blockX) * 4;
+
+                                    pixelatedPtr[index] = (byte)avgR;
+                                    pixelatedPtr[index + 1] = (byte)avgG;
+                                    pixelatedPtr[index + 2] = (byte)avgB;
+                                    pixelatedPtr[index + 3] = (byte)avgA;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                original.UnlockBits(originalData);
+                pixelatedImage.UnlockBits(pixelatedData);
+
+                return pixelatedImage;
+            }
+            catch (System.ArgumentException ex)
+            {
+                MessageBox.Show($"Error de argumento: {ex.Message}. Detalles: {ex.StackTrace}");
+                return null;
+            }
+            catch (System.OutOfMemoryException)
+            {
+                MessageBox.Show($"Error de memoria");
+                throw; // Propagar la excepción para manejarla en el nivel superior
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al pixelar la imagen: {ex.Message}");
+                return null; // O manejar de otra manera según tus necesidades
+            }
+        }
+
+        private Bitmap Warp(Bitmap original, double amplitude, double frequency)
+        {
+            try
+            {
+                Bitmap warpedImage = new Bitmap(original.Width, original.Height);
+                BitmapData originalData = original.LockBits(new Rectangle(0, 0, original.Width, original.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+                BitmapData warpedData = warpedImage.LockBits(new Rectangle(0, 0, warpedImage.Width, warpedImage.Height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+
+                unsafe
+                {
+                    byte* originalPtr = (byte*)originalData.Scan0.ToPointer();
+                    byte* warpedPtr = (byte*)warpedData.Scan0.ToPointer();
+
+                    for (int y = 0; y < original.Height; y++)
+                    {
+                        for (int x = 0; x < original.Width; x++)
+                        {
+                            // Calcular la nueva posición usando una función sinusoidal
+                            int newX = (int)(x + amplitude * Math.Sin(2 * Math.PI * frequency * y / original.Height));
+                            int newY = (int)(y + amplitude * Math.Sin(2 * Math.PI * frequency * x / original.Width));
+
+                            // Asegurarse de que las nuevas coordenadas estén dentro de los límites de la imagen
+                            newX = Math.Max(0, Math.Min(original.Width - 1, newX));
+                            newY = Math.Max(0, Math.Min(original.Height - 1, newY));
+
+                            // Copiar el color de la posición original a la nueva posición
+                            int originalIndex = y * originalData.Stride + x * 4;
+                            int warpedIndex = newY * warpedData.Stride + newX * 4;
+
+                            for (int i = 0; i < 4; i++)
+                            {
+                                warpedPtr[warpedIndex + i] = originalPtr[originalIndex + i];
+                            }
+                        }
+                    }
+                }
+
+                original.UnlockBits(originalData);
+                warpedImage.UnlockBits(warpedData);
+
+                return warpedImage;
+            }
+            catch (System.ArgumentException ex)
+            {
+                MessageBox.Show($"Error de argumento: {ex.Message}. Detalles: {ex.StackTrace}");
+                return null;
+            }
+            catch (System.OutOfMemoryException)
+            {
+                MessageBox.Show($"Error de memoria");
+                throw; // Propagar la excepción para manejarla en el nivel superior
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al aplicar el filtro warp: {ex.Message}");
+                return null; // O manejar de otra manera según tus necesidades
+            }
+        }
 
 
         private void revetirCambiosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1005,7 +1736,7 @@ namespace Procesamiento_de_imágenes
 
         private void btnFlechaIzquierda_Click(object sender, EventArgs e)
         {
-            
+
             if (indiceActual > 0)
             {
                 indiceActual--;
@@ -1033,6 +1764,8 @@ namespace Procesamiento_de_imágenes
 
             pbManualDeUsuario.Image = listaImagenes[indiceActual];
         }
+
+
 
 
 
