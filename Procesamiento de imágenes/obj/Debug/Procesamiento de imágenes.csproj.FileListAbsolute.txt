@@ -162,3 +162,4 @@ C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágen
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Debug\Procesamiento de imágenes.pdb
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Debug\Accord.Video.DirectShow.dll
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Debug\Accord.Video.DirectShow.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Debug\Procesamiento_de_imágenes.SliderForm.resources

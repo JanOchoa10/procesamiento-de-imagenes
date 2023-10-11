@@ -14,6 +14,7 @@ using AForge.Video;
 using AForge.Video.DirectShow;
 using Accord.Video.FFMPEG;
 using System.Runtime.InteropServices;
+using Microsoft.VisualBasic;
 
 namespace Procesamiento_de_imágenes
 {
@@ -129,6 +130,12 @@ namespace Procesamiento_de_imágenes
             // Invertimos los colores
             Bitmap resultante = InvertirColores(original, blockWidth, blockHeight);
 
+            // La operación no fue exitosa, cancelar el proceso
+            if (resultante == null)
+            {
+                return;
+            }
+
             original = resultante;
             pcImagenEditada.Image = resultante;
             pcImagenEditada.Invalidate();
@@ -151,6 +158,12 @@ namespace Procesamiento_de_imágenes
             // Crear una copia de la imagen original
             Bitmap resultante = ColorearRojo(original, blockWidth, blockHeight);
 
+            // La operación no fue exitosa, cancelar el proceso
+            if (resultante == null)
+            {
+                return;
+            }
+
             original = resultante;
             pcImagenEditada.Image = resultante;
             pcImagenEditada.Invalidate();
@@ -168,6 +181,12 @@ namespace Procesamiento_de_imágenes
             // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
             // Crear una copia de la imagen original
             Bitmap resultante = ColorearVerde(original, blockWidth, blockHeight);
+
+            // La operación no fue exitosa, cancelar el proceso
+            if (resultante == null)
+            {
+                return;
+            }
 
             original = resultante;
             pcImagenEditada.Image = resultante;
@@ -187,6 +206,12 @@ namespace Procesamiento_de_imágenes
             // Crear una copia de la imagen original
             Bitmap resultante = ColorearAzul(original, blockWidth, blockHeight);
 
+            // La operación no fue exitosa, cancelar el proceso
+            if (resultante == null)
+            {
+                return;
+            }
+
             original = resultante;
             pcImagenEditada.Image = resultante;
             pcImagenEditada.Invalidate();
@@ -204,6 +229,12 @@ namespace Procesamiento_de_imágenes
             // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
             // Crear una copia de la imagen original
             Bitmap resultante = ColorearAmarillo(original, blockWidth, blockHeight);
+
+            // La operación no fue exitosa, cancelar el proceso
+            if (resultante == null)
+            {
+                return;
+            }
 
             original = resultante;
             pcImagenEditada.Image = resultante;
@@ -223,6 +254,12 @@ namespace Procesamiento_de_imágenes
             // Crear una copia de la imagen original
             Bitmap resultante = ColorearVioleta(original, blockWidth, blockHeight);
 
+            // La operación no fue exitosa, cancelar el proceso
+            if (resultante == null)
+            {
+                return;
+            }
+
             original = resultante;
             pcImagenEditada.Image = resultante;
             pcImagenEditada.Invalidate();
@@ -240,6 +277,12 @@ namespace Procesamiento_de_imágenes
             // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
             // Crear una copia de la imagen original
             Bitmap resultante = ColorearCyan(original, blockWidth, blockHeight);
+
+            // La operación no fue exitosa, cancelar el proceso
+            if (resultante == null)
+            {
+                return;
+            }
 
             original = resultante;
             pcImagenEditada.Image = resultante;
@@ -272,6 +315,12 @@ namespace Procesamiento_de_imágenes
 
             Bitmap resultante = AberracionCromatica(original, 1);
 
+            // La operación no fue exitosa, cancelar el proceso
+            if (resultante == null)
+            {
+                return;
+            }
+
             original = resultante;
             pcImagenEditada.Image = resultante;
             pcImagenEditada.Invalidate();
@@ -288,6 +337,12 @@ namespace Procesamiento_de_imágenes
             // Crear una copia de la imagen original con el mismo tamaño y formato
             Bitmap resultante = EscalaDeGrises(original, blockWidth, blockHeight);
 
+            // La operación no fue exitosa, cancelar el proceso
+            if (resultante == null)
+            {
+                return;
+            }
+
             original = resultante;
             pcImagenEditada.Image = resultante;
             pcImagenEditada.Invalidate();
@@ -303,6 +358,12 @@ namespace Procesamiento_de_imágenes
 
             // Crear una copia de la imagen original con el mismo tamaño y formato
             Bitmap resultante = Brillo(original, blockWidth, blockHeight);
+
+            // La operación no fue exitosa, cancelar el proceso
+            if (resultante == null)
+            {
+                return;
+            }
 
             original = resultante;
             pcImagenEditada.Image = resultante;
@@ -321,6 +382,12 @@ namespace Procesamiento_de_imágenes
             // Crear una copia de la imagen original con el mismo tamaño y formato
             Bitmap resultante = Contraste(original, blockWidth, blockHeight);
 
+            // La operación no fue exitosa, cancelar el proceso
+            if (resultante == null)
+            {
+                return;
+            }
+
             original = resultante;
             pcImagenEditada.Image = resultante;
             pcImagenEditada.Invalidate();
@@ -338,6 +405,12 @@ namespace Procesamiento_de_imágenes
             // Crear una copia de la imagen original con el mismo tamaño y formato
             Bitmap resultante = DegradadoColores(original);
 
+            // La operación no fue exitosa, cancelar el proceso
+            if (resultante == null)
+            {
+                return;
+            }
+
             original = resultante;
             pcImagenEditada.Image = resultante;
             pcImagenEditada.Invalidate();
@@ -353,7 +426,14 @@ namespace Procesamiento_de_imágenes
             }
 
             // Crear una copia de la imagen original con el mismo tamaño y formato
-            Bitmap resultante = Ruido(original, blockWidth, blockHeight, 50);
+            Bitmap resultante = Ruido(original, blockWidth, blockHeight);
+
+            if (resultante == null)
+            {
+                // La operación de ruido no fue exitosa, cancelar el proceso
+                //MessageBox.Show("La operación de ruido no se realizó correctamente. Se cancelará el proceso.");
+                return;
+            }
 
             original = resultante;
             pcImagenEditada.Image = resultante;
@@ -370,7 +450,13 @@ namespace Procesamiento_de_imágenes
             }
 
             // Crear una copia de la imagen original con el mismo tamaño y formato
-            Bitmap resultante = Pixelar(original, 10);
+            Bitmap resultante = Pixelar(original);
+
+            // La operación no fue exitosa, cancelar el proceso
+            if (resultante == null)
+            {
+                return;
+            }
 
             original = resultante;
             pcImagenEditada.Image = resultante;
@@ -387,7 +473,13 @@ namespace Procesamiento_de_imágenes
             }
 
             // Crear una copia de la imagen original con el mismo tamaño y formato
-            Bitmap resultante = Warp(original, 10, 3);
+            Bitmap resultante = Warp(original);
+
+            // La operación no fue exitosa, cancelar el proceso
+            if (resultante == null)
+            {
+                return;
+            }
 
             original = resultante;
             pcImagenEditada.Image = resultante;
@@ -1397,51 +1489,68 @@ namespace Procesamiento_de_imágenes
             }
         }
 
-        private Bitmap Ruido(Bitmap original, int blockWidth, int blockHeight, double factorRuido)
+        private Bitmap Ruido(Bitmap original, int blockWidth, int blockHeight)
         {
             try
             {
-                Random random = new Random();
-                Bitmap noisyImage = new Bitmap(original.Width, original.Height);
-                BitmapData originalData = original.LockBits(new Rectangle(0, 0, original.Width, original.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
-                BitmapData noisyData = noisyImage.LockBits(new Rectangle(0, 0, noisyImage.Width, noisyImage.Height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
-
-                unsafe
+                int minValue = 1;
+                int maxValue = 100;
+                int defaultValue = 50;
+                string tituloSlider = "Cantidad de Ruido:";
+                // Mostrar un formulario que contenga la barra deslizadora
+                using (SliderForm sliderForm = new SliderForm(minValue, maxValue, defaultValue, tituloSlider))
                 {
-                    byte* originalPtr = (byte*)originalData.Scan0.ToPointer();
-                    byte* noisyPtr = (byte*)noisyData.Scan0.ToPointer();
-
-                    for (int y = 0; y < original.Height; y += blockHeight)
+                    if (sliderForm.ShowDialog() != DialogResult.OK)
                     {
-                        for (int x = 0; x < original.Width; x += blockWidth)
+                        // El usuario canceló el formulario
+                        MessageBox.Show("Se canceló el proceso.");
+                        return null;
+                    }
+
+                    double factorRuido = sliderForm.Valor;
+
+                    Random random = new Random();
+                    Bitmap noisyImage = new Bitmap(original.Width, original.Height);
+                    BitmapData originalData = original.LockBits(new Rectangle(0, 0, original.Width, original.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+                    BitmapData noisyData = noisyImage.LockBits(new Rectangle(0, 0, noisyImage.Width, noisyImage.Height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+
+                    unsafe
+                    {
+                        byte* originalPtr = (byte*)originalData.Scan0.ToPointer();
+                        byte* noisyPtr = (byte*)noisyData.Scan0.ToPointer();
+
+                        for (int y = 0; y < original.Height; y += blockHeight)
                         {
-                            // Procesar un bloque
-                            for (int blockY = 0; blockY < blockHeight && y + blockY < original.Height; blockY++)
+                            for (int x = 0; x < original.Width; x += blockWidth)
                             {
-                                for (int blockX = 0; blockX < blockWidth && x + blockX < original.Width; blockX++)
+                                // Procesar un bloque
+                                for (int blockY = 0; blockY < blockHeight && y + blockY < original.Height; blockY++)
                                 {
-                                    int index = (y + blockY) * originalData.Stride + (x + blockX) * 4;
-
-                                    // Añadir ruido a cada componente de color
-                                    for (int i = 0; i < 3; i++)
+                                    for (int blockX = 0; blockX < blockWidth && x + blockX < original.Width; blockX++)
                                     {
-                                        double noise = (random.NextDouble() * 2 - 1) * factorRuido;
-                                        int newValue = (int)Math.Min(255, Math.Max(0, originalPtr[index + i] + noise));
-                                        noisyPtr[index + i] = (byte)newValue;
-                                    }
+                                        int index = (y + blockY) * originalData.Stride + (x + blockX) * 4;
 
-                                    // Mantener el componente alpha sin cambios
-                                    noisyPtr[index + 3] = originalPtr[index + 3];
+                                        // Añadir ruido a cada componente de color
+                                        for (int i = 0; i < 3; i++)
+                                        {
+                                            double noise = (random.NextDouble() * 2 - 1) * factorRuido;
+                                            int newValue = (int)Math.Min(255, Math.Max(0, originalPtr[index + i] + noise));
+                                            noisyPtr[index + i] = (byte)newValue;
+                                        }
+
+                                        // Mantener el componente alpha sin cambios
+                                        noisyPtr[index + 3] = originalPtr[index + 3];
+                                    }
                                 }
                             }
                         }
                     }
+
+                    original.UnlockBits(originalData);
+                    noisyImage.UnlockBits(noisyData);
+
+                    return noisyImage;
                 }
-
-                original.UnlockBits(originalData);
-                noisyImage.UnlockBits(noisyData);
-
-                return noisyImage;
             }
             catch (System.ArgumentException ex)
             {
@@ -1456,73 +1565,91 @@ namespace Procesamiento_de_imágenes
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al añadir ruido: {ex.Message}");
-                return null; // O manejar de otra manera según tus necesidades
+                return null;
             }
         }
 
-        private Bitmap Pixelar(Bitmap original, int blockSize)
+        private Bitmap Pixelar(Bitmap original)
         {
             try
             {
-                Bitmap pixelatedImage = new Bitmap(original.Width, original.Height);
-                BitmapData originalData = original.LockBits(new Rectangle(0, 0, original.Width, original.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
-                BitmapData pixelatedData = pixelatedImage.LockBits(new Rectangle(0, 0, pixelatedImage.Width, pixelatedImage.Height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+                int minValue = 1;
+                int maxValue = ((original.Width > original.Height) ? original.Width : original.Height) / 5;
+                int defaultValue = (((original.Width > original.Height) ? original.Width : original.Height) / 5) / 2; // Valor por defecto
+                string tituloSlider = "Cantidad de Pixelado:";
 
-                unsafe
+                // Mostrar un formulario que contenga la barra deslizadora para la cantidad de pixelado
+                using (SliderForm sliderForm = new SliderForm(minValue, maxValue, defaultValue, tituloSlider))
                 {
-                    byte* originalPtr = (byte*)originalData.Scan0.ToPointer();
-                    byte* pixelatedPtr = (byte*)pixelatedData.Scan0.ToPointer();
-
-                    for (int y = 0; y < original.Height; y += blockSize)
+                    if (sliderForm.ShowDialog() != DialogResult.OK)
                     {
-                        for (int x = 0; x < original.Width; x += blockSize)
+                        // El usuario canceló el formulario
+                        MessageBox.Show("Se canceló el proceso.");
+                        return null;
+                    }
+
+                    int blockSize = sliderForm.Valor;
+
+                    Bitmap pixelatedImage = new Bitmap(original.Width, original.Height);
+                    BitmapData originalData = original.LockBits(new Rectangle(0, 0, original.Width, original.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+                    BitmapData pixelatedData = pixelatedImage.LockBits(new Rectangle(0, 0, pixelatedImage.Width, pixelatedImage.Height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+
+                    unsafe
+                    {
+                        byte* originalPtr = (byte*)originalData.Scan0.ToPointer();
+                        byte* pixelatedPtr = (byte*)pixelatedData.Scan0.ToPointer();
+
+                        for (int y = 0; y < original.Height; y += blockSize)
                         {
-                            // Procesar un bloque
-                            int sumR = 0, sumG = 0, sumB = 0, sumA = 0;
-                            int pixelCount = 0;
-
-                            for (int blockY = 0; blockY < blockSize && y + blockY < original.Height; blockY++)
+                            for (int x = 0; x < original.Width; x += blockSize)
                             {
-                                for (int blockX = 0; blockX < blockSize && x + blockX < original.Width; blockX++)
-                                {
-                                    int index = (y + blockY) * originalData.Stride + (x + blockX) * 4;
+                                // Procesar un bloque
+                                int sumR = 0, sumG = 0, sumB = 0, sumA = 0;
+                                int pixelCount = 0;
 
-                                    // Sumar los componentes de color del bloque
-                                    sumR += originalPtr[index];
-                                    sumG += originalPtr[index + 1];
-                                    sumB += originalPtr[index + 2];
-                                    sumA += originalPtr[index + 3];
-                                    pixelCount++;
+                                for (int blockY = 0; blockY < blockSize && y + blockY < original.Height; blockY++)
+                                {
+                                    for (int blockX = 0; blockX < blockSize && x + blockX < original.Width; blockX++)
+                                    {
+                                        int index = (y + blockY) * originalData.Stride + (x + blockX) * 4;
+
+                                        // Sumar los componentes de color del bloque
+                                        sumR += originalPtr[index];
+                                        sumG += originalPtr[index + 1];
+                                        sumB += originalPtr[index + 2];
+                                        sumA += originalPtr[index + 3];
+                                        pixelCount++;
+                                    }
                                 }
-                            }
 
-                            // Calcular el promedio de color para el bloque
-                            int avgR = sumR / pixelCount;
-                            int avgG = sumG / pixelCount;
-                            int avgB = sumB / pixelCount;
-                            int avgA = sumA / pixelCount;
+                                // Calcular el promedio de color para el bloque
+                                int avgR = sumR / pixelCount;
+                                int avgG = sumG / pixelCount;
+                                int avgB = sumB / pixelCount;
+                                int avgA = sumA / pixelCount;
 
-                            // Establecer el mismo color promedio para todos los píxeles en el bloque
-                            for (int blockY = 0; blockY < blockSize && y + blockY < original.Height; blockY++)
-                            {
-                                for (int blockX = 0; blockX < blockSize && x + blockX < original.Width; blockX++)
+                                // Establecer el mismo color promedio para todos los píxeles en el bloque
+                                for (int blockY = 0; blockY < blockSize && y + blockY < original.Height; blockY++)
                                 {
-                                    int index = (y + blockY) * originalData.Stride + (x + blockX) * 4;
+                                    for (int blockX = 0; blockX < blockSize && x + blockX < original.Width; blockX++)
+                                    {
+                                        int index = (y + blockY) * originalData.Stride + (x + blockX) * 4;
 
-                                    pixelatedPtr[index] = (byte)avgR;
-                                    pixelatedPtr[index + 1] = (byte)avgG;
-                                    pixelatedPtr[index + 2] = (byte)avgB;
-                                    pixelatedPtr[index + 3] = (byte)avgA;
+                                        pixelatedPtr[index] = (byte)avgR;
+                                        pixelatedPtr[index + 1] = (byte)avgG;
+                                        pixelatedPtr[index + 2] = (byte)avgB;
+                                        pixelatedPtr[index + 3] = (byte)avgA;
+                                    }
                                 }
                             }
                         }
                     }
+
+                    original.UnlockBits(originalData);
+                    pixelatedImage.UnlockBits(pixelatedData);
+
+                    return pixelatedImage;
                 }
-
-                original.UnlockBits(originalData);
-                pixelatedImage.UnlockBits(pixelatedData);
-
-                return pixelatedImage;
             }
             catch (System.ArgumentException ex)
             {
@@ -1541,66 +1668,311 @@ namespace Procesamiento_de_imágenes
             }
         }
 
-        private Bitmap Warp(Bitmap original, double amplitude, double frequency)
+        private Bitmap Warp(Bitmap original)
         {
             try
             {
-                Bitmap warpedImage = new Bitmap(original.Width, original.Height);
-                BitmapData originalData = original.LockBits(new Rectangle(0, 0, original.Width, original.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
-                BitmapData warpedData = warpedImage.LockBits(new Rectangle(0, 0, warpedImage.Width, warpedImage.Height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+                // Preguntar al usuario por los valores de xWarp e yWarp
+                int xWarp, yWarp;
 
-                unsafe
+                // Preguntar por xWarp
+                using (var xWarpForm = new SliderForm(0, original.Width, original.Width / 2, "Ingrese el valor de X (max: " + original.Width + "):"))
                 {
-                    byte* originalPtr = (byte*)originalData.Scan0.ToPointer();
-                    byte* warpedPtr = (byte*)warpedData.Scan0.ToPointer();
-
-                    for (int y = 0; y < original.Height; y++)
+                    if (xWarpForm.ShowDialog() == DialogResult.OK)
                     {
-                        for (int x = 0; x < original.Width; x++)
-                        {
-                            // Calcular la nueva posición usando una función sinusoidal
-                            int newX = (int)(x + amplitude * Math.Sin(2 * Math.PI * frequency * y / original.Height));
-                            int newY = (int)(y + amplitude * Math.Sin(2 * Math.PI * frequency * x / original.Width));
-
-                            // Asegurarse de que las nuevas coordenadas estén dentro de los límites de la imagen
-                            newX = Math.Max(0, Math.Min(original.Width - 1, newX));
-                            newY = Math.Max(0, Math.Min(original.Height - 1, newY));
-
-                            // Copiar el color de la posición original a la nueva posición
-                            int originalIndex = y * originalData.Stride + x * 4;
-                            int warpedIndex = newY * warpedData.Stride + newX * 4;
-
-                            for (int i = 0; i < 4; i++)
-                            {
-                                warpedPtr[warpedIndex + i] = originalPtr[originalIndex + i];
-                            }
-                        }
+                        xWarp = xWarpForm.Valor;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Proceso cancelado.");
+                        return null;
                     }
                 }
 
-                original.UnlockBits(originalData);
-                warpedImage.UnlockBits(warpedData);
+                // Preguntar por yWarp
+                using (var yWarpForm = new SliderForm(0, original.Height, original.Height / 2, "Ingrese el valor de Y (max: " + original.Height + "):"))
+                {
+                    if (yWarpForm.ShowDialog() == DialogResult.OK)
+                    {
+                        yWarp = yWarpForm.Valor;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Proceso cancelado.");
+                        return null;
+                    }
+                }
 
-                return warpedImage;
-            }
-            catch (System.ArgumentException ex)
-            {
-                MessageBox.Show($"Error de argumento: {ex.Message}. Detalles: {ex.StackTrace}");
-                return null;
-            }
-            catch (System.OutOfMemoryException)
-            {
-                MessageBox.Show($"Error de memoria");
-                throw; // Propagar la excepción para manejarla en el nivel superior
+                // Restricción para evitar valores fuera del rango de la imagen original
+                xWarp = Math.Min(xWarp, original.Width);
+                yWarp = Math.Min(yWarp, original.Height);
+
+                // Preguntar al usuario si desea usar interpolación bilineal
+                bool bilineal = false; // valor predeterminado
+                var result = MessageBox.Show("¿Desea utilizar interpolación bilineal?", "Interpolación Bilineal", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    bilineal = true;
+                }
+
+                // Crear una copia de la imagen original con el mismo tamaño y formato
+                Bitmap resultante = new Bitmap(original.Width, original.Height);
+
+
+                // Punto medio de la imagen
+                int medioX = original.Width / 2;
+                int medioY = original.Height / 2;
+
+                // Cuarto superior izquierdo
+                // Coordenadas de los puntos del poliedro
+                int x1 = 0;
+                int x2 = medioX;
+                int x3 = xWarp;
+                int x4 = 0;
+                int y1 = 0;
+                int y2 = 0;
+                int y3 = yWarp;
+                int y4 = medioY;
+
+                // Offset para el cuadrante
+                int offsetX = 0;
+                int offsetY = 0;
+
+
+                if (bilineal)
+                    warpBilineal(x1, y1, x2, y2, x3, y3, x4, y4, offsetX, offsetY, resultante);
+                else
+                    warpNormal(x1, y1, x2, y2, x3, y3, x4, y4, offsetX, offsetY, resultante);
+
+                // Cuarto superior derecho
+                x1 = medioX;
+                x2 = original.Width - 1;
+                x3 = original.Width - 1;
+                x4 = xWarp;
+                y1 = 0;
+                y2 = 0;
+                y3 = medioY;
+                y4 = yWarp;
+
+                offsetX = medioX;
+                offsetY = 0;
+
+                if (bilineal)
+                    warpBilineal(x1, y1, x2, y2, x3, y3, x4, y4, offsetX, offsetY, resultante);
+                else
+                    warpNormal(x1, y1, x2, y2, x3, y3, x4, y4, offsetX, offsetY, resultante);
+
+                // Cuarto inferior derecho
+                x1 = xWarp;
+                x2 = original.Width - 1;
+                x3 = original.Width - 1;
+                x4 = medioX;
+                y1 = yWarp;
+                y2 = medioY;
+                y3 = original.Height - 1;
+                y4 = original.Height - 1;
+
+                offsetX = medioX;
+                offsetY = medioY;
+
+                if (bilineal)
+                    warpBilineal(x1, y1, x2, y2, x3, y3, x4, y4, offsetX, offsetY, resultante);
+                else
+                    warpNormal(x1, y1, x2, y2, x3, y3, x4, y4, offsetX, offsetY, resultante);
+
+                // Cuarto inferior derecho
+                x1 = 0;
+                x2 = xWarp;
+                x3 = medioX;
+                x4 = 0;
+                y1 = medioY;
+                y2 = yWarp;
+                y3 = original.Height - 1;
+                y4 = original.Height - 1;
+
+                offsetX = 0;
+                offsetY = medioY;
+
+                if (bilineal)
+                    warpBilineal(x1, y1, x2, y2, x3, y3, x4, y4, offsetX, offsetY, resultante);
+                else
+                    warpNormal(x1, y1, x2, y2, x3, y3, x4, y4, offsetX, offsetY, resultante);
+
+                this.Invalidate();
+                return resultante;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al aplicar el filtro warp: {ex.Message}");
-                return null; // O manejar de otra manera según tus necesidades
+                MessageBox.Show($"Error al realizar la transformación warp: {ex.Message}");
+                return null;
             }
         }
 
+        private void warpNormal(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4, int extraX, int extraY, Bitmap resultante)
+        {
+            int alto = original.Height;
+            int ancho = original.Width;
 
+            int relleno = 128;
+            Color miColor;
+            int medioX = ancho / 2;
+            int medioY = alto / 2;
+            int denominador = medioX * medioY;
+
+            // Colocamos los terminos par ala transformacion espacial
+            int xa = x2 - x1;
+            int xb = x4 - x1;
+            int xab = x1 - x2 + x3 - x4;
+
+            int ya = y2 - y1;
+            int yb = y4 - y1;
+            int yab = y1 - y2 + y3 - y4;
+
+            // Recorremos el cuadrante y hacemos la transformación espacial
+            int y = 0;
+            int x = 0;
+
+            // Coordenadas para encontrar el color en la imagen
+            int xImagen = 0;
+            int yImagen = 0;
+
+            for (y = 0; y < medioY; y++)
+            {
+                for (x = 0; x < medioX; x++)
+                {
+                    xImagen = x1 + (xa * x) / medioX + (xb * y) / medioY + (xab * y * x) / denominador;
+                    yImagen = y1 + (ya * x) / medioX + (yb * y) / medioY + (yab * y * x) / denominador;
+
+                    // Si estamos fuera de la imagen ponemos el color de relleno
+                    if (xImagen < 0 || xImagen >= ancho || yImagen < 0 || yImagen >= alto)
+                        resultante.SetPixel(x + extraX, y + extraY, Color.FromArgb(relleno, relleno, relleno));
+                    else
+                    {
+                        // Encontramos el color segun las coordenadas
+                        miColor = original.GetPixel(xImagen, yImagen);
+                        // Ponemos el color
+                        resultante.SetPixel(x + extraX, y + extraY, miColor);
+                    }
+                }
+            }
+        }
+
+        private void warpBilineal(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4, int extraX, int extraY, Bitmap resultante)
+        {
+            int alto = original.Height;
+            int ancho = original.Width;
+
+            Color miColor;
+            double medioX = ancho / 2;
+            double medioY = alto / 2;
+            double denominador = medioX * medioY;
+
+            // Colocamos los terminos para la transformacion espacial
+            double xa = x2 - x1;
+            double xb = x4 - x1;
+            double xab = x1 - x2 + x3 - x4;
+
+            double ya = y2 - y1;
+            double yb = y4 - y1;
+            double yab = y1 - y2 + y3 - y4;
+
+            // Recorremos el cuadrante y hacemos la transformación espacial
+            int y = 0;
+            int x = 0;
+
+            // Para usar las cordenadas como doubles
+            double dy = 0;
+            double dx = 0;
+            double xImagen = 0;
+            double yImagen = 0;
+
+            for (y = 0; y < medioY; y++)
+            {
+                for (x = 0; x < medioX; x++)
+                {
+                    dy = y;
+                    dx = x;
+                    xImagen = x1 + (xa * dx) / medioX + (xb * dy) / medioY + (xab * dy * dx) / denominador;
+                    yImagen = y1 + (ya * dx) / medioX + (yb * dy) / medioY + (yab * dy * dx) / denominador;
+
+                    miColor = interpolacionBilineal(xImagen, yImagen);
+
+
+                    resultante.SetPixel(x + extraX, y + extraY, miColor);
+                }
+            }
+        }
+
+        private Color interpolacionBilineal(double x, double y)
+        {
+            Color resultado = Color.Black;
+            Color Color1;
+            Color Color2;
+
+            double fraccionX = 0;
+            double fraccionY = 0;
+            double unoMenosX = 0;
+            double unoMenosY = 0;
+
+            int techoX = 0;
+            int techoY = 0;
+            int pisoX = 0;
+            int pisoY = 0;
+
+            int rp1 = 0;
+            int rp2 = 0;
+            int rp3 = 0;
+
+            int gp1 = 0;
+            int gp2 = 0;
+            int gp3 = 0;
+
+            int bp1 = 0;
+            int bp2 = 0;
+            int bp3 = 0;
+            int relleno = 128;
+
+            // Si esta fuera de rango regreasmos el relleno
+            if (x < 0 || x >= original.Width - 1 || y < 0 || y >= original.Height - 1)
+            {
+                return Color.FromArgb(relleno, relleno, relleno);
+            }
+
+            pisoX = (int)Math.Floor(x);
+            pisoY = (int)Math.Floor(y);
+            techoX = (int)Math.Ceiling(x);
+            techoY = (int)Math.Ceiling(y);
+
+            fraccionX = x - pisoX;
+            fraccionY = y - pisoY;
+
+            unoMenosX = 1.0 - fraccionX;
+            unoMenosY = 1.0 - fraccionY;
+
+            Color1 = original.GetPixel(pisoX, pisoY);
+            Color2 = original.GetPixel(techoX, techoY);
+
+            rp1 = (int)(unoMenosX * Color1.R + fraccionX * Color2.R);
+            gp1 = (int)(unoMenosX * Color1.G + fraccionX * Color2.G);
+            bp1 = (int)(unoMenosX * Color1.B + fraccionX * Color2.B);
+
+            Color1 = original.GetPixel(pisoX, techoY);
+            Color2 = original.GetPixel(techoX, techoY);
+
+            rp2 = (int)(unoMenosX * Color1.R + fraccionX * Color2.R);
+            gp2 = (int)(unoMenosX * Color1.G + fraccionX * Color2.G);
+            bp2 = (int)(unoMenosX * Color1.B + fraccionX * Color2.B);
+
+            rp3 = (int)(unoMenosY * rp1 + fraccionY * rp2);
+            gp3 = (int)(unoMenosY * gp1 + fraccionY * gp2);
+            bp3 = (int)(unoMenosY * bp1 + fraccionY * bp2);
+
+            resultado = Color.FromArgb(rp3, gp3, bp3);
+
+            return resultado;
+        }
+
+        
         private void revetirCambiosToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -1772,7 +2144,7 @@ namespace Procesamiento_de_imágenes
 
         #endregion
 
-        
+
     }
 
 }
