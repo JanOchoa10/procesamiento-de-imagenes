@@ -403,7 +403,12 @@ namespace Procesamiento_de_imágenes
             }
 
             // Crear una copia de la imagen original con el mismo tamaño y formato
-            Bitmap resultante = DegradadoColores(original);
+            Color colorInicio = Color.Blue;
+            Color colorFin = Color.Red;
+            float opacidad = 0.5f; // Ajusta este valor según tus necesidades
+            Bitmap resultante = DegradadoColores(original, colorInicio, colorFin, opacidad);
+
+
 
             // La operación no fue exitosa, cancelar el proceso
             if (resultante == null)
@@ -1311,7 +1316,7 @@ namespace Procesamiento_de_imágenes
             }
         }
 
-        private Bitmap DegradadoColores(Bitmap original)
+        private Bitmap DegradadoColores(Bitmap original, Color colorInicio, Color colorFin, float intensidad)
         {
             try
             {
@@ -1330,14 +1335,31 @@ namespace Procesamiento_de_imágenes
                         {
                             int index = y * originalData.Stride + x * 4;
 
-                            // Asignar colores en función de la posición vertical
-                            byte gradientColor = (byte)(y * 255 / original.Height);
+                            // Calcular el valor de interpolación para la posición vertical
+                            float t = (float)y / original.Height;
+
+                            // Interpolar entre los dos colores
+                            Color interpolatedColor = Color.FromArgb(
+                                (int)(colorInicio.A + (colorFin.A - colorInicio.A) * t),
+                                (int)(colorInicio.R + (colorFin.R - colorInicio.R) * t),
+                                (int)(colorInicio.G + (colorFin.G - colorInicio.G) * t),
+                                (int)(colorInicio.B + (colorFin.B - colorInicio.B) * t)
+                            );
+
+                            // Mezclar con el color original
+                            Color originalColor = Color.FromArgb(originalPtr[index + 3], originalPtr[index + 2], originalPtr[index + 1], originalPtr[index]);
+                            Color finalColor = Color.FromArgb(
+                                (int)(originalColor.A + (interpolatedColor.A - originalColor.A) * intensidad),
+                                (int)(originalColor.R + (interpolatedColor.R - originalColor.R) * intensidad),
+                                (int)(originalColor.G + (interpolatedColor.G - originalColor.G) * intensidad),
+                                (int)(originalColor.B + (interpolatedColor.B - originalColor.B) * intensidad)
+                            );
 
                             // Establecer el color en la nueva imagen
-                            gradientPtr[index] = originalPtr[index]; // Blue
-                            gradientPtr[index + 1] = gradientColor;   // Green
-                            gradientPtr[index + 2] = gradientColor;   // Red
-                            gradientPtr[index + 3] = originalPtr[index + 3]; // Alpha
+                            gradientPtr[index] = (byte)finalColor.B; // Blue
+                            gradientPtr[index + 1] = (byte)finalColor.G; // Green
+                            gradientPtr[index + 2] = (byte)finalColor.R; // Red
+                            gradientPtr[index + 3] = (byte)finalColor.A; // Alpha
                         }
                     }
                 }
