@@ -406,6 +406,37 @@ namespace Procesamiento_de_imágenes
             Color colorInicio = Color.Blue;
             Color colorFin = Color.Red;
             float opacidad = 0.5f; // Ajusta este valor según tus necesidades
+
+            ColorDialog colorDialog = new ColorDialog();
+
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Obtiene el color seleccionado por el usuario
+                colorInicio = colorDialog.Color;
+            }
+
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Obtiene el color seleccionado por el usuario
+                colorFin = colorDialog.Color;
+            }
+            int minValue = 1;
+            int maxValue = 100;
+            int defaultValue = 50;
+            string tituloSlider = "Cantidad de Opacidad:";
+            // Mostrar un formulario que contenga la barra deslizadora
+            SliderForm sliderForm = new SliderForm(minValue, maxValue, defaultValue, tituloSlider);
+
+            if (sliderForm.ShowDialog() != DialogResult.OK)
+            {
+                // El usuario canceló el formulario
+                MessageBox.Show("Se canceló el proceso.");
+                return;
+            }
+
+            opacidad = (float)sliderForm.Valor / 100;
+
+
             Bitmap resultante = DegradadoColores(original, colorInicio, colorFin, opacidad);
 
 
@@ -479,6 +510,52 @@ namespace Procesamiento_de_imágenes
 
             // Crear una copia de la imagen original con el mismo tamaño y formato
             Bitmap resultante = Warp(original);
+
+            // La operación no fue exitosa, cancelar el proceso
+            if (resultante == null)
+            {
+                return;
+            }
+
+            original = resultante;
+            pcImagenEditada.Image = resultante;
+            pcImagenEditada.Invalidate();
+
+            cargarHistogramasIE(original);
+        }
+
+        private void warpCircularToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!validacionDeImagenCargada())
+            {
+                return;
+            }
+
+            // Crear una copia de la imagen original con el mismo tamaño y formato
+            Bitmap resultante = CircularWarp(original);
+
+            // La operación no fue exitosa, cancelar el proceso
+            if (resultante == null)
+            {
+                return;
+            }
+
+            original = resultante;
+            pcImagenEditada.Image = resultante;
+            pcImagenEditada.Invalidate();
+
+            cargarHistogramasIE(original);
+        }
+
+        private void ojoDePezToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!validacionDeImagenCargada())
+            {
+                return;
+            }
+
+            // Crear una copia de la imagen original con el mismo tamaño y formato
+            Bitmap resultante = FishEye(original);
 
             // La operación no fue exitosa, cancelar el proceso
             if (resultante == null)
@@ -1994,7 +2071,264 @@ namespace Procesamiento_de_imágenes
             return resultado;
         }
 
-        
+        private Bitmap FishEye(Bitmap original)
+        {
+            try
+            {
+                int minValue = 1;
+                int maxValue = 100;
+                int defaultValue = 50;
+                string tituloAmplitud = "Cantidad de Amplitud:";
+
+                // Mostrar un formulario que contenga la barra deslizadora para la amplitud
+                using (SliderForm amplitudForm = new SliderForm(minValue, maxValue, defaultValue, tituloAmplitud))
+                {
+                    if (amplitudForm.ShowDialog() != DialogResult.OK)
+                    {
+                        // El usuario canceló el formulario
+                        MessageBox.Show("Se canceló el proceso.");
+                        return null;
+                    }
+
+                    float maxAmplitude = (float)amplitudForm.Valor / 100;
+
+                    Bitmap warpedImage = new Bitmap(original.Width, original.Height);
+                    BitmapData originalData = original.LockBits(new Rectangle(0, 0, original.Width, original.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+                    BitmapData warpedData = warpedImage.LockBits(new Rectangle(0, 0, warpedImage.Width, warpedImage.Height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+
+                    int centerX = original.Width / 2;
+                    int centerY = original.Height / 2;
+
+                    float maxRadius = Math.Min(centerX, centerY);
+
+                    unsafe
+                    {
+                        byte* originalPtr = (byte*)originalData.Scan0.ToPointer();
+                        byte* warpedPtr = (byte*)warpedData.Scan0.ToPointer();
+
+                        for (int y = 0; y < original.Height; y++)
+                        {
+                            for (int x = 0; x < original.Width; x++)
+                            {
+                                // Calcular la distancia al centro
+                                double distanceToCenter = Math.Sqrt(Math.Pow(x - centerX, 2) + Math.Pow(y - centerY, 2));
+
+                                // Si la distancia está dentro de un rango específico
+                                if (distanceToCenter < maxRadius)
+                                {
+                                    // Calcular las coordenadas polares
+                                    double angle = Math.Atan2(y - centerY, x - centerX);
+
+                                    // Modificar la amplitud en función de la distancia desde el centro
+                                    float amplitude = maxAmplitude * (float)(1 - distanceToCenter / maxRadius);
+
+                                    // Aplicar la expansión circular
+                                    double newRadius = distanceToCenter + amplitude * Math.Pow(distanceToCenter, 2) / maxRadius;
+
+                                    // Convertir de coordenadas polares a cartesianas
+                                    int newX = (int)(centerX + newRadius * Math.Cos(angle));
+                                    int newY = (int)(centerY + newRadius * Math.Sin(angle));
+
+                                    // Asegurarse de que las nuevas coordenadas estén dentro de los límites de la imagen
+                                    newX = Math.Max(0, Math.Min(original.Width - 1, newX));
+                                    newY = Math.Max(0, Math.Min(original.Height - 1, newY));
+
+                                    // Bilineal Interpolation
+                                    double u = (double)newX - Math.Floor((double)newX);
+                                    double v = (double)newY - Math.Floor((double)newY);
+
+                                    int x0 = (int)Math.Floor((double)newX);
+                                    int y0 = (int)Math.Floor((double)newY);
+                                    int x1 = Math.Min(x0 + 1, original.Width - 1);
+                                    int y1 = Math.Min(y0 + 1, original.Height - 1);
+
+                                    int color00 = GetPixel(originalPtr, originalData.Stride, original.Width, original.Height, x0, y0);
+                                    int color01 = GetPixel(originalPtr, originalData.Stride, original.Width, original.Height, x0, y1);
+                                    int color10 = GetPixel(originalPtr, originalData.Stride, original.Width, original.Height, x1, y0);
+                                    int color11 = GetPixel(originalPtr, originalData.Stride, original.Width, original.Height, x1, y1);
+
+                                    int interpolatedColor = BilinearInterpolation(color00, color01, color10, color11, u, v);
+
+                                    // Copiar el color interpolado a la nueva posición
+                                    int warpedIndex = y * warpedData.Stride + x * 4;
+
+                                    SetPixel(warpedPtr, warpedIndex, interpolatedColor);
+                                }
+                                else
+                                {
+                                    // Si la distancia está fuera del rango, simplemente copiar el píxel original
+                                    int originalIndex = y * originalData.Stride + x * 4;
+                                    int originalColor = BitConverter.ToInt32(new byte[] { originalPtr[originalIndex], originalPtr[originalIndex + 1], originalPtr[originalIndex + 2], originalPtr[originalIndex + 3] }, 0);
+                                    SetPixel(warpedPtr, y * warpedData.Stride + x * 4, originalColor);
+                                }
+                            }
+                        }
+                    }
+
+                    original.UnlockBits(originalData);
+                    warpedImage.UnlockBits(warpedData);
+
+                    return warpedImage;
+                }
+            }
+            catch (System.ArgumentException ex)
+            {
+                MessageBox.Show($"Error de argumento: {ex.Message}. Detalles: {ex.StackTrace}");
+                return null;
+            }
+            catch (System.OutOfMemoryException)
+            {
+                MessageBox.Show($"Error de memoria");
+                throw; // Propagar la excepción para manejarla en el nivel superior
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al aplicar el filtro warp: {ex.Message}");
+                return null; // O manejar de otra manera según tus necesidades
+            }
+        }
+
+        private Bitmap CircularWarp(Bitmap original)
+        {
+            try
+            {
+                int minValue = 1;
+                int maxValue = 100;
+                int defaultValue = 50;
+                string tituloAmplitud = "Cantidad de Amplitud:";
+
+                // Mostrar un formulario que contenga la barra deslizadora para la amplitud
+                using (SliderForm amplitudForm = new SliderForm(minValue, maxValue, defaultValue, tituloAmplitud))
+                {
+                    if (amplitudForm.ShowDialog() != DialogResult.OK)
+                    {
+                        // El usuario canceló el formulario
+                        MessageBox.Show("Se canceló el proceso.");
+                        return null;
+                    }
+
+                    float maxAmplitude = (float)amplitudForm.Valor / 100;
+
+                    Bitmap warpedImage = new Bitmap(original.Width, original.Height);
+                    BitmapData originalData = original.LockBits(new Rectangle(0, 0, original.Width, original.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+                    BitmapData warpedData = warpedImage.LockBits(new Rectangle(0, 0, warpedImage.Width, warpedImage.Height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+
+                    int centerX = original.Width / 2;
+                    int centerY = original.Height / 2;
+
+                    unsafe
+                    {
+                        byte* originalPtr = (byte*)originalData.Scan0.ToPointer();
+                        byte* warpedPtr = (byte*)warpedData.Scan0.ToPointer();
+
+                        for (int y = 0; y < original.Height; y++)
+                        {
+                            for (int x = 0; x < original.Width; x++)
+                            {
+                                // Calcular las coordenadas polares
+                                double angle = Math.Atan2(y - centerY, x - centerX);
+                                double radius = Math.Sqrt(Math.Pow(x - centerX, 2) + Math.Pow(y - centerY, 2));
+
+                                // Modificar la amplitud en función de la distancia desde el centro con un degradado
+                                float gradient = 1 - (float)radius / Math.Max(centerX, centerY); // Puedes ajustar el degradado según tus preferencias
+                                float amplitude = maxAmplitude * gradient;
+
+                                // Aplicar la expansión circular
+                                double newRadius = radius + amplitude * Math.Pow(radius, 2) / Math.Max(centerX, centerY);
+
+                                // Restringir la amplitud para asegurar que no sea negativa
+                                amplitude = Math.Max(0, amplitude);
+
+                                // Convertir de coordenadas polares a cartesianas
+                                int newX = (int)(centerX + newRadius * Math.Cos(angle));
+                                int newY = (int)(centerY + newRadius * Math.Sin(angle));
+
+                                // Asegurarse de que las nuevas coordenadas estén dentro de los límites de la imagen
+                                newX = Math.Max(0, Math.Min(original.Width - 1, newX));
+                                newY = Math.Max(0, Math.Min(original.Height - 1, newY));
+
+                                // Bilineal Interpolation
+                                double u = (double)newX - Math.Floor((double)newX);
+                                double v = (double)newY - Math.Floor((double)newY);
+
+                                int x0 = (int)Math.Floor((double)newX);
+                                int y0 = (int)Math.Floor((double)newY);
+                                int x1 = Math.Min(x0 + 1, original.Width - 1);
+                                int y1 = Math.Min(y0 + 1, original.Height - 1);
+
+                                int color00 = GetPixel(originalPtr, originalData.Stride, original.Width, original.Height, x0, y0);
+                                int color01 = GetPixel(originalPtr, originalData.Stride, original.Width, original.Height, x0, y1);
+                                int color10 = GetPixel(originalPtr, originalData.Stride, original.Width, original.Height, x1, y0);
+                                int color11 = GetPixel(originalPtr, originalData.Stride, original.Width, original.Height, x1, y1);
+
+                                int interpolatedColor = BilinearInterpolation(color00, color01, color10, color11, u, v);
+
+                                // Copiar el color interpolado a la nueva posición
+                                int warpedIndex = y * warpedData.Stride + x * 4;
+
+                                SetPixel(warpedPtr, warpedIndex, interpolatedColor);
+                            }
+                        }
+                    }
+
+                    original.UnlockBits(originalData);
+                    warpedImage.UnlockBits(warpedData);
+
+                    return warpedImage;
+                }
+            }
+            catch (System.ArgumentException ex)
+            {
+                MessageBox.Show($"Error de argumento: {ex.Message}. Detalles: {ex.StackTrace}");
+                return null;
+            }
+            catch (System.OutOfMemoryException)
+            {
+                MessageBox.Show($"Error de memoria");
+                throw; // Propagar la excepción para manejarla en el nivel superior
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al aplicar el filtro warp: {ex.Message}");
+                return null; // O manejar de otra manera según tus necesidades
+            }
+        }
+
+        private unsafe int GetPixel(byte* data, int stride, int width, int height, int x, int y)
+        {
+            if (x < 0 || x >= width || y < 0 || y >= height)
+            {
+                // Coordenadas fuera de límites
+                return 0; // o el valor que tenga sentido en tu caso
+            }
+
+            int index = y * stride + x * 4;
+
+            if (data == null || index < 0 || index + 3 >= stride * height)
+            {
+                // Puntero o datos no válidos
+                return 0; // o el valor que tenga sentido en tu caso
+            }
+
+            return BitConverter.ToInt32(new byte[] { data[index], data[index + 1], data[index + 2], data[index + 3] }, 0);
+        }
+
+        private unsafe void SetPixel(byte* data, int index, int color)
+        {
+            data[index] = (byte)(color & 0xFF);
+            data[index + 1] = (byte)((color >> 8) & 0xFF);
+            data[index + 2] = (byte)((color >> 16) & 0xFF);
+            data[index + 3] = (byte)((color >> 24) & 0xFF);
+        }
+
+        private int BilinearInterpolation(int color00, int color01, int color10, int color11, double u, double v)
+        {
+            double top = (1 - u) * color00 + u * color10;
+            double bottom = (1 - u) * color01 + u * color11;
+            return (int)((1 - v) * top + v * bottom);
+        }
+
+
         private void revetirCambiosToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -2164,9 +2498,11 @@ namespace Procesamiento_de_imágenes
 
 
 
+
+
         #endregion
 
-
+        
     }
 
 }
