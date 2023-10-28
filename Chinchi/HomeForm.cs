@@ -268,7 +268,7 @@ namespace Chinchi
             cargarHistogramasIE(original);
         }
 
-        private void violetaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void magentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!validacionDeImagenCargada())
             {
@@ -277,7 +277,7 @@ namespace Chinchi
 
             // Filtro de color, solo presenta los pixeles de un componente y elimina los otros dos
             // Crear una copia de la imagen original
-            Bitmap resultante = ColorearVioleta(original, blockWidth, blockHeight);
+            Bitmap resultante = ColorearMagenta(original, blockWidth, blockHeight);
 
             // La operación no fue exitosa, cancelar el proceso
             if (resultante == null)
@@ -706,10 +706,63 @@ namespace Chinchi
             await ProcesarVideo(ProcesoVideo.EscalaDeGrises);
         }
 
+        private async void aberraciónCromáticaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            await ProcesarVideo(ProcesoVideo.AberracionCromatica);
+        }
+
+        private async void brilloToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            await ProcesarVideo(ProcesoVideo.Brillo);
+        }
+
+        private async void contrasteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            await ProcesarVideo(ProcesoVideo.Contraste);
+        }
+        private async void amarilloToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            await ProcesarVideo(ProcesoVideo.ColorearAmarillo);
+        }
+
+        private async void azulToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            await ProcesarVideo(ProcesoVideo.ColorearAzul);
+        }
+
+        private async void cyanToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            await ProcesarVideo(ProcesoVideo.ColorearCyan);
+        }
+
+        private async void magentaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            await ProcesarVideo(ProcesoVideo.ColorearMagenta);
+        }
+
+        private async void rojoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            await ProcesarVideo(ProcesoVideo.ColorearRojo);
+        }
+
+        private async void verdeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            await ProcesarVideo(ProcesoVideo.ColorearVerde);
+        }
+
         private enum ProcesoVideo
         {
             InvertirColores,
-            EscalaDeGrises
+            EscalaDeGrises,
+            AberracionCromatica,
+            Brillo,
+            Contraste,
+            ColorearAmarillo,
+            ColorearAzul,
+            ColorearCyan,
+            ColorearMagenta,
+            ColorearRojo,
+            ColorearVerde
         }
 
         private async Task ProcesarVideo(ProcesoVideo proceso)
@@ -751,6 +804,33 @@ namespace Chinchi
                                     break;
                                 case ProcesoVideo.EscalaDeGrises:
                                     processedFrame = EscalaDeGrises(frame, blockWidth, blockHeight);
+                                    break;
+                                case ProcesoVideo.AberracionCromatica:
+                                    processedFrame = AberracionCromatica(frame, 1);
+                                    break;
+                                case ProcesoVideo.Brillo:
+                                    processedFrame = Brillo(frame, blockWidth, blockHeight);
+                                    break;
+                                case ProcesoVideo.Contraste:
+                                    processedFrame = Contraste(frame, blockWidth, blockHeight);
+                                    break;
+                                case ProcesoVideo.ColorearAmarillo:
+                                    processedFrame = ColorearAmarillo(frame, blockWidth, blockHeight);
+                                    break;
+                                case ProcesoVideo.ColorearAzul:
+                                    processedFrame = ColorearAzul(frame, blockWidth, blockHeight);
+                                    break;
+                                case ProcesoVideo.ColorearCyan:
+                                    processedFrame = ColorearCyan(frame, blockWidth, blockHeight);
+                                    break;
+                                case ProcesoVideo.ColorearMagenta:
+                                    processedFrame = ColorearMagenta(frame, blockWidth, blockHeight);
+                                    break;
+                                case ProcesoVideo.ColorearRojo:
+                                    processedFrame = ColorearRojo(frame, blockWidth, blockHeight);
+                                    break;
+                                case ProcesoVideo.ColorearVerde:
+                                    processedFrame = ColorearVerde(frame, blockWidth, blockHeight);
                                     break;
                                     // Agrega otros casos según sea necesario
                             }
@@ -857,8 +937,8 @@ namespace Chinchi
                 videoFileWriter.WriteVideoFrame(processedFrame);
             }
 
-            axWindowsMediaPlayer1.URL = outputVideoPath;
-            axWindowsMediaPlayer1.Ctlcontrols.play();
+            axWindowsMediaPlayer2.URL = outputVideoPath;
+            axWindowsMediaPlayer2.Ctlcontrols.play();
         }
 
         private List<Bitmap> GetAllBitmapFramesFromVideo(VideoFileReader videoReader, int startFrame, int frameCount, bool reducedResolution = false)
@@ -1304,7 +1384,7 @@ namespace Chinchi
             }
         }
 
-        private Bitmap ColorearVioleta(Bitmap original, int blockWidth, int blockHeight)
+        private Bitmap ColorearMagenta(Bitmap original, int blockWidth, int blockHeight)
         {
             try
             {
@@ -2526,7 +2606,10 @@ namespace Chinchi
 
 
 
+
         #endregion
+
+
     }
 
 }

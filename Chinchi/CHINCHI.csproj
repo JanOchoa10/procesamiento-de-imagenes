@@ -331,6 +331,27 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transparente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Amarillo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Azul.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cyan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Magenta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rojo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Verde.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
