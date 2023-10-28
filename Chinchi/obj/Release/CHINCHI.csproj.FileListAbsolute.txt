@@ -1,0 +1,330 @@
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\OSExtensions.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\x86\KernelTraceControl.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\x86\KernelTraceControl.Win61.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\x86\msdia140.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\x86\msvcp140.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\x86\vcruntime140.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\amd64\KernelTraceControl.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\amd64\msdia140.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\amd64\msvcp140.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\amd64\vcruntime140.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\amd64\vcruntime140_1.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\arm64\KernelTraceControl.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\arm64\msdia140.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\arm64\msvcp140.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\arm64\vcruntime140.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\arm64\vcruntime140_1.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\TraceReloggerLib.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Dia2Lib.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\avcodec-57.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\avdevice-57.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\avfilter-6.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\avformat-57.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\avutil-55.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\postproc-54.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\swresample-2.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\swscale-4.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Accord.dll.config
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Procesamiento de imágenes.exe.config
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Procesamiento de imágenes.exe
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Procesamiento de imágenes.pdb
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Accord.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Accord.Video.DirectShow.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Accord.Video.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Accord.Video.FFMPEG.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\AForge.Controls.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\AForge.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\AForge.Imaging.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\AForge.Math.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\AForge.Video.DirectShow.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\AForge.Video.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\BenchmarkDotNet.Annotations.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\BenchmarkDotNet.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\CommandLine.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\FFMediaToolkit.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\FFmpeg.AutoGen.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Gee.External.Capstone.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Iced.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\MaterialSkin.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.CodeAnalysis.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.Diagnostics.FastSerialization.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.Diagnostics.NETCore.Client.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.Diagnostics.Runtime.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.Diagnostics.Tracing.TraceEvent.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.Extensions.Configuration.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.Extensions.Logging.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.Extensions.Options.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.Extensions.Primitives.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.Win32.Registry.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Perfolizer.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\System.Buffers.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\System.Collections.Immutable.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\System.Memory.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\System.Numerics.Vectors.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\System.Reflection.Metadata.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\System.Security.AccessControl.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\System.Security.Principal.Windows.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\System.Text.Encoding.CodePages.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\System.Threading.Tasks.Extensions.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Accord.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Accord.Video.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Accord.Video.DirectShow.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Accord.Video.FFMPEG.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\AForge.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\AForge.Controls.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\AForge.Imaging.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\AForge.Math.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\AForge.Video.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\AForge.Video.DirectShow.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\BenchmarkDotNet.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\BenchmarkDotNet.Annotations.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\CommandLine.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\FFMediaToolkit.pdb
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\FFMediaToolkit.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\FFmpeg.AutoGen.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Gee.External.Capstone.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Iced.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.CodeAnalysis.pdb
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.CodeAnalysis.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.CodeAnalysis.CSharp.pdb
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.CodeAnalysis.CSharp.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.Diagnostics.FastSerialization.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.Diagnostics.NETCore.Client.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.Diagnostics.Runtime.pdb
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.Diagnostics.Runtime.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.Diagnostics.Tracing.TraceEvent.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.DotNet.PlatformAbstractions.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.Extensions.Configuration.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.Extensions.Configuration.Binder.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.Extensions.Logging.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.Extensions.Options.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.Extensions.Primitives.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Microsoft.Win32.Registry.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\System.Buffers.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\System.Collections.Immutable.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\System.Memory.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\System.Numerics.Vectors.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\System.Reflection.Metadata.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\System.Security.AccessControl.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\System.Security.Principal.Windows.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\System.Threading.Tasks.Extensions.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\Interop.WMPLib.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\bin\Release\AxInterop.WMPLib.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Release\CHINCHI.csproj.AssemblyReference.cache
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Release\CHINCHI.csproj.SuggestedBindingRedirects.cache
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Release\Interop.WMPLib.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Release\AxInterop.WMPLib.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Release\CHINCHI.csproj.ResolveComReference.cache
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Release\Procesamiento_de_imágenes.HomeForm.resources
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Release\Procesamiento_de_imágenes.Properties.Resources.resources
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Release\Procesamiento_de_imágenes.SliderForm.resources
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Release\CHINCHI.csproj.GenerateResource.cache
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Release\CHINCHI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Release\CHINCHI.csproj.CoreCompileInputs.cache
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Release\CHINCHI.csproj.CopyComplete
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Release\Procesamiento de imágenes.exe
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Release\Procesamiento de imágenes.pdb
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\OSExtensions.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\x86\KernelTraceControl.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\x86\KernelTraceControl.Win61.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\x86\msdia140.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\x86\msvcp140.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\x86\vcruntime140.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\amd64\KernelTraceControl.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\amd64\msdia140.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\amd64\msvcp140.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\amd64\vcruntime140.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\amd64\vcruntime140_1.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\arm64\KernelTraceControl.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\arm64\msdia140.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\arm64\msvcp140.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\arm64\vcruntime140.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\arm64\vcruntime140_1.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\TraceReloggerLib.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Dia2Lib.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\avcodec-57.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\avdevice-57.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\avfilter-6.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\avformat-57.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\avutil-55.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\postproc-54.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\swresample-2.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\swscale-4.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Accord.dll.config
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\CHINCHI.exe.config
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\CHINCHI.exe
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\CHINCHI.pdb
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Accord.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Accord.Video.DirectShow.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Accord.Video.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Accord.Video.FFMPEG.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\AForge.Controls.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\AForge.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\AForge.Imaging.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\AForge.Math.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\AForge.Video.DirectShow.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\AForge.Video.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\BenchmarkDotNet.Annotations.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\BenchmarkDotNet.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\CommandLine.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\FFMediaToolkit.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\FFmpeg.AutoGen.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Gee.External.Capstone.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Iced.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\MaterialSkin.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.CodeAnalysis.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.Diagnostics.FastSerialization.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.Diagnostics.NETCore.Client.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.Diagnostics.Runtime.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.Diagnostics.Tracing.TraceEvent.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.Extensions.Configuration.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.Extensions.Logging.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.Extensions.Options.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.Extensions.Primitives.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.Win32.Registry.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Perfolizer.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\System.Buffers.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\System.Collections.Immutable.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\System.Memory.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\System.Numerics.Vectors.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\System.Reflection.Metadata.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\System.Security.AccessControl.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\System.Security.Principal.Windows.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\System.Text.Encoding.CodePages.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\System.Threading.Tasks.Extensions.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Accord.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Accord.Video.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Accord.Video.DirectShow.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Accord.Video.FFMPEG.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\AForge.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\AForge.Controls.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\AForge.Imaging.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\AForge.Math.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\AForge.Video.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\AForge.Video.DirectShow.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\BenchmarkDotNet.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\BenchmarkDotNet.Annotations.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\CommandLine.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\FFMediaToolkit.pdb
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\FFMediaToolkit.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\FFmpeg.AutoGen.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Gee.External.Capstone.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Iced.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.CodeAnalysis.pdb
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.CodeAnalysis.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.CodeAnalysis.CSharp.pdb
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.CodeAnalysis.CSharp.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.Diagnostics.FastSerialization.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.Diagnostics.NETCore.Client.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.Diagnostics.Runtime.pdb
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.Diagnostics.Runtime.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.Diagnostics.Tracing.TraceEvent.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.DotNet.PlatformAbstractions.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.Extensions.Configuration.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.Extensions.Configuration.Binder.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.Extensions.Logging.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.Extensions.Options.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.Extensions.Primitives.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Microsoft.Win32.Registry.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\System.Buffers.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\System.Collections.Immutable.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\System.Memory.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\System.Numerics.Vectors.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\System.Reflection.Metadata.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\System.Security.AccessControl.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\System.Security.Principal.Windows.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\System.Threading.Tasks.Extensions.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Interop.WMPLib.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\AxInterop.WMPLib.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\obj\Release\CHINCHI.csproj.AssemblyReference.cache
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\obj\Release\CHINCHI.csproj.SuggestedBindingRedirects.cache
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\obj\Release\Interop.WMPLib.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\obj\Release\AxInterop.WMPLib.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\obj\Release\CHINCHI.csproj.ResolveComReference.cache
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\obj\Release\Chinchi.HomeForm.resources
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\obj\Release\Chinchi.Properties.Resources.resources
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\obj\Release\Chinchi.SliderForm.resources
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\obj\Release\CHINCHI.csproj.GenerateResource.cache
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\obj\Release\CHINCHI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\obj\Release\CHINCHI.csproj.CoreCompileInputs.cache
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\obj\Release\CHINCHI.csproj.CopyComplete
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\obj\Release\CHINCHI.exe
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\obj\Release\CHINCHI.pdb
