@@ -183,6 +183,16 @@ namespace Chinchi.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pausa {
+            get {
+                object obj = ResourceManager.GetObject("pausa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap reconocimiento_facial_ {
             get {
                 object obj = ResourceManager.GetObject("reconocimiento-facial-", resourceCulture);
@@ -196,6 +206,16 @@ namespace Chinchi.Properties {
         internal static System.Drawing.Bitmap Rojo {
             get {
                 object obj = ResourceManager.GetObject("Rojo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tocar {
+            get {
+                object obj = ResourceManager.GetObject("tocar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

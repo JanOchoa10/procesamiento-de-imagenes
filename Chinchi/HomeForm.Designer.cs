@@ -84,6 +84,8 @@
             this.lblFrames = new MaterialSkin.Controls.MaterialLabel();
             this.axWindowsMediaPlayer2 = new AxWMPLib.AxWindowsMediaPlayer();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.btnPlay = new System.Windows.Forms.PictureBox();
+            this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
             this.menuVideo = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirVídeoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -131,6 +133,7 @@
             this.btnFlechaDerecha = new MaterialSkin.Controls.MaterialFloatingActionButton();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.progressBar = new MaterialSkin.Controls.MaterialProgressBar();
             this.materialTabControl1.SuspendLayout();
             this.Filtros.SuspendLayout();
             this.materialCard3.SuspendLayout();
@@ -152,6 +155,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFrame)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPlay)).BeginInit();
             this.menuVideo.SuspendLayout();
             this.Reconocimiento.SuspendLayout();
             this.materialCard1.SuspendLayout();
@@ -667,12 +671,16 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.5F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.5F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.Controls.Add(this.materialLabel2, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.axWindowsMediaPlayer1, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.pbFrame, 3, 3);
             this.tableLayoutPanel4.Controls.Add(this.lblFrames, 0, 3);
             this.tableLayoutPanel4.Controls.Add(this.axWindowsMediaPlayer2, 3, 1);
             this.tableLayoutPanel4.Controls.Add(this.materialLabel3, 3, 0);
+            this.tableLayoutPanel4.Controls.Add(this.btnPlay, 5, 3);
+            this.tableLayoutPanel4.Controls.Add(this.materialLabel11, 4, 3);
+            this.tableLayoutPanel4.Controls.Add(this.progressBar, 2, 3);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 27);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -713,6 +721,7 @@
             this.tableLayoutPanel4.SetRowSpan(this.axWindowsMediaPlayer1, 2);
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(603, 345);
             this.axWindowsMediaPlayer1.TabIndex = 0;
+            this.axWindowsMediaPlayer1.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.axWindowsMediaPlayer1_PlayStateChange);
             // 
             // pbFrame
             // 
@@ -728,7 +737,6 @@
             // 
             this.lblFrames.AutoSize = true;
             this.lblFrames.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel4.SetColumnSpan(this.lblFrames, 3);
             this.lblFrames.Depth = 0;
             this.lblFrames.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblFrames.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
@@ -738,7 +746,7 @@
             this.lblFrames.Location = new System.Drawing.Point(3, 401);
             this.lblFrames.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblFrames.Name = "lblFrames";
-            this.lblFrames.Size = new System.Drawing.Size(603, 102);
+            this.lblFrames.Size = new System.Drawing.Size(195, 102);
             this.lblFrames.TabIndex = 2;
             this.lblFrames.Text = "¡Comencemos a editar!";
             this.lblFrames.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -754,6 +762,7 @@
             this.tableLayoutPanel4.SetRowSpan(this.axWindowsMediaPlayer2, 2);
             this.axWindowsMediaPlayer2.Size = new System.Drawing.Size(606, 345);
             this.axWindowsMediaPlayer2.TabIndex = 3;
+            this.axWindowsMediaPlayer2.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.axWindowsMediaPlayer1_PlayStateChange);
             // 
             // materialLabel3
             // 
@@ -770,6 +779,33 @@
             this.materialLabel3.TabIndex = 5;
             this.materialLabel3.Text = "Video editado";
             this.materialLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnPlay
+            // 
+            this.btnPlay.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPlay.Image = global::Chinchi.Properties.Resources.tocar;
+            this.btnPlay.Location = new System.Drawing.Point(1020, 404);
+            this.btnPlay.Name = "btnPlay";
+            this.btnPlay.Size = new System.Drawing.Size(198, 96);
+            this.btnPlay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnPlay.TabIndex = 6;
+            this.btnPlay.TabStop = false;
+            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
+            // 
+            // materialLabel11
+            // 
+            this.materialLabel11.AutoSize = true;
+            this.materialLabel11.Depth = 0;
+            this.materialLabel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialLabel11.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel11.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            this.materialLabel11.Location = new System.Drawing.Point(813, 401);
+            this.materialLabel11.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel11.Name = "materialLabel11";
+            this.materialLabel11.Size = new System.Drawing.Size(201, 102);
+            this.materialLabel11.TabIndex = 8;
+            this.materialLabel11.Text = "Comparar vídeos";
+            this.materialLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // menuVideo
             // 
@@ -851,7 +887,7 @@
             // 
             this.amarilloToolStripMenuItem1.Image = global::Chinchi.Properties.Resources.Amarillo;
             this.amarilloToolStripMenuItem1.Name = "amarilloToolStripMenuItem1";
-            this.amarilloToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
+            this.amarilloToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.amarilloToolStripMenuItem1.Text = "Amarillo";
             this.amarilloToolStripMenuItem1.Click += new System.EventHandler(this.amarilloToolStripMenuItem1_Click);
             // 
@@ -859,7 +895,7 @@
             // 
             this.azulToolStripMenuItem1.Image = global::Chinchi.Properties.Resources.Azul;
             this.azulToolStripMenuItem1.Name = "azulToolStripMenuItem1";
-            this.azulToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
+            this.azulToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.azulToolStripMenuItem1.Text = "Azul";
             this.azulToolStripMenuItem1.Click += new System.EventHandler(this.azulToolStripMenuItem1_Click);
             // 
@@ -867,7 +903,7 @@
             // 
             this.cyanToolStripMenuItem1.Image = global::Chinchi.Properties.Resources.Cyan;
             this.cyanToolStripMenuItem1.Name = "cyanToolStripMenuItem1";
-            this.cyanToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
+            this.cyanToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.cyanToolStripMenuItem1.Text = "Cyan";
             this.cyanToolStripMenuItem1.Click += new System.EventHandler(this.cyanToolStripMenuItem1_Click);
             // 
@@ -875,7 +911,7 @@
             // 
             this.magentaToolStripMenuItem1.Image = global::Chinchi.Properties.Resources.Magenta;
             this.magentaToolStripMenuItem1.Name = "magentaToolStripMenuItem1";
-            this.magentaToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
+            this.magentaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.magentaToolStripMenuItem1.Text = "Magenta";
             this.magentaToolStripMenuItem1.Click += new System.EventHandler(this.magentaToolStripMenuItem1_Click);
             // 
@@ -883,7 +919,7 @@
             // 
             this.rojoToolStripMenuItem1.Image = global::Chinchi.Properties.Resources.Rojo;
             this.rojoToolStripMenuItem1.Name = "rojoToolStripMenuItem1";
-            this.rojoToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
+            this.rojoToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.rojoToolStripMenuItem1.Text = "Rojo";
             this.rojoToolStripMenuItem1.Click += new System.EventHandler(this.rojoToolStripMenuItem1_Click);
             // 
@@ -891,7 +927,7 @@
             // 
             this.verdeToolStripMenuItem1.Image = global::Chinchi.Properties.Resources.Verde;
             this.verdeToolStripMenuItem1.Name = "verdeToolStripMenuItem1";
-            this.verdeToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
+            this.verdeToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.verdeToolStripMenuItem1.Text = "Verde";
             this.verdeToolStripMenuItem1.Click += new System.EventHandler(this.verdeToolStripMenuItem1_Click);
             // 
@@ -1317,6 +1353,16 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // progressBar
+            // 
+            this.progressBar.Depth = 0;
+            this.progressBar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.progressBar.Location = new System.Drawing.Point(411, 404);
+            this.progressBar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(195, 5);
+            this.progressBar.TabIndex = 9;
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1362,6 +1408,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFrame)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPlay)).EndInit();
             this.menuVideo.ResumeLayout(false);
             this.menuVideo.PerformLayout();
             this.Reconocimiento.ResumeLayout(false);
@@ -1481,6 +1528,9 @@
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer2;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private System.Windows.Forms.PictureBox btnPlay;
+        private MaterialSkin.Controls.MaterialLabel materialLabel11;
+        private MaterialSkin.Controls.MaterialProgressBar progressBar;
     }
 }
 

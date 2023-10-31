@@ -174,3 +174,11 @@ C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\obj\Debug\CHINCH
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\obj\Debug\CHINCHI.csproj.CopyComplete
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\obj\Debug\CHINCHI.exe
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\obj\Debug\CHINCHI.pdb
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.Imaging.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.Math.Core.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.Math.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.Statistics.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.Imaging.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.Math.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.Math.Core.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.Statistics.xml
