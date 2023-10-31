@@ -78,9 +78,12 @@
             this.warpCircularToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.video = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.pbFrame = new System.Windows.Forms.PictureBox();
             this.lblFrames = new MaterialSkin.Controls.MaterialLabel();
+            this.axWindowsMediaPlayer2 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.menuVideo = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirVídeoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -128,9 +131,6 @@
             this.btnFlechaDerecha = new MaterialSkin.Controls.MaterialFloatingActionButton();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.axWindowsMediaPlayer2 = new AxWMPLib.AxWindowsMediaPlayer();
-            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.materialTabControl1.SuspendLayout();
             this.Filtros.SuspendLayout();
             this.materialCard3.SuspendLayout();
@@ -151,6 +151,7 @@
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFrame)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).BeginInit();
             this.menuVideo.SuspendLayout();
             this.Reconocimiento.SuspendLayout();
             this.materialCard1.SuspendLayout();
@@ -161,7 +162,6 @@
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbManualDeUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -660,41 +660,66 @@
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.ColumnCount = 3;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel4.Controls.Add(this.materialLabel2, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.axWindowsMediaPlayer1, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.pbFrame, 2, 0);
-            this.tableLayoutPanel4.Controls.Add(this.lblFrames, 2, 1);
-            this.tableLayoutPanel4.Controls.Add(this.axWindowsMediaPlayer2, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.materialLabel3, 1, 1);
+            this.tableLayoutPanel4.ColumnCount = 6;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.5F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.5F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.5F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.5F));
+            this.tableLayoutPanel4.Controls.Add(this.materialLabel2, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.axWindowsMediaPlayer1, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.pbFrame, 3, 3);
+            this.tableLayoutPanel4.Controls.Add(this.lblFrames, 0, 3);
+            this.tableLayoutPanel4.Controls.Add(this.axWindowsMediaPlayer2, 3, 1);
+            this.tableLayoutPanel4.Controls.Add(this.materialLabel3, 3, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 27);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 2;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel4.RowCount = 4;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(1221, 503);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.tableLayoutPanel4.SetColumnSpan(this.materialLabel2, 3);
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel2.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
+            this.materialLabel2.ForeColor = System.Drawing.Color.White;
+            this.materialLabel2.Location = new System.Drawing.Point(3, 0);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(603, 50);
+            this.materialLabel2.TabIndex = 4;
+            this.materialLabel2.Text = "Video cargado";
+            this.materialLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // axWindowsMediaPlayer1
             // 
+            this.tableLayoutPanel4.SetColumnSpan(this.axWindowsMediaPlayer1, 3);
             this.axWindowsMediaPlayer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(3, 3);
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(3, 53);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(482, 396);
+            this.tableLayoutPanel4.SetRowSpan(this.axWindowsMediaPlayer1, 2);
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(603, 345);
             this.axWindowsMediaPlayer1.TabIndex = 0;
             // 
             // pbFrame
             // 
             this.pbFrame.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbFrame.Location = new System.Drawing.Point(979, 3);
+            this.pbFrame.Location = new System.Drawing.Point(612, 404);
             this.pbFrame.Name = "pbFrame";
-            this.pbFrame.Size = new System.Drawing.Size(239, 396);
+            this.pbFrame.Size = new System.Drawing.Size(195, 96);
             this.pbFrame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbFrame.TabIndex = 1;
             this.pbFrame.TabStop = false;
@@ -703,18 +728,48 @@
             // 
             this.lblFrames.AutoSize = true;
             this.lblFrames.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel4.SetColumnSpan(this.lblFrames, 3);
             this.lblFrames.Depth = 0;
             this.lblFrames.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblFrames.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.lblFrames.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
             this.lblFrames.ForeColor = System.Drawing.Color.White;
-            this.lblFrames.Location = new System.Drawing.Point(979, 402);
+            this.lblFrames.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblFrames.Location = new System.Drawing.Point(3, 401);
             this.lblFrames.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblFrames.Name = "lblFrames";
-            this.lblFrames.Size = new System.Drawing.Size(239, 101);
+            this.lblFrames.Size = new System.Drawing.Size(603, 102);
             this.lblFrames.TabIndex = 2;
             this.lblFrames.Text = "¡Comencemos a editar!";
-            this.lblFrames.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblFrames.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // axWindowsMediaPlayer2
+            // 
+            this.tableLayoutPanel4.SetColumnSpan(this.axWindowsMediaPlayer2, 3);
+            this.axWindowsMediaPlayer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.axWindowsMediaPlayer2.Enabled = true;
+            this.axWindowsMediaPlayer2.Location = new System.Drawing.Point(612, 53);
+            this.axWindowsMediaPlayer2.Name = "axWindowsMediaPlayer2";
+            this.axWindowsMediaPlayer2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer2.OcxState")));
+            this.tableLayoutPanel4.SetRowSpan(this.axWindowsMediaPlayer2, 2);
+            this.axWindowsMediaPlayer2.Size = new System.Drawing.Size(606, 345);
+            this.axWindowsMediaPlayer2.TabIndex = 3;
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.tableLayoutPanel4.SetColumnSpan(this.materialLabel3, 3);
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel3.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
+            this.materialLabel3.Location = new System.Drawing.Point(612, 0);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(606, 50);
+            this.materialLabel3.TabIndex = 5;
+            this.materialLabel3.Text = "Video editado";
+            this.materialLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // menuVideo
             // 
@@ -740,14 +795,14 @@
             // abrirVídeoToolStripMenuItem
             // 
             this.abrirVídeoToolStripMenuItem.Name = "abrirVídeoToolStripMenuItem";
-            this.abrirVídeoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.abrirVídeoToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.abrirVídeoToolStripMenuItem.Text = "Abrir vídeo";
             this.abrirVídeoToolStripMenuItem.Click += new System.EventHandler(this.abrirVídeoToolStripMenuItem_Click);
             // 
             // revetirCambiosToolStripMenuItem
             // 
             this.revetirCambiosToolStripMenuItem.Name = "revetirCambiosToolStripMenuItem";
-            this.revetirCambiosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.revetirCambiosToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.revetirCambiosToolStripMenuItem.Text = "Revertir cambios";
             this.revetirCambiosToolStripMenuItem.Visible = false;
             this.revetirCambiosToolStripMenuItem.Click += new System.EventHandler(this.revetirCambiosToolStripMenuItem_Click);
@@ -796,7 +851,7 @@
             // 
             this.amarilloToolStripMenuItem1.Image = global::Chinchi.Properties.Resources.Amarillo;
             this.amarilloToolStripMenuItem1.Name = "amarilloToolStripMenuItem1";
-            this.amarilloToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.amarilloToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
             this.amarilloToolStripMenuItem1.Text = "Amarillo";
             this.amarilloToolStripMenuItem1.Click += new System.EventHandler(this.amarilloToolStripMenuItem1_Click);
             // 
@@ -804,7 +859,7 @@
             // 
             this.azulToolStripMenuItem1.Image = global::Chinchi.Properties.Resources.Azul;
             this.azulToolStripMenuItem1.Name = "azulToolStripMenuItem1";
-            this.azulToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.azulToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
             this.azulToolStripMenuItem1.Text = "Azul";
             this.azulToolStripMenuItem1.Click += new System.EventHandler(this.azulToolStripMenuItem1_Click);
             // 
@@ -812,7 +867,7 @@
             // 
             this.cyanToolStripMenuItem1.Image = global::Chinchi.Properties.Resources.Cyan;
             this.cyanToolStripMenuItem1.Name = "cyanToolStripMenuItem1";
-            this.cyanToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.cyanToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
             this.cyanToolStripMenuItem1.Text = "Cyan";
             this.cyanToolStripMenuItem1.Click += new System.EventHandler(this.cyanToolStripMenuItem1_Click);
             // 
@@ -820,7 +875,7 @@
             // 
             this.magentaToolStripMenuItem1.Image = global::Chinchi.Properties.Resources.Magenta;
             this.magentaToolStripMenuItem1.Name = "magentaToolStripMenuItem1";
-            this.magentaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.magentaToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
             this.magentaToolStripMenuItem1.Text = "Magenta";
             this.magentaToolStripMenuItem1.Click += new System.EventHandler(this.magentaToolStripMenuItem1_Click);
             // 
@@ -828,7 +883,7 @@
             // 
             this.rojoToolStripMenuItem1.Image = global::Chinchi.Properties.Resources.Rojo;
             this.rojoToolStripMenuItem1.Name = "rojoToolStripMenuItem1";
-            this.rojoToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.rojoToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
             this.rojoToolStripMenuItem1.Text = "Rojo";
             this.rojoToolStripMenuItem1.Click += new System.EventHandler(this.rojoToolStripMenuItem1_Click);
             // 
@@ -836,7 +891,7 @@
             // 
             this.verdeToolStripMenuItem1.Image = global::Chinchi.Properties.Resources.Verde;
             this.verdeToolStripMenuItem1.Name = "verdeToolStripMenuItem1";
-            this.verdeToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.verdeToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
             this.verdeToolStripMenuItem1.Text = "Verde";
             this.verdeToolStripMenuItem1.Click += new System.EventHandler(this.verdeToolStripMenuItem1_Click);
             // 
@@ -879,36 +934,42 @@
             this.gradianteDeColoresToolStripMenuItem.Name = "gradianteDeColoresToolStripMenuItem";
             this.gradianteDeColoresToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.gradianteDeColoresToolStripMenuItem.Text = "Gradiante de colores";
+            this.gradianteDeColoresToolStripMenuItem.Click += new System.EventHandler(this.gradianteDeColoresToolStripMenuItem_Click);
             // 
             // ojoDePezToolStripMenuItem1
             // 
             this.ojoDePezToolStripMenuItem1.Name = "ojoDePezToolStripMenuItem1";
             this.ojoDePezToolStripMenuItem1.Size = new System.Drawing.Size(182, 22);
             this.ojoDePezToolStripMenuItem1.Text = "Ojo de pez";
+            this.ojoDePezToolStripMenuItem1.Click += new System.EventHandler(this.ojoDePezToolStripMenuItem1_Click);
             // 
             // pixelarToolStripMenuItem1
             // 
             this.pixelarToolStripMenuItem1.Name = "pixelarToolStripMenuItem1";
             this.pixelarToolStripMenuItem1.Size = new System.Drawing.Size(182, 22);
             this.pixelarToolStripMenuItem1.Text = "Pixelar";
+            this.pixelarToolStripMenuItem1.Click += new System.EventHandler(this.pixelarToolStripMenuItem1_Click);
             // 
             // ruidoToolStripMenuItem1
             // 
             this.ruidoToolStripMenuItem1.Name = "ruidoToolStripMenuItem1";
             this.ruidoToolStripMenuItem1.Size = new System.Drawing.Size(182, 22);
             this.ruidoToolStripMenuItem1.Text = "Ruido";
+            this.ruidoToolStripMenuItem1.Click += new System.EventHandler(this.ruidoToolStripMenuItem1_Click);
             // 
             // warpToolStripMenuItem1
             // 
             this.warpToolStripMenuItem1.Name = "warpToolStripMenuItem1";
             this.warpToolStripMenuItem1.Size = new System.Drawing.Size(182, 22);
             this.warpToolStripMenuItem1.Text = "Warp";
+            this.warpToolStripMenuItem1.Click += new System.EventHandler(this.warpToolStripMenuItem1_Click);
             // 
             // warpCircularToolStripMenuItem1
             // 
             this.warpCircularToolStripMenuItem1.Name = "warpCircularToolStripMenuItem1";
             this.warpCircularToolStripMenuItem1.Size = new System.Drawing.Size(182, 22);
             this.warpCircularToolStripMenuItem1.Text = "Warp circular";
+            this.warpCircularToolStripMenuItem1.Click += new System.EventHandler(this.warpCircularToolStripMenuItem1_Click);
             // 
             // imageList1
             // 
@@ -1256,47 +1317,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // axWindowsMediaPlayer2
-            // 
-            this.axWindowsMediaPlayer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.axWindowsMediaPlayer2.Enabled = true;
-            this.axWindowsMediaPlayer2.Location = new System.Drawing.Point(491, 3);
-            this.axWindowsMediaPlayer2.Name = "axWindowsMediaPlayer2";
-            this.axWindowsMediaPlayer2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer2.OcxState")));
-            this.axWindowsMediaPlayer2.Size = new System.Drawing.Size(482, 396);
-            this.axWindowsMediaPlayer2.TabIndex = 3;
-            // 
-            // materialLabel2
-            // 
-            this.materialLabel2.AutoSize = true;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
-            this.materialLabel2.ForeColor = System.Drawing.Color.White;
-            this.materialLabel2.Location = new System.Drawing.Point(3, 402);
-            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(482, 101);
-            this.materialLabel2.TabIndex = 4;
-            this.materialLabel2.Text = "Video cargado";
-            this.materialLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // materialLabel3
-            // 
-            this.materialLabel3.AutoSize = true;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel3.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
-            this.materialLabel3.Location = new System.Drawing.Point(491, 402);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(482, 101);
-            this.materialLabel3.TabIndex = 5;
-            this.materialLabel3.Text = "Video editado";
-            this.materialLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1341,6 +1361,7 @@
             this.tableLayoutPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFrame)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).EndInit();
             this.menuVideo.ResumeLayout(false);
             this.menuVideo.PerformLayout();
             this.Reconocimiento.ResumeLayout(false);
@@ -1354,7 +1375,6 @@
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbManualDeUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).EndInit();
             this.ResumeLayout(false);
 
         }

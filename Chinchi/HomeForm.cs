@@ -462,7 +462,7 @@ namespace Chinchi
             opacidad = (float)sliderForm.Valor / 100;
 
 
-            Bitmap resultante = DegradadoColores(original, colorInicio, colorFin, opacidad);
+            Bitmap resultante = GradianteDeColores(original, colorInicio, colorFin, opacidad);
 
 
 
@@ -557,7 +557,7 @@ namespace Chinchi
             }
 
             // Crear una copia de la imagen original con el mismo tamaño y formato
-            Bitmap resultante = CircularWarp(original);
+            Bitmap resultante = WarpCircular(original);
 
             // La operación no fue exitosa, cancelar el proceso
             if (resultante == null)
@@ -580,7 +580,7 @@ namespace Chinchi
             }
 
             // Crear una copia de la imagen original con el mismo tamaño y formato
-            Bitmap resultante = FishEye(original);
+            Bitmap resultante = OjoDePescado(original);
 
             // La operación no fue exitosa, cancelar el proceso
             if (resultante == null)
@@ -750,6 +750,68 @@ namespace Chinchi
             await ProcesarVideo(ProcesoVideo.ColorearVerde);
         }
 
+        private async void gradianteDeColoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Crear una copia de la imagen original con el mismo tamaño y formato
+            Color colorInicio = Color.Blue;
+            Color colorFin = Color.Red;
+            float opacidad = 0.5f; // Ajusta este valor según tus necesidades
+
+            ColorDialog colorDialog = new ColorDialog();
+
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Obtiene el color seleccionado por el usuario
+                colorInicio = colorDialog.Color;
+            }
+
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Obtiene el color seleccionado por el usuario
+                colorFin = colorDialog.Color;
+            }
+            int minValue = 1;
+            int maxValue = 100;
+            int defaultValue = 50;
+            string tituloSlider = "Cantidad de Opacidad:";
+            // Mostrar un formulario que contenga la barra deslizadora
+            SliderForm sliderForm = new SliderForm(minValue, maxValue, defaultValue, tituloSlider);
+
+            if (sliderForm.ShowDialog() != DialogResult.OK)
+            {
+                // El usuario canceló el formulario
+                MessageBox.Show("Se canceló el proceso.");
+                return;
+            }
+
+            await ProcesarVideo(ProcesoVideo.GradianteDeColores, colorInicio, colorFin, opacidad);
+        }
+
+        private async void ojoDePezToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            await ProcesarVideo(ProcesoVideo.OjoDePescado);
+        }
+
+        private async void pixelarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            await ProcesarVideo(ProcesoVideo.Pixelar);
+        }
+
+        private async void ruidoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            await ProcesarVideo(ProcesoVideo.Ruido);
+        }
+
+        private async void warpToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            await ProcesarVideo(ProcesoVideo.Warp);
+        }
+
+        private async void warpCircularToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            await ProcesarVideo(ProcesoVideo.WarpCircular);
+        }
+
         private enum ProcesoVideo
         {
             InvertirColores,
@@ -762,10 +824,16 @@ namespace Chinchi
             ColorearCyan,
             ColorearMagenta,
             ColorearRojo,
-            ColorearVerde
+            ColorearVerde,
+            GradianteDeColores,
+            OjoDePescado,
+            Pixelar,
+            Ruido,
+            Warp,
+            WarpCircular
         }
 
-        private async Task ProcesarVideo(ProcesoVideo proceso)
+        private async Task ProcesarVideo(ProcesoVideo proceso, Color colorInicio = default(Color), Color colorFin = default(Color), float opacidad = 0.5f)
         {
             if (videoFileReader == null || !videoFileReader.IsOpen)
             {
@@ -832,6 +900,24 @@ namespace Chinchi
                                 case ProcesoVideo.ColorearVerde:
                                     processedFrame = ColorearVerde(frame, blockWidth, blockHeight);
                                     break;
+                                case ProcesoVideo.GradianteDeColores:
+                                    processedFrame = GradianteDeColores(frame, colorInicio, colorFin, opacidad);
+                                    break;
+                                //case ProcesoVideo.OjoDePescado:
+                                //    processedFrame = OjoDePescado(frame, blockWidth, blockHeight);
+                                //    break;
+                                //case ProcesoVideo.Pixelar:
+                                //    processedFrame = Pixelar(frame, blockWidth, blockHeight);
+                                //    break;
+                                //case ProcesoVideo.Ruido:
+                                //    processedFrame = Ruido(frame, blockWidth, blockHeight);
+                                //    break;
+                                //case ProcesoVideo.Warp:
+                                //    processedFrame = Warp(frame, blockWidth, blockHeight);
+                                //    break;
+                                //case ProcesoVideo.WarpCircular:
+                                //    processedFrame = WarpCircular(frame, blockWidth, blockHeight);
+                                //    break;
                                     // Agrega otros casos según sea necesario
                             }
 
@@ -1498,7 +1584,7 @@ namespace Chinchi
             }
         }
 
-        private Bitmap DegradadoColores(Bitmap original, Color colorInicio, Color colorFin, float intensidad)
+        private Bitmap GradianteDeColores(Bitmap original, Color colorInicio, Color colorFin, float intensidad)
         {
             try
             {
@@ -2176,7 +2262,7 @@ namespace Chinchi
             return resultado;
         }
 
-        private Bitmap FishEye(Bitmap original)
+        private Bitmap OjoDePescado(Bitmap original)
         {
             try
             {
@@ -2293,7 +2379,7 @@ namespace Chinchi
             }
         }
 
-        private Bitmap CircularWarp(Bitmap original)
+        private Bitmap WarpCircular(Bitmap original)
         {
             try
             {
@@ -2607,9 +2693,10 @@ namespace Chinchi
 
 
 
+
         #endregion
 
-
+        
     }
 
 }
