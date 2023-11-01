@@ -763,7 +763,7 @@ namespace Chinchi
             }
 
             InicializarBackgroundWorker();
-            backgroundWorker.RunWorkerAsync(ProcesoVideo.AbCr);
+            backgroundWorker.RunWorkerAsync(ProcesoVideo.WaHo);
         }
 
         private void brilloToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -796,6 +796,7 @@ namespace Chinchi
         {
             // Para hacer visible el control progressBar
             progressBar.Visible = true;
+            lblFrames.Text = "Aplicando filtro...";
 
             backgroundWorker = new BackgroundWorker();
             backgroundWorker.WorkerReportsProgress = true;
@@ -1064,16 +1065,43 @@ namespace Chinchi
                                 return contrastFrame;
                             });
                             break;
-                        case ProcesoVideo.AbCr:
+                        case ProcesoVideo.WaHo:
                             ProcesarFrames(totalFrames, (frame, i) =>
                             {
-                                // Aplicar filtro de aberración cromática simulada
-                                HueModifier hueModifierFilter = new HueModifier(30);
-                                Bitmap aberrationFrame = hueModifierFilter.Apply(frame);
+                                // Define los colores y opacidad para cada cuadrante
+                                Color[] quadrantColors = { Color.Red, Color.Blue, Color.Green, Color.Yellow };
+                                int opacity = 128; // Ajusta la opacidad según tus preferencias
+                                                   // Obtén la resolución del video original
+                                int videoWidth = videoFileReader.Width;
+                                int videoHeight = videoFileReader.Height;
+                                // Divide la resolución del video original en cuatro
+                                int quadrantWidth = videoWidth / 2;
+                                int quadrantHeight = videoHeight / 2;
+
+                                // Crea una nueva imagen para la aberración cromática
+                                Bitmap aberrationFrame = new Bitmap(videoWidth, videoHeight);
+
+                                using (Graphics g = Graphics.FromImage(aberrationFrame))
+                                {
+                                    // Repite el video original en cada cuadrante
+                                    for (int j = 0; j < 4; j++)
+                                    {
+                                        int x = j % 2 * quadrantWidth;
+                                        int y = j / 2 * quadrantHeight;
+
+                                        g.DrawImage(frame, x, y, quadrantWidth, quadrantHeight);
+
+                                        using (SolidBrush brush = new SolidBrush(Color.FromArgb(opacity, quadrantColors[j])))
+                                        {
+                                            g.FillRectangle(brush, x, y, quadrantWidth, quadrantHeight);
+                                        }
+                                    }
+                                }
 
                                 return aberrationFrame;
                             });
                             break;
+
 
                             // Agrega más casos según sea necesario
                     }
@@ -1125,6 +1153,7 @@ namespace Chinchi
             axWindowsMediaPlayer2.Ctlcontrols.play();
             progressBar.Value = 0;
             progressBar.Visible = false;
+            lblFrames.Text = "Proceso finalizado.";
         }
 
 
@@ -1273,7 +1302,7 @@ namespace Chinchi
         {
             InCo,
             EsDeGr,
-            AbCr,
+            WaHo,
             Br,
             Co,
             CoAm,

@@ -79,8 +79,10 @@
             this.video = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.pbFrame = new System.Windows.Forms.PictureBox();
             this.lblFrames = new MaterialSkin.Controls.MaterialLabel();
+            this.axWindowsMediaPlayer2 = new AxWMPLib.AxWindowsMediaPlayer();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.btnPlay = new System.Windows.Forms.PictureBox();
             this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
@@ -132,8 +134,6 @@
             this.btnFlechaDerecha = new MaterialSkin.Controls.MaterialFloatingActionButton();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
-            this.axWindowsMediaPlayer2 = new AxWMPLib.AxWindowsMediaPlayer();
             this.materialTabControl1.SuspendLayout();
             this.Filtros.SuspendLayout();
             this.materialCard3.SuspendLayout();
@@ -152,7 +152,9 @@
             this.menuStrip1.SuspendLayout();
             this.video.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFrame)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPlay)).BeginInit();
             this.menuVideo.SuspendLayout();
             this.Reconocimiento.SuspendLayout();
@@ -164,8 +166,6 @@
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbManualDeUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -709,6 +709,19 @@
             this.materialLabel2.Text = "Video cargado";
             this.materialLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // axWindowsMediaPlayer1
+            // 
+            this.tableLayoutPanel4.SetColumnSpan(this.axWindowsMediaPlayer1, 3);
+            this.axWindowsMediaPlayer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(3, 53);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.tableLayoutPanel4.SetRowSpan(this.axWindowsMediaPlayer1, 2);
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(603, 345);
+            this.axWindowsMediaPlayer1.TabIndex = 0;
+            this.axWindowsMediaPlayer1.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.axWindowsMediaPlayer1_PlayStateChange);
+            // 
             // pbFrame
             // 
             this.pbFrame.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -737,6 +750,19 @@
             this.lblFrames.TabIndex = 2;
             this.lblFrames.Text = "¡Comencemos a editar!";
             this.lblFrames.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // axWindowsMediaPlayer2
+            // 
+            this.tableLayoutPanel4.SetColumnSpan(this.axWindowsMediaPlayer2, 3);
+            this.axWindowsMediaPlayer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.axWindowsMediaPlayer2.Enabled = true;
+            this.axWindowsMediaPlayer2.Location = new System.Drawing.Point(612, 53);
+            this.axWindowsMediaPlayer2.Name = "axWindowsMediaPlayer2";
+            this.axWindowsMediaPlayer2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer2.OcxState")));
+            this.tableLayoutPanel4.SetRowSpan(this.axWindowsMediaPlayer2, 2);
+            this.axWindowsMediaPlayer2.Size = new System.Drawing.Size(606, 345);
+            this.axWindowsMediaPlayer2.TabIndex = 3;
+            this.axWindowsMediaPlayer2.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.axWindowsMediaPlayer1_PlayStateChange);
             // 
             // materialLabel3
             // 
@@ -817,14 +843,14 @@
             // abrirVídeoToolStripMenuItem
             // 
             this.abrirVídeoToolStripMenuItem.Name = "abrirVídeoToolStripMenuItem";
-            this.abrirVídeoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.abrirVídeoToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.abrirVídeoToolStripMenuItem.Text = "Abrir vídeo";
             this.abrirVídeoToolStripMenuItem.Click += new System.EventHandler(this.abrirVídeoToolStripMenuItem_Click);
             // 
             // revetirCambiosToolStripMenuItem
             // 
             this.revetirCambiosToolStripMenuItem.Name = "revetirCambiosToolStripMenuItem";
-            this.revetirCambiosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.revetirCambiosToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.revetirCambiosToolStripMenuItem.Text = "Revertir cambios";
             this.revetirCambiosToolStripMenuItem.Click += new System.EventHandler(this.revetirCambiosToolStripMenuItem_Click);
             // 
@@ -844,14 +870,14 @@
             // aberraciónCromáticaToolStripMenuItem1
             // 
             this.aberraciónCromáticaToolStripMenuItem1.Name = "aberraciónCromáticaToolStripMenuItem1";
-            this.aberraciónCromáticaToolStripMenuItem1.Size = new System.Drawing.Size(188, 22);
-            this.aberraciónCromáticaToolStripMenuItem1.Text = "Aberración cromática";
+            this.aberraciónCromáticaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.aberraciónCromáticaToolStripMenuItem1.Text = "Warhol";
             this.aberraciónCromáticaToolStripMenuItem1.Click += new System.EventHandler(this.aberraciónCromáticaToolStripMenuItem1_Click);
             // 
             // brilloToolStripMenuItem1
             // 
             this.brilloToolStripMenuItem1.Name = "brilloToolStripMenuItem1";
-            this.brilloToolStripMenuItem1.Size = new System.Drawing.Size(188, 22);
+            this.brilloToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.brilloToolStripMenuItem1.Text = "Brillo";
             this.brilloToolStripMenuItem1.Click += new System.EventHandler(this.brilloToolStripMenuItem1_Click);
             // 
@@ -865,7 +891,7 @@
             this.rojoToolStripMenuItem1,
             this.verdeToolStripMenuItem1});
             this.colorearToolStripMenuItem1.Name = "colorearToolStripMenuItem1";
-            this.colorearToolStripMenuItem1.Size = new System.Drawing.Size(188, 22);
+            this.colorearToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.colorearToolStripMenuItem1.Text = "Colorear";
             // 
             // amarilloToolStripMenuItem1
@@ -919,21 +945,21 @@
             // contrasteToolStripMenuItem1
             // 
             this.contrasteToolStripMenuItem1.Name = "contrasteToolStripMenuItem1";
-            this.contrasteToolStripMenuItem1.Size = new System.Drawing.Size(188, 22);
+            this.contrasteToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.contrasteToolStripMenuItem1.Text = "Contraste";
             this.contrasteToolStripMenuItem1.Click += new System.EventHandler(this.contrasteToolStripMenuItem1_Click);
             // 
             // escalaDeGrisesToolStripMenuItem1
             // 
             this.escalaDeGrisesToolStripMenuItem1.Name = "escalaDeGrisesToolStripMenuItem1";
-            this.escalaDeGrisesToolStripMenuItem1.Size = new System.Drawing.Size(188, 22);
+            this.escalaDeGrisesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.escalaDeGrisesToolStripMenuItem1.Text = "Escala de grises";
             this.escalaDeGrisesToolStripMenuItem1.Click += new System.EventHandler(this.escalaDeGrisesToolStripMenuItem1_Click);
             // 
             // invertirColoresToolStripMenuItem1
             // 
             this.invertirColoresToolStripMenuItem1.Name = "invertirColoresToolStripMenuItem1";
-            this.invertirColoresToolStripMenuItem1.Size = new System.Drawing.Size(188, 22);
+            this.invertirColoresToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.invertirColoresToolStripMenuItem1.Text = "Invertir colores";
             this.invertirColoresToolStripMenuItem1.Click += new System.EventHandler(this.invertirColoresToolStripMenuItem1_Click);
             // 
@@ -1338,32 +1364,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // axWindowsMediaPlayer1
-            // 
-            this.tableLayoutPanel4.SetColumnSpan(this.axWindowsMediaPlayer1, 3);
-            this.axWindowsMediaPlayer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(3, 53);
-            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
-            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.tableLayoutPanel4.SetRowSpan(this.axWindowsMediaPlayer1, 2);
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(603, 345);
-            this.axWindowsMediaPlayer1.TabIndex = 0;
-            this.axWindowsMediaPlayer1.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.axWindowsMediaPlayer1_PlayStateChange);
-            // 
-            // axWindowsMediaPlayer2
-            // 
-            this.tableLayoutPanel4.SetColumnSpan(this.axWindowsMediaPlayer2, 3);
-            this.axWindowsMediaPlayer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.axWindowsMediaPlayer2.Enabled = true;
-            this.axWindowsMediaPlayer2.Location = new System.Drawing.Point(612, 53);
-            this.axWindowsMediaPlayer2.Name = "axWindowsMediaPlayer2";
-            this.axWindowsMediaPlayer2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer2.OcxState")));
-            this.tableLayoutPanel4.SetRowSpan(this.axWindowsMediaPlayer2, 2);
-            this.axWindowsMediaPlayer2.Size = new System.Drawing.Size(606, 345);
-            this.axWindowsMediaPlayer2.TabIndex = 3;
-            this.axWindowsMediaPlayer2.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.axWindowsMediaPlayer1_PlayStateChange);
-            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1406,7 +1406,9 @@
             this.video.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFrame)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPlay)).EndInit();
             this.menuVideo.ResumeLayout(false);
             this.menuVideo.PerformLayout();
@@ -1421,8 +1423,6 @@
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbManualDeUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).EndInit();
             this.ResumeLayout(false);
 
         }
