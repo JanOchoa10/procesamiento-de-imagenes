@@ -20,6 +20,7 @@ using System.IO;
 using Accord.Video;
 using Accord.Imaging.Filters;
 using System.Drawing.Drawing2D;
+using Emgu.CV;
 
 namespace Chinchi
 {
@@ -3415,6 +3416,22 @@ namespace Chinchi
             }
         }
 
+
+        private void btnReconocimientoFacial_CheckedChanged(object sender, EventArgs e)
+        {
+            if (btnReconocimientoFacial.Checked)
+            {
+                encenderCamara();
+            }
+            else
+            {
+                apagarCamara();
+            }
+
+        }
+
+       // static readonly CascadeClassifier cascadeClassifier = new CascadeClassifier();
+
         private void VideoCaptureDevice_NewFrame(object sender, AForge.Video.NewFrameEventArgs eventArgs)
         {
             pbTiempoReal.Image = (Bitmap)eventArgs.Frame.Clone();
@@ -3548,8 +3565,8 @@ namespace Chinchi
 
 
 
-        #endregion
 
+        #endregion
 
     }
 

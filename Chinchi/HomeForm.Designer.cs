@@ -107,11 +107,11 @@
             this.pixelarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ruidoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.filtrosEspecializadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.warholToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thresholdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.borderDeSobelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.erosiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dilataciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.erosiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thresholdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.warholToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.Reconocimiento = new System.Windows.Forms.TabPage();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
@@ -119,7 +119,7 @@
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.pbTiempoReal = new System.Windows.Forms.PictureBox();
             this.btnEncenderCamara = new MaterialSkin.Controls.MaterialSwitch();
-            this.materialSwitch2 = new MaterialSkin.Controls.MaterialSwitch();
+            this.btnReconocimientoFacial = new MaterialSkin.Controls.MaterialSwitch();
             this.cbCamara = new MaterialSkin.Controls.MaterialComboBox();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
@@ -845,14 +845,14 @@
             // abrirVídeoToolStripMenuItem
             // 
             this.abrirVídeoToolStripMenuItem.Name = "abrirVídeoToolStripMenuItem";
-            this.abrirVídeoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.abrirVídeoToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.abrirVídeoToolStripMenuItem.Text = "Abrir vídeo";
             this.abrirVídeoToolStripMenuItem.Click += new System.EventHandler(this.abrirVídeoToolStripMenuItem_Click);
             // 
             // revetirCambiosToolStripMenuItem
             // 
             this.revetirCambiosToolStripMenuItem.Name = "revetirCambiosToolStripMenuItem";
-            this.revetirCambiosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.revetirCambiosToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.revetirCambiosToolStripMenuItem.Text = "Revertir cambios";
             this.revetirCambiosToolStripMenuItem.Click += new System.EventHandler(this.revetirCambiosToolStripMenuItem_Click);
             // 
@@ -871,7 +871,7 @@
             // brilloToolStripMenuItem1
             // 
             this.brilloToolStripMenuItem1.Name = "brilloToolStripMenuItem1";
-            this.brilloToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.brilloToolStripMenuItem1.Size = new System.Drawing.Size(155, 22);
             this.brilloToolStripMenuItem1.Text = "Brillo";
             this.brilloToolStripMenuItem1.Click += new System.EventHandler(this.brilloToolStripMenuItem1_Click);
             // 
@@ -885,14 +885,14 @@
             this.rojoToolStripMenuItem1,
             this.verdeToolStripMenuItem1});
             this.colorearToolStripMenuItem1.Name = "colorearToolStripMenuItem1";
-            this.colorearToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.colorearToolStripMenuItem1.Size = new System.Drawing.Size(155, 22);
             this.colorearToolStripMenuItem1.Text = "Colorear";
             // 
             // amarilloToolStripMenuItem1
             // 
             this.amarilloToolStripMenuItem1.Image = global::Chinchi.Properties.Resources.Amarillo;
             this.amarilloToolStripMenuItem1.Name = "amarilloToolStripMenuItem1";
-            this.amarilloToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.amarilloToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
             this.amarilloToolStripMenuItem1.Text = "Amarillo";
             this.amarilloToolStripMenuItem1.Click += new System.EventHandler(this.amarilloToolStripMenuItem1_Click);
             // 
@@ -900,7 +900,7 @@
             // 
             this.azulToolStripMenuItem1.Image = global::Chinchi.Properties.Resources.Azul;
             this.azulToolStripMenuItem1.Name = "azulToolStripMenuItem1";
-            this.azulToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.azulToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
             this.azulToolStripMenuItem1.Text = "Azul";
             this.azulToolStripMenuItem1.Click += new System.EventHandler(this.azulToolStripMenuItem1_Click);
             // 
@@ -908,7 +908,7 @@
             // 
             this.cyanToolStripMenuItem1.Image = global::Chinchi.Properties.Resources.Cyan;
             this.cyanToolStripMenuItem1.Name = "cyanToolStripMenuItem1";
-            this.cyanToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.cyanToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
             this.cyanToolStripMenuItem1.Text = "Cyan";
             this.cyanToolStripMenuItem1.Click += new System.EventHandler(this.cyanToolStripMenuItem1_Click);
             // 
@@ -916,7 +916,7 @@
             // 
             this.magentaToolStripMenuItem1.Image = global::Chinchi.Properties.Resources.Magenta;
             this.magentaToolStripMenuItem1.Name = "magentaToolStripMenuItem1";
-            this.magentaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.magentaToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
             this.magentaToolStripMenuItem1.Text = "Magenta";
             this.magentaToolStripMenuItem1.Click += new System.EventHandler(this.magentaToolStripMenuItem1_Click);
             // 
@@ -924,7 +924,7 @@
             // 
             this.rojoToolStripMenuItem1.Image = global::Chinchi.Properties.Resources.Rojo;
             this.rojoToolStripMenuItem1.Name = "rojoToolStripMenuItem1";
-            this.rojoToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.rojoToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
             this.rojoToolStripMenuItem1.Text = "Rojo";
             this.rojoToolStripMenuItem1.Click += new System.EventHandler(this.rojoToolStripMenuItem1_Click);
             // 
@@ -932,28 +932,28 @@
             // 
             this.verdeToolStripMenuItem1.Image = global::Chinchi.Properties.Resources.Verde;
             this.verdeToolStripMenuItem1.Name = "verdeToolStripMenuItem1";
-            this.verdeToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.verdeToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
             this.verdeToolStripMenuItem1.Text = "Verde";
             this.verdeToolStripMenuItem1.Click += new System.EventHandler(this.verdeToolStripMenuItem1_Click);
             // 
             // contrasteToolStripMenuItem1
             // 
             this.contrasteToolStripMenuItem1.Name = "contrasteToolStripMenuItem1";
-            this.contrasteToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.contrasteToolStripMenuItem1.Size = new System.Drawing.Size(155, 22);
             this.contrasteToolStripMenuItem1.Text = "Contraste";
             this.contrasteToolStripMenuItem1.Click += new System.EventHandler(this.contrasteToolStripMenuItem1_Click);
             // 
             // escalaDeGrisesToolStripMenuItem1
             // 
             this.escalaDeGrisesToolStripMenuItem1.Name = "escalaDeGrisesToolStripMenuItem1";
-            this.escalaDeGrisesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.escalaDeGrisesToolStripMenuItem1.Size = new System.Drawing.Size(155, 22);
             this.escalaDeGrisesToolStripMenuItem1.Text = "Escala de grises";
             this.escalaDeGrisesToolStripMenuItem1.Click += new System.EventHandler(this.escalaDeGrisesToolStripMenuItem1_Click);
             // 
             // invertirColoresToolStripMenuItem1
             // 
             this.invertirColoresToolStripMenuItem1.Name = "invertirColoresToolStripMenuItem1";
-            this.invertirColoresToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.invertirColoresToolStripMenuItem1.Size = new System.Drawing.Size(155, 22);
             this.invertirColoresToolStripMenuItem1.Text = "Invertir colores";
             this.invertirColoresToolStripMenuItem1.Click += new System.EventHandler(this.invertirColoresToolStripMenuItem1_Click);
             // 
@@ -992,40 +992,40 @@
             this.filtrosEspecializadosToolStripMenuItem.Size = new System.Drawing.Size(129, 20);
             this.filtrosEspecializadosToolStripMenuItem.Text = "Filtros especializados";
             // 
-            // warholToolStripMenuItem
-            // 
-            this.warholToolStripMenuItem.Name = "warholToolStripMenuItem";
-            this.warholToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.warholToolStripMenuItem.Text = "Warhol";
-            this.warholToolStripMenuItem.Click += new System.EventHandler(this.warholToolStripMenuItem_Click);
-            // 
-            // thresholdToolStripMenuItem
-            // 
-            this.thresholdToolStripMenuItem.Name = "thresholdToolStripMenuItem";
-            this.thresholdToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.thresholdToolStripMenuItem.Text = "Threshold";
-            this.thresholdToolStripMenuItem.Click += new System.EventHandler(this.thresholdToolStripMenuItem_Click);
-            // 
             // borderDeSobelToolStripMenuItem
             // 
             this.borderDeSobelToolStripMenuItem.Name = "borderDeSobelToolStripMenuItem";
-            this.borderDeSobelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.borderDeSobelToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.borderDeSobelToolStripMenuItem.Text = "Border de sobel";
             this.borderDeSobelToolStripMenuItem.Click += new System.EventHandler(this.borderDeSobelToolStripMenuItem_Click);
-            // 
-            // erosiónToolStripMenuItem
-            // 
-            this.erosiónToolStripMenuItem.Name = "erosiónToolStripMenuItem";
-            this.erosiónToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.erosiónToolStripMenuItem.Text = "Erosión";
-            this.erosiónToolStripMenuItem.Click += new System.EventHandler(this.erosiónToolStripMenuItem_Click);
             // 
             // dilataciónToolStripMenuItem
             // 
             this.dilataciónToolStripMenuItem.Name = "dilataciónToolStripMenuItem";
-            this.dilataciónToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dilataciónToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.dilataciónToolStripMenuItem.Text = "Dilatación";
             this.dilataciónToolStripMenuItem.Click += new System.EventHandler(this.dilataciónToolStripMenuItem_Click);
+            // 
+            // erosiónToolStripMenuItem
+            // 
+            this.erosiónToolStripMenuItem.Name = "erosiónToolStripMenuItem";
+            this.erosiónToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.erosiónToolStripMenuItem.Text = "Erosión";
+            this.erosiónToolStripMenuItem.Click += new System.EventHandler(this.erosiónToolStripMenuItem_Click);
+            // 
+            // thresholdToolStripMenuItem
+            // 
+            this.thresholdToolStripMenuItem.Name = "thresholdToolStripMenuItem";
+            this.thresholdToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.thresholdToolStripMenuItem.Text = "Threshold";
+            this.thresholdToolStripMenuItem.Click += new System.EventHandler(this.thresholdToolStripMenuItem_Click);
+            // 
+            // warholToolStripMenuItem
+            // 
+            this.warholToolStripMenuItem.Name = "warholToolStripMenuItem";
+            this.warholToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.warholToolStripMenuItem.Text = "Warhol";
+            this.warholToolStripMenuItem.Click += new System.EventHandler(this.warholToolStripMenuItem_Click);
             // 
             // imageList1
             // 
@@ -1072,7 +1072,7 @@
             this.tableLayoutPanel3.Controls.Add(this.materialLabel4, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.pbTiempoReal, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.btnEncenderCamara, 1, 4);
-            this.tableLayoutPanel3.Controls.Add(this.materialSwitch2, 1, 5);
+            this.tableLayoutPanel3.Controls.Add(this.btnReconocimientoFacial, 1, 5);
             this.tableLayoutPanel3.Controls.Add(this.cbCamara, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.materialLabel5, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.materialLabel10, 1, 2);
@@ -1133,20 +1133,21 @@
             this.btnEncenderCamara.UseVisualStyleBackColor = true;
             this.btnEncenderCamara.CheckedChanged += new System.EventHandler(this.btnEncenderCamara_CheckedChanged);
             // 
-            // materialSwitch2
+            // btnReconocimientoFacial
             // 
-            this.materialSwitch2.Depth = 0;
-            this.materialSwitch2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialSwitch2.Location = new System.Drawing.Point(864, 227);
-            this.materialSwitch2.Margin = new System.Windows.Forms.Padding(0);
-            this.materialSwitch2.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialSwitch2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSwitch2.Name = "materialSwitch2";
-            this.materialSwitch2.Ripple = true;
-            this.materialSwitch2.Size = new System.Drawing.Size(371, 28);
-            this.materialSwitch2.TabIndex = 0;
-            this.materialSwitch2.Text = "Activar reconocimiento facial";
-            this.materialSwitch2.UseVisualStyleBackColor = true;
+            this.btnReconocimientoFacial.Depth = 0;
+            this.btnReconocimientoFacial.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnReconocimientoFacial.Location = new System.Drawing.Point(864, 227);
+            this.btnReconocimientoFacial.Margin = new System.Windows.Forms.Padding(0);
+            this.btnReconocimientoFacial.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.btnReconocimientoFacial.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnReconocimientoFacial.Name = "btnReconocimientoFacial";
+            this.btnReconocimientoFacial.Ripple = true;
+            this.btnReconocimientoFacial.Size = new System.Drawing.Size(371, 28);
+            this.btnReconocimientoFacial.TabIndex = 0;
+            this.btnReconocimientoFacial.Text = "Activar reconocimiento facial";
+            this.btnReconocimientoFacial.UseVisualStyleBackColor = true;
+            this.btnReconocimientoFacial.CheckedChanged += new System.EventHandler(this.btnReconocimientoFacial_CheckedChanged);
             // 
             // cbCamara
             // 
@@ -1486,7 +1487,7 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
         private System.Windows.Forms.PictureBox pbTiempoReal;
         private MaterialSkin.Controls.MaterialSwitch btnEncenderCamara;
-        private MaterialSkin.Controls.MaterialSwitch materialSwitch2;
+        private MaterialSkin.Controls.MaterialSwitch btnReconocimientoFacial;
         private MaterialSkin.Controls.MaterialComboBox cbCamara;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private MaterialSkin.Controls.MaterialLabel materialLabel10;

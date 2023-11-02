@@ -183,3 +183,11 @@ C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.Math.Core.xml
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.Statistics.xml
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\obj\Debug\Chinchi.CustomDialog.resources
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Emgu.CV.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\System.Text.Json.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\System.ValueTuple.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Emgu.CV.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\System.Text.Json.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\System.ValueTuple.xml
