@@ -2405,7 +2405,7 @@ namespace Chinchi
                             int index = y * originalData.Stride + x * 4;
 
                             // Calcular el valor de interpolación
-                            float t = horizontal ? (float)y / original.Height : (float)x / original.Width;
+                            float t = horizontal ? (float)x / original.Width : (float)y / original.Height;
 
                             // Interpolar entre los dos colores
                             Color interpolatedColor = Color.FromArgb(
