@@ -92,7 +92,6 @@
             this.abrirVídeoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.revetirCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.filtrosBásicosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.aberraciónCromáticaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.brilloToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.colorearToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.amarilloToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -105,12 +104,14 @@
             this.escalaDeGrisesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.invertirColoresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.filtrosPersonalizablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gradianteDeColoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ojoDePezToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pixelarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ruidoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.warpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.warpCircularToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.filtrosEspecializadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.warholToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thresholdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.borderDeSobelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.erosiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dilataciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.Reconocimiento = new System.Windows.Forms.TabPage();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
@@ -487,8 +488,8 @@
             this.escalaDeGrisesToolStripMenuItem,
             this.invertirColoresToolStripMenuItem});
             this.filtrosBásicosToolStripMenuItem.Name = "filtrosBásicosToolStripMenuItem";
-            this.filtrosBásicosToolStripMenuItem.Size = new System.Drawing.Size(115, 20);
-            this.filtrosBásicosToolStripMenuItem.Text = "Filtros por defecto";
+            this.filtrosBásicosToolStripMenuItem.Size = new System.Drawing.Size(144, 20);
+            this.filtrosBásicosToolStripMenuItem.Text = "Filtros predeterminados";
             // 
             // aberraciónCromáticaToolStripMenuItem
             // 
@@ -749,7 +750,7 @@
             this.lblFrames.Size = new System.Drawing.Size(603, 92);
             this.lblFrames.TabIndex = 2;
             this.lblFrames.Text = "¡Comencemos a editar!";
-            this.lblFrames.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblFrames.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // axWindowsMediaPlayer2
             // 
@@ -824,7 +825,8 @@
             this.menuVideo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem1,
             this.filtrosBásicosToolStripMenuItem1,
-            this.filtrosPersonalizablesToolStripMenuItem});
+            this.filtrosPersonalizablesToolStripMenuItem,
+            this.filtrosEspecializadosToolStripMenuItem});
             this.menuVideo.Location = new System.Drawing.Point(3, 3);
             this.menuVideo.Name = "menuVideo";
             this.menuVideo.Size = new System.Drawing.Size(1221, 24);
@@ -843,36 +845,28 @@
             // abrirVídeoToolStripMenuItem
             // 
             this.abrirVídeoToolStripMenuItem.Name = "abrirVídeoToolStripMenuItem";
-            this.abrirVídeoToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.abrirVídeoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.abrirVídeoToolStripMenuItem.Text = "Abrir vídeo";
             this.abrirVídeoToolStripMenuItem.Click += new System.EventHandler(this.abrirVídeoToolStripMenuItem_Click);
             // 
             // revetirCambiosToolStripMenuItem
             // 
             this.revetirCambiosToolStripMenuItem.Name = "revetirCambiosToolStripMenuItem";
-            this.revetirCambiosToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.revetirCambiosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.revetirCambiosToolStripMenuItem.Text = "Revertir cambios";
             this.revetirCambiosToolStripMenuItem.Click += new System.EventHandler(this.revetirCambiosToolStripMenuItem_Click);
             // 
             // filtrosBásicosToolStripMenuItem1
             // 
             this.filtrosBásicosToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aberraciónCromáticaToolStripMenuItem1,
             this.brilloToolStripMenuItem1,
             this.colorearToolStripMenuItem1,
             this.contrasteToolStripMenuItem1,
             this.escalaDeGrisesToolStripMenuItem1,
             this.invertirColoresToolStripMenuItem1});
             this.filtrosBásicosToolStripMenuItem1.Name = "filtrosBásicosToolStripMenuItem1";
-            this.filtrosBásicosToolStripMenuItem1.Size = new System.Drawing.Size(115, 20);
-            this.filtrosBásicosToolStripMenuItem1.Text = "Filtros por defecto";
-            // 
-            // aberraciónCromáticaToolStripMenuItem1
-            // 
-            this.aberraciónCromáticaToolStripMenuItem1.Name = "aberraciónCromáticaToolStripMenuItem1";
-            this.aberraciónCromáticaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.aberraciónCromáticaToolStripMenuItem1.Text = "Warhol";
-            this.aberraciónCromáticaToolStripMenuItem1.Click += new System.EventHandler(this.aberraciónCromáticaToolStripMenuItem1_Click);
+            this.filtrosBásicosToolStripMenuItem1.Size = new System.Drawing.Size(144, 20);
+            this.filtrosBásicosToolStripMenuItem1.Text = "Filtros predeterminados";
             // 
             // brilloToolStripMenuItem1
             // 
@@ -898,7 +892,7 @@
             // 
             this.amarilloToolStripMenuItem1.Image = global::Chinchi.Properties.Resources.Amarillo;
             this.amarilloToolStripMenuItem1.Name = "amarilloToolStripMenuItem1";
-            this.amarilloToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
+            this.amarilloToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.amarilloToolStripMenuItem1.Text = "Amarillo";
             this.amarilloToolStripMenuItem1.Click += new System.EventHandler(this.amarilloToolStripMenuItem1_Click);
             // 
@@ -906,7 +900,7 @@
             // 
             this.azulToolStripMenuItem1.Image = global::Chinchi.Properties.Resources.Azul;
             this.azulToolStripMenuItem1.Name = "azulToolStripMenuItem1";
-            this.azulToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
+            this.azulToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.azulToolStripMenuItem1.Text = "Azul";
             this.azulToolStripMenuItem1.Click += new System.EventHandler(this.azulToolStripMenuItem1_Click);
             // 
@@ -914,7 +908,7 @@
             // 
             this.cyanToolStripMenuItem1.Image = global::Chinchi.Properties.Resources.Cyan;
             this.cyanToolStripMenuItem1.Name = "cyanToolStripMenuItem1";
-            this.cyanToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
+            this.cyanToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.cyanToolStripMenuItem1.Text = "Cyan";
             this.cyanToolStripMenuItem1.Click += new System.EventHandler(this.cyanToolStripMenuItem1_Click);
             // 
@@ -922,7 +916,7 @@
             // 
             this.magentaToolStripMenuItem1.Image = global::Chinchi.Properties.Resources.Magenta;
             this.magentaToolStripMenuItem1.Name = "magentaToolStripMenuItem1";
-            this.magentaToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
+            this.magentaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.magentaToolStripMenuItem1.Text = "Magenta";
             this.magentaToolStripMenuItem1.Click += new System.EventHandler(this.magentaToolStripMenuItem1_Click);
             // 
@@ -930,7 +924,7 @@
             // 
             this.rojoToolStripMenuItem1.Image = global::Chinchi.Properties.Resources.Rojo;
             this.rojoToolStripMenuItem1.Name = "rojoToolStripMenuItem1";
-            this.rojoToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
+            this.rojoToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.rojoToolStripMenuItem1.Text = "Rojo";
             this.rojoToolStripMenuItem1.Click += new System.EventHandler(this.rojoToolStripMenuItem1_Click);
             // 
@@ -938,7 +932,7 @@
             // 
             this.verdeToolStripMenuItem1.Image = global::Chinchi.Properties.Resources.Verde;
             this.verdeToolStripMenuItem1.Name = "verdeToolStripMenuItem1";
-            this.verdeToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
+            this.verdeToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.verdeToolStripMenuItem1.Text = "Verde";
             this.verdeToolStripMenuItem1.Click += new System.EventHandler(this.verdeToolStripMenuItem1_Click);
             // 
@@ -966,57 +960,72 @@
             // filtrosPersonalizablesToolStripMenuItem
             // 
             this.filtrosPersonalizablesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gradianteDeColoresToolStripMenuItem,
-            this.ojoDePezToolStripMenuItem1,
             this.pixelarToolStripMenuItem1,
-            this.ruidoToolStripMenuItem1,
-            this.warpToolStripMenuItem1,
-            this.warpCircularToolStripMenuItem1});
+            this.ruidoToolStripMenuItem1});
             this.filtrosPersonalizablesToolStripMenuItem.Name = "filtrosPersonalizablesToolStripMenuItem";
             this.filtrosPersonalizablesToolStripMenuItem.Size = new System.Drawing.Size(134, 20);
             this.filtrosPersonalizablesToolStripMenuItem.Text = "Filtros personalizables";
             // 
-            // gradianteDeColoresToolStripMenuItem
-            // 
-            this.gradianteDeColoresToolStripMenuItem.Name = "gradianteDeColoresToolStripMenuItem";
-            this.gradianteDeColoresToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.gradianteDeColoresToolStripMenuItem.Text = "Gradiante de colores";
-            this.gradianteDeColoresToolStripMenuItem.Click += new System.EventHandler(this.gradianteDeColoresToolStripMenuItem_Click);
-            // 
-            // ojoDePezToolStripMenuItem1
-            // 
-            this.ojoDePezToolStripMenuItem1.Name = "ojoDePezToolStripMenuItem1";
-            this.ojoDePezToolStripMenuItem1.Size = new System.Drawing.Size(182, 22);
-            this.ojoDePezToolStripMenuItem1.Text = "Ojo de pez";
-            this.ojoDePezToolStripMenuItem1.Click += new System.EventHandler(this.ojoDePezToolStripMenuItem1_Click);
-            // 
             // pixelarToolStripMenuItem1
             // 
             this.pixelarToolStripMenuItem1.Name = "pixelarToolStripMenuItem1";
-            this.pixelarToolStripMenuItem1.Size = new System.Drawing.Size(182, 22);
+            this.pixelarToolStripMenuItem1.Size = new System.Drawing.Size(181, 22);
             this.pixelarToolStripMenuItem1.Text = "Pixelar";
             this.pixelarToolStripMenuItem1.Click += new System.EventHandler(this.pixelarToolStripMenuItem1_Click);
             // 
             // ruidoToolStripMenuItem1
             // 
             this.ruidoToolStripMenuItem1.Name = "ruidoToolStripMenuItem1";
-            this.ruidoToolStripMenuItem1.Size = new System.Drawing.Size(182, 22);
-            this.ruidoToolStripMenuItem1.Text = "Ruido";
+            this.ruidoToolStripMenuItem1.Size = new System.Drawing.Size(181, 22);
+            this.ruidoToolStripMenuItem1.Text = "Ruido sal y pimienta";
             this.ruidoToolStripMenuItem1.Click += new System.EventHandler(this.ruidoToolStripMenuItem1_Click);
             // 
-            // warpToolStripMenuItem1
+            // filtrosEspecializadosToolStripMenuItem
             // 
-            this.warpToolStripMenuItem1.Name = "warpToolStripMenuItem1";
-            this.warpToolStripMenuItem1.Size = new System.Drawing.Size(182, 22);
-            this.warpToolStripMenuItem1.Text = "Warp";
-            this.warpToolStripMenuItem1.Click += new System.EventHandler(this.warpToolStripMenuItem1_Click);
+            this.filtrosEspecializadosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.borderDeSobelToolStripMenuItem,
+            this.dilataciónToolStripMenuItem,
+            this.erosiónToolStripMenuItem,
+            this.thresholdToolStripMenuItem,
+            this.warholToolStripMenuItem});
+            this.filtrosEspecializadosToolStripMenuItem.Name = "filtrosEspecializadosToolStripMenuItem";
+            this.filtrosEspecializadosToolStripMenuItem.Size = new System.Drawing.Size(129, 20);
+            this.filtrosEspecializadosToolStripMenuItem.Text = "Filtros especializados";
             // 
-            // warpCircularToolStripMenuItem1
+            // warholToolStripMenuItem
             // 
-            this.warpCircularToolStripMenuItem1.Name = "warpCircularToolStripMenuItem1";
-            this.warpCircularToolStripMenuItem1.Size = new System.Drawing.Size(182, 22);
-            this.warpCircularToolStripMenuItem1.Text = "Warp circular";
-            this.warpCircularToolStripMenuItem1.Click += new System.EventHandler(this.warpCircularToolStripMenuItem1_Click);
+            this.warholToolStripMenuItem.Name = "warholToolStripMenuItem";
+            this.warholToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.warholToolStripMenuItem.Text = "Warhol";
+            this.warholToolStripMenuItem.Click += new System.EventHandler(this.warholToolStripMenuItem_Click);
+            // 
+            // thresholdToolStripMenuItem
+            // 
+            this.thresholdToolStripMenuItem.Name = "thresholdToolStripMenuItem";
+            this.thresholdToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.thresholdToolStripMenuItem.Text = "Threshold";
+            this.thresholdToolStripMenuItem.Click += new System.EventHandler(this.thresholdToolStripMenuItem_Click);
+            // 
+            // borderDeSobelToolStripMenuItem
+            // 
+            this.borderDeSobelToolStripMenuItem.Name = "borderDeSobelToolStripMenuItem";
+            this.borderDeSobelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.borderDeSobelToolStripMenuItem.Text = "Border de sobel";
+            this.borderDeSobelToolStripMenuItem.Click += new System.EventHandler(this.borderDeSobelToolStripMenuItem_Click);
+            // 
+            // erosiónToolStripMenuItem
+            // 
+            this.erosiónToolStripMenuItem.Name = "erosiónToolStripMenuItem";
+            this.erosiónToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.erosiónToolStripMenuItem.Text = "Erosión";
+            this.erosiónToolStripMenuItem.Click += new System.EventHandler(this.erosiónToolStripMenuItem_Click);
+            // 
+            // dilataciónToolStripMenuItem
+            // 
+            this.dilataciónToolStripMenuItem.Name = "dilataciónToolStripMenuItem";
+            this.dilataciónToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dilataciónToolStripMenuItem.Text = "Dilatación";
+            this.dilataciónToolStripMenuItem.Click += new System.EventHandler(this.dilataciónToolStripMenuItem_Click);
             // 
             // imageList1
             // 
@@ -1500,7 +1509,6 @@
         private System.Windows.Forms.ToolStripMenuItem invertirColoresToolStripMenuItem1;
         private MaterialSkin.Controls.MaterialLabel lblFrames;
         private System.Windows.Forms.ToolStripMenuItem colorearToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem aberraciónCromáticaToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem escalaDeGrisesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem brilloToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem contrasteToolStripMenuItem;
@@ -1520,18 +1528,20 @@
         private System.Windows.Forms.ToolStripMenuItem rojoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem verdeToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem filtrosPersonalizablesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gradianteDeColoresToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ojoDePezToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem pixelarToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem ruidoToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem warpToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem warpCircularToolStripMenuItem1;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer2;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private System.Windows.Forms.PictureBox btnPlay;
         private MaterialSkin.Controls.MaterialLabel materialLabel11;
         private MaterialSkin.Controls.MaterialProgressBar progressBar;
+        private System.Windows.Forms.ToolStripMenuItem filtrosEspecializadosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem warholToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem thresholdToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem borderDeSobelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem erosiónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dilataciónToolStripMenuItem;
     }
 }
 

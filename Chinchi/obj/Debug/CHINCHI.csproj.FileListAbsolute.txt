@@ -182,3 +182,4 @@ C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.Math.xml
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.Math.Core.xml
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.Statistics.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\obj\Debug\Chinchi.CustomDialog.resources

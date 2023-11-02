@@ -328,3 +328,12 @@ C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\obj\Release\CHIN
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\obj\Release\CHINCHI.csproj.CopyComplete
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\obj\Release\CHINCHI.exe
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\obj\Release\CHINCHI.pdb
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Accord.Imaging.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Accord.Math.Core.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Accord.Math.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Accord.Statistics.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Accord.Imaging.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Accord.Math.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Accord.Math.Core.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Release\Accord.Statistics.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\obj\Release\Chinchi.CustomDialog.resources

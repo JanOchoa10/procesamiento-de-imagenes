@@ -19,7 +19,7 @@ using System.Reflection;
 using System.IO;
 using Accord.Video;
 using Accord.Imaging.Filters;
-
+using System.Drawing.Drawing2D;
 
 namespace Chinchi
 {
@@ -473,10 +473,25 @@ namespace Chinchi
                 return;
             }
 
+            CustomDialog customDialog = new CustomDialog("¿Deseas que el gradiante sea horizontal o vertical?", "Vertical", "Horizontal");
+
+            // Mostrar el cuadro de diálogo y almacenar el resultado
+            DialogResult dialogResult = customDialog.ShowDialog();
+
+            // Verificar el resultado almacenado
+            if (dialogResult != DialogResult.Yes && dialogResult != DialogResult.No)
+            {
+                // El usuario canceló el formulario
+                MessageBox.Show("Se canceló el proceso.");
+                return;
+            }
+
+            // Usar la variable dialogResult para determinar la elección del usuario
+            bool horizontal = (dialogResult == DialogResult.No);
+
             opacidad = (float)sliderForm.Valor / 100;
 
-
-            Bitmap resultante = GradianteDeColores(original, colorInicio, colorFin, opacidad);
+            Bitmap resultante = GradianteDeColores(original, colorInicio, colorFin, opacidad, horizontal);
 
 
 
@@ -754,7 +769,7 @@ namespace Chinchi
 
         }
 
-        private void aberraciónCromáticaToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void warholToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (rutaVideo == "")
             {
@@ -1064,6 +1079,7 @@ namespace Chinchi
                                 Bitmap contrastFrame = contrastFilter.Apply(frame);
                                 return contrastFrame;
                             });
+
                             break;
                         case ProcesoVideo.WaHo:
                             ProcesarFrames(totalFrames, (frame, i) =>
@@ -1101,6 +1117,159 @@ namespace Chinchi
                                 return aberrationFrame;
                             });
                             break;
+
+                        // Threshold
+                        case ProcesoVideo.Th:
+                            ProcesarFrames(totalFrames, (frame, i) =>
+                            {
+                                // Convierte la imagen a escala de grises antes de aplicar el filtro Threshold
+                                Grayscale grayscaleFilter = new Grayscale(0.2125, 0.7154, 0.0721);
+                                Bitmap grayFrame = grayscaleFilter.Apply(frame);
+
+                                // Aplica el filtro Threshold a la imagen en escala de grises
+                                Threshold thresholdFilter = new Threshold();
+                                Bitmap thresholdedFrame = thresholdFilter.Apply(grayFrame);
+
+                                return thresholdedFrame;
+                            });
+                            break;
+
+                        // SobelEdgeDetector
+                        case ProcesoVideo.SoEdDe:
+                            ProcesarFrames(totalFrames, (frame, i) =>
+                            {
+                                // Convierte la imagen a escala de grises
+                                Grayscale grayscaleFilter = new Grayscale(0.2125, 0.7154, 0.0721);
+                                Bitmap grayFrame = grayscaleFilter.Apply(frame);
+
+                                // Aplica el filtro SobelEdgeDetector a la imagen en escala de grises
+                                SobelEdgeDetector sobelFilter = new SobelEdgeDetector();
+                                Bitmap sobelFrame = sobelFilter.Apply(grayFrame);
+
+                                return sobelFrame;
+                            });
+                            break;
+
+                        // Pixelado con PixellateFilter
+                        case ProcesoVideo.Pi:
+                            using (SliderForm sliderForm = new SliderForm(1, 100, 20, "Tamaño del Pixelado:"))
+                            {
+                                if (sliderForm.ShowDialog() == DialogResult.OK)
+                                {
+                                    int pixelSize = sliderForm.Valor;
+
+                                    ProcesarFrames(totalFrames, (frame, i) =>
+                                    {
+                                        // Crea una instancia del filtro de pixelado
+                                        Pixellate pixellateFilter = new Pixellate();
+                                        // Configura los parámetros del filtro según sea necesario
+                                        pixellateFilter.PixelSize = pixelSize;
+
+                                        // Aplica el filtro de pixelado a la imagen
+                                        Bitmap pixelatedFrame = pixellateFilter.Apply(frame);
+
+                                        return pixelatedFrame;
+                                    });
+                                }
+                            }
+                            break;
+
+
+
+                        // Ruido Sal y Pimienta
+                        case ProcesoVideo.Ru:
+                            using (SliderForm sliderForm = new SliderForm(0, 100, 50, "Nivel de Ruido:"))
+                            {
+                                if (sliderForm.ShowDialog() == DialogResult.OK)
+                                {
+                                    double noiseAmount = sliderForm.Valor;
+
+                                    ProcesarFrames(totalFrames, (frame, i) =>
+                                    {
+                                        // Aplica el filtro de ruido de sal y pimienta a la imagen
+                                        SaltAndPepperNoise noiseFilter = new SaltAndPepperNoise();
+                                        // Ajusta la probabilidad de ruido según tus preferencias (mayor valor -> más ruido)
+                                        noiseFilter.NoiseAmount = noiseAmount;
+                                        Bitmap noisyFrame = noiseFilter.Apply(frame);
+
+                                        return noisyFrame;
+                                    });
+                                }
+                            }
+                            break;
+
+                        // Erosion
+                        case ProcesoVideo.Er:
+                            ProcesarFrames(totalFrames, (frame, i) =>
+                            {
+                                Erosion erosionFilter = new Erosion();
+                                Bitmap erodedFrame = erosionFilter.Apply(frame);
+                                return erodedFrame;
+                            });
+                            break;
+
+                        // Dilatation
+                        case ProcesoVideo.Di:
+                            ProcesarFrames(totalFrames, (frame, i) =>
+                            {
+                                AForge.Imaging.Filters.Dilatation dilatationFilter = new AForge.Imaging.Filters.Dilatation();
+                                Bitmap dilatedFrame = dilatationFilter.Apply(frame);
+                                return dilatedFrame;
+                            });
+                            break;
+
+                            //// Closing
+                            //case ProcesoVideo.Cl:
+                            //    ProcesarFrames(totalFrames, (frame, i) =>
+                            //    {
+                            //        Closing closingFilter = new Closing();
+                            //        Bitmap closedFrame = closingFilter.Apply(frame);
+                            //        return closedFrame;
+                            //    });
+                            //    break;
+
+                            //// Opening
+                            //case ProcesoVideo.Op:
+                            //    ProcesarFrames(totalFrames, (frame, i) =>
+                            //    {
+                            //        Opening openingFilter = new Opening();
+                            //        Bitmap openedFrame = openingFilter.Apply(frame);
+                            //        return openedFrame;
+                            //    });
+                            //    break;
+
+                            //// HueModifier
+                            //case ProcesoVideo.HuMo:
+                            //    ProcesarFrames(totalFrames, (frame, i) =>
+                            //    {
+                            //        HueModifier hueFilter = new HueModifier();
+                            //        Bitmap hueModifiedFrame = hueFilter.Apply(frame);
+                            //        return hueModifiedFrame;
+                            //    });
+                            //    break;
+
+                            //// ContrastStretch
+                            //case ProcesoVideo.CoSt:
+                            //    ProcesarFrames(totalFrames, (frame, i) =>
+                            //    {
+                            //        ContrastStretch contrastStretchFilter = new ContrastStretch();
+                            //        Bitmap contrastStretchFrame = contrastStretchFilter.Apply(frame);
+                            //        return contrastStretchFrame;
+                            //    });
+                            //    break;
+
+                            //// SaturationCorrection
+                            //case ProcesoVideo.SaCo:
+                            //    ProcesarFrames(totalFrames, (frame, i) =>
+                            //    {
+                            //        SaturationCorrection saturationFilter = new SaturationCorrection();
+                            //        Bitmap saturatedFrame = saturationFilter.Apply(frame);
+                            //        return saturatedFrame;
+                            //    });
+                            //    break;
+
+
+
 
 
                             // Agrega más casos según sea necesario
@@ -1217,85 +1386,76 @@ namespace Chinchi
             backgroundWorker.RunWorkerAsync(ProcesoVideo.CoVe);
         }
 
-        private async void gradianteDeColoresToolStripMenuItem_Click(object sender, EventArgs e)
+        private void thresholdToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Crear una copia de la imagen original con el mismo tamaño y formato
-            Color colorInicio = Color.Blue;
-            Color colorFin = Color.Red;
-            float opacidad = 0.5f; // Ajusta este valor según tus necesidades
-
-            ColorDialog colorDialog = new ColorDialog();
-
-            if (colorDialog.ShowDialog() == DialogResult.OK)
+            if (rutaVideo == "")
             {
-                // Obtiene el color seleccionado por el usuario
-                colorInicio = colorDialog.Color;
-            }
-
-            if (colorDialog.ShowDialog() == DialogResult.OK)
-            {
-                // Obtiene el color seleccionado por el usuario
-                colorFin = colorDialog.Color;
-            }
-            int minValue = 1;
-            int maxValue = 100;
-            int defaultValue = 50;
-            string tituloSlider = "Cantidad de Opacidad:";
-            // Mostrar un formulario que contenga la barra deslizadora
-            SliderForm sliderForm = new SliderForm(minValue, maxValue, defaultValue, tituloSlider);
-
-            if (sliderForm.ShowDialog() != DialogResult.OK)
-            {
-                // El usuario canceló el formulario
-                MessageBox.Show("Se canceló el proceso.");
+                MessageBox.Show("Abre un vídeo primero.");
                 return;
             }
 
-            opacidad = (float)sliderForm.Valor / 100;
-
-            //await ProcesarVideo(ProcesoVideo.GradianteDeColores, colorInicio, colorFin, opacidad);
+            InicializarBackgroundWorker();
+            backgroundWorker.RunWorkerAsync(ProcesoVideo.Th);
         }
 
-        private async void ojoDePezToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void borderDeSobelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int minValue = 1;
-            int maxValue = 100;
-            int defaultValue = 50;
-            string tituloAmplitud = "Cantidad de Amplitud:";
-
-            // Mostrar un formulario que contenga la barra deslizadora para la amplitud
-            SliderForm amplitudForm = new SliderForm(minValue, maxValue, defaultValue, tituloAmplitud);
-
-            if (amplitudForm.ShowDialog() != DialogResult.OK)
+            if (rutaVideo == "")
             {
-                // El usuario canceló el formulario
-                MessageBox.Show("Se canceló el proceso.");
+                MessageBox.Show("Abre un vídeo primero.");
                 return;
             }
 
-            float maxAmplitude = (float)amplitudForm.Valor / 100;
-
-            //await ProcesarVideo(ProcesoVideo.OjoDePescado, default(Color), default(Color), 0, maxAmplitude);
+            InicializarBackgroundWorker();
+            backgroundWorker.RunWorkerAsync(ProcesoVideo.SoEdDe);
         }
 
         private async void pixelarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            //await ProcesarVideo(ProcesoVideo.Pixelar);
+            if (rutaVideo == "")
+            {
+                MessageBox.Show("Abre un vídeo primero.");
+                return;
+            }
+
+            InicializarBackgroundWorker();
+            backgroundWorker.RunWorkerAsync(ProcesoVideo.Pi);
         }
 
         private async void ruidoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            //await ProcesarVideo(ProcesoVideo.Ruido);
+            if (rutaVideo == "")
+            {
+                MessageBox.Show("Abre un vídeo primero.");
+                return;
+            }
+
+            InicializarBackgroundWorker();
+            backgroundWorker.RunWorkerAsync(ProcesoVideo.Ru);
         }
 
-        private async void warpToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void erosiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //await ProcesarVideo(ProcesoVideo.Warp);
+            if (rutaVideo == "")
+            {
+                MessageBox.Show("Abre un vídeo primero.");
+                return;
+            }
+
+            InicializarBackgroundWorker();
+            backgroundWorker.RunWorkerAsync(ProcesoVideo.Er);
         }
 
-        private async void warpCircularToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void dilataciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //await ProcesarVideo(ProcesoVideo.WarpCircular);
+            if (rutaVideo == "")
+            {
+                MessageBox.Show("Abre un vídeo primero.");
+                return;
+            }
+
+            InicializarBackgroundWorker();
+            backgroundWorker.RunWorkerAsync(ProcesoVideo.Di);
         }
 
         private enum ProcesoVideo
@@ -1311,12 +1471,12 @@ namespace Chinchi
             CoMa,
             CoRo,
             CoVe,
-            GrDeCo,
-            OjDePe,
             Pi,
             Ru,
-            Wa,
-            WaCi
+            Th,
+            SoEdDe,
+            Er,
+            Di
         }
 
         //private async Task ProcesarVideo(ProcesoVideo proceso, Color colorInicio = default(Color), Color colorFin = default(Color), float opacidad = 0, float maxAmplitude = 0)
@@ -2225,7 +2385,7 @@ namespace Chinchi
             }
         }
 
-        private Bitmap GradianteDeColores(Bitmap original, Color colorInicio, Color colorFin, float intensidad)
+        private Bitmap GradianteDeColores(Bitmap original, Color colorInicio, Color colorFin, float intensidad, bool horizontal)
         {
             try
             {
@@ -2244,8 +2404,8 @@ namespace Chinchi
                         {
                             int index = y * originalData.Stride + x * 4;
 
-                            // Calcular el valor de interpolación para la posición vertical
-                            float t = (float)y / original.Height;
+                            // Calcular el valor de interpolación
+                            float t = horizontal ? (float)y / original.Height : (float)x / original.Width;
 
                             // Interpolar entre los dos colores
                             Color interpolatedColor = Color.FromArgb(
@@ -3387,7 +3547,9 @@ namespace Chinchi
 
 
 
+
         #endregion
+
 
     }
 
