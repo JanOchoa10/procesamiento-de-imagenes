@@ -124,6 +124,7 @@
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
             this.cbResolucion = new MaterialSkin.Controls.MaterialComboBox();
+            this.labelFaceCount = new MaterialSkin.Controls.MaterialLabel();
             this.Acerca_de = new System.Windows.Forms.TabPage();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -135,7 +136,6 @@
             this.btnFlechaDerecha = new MaterialSkin.Controls.MaterialFloatingActionButton();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.labelFaceCount = new MaterialSkin.Controls.MaterialLabel();
             this.materialTabControl1.SuspendLayout();
             this.Filtros.SuspendLayout();
             this.materialCard3.SuspendLayout();
@@ -461,21 +461,21 @@
             // abrirImagenToolStripMenuItem
             // 
             this.abrirImagenToolStripMenuItem.Name = "abrirImagenToolStripMenuItem";
-            this.abrirImagenToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.abrirImagenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.abrirImagenToolStripMenuItem.Text = "Abrir imagen";
             this.abrirImagenToolStripMenuItem.Click += new System.EventHandler(this.abrirImagenToolStripMenuItem_Click_1);
             // 
             // guardarImagenToolStripMenuItem
             // 
             this.guardarImagenToolStripMenuItem.Name = "guardarImagenToolStripMenuItem";
-            this.guardarImagenToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.guardarImagenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.guardarImagenToolStripMenuItem.Text = "Guardar imagen";
             this.guardarImagenToolStripMenuItem.Click += new System.EventHandler(this.guardarImagenToolStripMenuItem_Click);
             // 
             // revertirCambiosToolStripMenuItem
             // 
             this.revertirCambiosToolStripMenuItem.Name = "revertirCambiosToolStripMenuItem";
-            this.revertirCambiosToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.revertirCambiosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.revertirCambiosToolStripMenuItem.Text = "Revertir cambios";
             this.revertirCambiosToolStripMenuItem.Click += new System.EventHandler(this.revertirCambiosToolStripMenuItem_Click);
             // 
@@ -1225,6 +1225,18 @@
             this.cbResolucion.TabIndex = 4;
             this.cbResolucion.SelectedIndexChanged += new System.EventHandler(this.cbResolucion_SelectedIndexChanged);
             // 
+            // labelFaceCount
+            // 
+            this.labelFaceCount.AutoSize = true;
+            this.labelFaceCount.Depth = 0;
+            this.labelFaceCount.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelFaceCount.Location = new System.Drawing.Point(867, 255);
+            this.labelFaceCount.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelFaceCount.Name = "labelFaceCount";
+            this.labelFaceCount.Size = new System.Drawing.Size(143, 19);
+            this.labelFaceCount.TabIndex = 5;
+            this.labelFaceCount.Text = "Cantidad de rostros:";
+            // 
             // Acerca_de
             // 
             this.Acerca_de.BackColor = System.Drawing.Color.White;
@@ -1375,18 +1387,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // labelFaceCount
-            // 
-            this.labelFaceCount.AutoSize = true;
-            this.labelFaceCount.Depth = 0;
-            this.labelFaceCount.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelFaceCount.Location = new System.Drawing.Point(867, 255);
-            this.labelFaceCount.MouseState = MaterialSkin.MouseState.HOVER;
-            this.labelFaceCount.Name = "labelFaceCount";
-            this.labelFaceCount.Size = new System.Drawing.Size(143, 19);
-            this.labelFaceCount.TabIndex = 5;
-            this.labelFaceCount.Text = "Cantidad de rostros:";
             // 
             // HomeForm
             // 
