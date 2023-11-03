@@ -135,6 +135,7 @@
             this.btnFlechaDerecha = new MaterialSkin.Controls.MaterialFloatingActionButton();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelFaceCount = new MaterialSkin.Controls.MaterialLabel();
             this.materialTabControl1.SuspendLayout();
             this.Filtros.SuspendLayout();
             this.materialCard3.SuspendLayout();
@@ -1077,6 +1078,7 @@
             this.tableLayoutPanel3.Controls.Add(this.materialLabel5, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.materialLabel10, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.cbResolucion, 1, 3);
+            this.tableLayoutPanel3.Controls.Add(this.labelFaceCount, 1, 6);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(14, 14);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -1374,6 +1376,18 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // labelFaceCount
+            // 
+            this.labelFaceCount.AutoSize = true;
+            this.labelFaceCount.Depth = 0;
+            this.labelFaceCount.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelFaceCount.Location = new System.Drawing.Point(867, 255);
+            this.labelFaceCount.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelFaceCount.Name = "labelFaceCount";
+            this.labelFaceCount.Size = new System.Drawing.Size(143, 19);
+            this.labelFaceCount.TabIndex = 5;
+            this.labelFaceCount.Text = "Cantidad de rostros:";
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1543,6 +1557,7 @@
         private System.Windows.Forms.ToolStripMenuItem borderDeSobelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem erosiónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dilataciónToolStripMenuItem;
+        private MaterialSkin.Controls.MaterialLabel labelFaceCount;
     }
 }
 
