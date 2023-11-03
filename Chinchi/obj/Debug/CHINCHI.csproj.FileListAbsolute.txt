@@ -217,3 +217,8 @@ C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Emgu.C
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Emgu.CV.World.dll
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Emgu.CV.UI.xml
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Emgu.CV.World.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\haarcascade_frontalface_default.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\haarcascade_frontalface_alt.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\haarcascade_frontalface_alt2.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\haarcascade_fullbody.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\haarcascade_profileface.xml
