@@ -3450,46 +3450,6 @@ namespace Chinchi
             Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
             if (reconocimientoFacial)
             {
-
-                //Image<Bgr, byte> grayImage = new Image<Bgr, byte>(bitmap);
-
-                //Rectangle[] rectangles = cascadeClassifier.DetectMultiScale(grayImage, 1.2, 1);
-
-                //UpdateFaceCount(rectangles.Length); // Actualizar el número total de rostros
-
-                //using (Graphics graphics = Graphics.FromImage(bitmap))
-                //{
-                //    foreach (Rectangle rectangle in rectangles)
-                //    {
-                //        bool isNewFace = IsNewFace(rectangle);
-
-                //        if (isNewFace)
-                //        {
-                //            faceCounter++; // Incrementar el contador solo si es un rostro nuevo
-
-                //            Color faceColor = GetRandomColor(); // Obtener un color aleatorio para cada rostro
-
-                //            using (Pen pen = new Pen(faceColor, 1))
-                //            {
-                //                graphics.DrawRectangle(pen, rectangle);
-
-                //                // Mostrar el número encima del triángulo rojo
-                //                using (Font font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Bold))
-                //                using (SolidBrush brush = new SolidBrush(faceColor))
-                //                {
-                //                    // Utilizar Invoke para actualizar el PictureBox en el hilo de la interfaz de usuario
-                //                    pbTiempoReal.Invoke((MethodInvoker)delegate
-                //                    {
-                //                        graphics.DrawString(faceCounter.ToString(), font, brush, rectangle.X, rectangle.Y - 15);
-                //                    });
-                //                }
-                //            }
-                //        }
-                //    }
-
-                //    // Actualizar las posiciones de los rostros detectados en el fotograma actual
-                //    previousFaces = new List<Rectangle>(rectangles);
-                //}
                 Image<Bgr, byte> emguImage = new Image<Bgr, byte>(bitmap);
                 int nuevasPersonasEnEsteFrame = 0;
                 Rectangle[] rectangles = cascadeClassifier.DetectMultiScale(emguImage, 1.2, 1);
@@ -3519,12 +3479,17 @@ namespace Chinchi
                             Font scaledFont = new Font(drawFont.FontFamily, drawFont.Size * scale);
                             SolidBrush drawBrush = new SolidBrush(faceColor);
 
-                            graphics.DrawString((title + nuevasPersonasEnEsteFrame).ToString(), scaledFont, drawBrush, rectangle, drawFormat);
+                            // Ajusta la posición del texto para que esté encima del rectángulo
+                            float x = rectangle.X + (rectangle.Width - textSize.Width * scale) / 2;
+                            float y = rectangle.Y - textSize.Height * scale;
+
+                            graphics.DrawString((title + nuevasPersonasEnEsteFrame).ToString(), scaledFont, drawBrush, x, y, drawFormat);
                         }
                     }
                 }
 
-                    Invoke(new Action(() => { lblFaceCount.Text = "Cantidad de rostros: " + nuevasPersonasEnEsteFrame; }));
+
+                Invoke(new Action(() => { lblFaceCount.Text = "Cantidad de rostros: " + nuevasPersonasEnEsteFrame; }));
             }
             pbTiempoReal.Image = bitmap;
         }
@@ -3532,8 +3497,6 @@ namespace Chinchi
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             apagarCamara();
-
-
         }
 
         private void cbCamara_SelectedIndexChanged(object sender, EventArgs e)
@@ -3573,7 +3536,7 @@ namespace Chinchi
 
         private void encenderCamara()
         {
-            
+
             btnReconocimientoFacial.Enabled = true;
 
             videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[cbCamara.SelectedIndex].MonikerString);
@@ -3664,7 +3627,6 @@ namespace Chinchi
 
 
         #endregion
-
     }
 
 }
