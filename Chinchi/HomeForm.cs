@@ -814,6 +814,7 @@ namespace Chinchi
             // Para hacer visible el control progressBar
             progressBar.Visible = true;
             lblFrames.Text = "Aplicando filtro...";
+            menuVideo.Enabled = false;
 
             backgroundWorker = new BackgroundWorker();
             backgroundWorker.WorkerReportsProgress = true;
@@ -833,123 +834,6 @@ namespace Chinchi
             InicializarBackgroundWorker();
             backgroundWorker.RunWorkerAsync(ProcesoVideo.CoAm);
         }
-
-        //private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
-        //{
-        //    // Obtén el valor del enum pasado a través de e.Argument
-        //    if (e.Argument is ProcesoVideo procesoVideo)
-        //    {
-
-        //        // Lógica para ColorearAmarillo
-        //        string nombreVideo = Path.GetFileNameWithoutExtension(rutaVideo);
-        //        // Realiza acciones según el valor del enum
-        //        switch (procesoVideo)
-        //        {
-        //            case ProcesoVideo.ColorearAmarillo:
-        //                rutaSalida = Path.Combine(Path.GetDirectoryName(rutaVideo), nombreVideo + "_Editado.mp4");
-
-        //                try
-        //                {
-        //                    videoFileReader.Open(rutaVideo);
-        //                    videoFileWriter.Open(rutaSalida, videoFileReader.Width, videoFileReader.Height, videoFileReader.FrameRate, VideoCodec.MPEG4);
-
-        //                    int totalFrames = (int)videoFileReader.FrameCount;
-
-        //                    // Color de amarillo con baja opacidad
-        //                    Color amarilloConOpacidad = Color.FromArgb(128, 255, 255, 0);
-
-
-
-        //                    // Procesar los fotogramas
-        //                    for (int i = 0; i < totalFrames; i++)
-        //                    {
-        //                        Bitmap originalFrame = videoFileReader.ReadVideoFrame();
-
-        //                        if (originalFrame == null)
-        //                            break;
-
-        //                        // Reemplaza con la llamada a ColorearAmarillo
-        //                        originalFrame = ColorearAmarillo(originalFrame, blockWidth, blockHeight);
-
-        //                        //using (Graphics g = Graphics.FromImage(originalFrame))
-        //                        //{
-        //                        //    using (Brush yellowBrush = new SolidBrush(Color.FromArgb(128, amarilloConOpacidad)))
-        //                        //    {
-        //                        //        g.FillRectangle(yellowBrush, 0, 0, originalFrame.Width, originalFrame.Height);
-        //                        //    }
-        //                        //}
-        //                        // Escribe el fotograma resultante en el archivo de salida
-        //                        videoFileWriter.WriteVideoFrame(originalFrame);
-
-        //                        // Libera recursos
-        //                        originalFrame.Dispose();
-
-        //                        // Informar sobre el progreso
-        //                        int progressPercentage = (int)((i + 1) / (double)totalFrames * 100);
-        //                        backgroundWorker.ReportProgress(progressPercentage);
-        //                    }
-
-        //                    rutaVideo = axWindowsMediaPlayer2.URL = rutaSalida;
-        //                    axWindowsMediaPlayer2.Ctlcontrols.play();
-        //                }
-        //                finally
-        //                {
-        //                    videoFileReader.Close();
-        //                    videoFileWriter.Close();
-        //                }
-
-        //                break;
-        //            case ProcesoVideo.EscalaDeGrises:
-
-        //                rutaSalida = Path.Combine(Path.GetDirectoryName(rutaVideo), nombreVideo + "_Editado.mp4");
-
-        //                try
-        //                {
-        //                    videoFileReader.Open(rutaVideo);
-        //                    videoFileWriter.Open(rutaSalida, videoFileReader.Width, videoFileReader.Height, videoFileReader.FrameRate, VideoCodec.MPEG4);
-
-        //                    int totalFrames = (int)videoFileReader.FrameCount;
-
-        //                    // Aplicar un filtro de escala de grises
-        //                    Grayscale grayFilter = new Grayscale(0.2125, 0.7154, 0.0721);
-
-        //                    // Procesar los fotogramas
-        //                    for (int i = 0; i < totalFrames; i++)
-        //                    {
-        //                        Bitmap frame = videoFileReader.ReadVideoFrame();
-
-        //                        if (frame == null)
-        //                            break;
-
-        //                        // Aplicar el filtro de escala de grises
-        //                        Bitmap grayFrame = grayFilter.Apply(frame);
-
-        //                        // Escribe el fotograma procesado en el archivo de salida
-        //                        videoFileWriter.WriteVideoFrame(grayFrame);
-
-        //                        // Libera recursos
-        //                        frame.Dispose();
-        //                        grayFrame.Dispose();
-
-        //                        // Informar sobre el progreso
-        //                        int progressPercentage = (int)((i + 1) / (double)totalFrames * 100);
-        //                        backgroundWorker.ReportProgress(progressPercentage);
-        //                    }
-
-        //                    rutaVideo = axWindowsMediaPlayer2.URL = rutaSalida;
-        //                    axWindowsMediaPlayer2.Ctlcontrols.play();
-        //                }
-        //                finally
-        //                {
-        //                    // Cierra los archivos y libera recursos
-        //                    videoFileReader.Close();
-        //                    videoFileWriter.Close();
-        //                }
-        //                break;
-        //                // Agrega más casos según sea necesario
-        //        }
-        //    }
-        //}
 
         private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -1154,50 +1038,80 @@ namespace Chinchi
 
                         // Pixelado con PixellateFilter
                         case ProcesoVideo.Pi:
-                            using (SliderForm sliderForm = new SliderForm(1, 100, 20, "Tamaño del Pixelado:"))
+                            int pixelSize = 0;
+
+                            Invoke(new Action(() =>
                             {
-                                if (sliderForm.ShowDialog() == DialogResult.OK)
+                                using (SliderForm sliderForm = new SliderForm(1, 100, 20, "Tamaño del Pixelado:"))
                                 {
-                                    int pixelSize = sliderForm.Valor;
-
-                                    ProcesarFrames(totalFrames, (frame, i) =>
+                                    if (sliderForm.ShowDialog() == DialogResult.OK)
                                     {
-                                        // Crea una instancia del filtro de pixelado
-                                        Pixellate pixellateFilter = new Pixellate();
-                                        // Configura los parámetros del filtro según sea necesario
-                                        pixellateFilter.PixelSize = pixelSize;
-
-                                        // Aplica el filtro de pixelado a la imagen
-                                        Bitmap pixelatedFrame = pixellateFilter.Apply(frame);
-
-                                        return pixelatedFrame;
-                                    });
+                                        pixelSize = sliderForm.Valor;
+                                    }
                                 }
-                            }
+                            }));
+
+                            if (pixelSize == 0)
+                                // El usuario canceló el formulario
+                                MessageBox.Show("Se canceló el proceso.");
+
+                            ProcesarFrames(totalFrames, (frame, i) =>
+                            {
+                                if (pixelSize > 0)
+                                {
+                                    // Crea una instancia del filtro de pixelado
+                                    Pixellate pixellateFilter = new Pixellate();
+                                    // Configura los parámetros del filtro según sea necesario
+                                    pixellateFilter.PixelSize = pixelSize;
+
+                                    // Aplica el filtro de pixelado a la imagen
+                                    Bitmap pixelatedFrame = pixellateFilter.Apply(frame);
+
+                                    return pixelatedFrame;
+                                }
+                                return frame;
+                            });
+
+
+
                             break;
 
 
 
                         // Ruido Sal y Pimienta
                         case ProcesoVideo.Ru:
-                            using (SliderForm sliderForm = new SliderForm(0, 100, 50, "Nivel de Ruido:"))
+                            double noiseAmount = 0;
+
+                            Invoke(new Action(() =>
                             {
-                                if (sliderForm.ShowDialog() == DialogResult.OK)
+                                using (SliderForm sliderForm = new SliderForm(1, 100, 20, "Tamaño del Pixelado:"))
                                 {
-                                    double noiseAmount = sliderForm.Valor;
-
-                                    ProcesarFrames(totalFrames, (frame, i) =>
+                                    if (sliderForm.ShowDialog() == DialogResult.OK)
                                     {
-                                        // Aplica el filtro de ruido de sal y pimienta a la imagen
-                                        SaltAndPepperNoise noiseFilter = new SaltAndPepperNoise();
-                                        // Ajusta la probabilidad de ruido según tus preferencias (mayor valor -> más ruido)
-                                        noiseFilter.NoiseAmount = noiseAmount;
-                                        Bitmap noisyFrame = noiseFilter.Apply(frame);
-
-                                        return noisyFrame;
-                                    });
+                                        pixelSize = sliderForm.Valor;
+                                    }
                                 }
-                            }
+                            }));
+
+                            if (noiseAmount == 0)
+                                // El usuario canceló el formulario
+                                MessageBox.Show("Se canceló el proceso.");
+
+
+                            ProcesarFrames(totalFrames, (frame, i) =>
+                            {
+                                if (noiseAmount > 0)
+                                {
+                                        // Aplica el filtro de ruido de sal y pimienta a la imagen
+                                    SaltAndPepperNoise noiseFilter = new SaltAndPepperNoise();
+                                        // Ajusta la probabilidad de ruido según tus preferencias (mayor valor -> más ruido)
+                                    noiseFilter.NoiseAmount = noiseAmount;
+                                    Bitmap noisyFrame = noiseFilter.Apply(frame);
+
+                                    return noisyFrame;
+                                }
+                                return frame;
+                            });
                             break;
 
                         // Erosion
@@ -1219,62 +1133,6 @@ namespace Chinchi
                                 return dilatedFrame;
                             });
                             break;
-
-                            //// Closing
-                            //case ProcesoVideo.Cl:
-                            //    ProcesarFrames(totalFrames, (frame, i) =>
-                            //    {
-                            //        Closing closingFilter = new Closing();
-                            //        Bitmap closedFrame = closingFilter.Apply(frame);
-                            //        return closedFrame;
-                            //    });
-                            //    break;
-
-                            //// Opening
-                            //case ProcesoVideo.Op:
-                            //    ProcesarFrames(totalFrames, (frame, i) =>
-                            //    {
-                            //        Opening openingFilter = new Opening();
-                            //        Bitmap openedFrame = openingFilter.Apply(frame);
-                            //        return openedFrame;
-                            //    });
-                            //    break;
-
-                            //// HueModifier
-                            //case ProcesoVideo.HuMo:
-                            //    ProcesarFrames(totalFrames, (frame, i) =>
-                            //    {
-                            //        HueModifier hueFilter = new HueModifier();
-                            //        Bitmap hueModifiedFrame = hueFilter.Apply(frame);
-                            //        return hueModifiedFrame;
-                            //    });
-                            //    break;
-
-                            //// ContrastStretch
-                            //case ProcesoVideo.CoSt:
-                            //    ProcesarFrames(totalFrames, (frame, i) =>
-                            //    {
-                            //        ContrastStretch contrastStretchFilter = new ContrastStretch();
-                            //        Bitmap contrastStretchFrame = contrastStretchFilter.Apply(frame);
-                            //        return contrastStretchFrame;
-                            //    });
-                            //    break;
-
-                            //// SaturationCorrection
-                            //case ProcesoVideo.SaCo:
-                            //    ProcesarFrames(totalFrames, (frame, i) =>
-                            //    {
-                            //        SaturationCorrection saturationFilter = new SaturationCorrection();
-                            //        Bitmap saturatedFrame = saturationFilter.Apply(frame);
-                            //        return saturatedFrame;
-                            //    });
-                            //    break;
-
-
-
-
-
-                            // Agrega más casos según sea necesario
                     }
                 }
                 finally
@@ -1325,6 +1183,7 @@ namespace Chinchi
             progressBar.Value = 0;
             progressBar.Visible = false;
             lblFrames.Text = "Proceso finalizado.";
+            menuVideo.Enabled = true;
         }
 
 
@@ -1481,225 +1340,6 @@ namespace Chinchi
             Di
         }
 
-        //private async Task ProcesarVideo(ProcesoVideo proceso, Color colorInicio = default(Color), Color colorFin = default(Color), float opacidad = 0, float maxAmplitude = 0)
-        //{
-        //    if (videoFileReader == null || !videoFileReader.IsOpen)
-        //    {
-        //        MessageBox.Show("Abre un vídeo primero.");
-        //        return;
-        //    }
-
-        //    List<Bitmap> processedFrames = new List<Bitmap>();
-        //    int framesToProcessBeforeCleanup = 1;  // Ajusta según tus necesidades
-
-        //    string outputVideoPath = "video_editado.mp4";
-        //    try
-        //    {
-        //        menuVideo.Enabled = false;
-        //        // Usar VideoFileWriter como un campo para poder cerrarlo más tarde
-        //        videoFileWriter = new VideoFileWriter();
-        //        videoFileWriter.Open(outputVideoPath, videoFileReader.Width, videoFileReader.Height, videoFileReader.FrameRate, VideoCodec.MPEG4);
-
-        //        await Task.Run(() =>
-        //        {
-        //            int batchSize = 1;  // ajusta el tamaño del lote según tus necesidades
-
-        //            for (int i = 0; i < videoFileReader.FrameCount; i += batchSize)
-        //            {
-        //                List<Bitmap> batchFrames = GetAllBitmapFramesFromVideo(videoFileReader, i, batchSize);
-
-        //                Parallel.ForEach(batchFrames, frame =>
-        //                {
-        //                    Bitmap processedFrame = null;
-        //                    int currentFrameNumber = i + batchFrames.IndexOf(frame) + 1;
-
-        //                    switch (proceso)
-        //                    {
-        //                        case ProcesoVideo.InvertirColores:
-        //                            processedFrame = InvertirColores(frame, blockWidth, blockHeight);
-        //                            break;
-        //                        case ProcesoVideo.EscalaDeGrises:
-        //                            processedFrame = EscalaDeGrises(frame, blockWidth, blockHeight);
-        //                            break;
-        //                        case ProcesoVideo.AberracionCromatica:
-        //                            processedFrame = AberracionCromatica(frame, 1);
-        //                            break;
-        //                        case ProcesoVideo.Brillo:
-        //                            processedFrame = Brillo(frame, blockWidth, blockHeight);
-        //                            break;
-        //                        case ProcesoVideo.Contraste:
-        //                            processedFrame = Contraste(frame, blockWidth, blockHeight);
-        //                            break;
-        //                        case ProcesoVideo.ColorearAmarillo:
-        //                            processedFrame = ColorearAmarillo(frame, blockWidth, blockHeight);
-        //                            break;
-        //                        case ProcesoVideo.ColorearAzul:
-        //                            processedFrame = ColorearAzul(frame, blockWidth, blockHeight);
-        //                            break;
-        //                        case ProcesoVideo.ColorearCyan:
-        //                            processedFrame = ColorearCyan(frame, blockWidth, blockHeight);
-        //                            break;
-        //                        case ProcesoVideo.ColorearMagenta:
-        //                            processedFrame = ColorearMagenta(frame, blockWidth, blockHeight);
-        //                            break;
-        //                        case ProcesoVideo.ColorearRojo:
-        //                            processedFrame = ColorearRojo(frame, blockWidth, blockHeight);
-        //                            break;
-        //                        case ProcesoVideo.ColorearVerde:
-        //                            processedFrame = ColorearVerde(frame, blockWidth, blockHeight);
-        //                            break;
-        //                        case ProcesoVideo.GradianteDeColores:
-        //                            processedFrame = GradianteDeColores(frame, colorInicio, colorFin, opacidad);
-        //                            break;
-        //                        case ProcesoVideo.OjoDePescado:
-        //                            processedFrame = OjoDePescado(frame, maxAmplitude);
-        //                            break;
-        //                            //case ProcesoVideo.Pixelar:
-        //                            //    processedFrame = Pixelar(frame, blockWidth, blockHeight);
-        //                            //    break;
-        //                            //case ProcesoVideo.Ruido:
-        //                            //    processedFrame = Ruido(frame, blockWidth, blockHeight);
-        //                            //    break;
-        //                            //case ProcesoVideo.Warp:
-        //                            //    processedFrame = Warp(frame, blockWidth, blockHeight);
-        //                            //    break;
-        //                            //case ProcesoVideo.WarpCircular:
-        //                            //    processedFrame = WarpCircular(frame, blockWidth, blockHeight);
-        //                            //    break;
-        //                            // Agrega otros casos según sea necesario
-        //                    }
-
-        //                    BeginInvoke(new Action(() =>
-        //                    {
-        //                        lblFrames.Text = $"Procesando fotograma {currentFrameNumber} de {videoFileReader.FrameCount}";
-        //                    }));
-
-        //                    processedFrames.Add(processedFrame);
-
-        //                    frame?.Dispose();
-        //                });
-
-        //                // Escribir los frames procesados en el archivo de vídeo más frecuentemente
-        //                if (i % framesToProcessBeforeCleanup == 0)
-        //                {
-        //                    // Verificar si hay suficientes elementos en processedFrames antes de continuar
-        //                    if (processedFrames.Count >= framesToProcessBeforeCleanup)
-        //                    {
-        //                        // Abrir el archivo de vídeo si no está abierto
-        //                        if (!videoFileWriter.IsOpen)
-        //                        {
-        //                            videoFileWriter.Open(outputVideoPath, processedFrames[0].Width, processedFrames[0].Height, 30, VideoCodec.MPEG4);
-        //                        }
-
-        //                        // Escribir los frames procesados en el archivo de vídeo
-        //                        foreach (var processedFrame in processedFrames)
-        //                        {
-        //                            // Verificar si hay un fotograma antes de mostrarlo en pbFrame
-        //                            if (processedFrame != null)
-        //                            {
-        //                                // Mostrar el fotograma actual en pbFrame antes de borrarlo
-        //                                // Clonar la imagen antes de asignarla
-        //                                Bitmap clonedFrame = (Bitmap)processedFrame.Clone();
-
-        //                                BeginInvoke(new Action(() =>
-        //                                {
-        //                                    try
-        //                                    {
-        //                                        pbFrame.Image = clonedFrame;
-        //                                        pbFrame.Invalidate();
-        //                                    }
-        //                                    catch (Exception ex)
-        //                                    {
-        //                                        //MessageBox.Show($"Error: {ex.Message}. Frame no válido, continuaré con los demás frames");
-        //                                    }
-        //                                }));
-
-        //                                // Escribir el fotograma procesado en el archivo de vídeo
-        //                                videoFileWriter.WriteVideoFrame(processedFrame);
-
-        //                                clonedFrame?.Dispose();
-        //                            }
-        //                        }
-
-        //                        // Liberar memoria de los frames procesados después de escribir
-        //                        foreach (var processedFrame in processedFrames)
-        //                        {
-        //                            processedFrame?.Dispose();
-        //                        }
-        //                        processedFrames.Clear();
-        //                    }
-        //                }
-
-        //                // Liberar memoria de los frames del lote
-        //                foreach (var frame in batchFrames)
-        //                {
-        //                    frame?.Dispose();
-        //                }
-        //            }
-
-        //            // Cerrar VideoFileWriter después de terminar de escribir los frames
-        //            videoFileWriter.Close();
-        //        });
-        //    }
-        //    catch (System.OutOfMemoryException)
-        //    {
-        //        MessageBox.Show("Error: Memoria insuficiente. Intenta con bloques más pequeños o reduce la resolución.");
-        //    }
-        //    catch (System.ArgumentException ex)
-        //    {
-        //        MessageBox.Show($"Error de argumento: {ex.Message}");
-        //        // También puedes agregar código para limpiar y restablecer el estado si es necesario
-        //        // ...
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show($"Error: {ex.Message}");
-        //    }
-        //    finally
-        //    {
-        //        // Asegúrate de liberar recursos
-        //        videoFileReader?.Close();
-        //        videoFileWriter?.Close();
-        //        menuVideo.Enabled = true;
-        //    }
-
-        //    lblFrames.Text = "Proceso completado.";
-
-        //    // Escribir los frames restantes en el archivo de vídeo
-        //    foreach (var processedFrame in processedFrames)
-        //    {
-        //        videoFileWriter.WriteVideoFrame(processedFrame);
-        //    }
-
-        //    axWindowsMediaPlayer2.URL = outputVideoPath;
-        //    axWindowsMediaPlayer2.Ctlcontrols.play();
-        //}
-
-        //private List<Bitmap> GetAllBitmapFramesFromVideo(VideoFileReader videoReader, int startFrame, int frameCount, bool reducedResolution = false)
-        //{
-        //    List<Bitmap> frames = new List<Bitmap>();
-
-        //    for (int frameNumber = startFrame; frameNumber < startFrame + frameCount; frameNumber++)
-        //    {
-        //        var frame = videoReader.ReadVideoFrame();
-        //        if (frame == null)
-        //        {
-        //            // Fin del archivo, salir del bucle
-        //            break;
-        //        }
-
-        //        if (reducedResolution)
-        //        {
-        //            // Reducir resolución si es necesario
-        //            //frame = ResizeBitmap(frame, new Size(frame.Width / 2, frame.Height / 2));
-        //        }
-
-        //        frames.Add(frame);
-        //    }
-
-        //    return frames;
-        //}
-
         private Bitmap InvertirColores(Bitmap original, int blockWidth, int blockHeight)
         {
             try
@@ -1756,17 +1396,6 @@ namespace Chinchi
                 return null; // o manejar de otra manera según tus necesidades
             }
         }
-
-        //private Bitmap ResizeBitmap(Bitmap original, Size newSize)
-        //{
-        //    Bitmap resizedBitmap = new Bitmap(newSize.Width, newSize.Height);
-        //    using (Graphics g = Graphics.FromImage(resizedBitmap))
-        //    {
-        //        g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-        //        g.DrawImage(original, 0, 0, newSize.Width, newSize.Height);
-        //    }
-        //    return resizedBitmap;
-        //}
 
         private Bitmap EscalaDeGrises(Bitmap original, int blockWidth, int blockHeight)
         {
@@ -2117,161 +1746,6 @@ namespace Chinchi
                 return null; // O manejar de otra manera según tus necesidades
             }
         }
-
-        //private Bitmap ColorearAmarillo(Bitmap original, int blockWidth, int blockHeight)
-        //{
-        //    try
-        //    {
-        //        Bitmap yellowFrame = new Bitmap(original.Width, original.Height);
-
-        //        while (true)
-        //        {
-        //            Bitmap originalFrame = videoFileReader.ReadVideoFrame();
-
-        //            if (originalFrame == null)
-        //                break;
-
-        //            using (Graphics g = Graphics.FromImage(yellowFrame))
-        //            {
-        //                using (Brush yellowBrush = new SolidBrush(Color.FromArgb(128, Color.FromArgb(128, 255, 255, 0))))
-        //                {
-        //                    g.FillRectangle(yellowBrush, 0, 0, yellowFrame.Width, yellowFrame.Height);
-        //                }
-        //            }
-        //            // Escribe el fotograma resultante en el archivo de salida
-        //            videoFileWriter.WriteVideoFrame(originalFrame);
-
-        //            // Libera recursos
-        //            originalFrame.Dispose();
-        //        }
-
-        //        //using (Graphics yellowGraphics = Graphics.FromImage(yellowFrame))
-        //        //{
-        //        //    for (int y = 0; y < original.Height; y += blockHeight)
-        //        //    {
-        //        //        for (int x = 0; x < original.Width; x += blockWidth)
-        //        //        {
-        //        //            // Procesar un bloque
-        //        //            Rectangle blockRect = new Rectangle(x, y, Math.Min(blockWidth, original.Width - x), Math.Min(blockHeight, original.Height - y));
-
-        //        //            // Color amarillo con opacidad del 50%
-        //        //            Color yellowWithOpacity = Color.FromArgb(128, 255, 255, 0); // 128 es el valor de alfa para opacidad del 50%
-
-        //        //            // Dibujar un rectángulo amarillo en el bloque
-        //        //            yellowGraphics.FillRectangle(new SolidBrush(yellowWithOpacity), blockRect);
-        //        //        }
-        //        //    }
-        //        //}
-
-        //        return yellowFrame;
-        //    }
-        //    catch (System.ArgumentException ex)
-        //    {
-        //        MessageBox.Show($"Error de argumento: {ex.Message}. Detalles: {ex.StackTrace}");
-        //        return null;
-        //    }
-        //    catch (System.OutOfMemoryException)
-        //    {
-        //        MessageBox.Show($"Error de memoria");
-        //        throw; // Propagar la excepción para manejarla en el nivel superior
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show($"Error al colorear de amarillo: {ex.Message}");
-        //        return null; // O manejar de otra manera según tus necesidades
-        //    }
-        //}
-
-        //private void ProcessVideoWithWarholFilter(string rutaVideo, AxWMPLib.AxWindowsMediaPlayer childVideoMediaPlayer)
-        //{
-        //    try
-        //    {
-        //        // Abre el archivo de video original
-        //        videoFileReader.Open(rutaVideo);
-
-        //        // Obtén la resolución del video original
-        //        int videoWidth = videoFileReader.Width;
-        //        int videoHeight = videoFileReader.Height;
-
-        //        // Divide la resolución del video original en cuatro
-        //        int quadrantWidth = videoWidth / 2;
-        //        int quadrantHeight = videoHeight / 2;
-
-        //        // Configura el archivo de salida con la misma resolución y velocidad de cuadros
-        //        string nombreVideo = Path.GetFileNameWithoutExtension(rutaVideo);
-        //        string rutaSalida = Path.Combine(Path.GetDirectoryName(rutaVideo), nombreVideo + "_RepeatedVideoQuadrantsAndColors.mp4");
-        //        videoFileWriter.Open(rutaSalida, videoWidth, videoHeight, videoFileReader.FrameRate, VideoCodec.MPEG4);
-
-        //        while (true)
-        //        {
-        //            Bitmap originalFrame = videoFileReader.ReadVideoFrame();
-
-        //            if (originalFrame == null)
-        //                break;
-
-        //            // Crea un cuadro de salida
-        //            Bitmap outputFrame = new Bitmap(videoWidth, videoHeight);
-
-        //            using (Graphics g = Graphics.FromImage(outputFrame))
-        //            {
-        //                // Repite el video original en cada cuadrante
-        //                for (int x = 0; x < 2; x++)
-        //                {
-        //                    for (int y = 0; y < 2; y++)
-        //                    {
-        //                        g.DrawImage(originalFrame, x * quadrantWidth, y * quadrantHeight, quadrantWidth, quadrantHeight);
-        //                    }
-        //                }
-        //            }
-
-        //            // Aplica el filtro de colores con opacidad baja en cada cuadrante
-        //            ApplyColorFilterWithOpacity(outputFrame, quadrantWidth, quadrantHeight);
-
-        //            // Escribe el cuadro resultante en el archivo de salida
-        //            videoFileWriter.WriteVideoFrame(outputFrame);
-
-        //            // Libera recursos
-        //            originalFrame.Dispose();
-        //            outputFrame.Dispose();
-        //        }
-
-        //        // Configura el control WindowsMediaPlayer para mostrar el video de salida
-        //        childVideoMediaPlayer.stretchToFit = true;
-        //        childVideoMediaPlayer.URL = rutaSalida;
-        //    }
-        //    finally
-        //    {
-        //        // Cierra los archivos y libera recursos
-        //        videoFileReader.Close();
-        //        videoFileWriter.Close();
-
-        //        // Muestra un MessageBox para notificar que el proceso ha finalizado
-        //        MessageBox.Show("Procesado exitosamente con los cuadrantes de video repetido y filtros de colores.", "FINALIZADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //    }
-        //}
-
-        //private void ApplyColorFilterWithOpacity(Bitmap frame, int quadrantWidth, int quadrantHeight)
-        //{
-        //    // Define los colores y opacidad para cada cuadrante
-        //    Color[] quadrantColors = { Color.Red, Color.Blue, Color.Green, Color.Yellow };
-        //    int opacity = 128; // Ajusta la opacidad según tus preferencias
-
-        //    using (Graphics g = Graphics.FromImage(frame))
-        //    {
-        //        for (int i = 0; i < 4; i++)
-        //        {
-        //            int x = i % 2 * quadrantWidth;
-        //            int y = i / 2 * quadrantHeight;
-
-        //            using (SolidBrush brush = new SolidBrush(Color.FromArgb(opacity, quadrantColors[i])))
-        //            {
-        //                g.FillRectangle(brush, x, y, quadrantWidth, quadrantHeight);
-        //            }
-        //        }
-        //    }
-        //}
-
-
 
         private Bitmap ColorearMagenta(Bitmap original, int blockWidth, int blockHeight)
         {

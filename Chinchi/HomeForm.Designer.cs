@@ -51,7 +51,7 @@
             this.pcHistogramaRIE = new System.Windows.Forms.PictureBox();
             this.pcHistogramaGIE = new System.Windows.Forms.PictureBox();
             this.pcHistogramaBIE = new System.Windows.Forms.PictureBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuImagen = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirImagenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guardarImagenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -151,7 +151,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaRIE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaGIE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaBIE)).BeginInit();
-            this.menuStrip1.SuspendLayout();
+            this.menuImagen.SuspendLayout();
             this.video.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
@@ -238,7 +238,7 @@
             // imagen
             // 
             this.imagen.Controls.Add(this.panel1);
-            this.imagen.Controls.Add(this.menuStrip1);
+            this.imagen.Controls.Add(this.menuImagen);
             this.imagen.ImageIndex = 3;
             this.imagen.Location = new System.Drawing.Point(4, 39);
             this.imagen.Name = "imagen";
@@ -436,17 +436,17 @@
             this.pcHistogramaBIE.TabIndex = 10;
             this.pcHistogramaBIE.TabStop = false;
             // 
-            // menuStrip1
+            // menuImagen
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuImagen.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
             this.filtrosBásicosToolStripMenuItem,
             this.filtrosAvanzadosToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(3, 3);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1221, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuImagen.Location = new System.Drawing.Point(3, 3);
+            this.menuImagen.Name = "menuImagen";
+            this.menuImagen.Size = new System.Drawing.Size(1221, 24);
+            this.menuImagen.TabIndex = 0;
+            this.menuImagen.Text = "menuStrip1";
             // 
             // archivoToolStripMenuItem
             // 
@@ -461,21 +461,21 @@
             // abrirImagenToolStripMenuItem
             // 
             this.abrirImagenToolStripMenuItem.Name = "abrirImagenToolStripMenuItem";
-            this.abrirImagenToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.abrirImagenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.abrirImagenToolStripMenuItem.Text = "Abrir imagen";
             this.abrirImagenToolStripMenuItem.Click += new System.EventHandler(this.abrirImagenToolStripMenuItem_Click_1);
             // 
             // guardarImagenToolStripMenuItem
             // 
             this.guardarImagenToolStripMenuItem.Name = "guardarImagenToolStripMenuItem";
-            this.guardarImagenToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.guardarImagenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.guardarImagenToolStripMenuItem.Text = "Guardar imagen";
             this.guardarImagenToolStripMenuItem.Click += new System.EventHandler(this.guardarImagenToolStripMenuItem_Click);
             // 
             // revertirCambiosToolStripMenuItem
             // 
             this.revertirCambiosToolStripMenuItem.Name = "revertirCambiosToolStripMenuItem";
-            this.revertirCambiosToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.revertirCambiosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.revertirCambiosToolStripMenuItem.Text = "Revertir cambios";
             this.revertirCambiosToolStripMenuItem.Click += new System.EventHandler(this.revertirCambiosToolStripMenuItem_Click);
             // 
@@ -1400,7 +1400,7 @@
             this.DrawerShowIconsWhenHidden = true;
             this.DrawerTabControl = this.materialTabControl1;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.menuImagen;
             this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "HomeForm";
             this.Padding = new System.Windows.Forms.Padding(0, 64, 3, 3);
@@ -1426,8 +1426,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaRIE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaGIE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcHistogramaBIE)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuImagen.ResumeLayout(false);
+            this.menuImagen.PerformLayout();
             this.video.ResumeLayout(false);
             this.video.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -1470,7 +1470,7 @@
         private System.Windows.Forms.TabPage video;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuImagen;
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem abrirImagenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem revertirCambiosToolStripMenuItem;
