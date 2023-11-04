@@ -9,6 +9,11 @@ C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágen
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Debug\CHINCHI.csproj.GenerateResource.cache
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Debug\CHINCHI.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Procesamiento de imágenes\obj\Debug\CHINCHI.csproj.CoreCompileInputs.cache
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.Statistics.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.Statistics.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\x64\msvcp140.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\x86\concrt140.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\x86\opencv_videoio_ffmpeg411.dll
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\OSExtensions.dll
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\x86\KernelTraceControl.dll
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\x86\KernelTraceControl.Win61.dll
@@ -35,6 +40,11 @@ C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\avutil
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\postproc-54.dll
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\swresample-2.dll
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\swscale-4.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\x64\concrt140.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\x64\cvextern.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\x64\opencv_videoio_ffmpeg411_64.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\x64\vcruntime140.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\x86\cvextern.dll
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.dll.config
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\haarcascade_frontalface_alt_tree.xml
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\CHINCHI.exe.config
@@ -44,7 +54,6 @@ C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.Imaging.dll
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.Math.Core.dll
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.Math.dll
-C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.Statistics.dll
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.Video.DirectShow.dll
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.Video.dll
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.Video.FFMPEG.dll
@@ -57,6 +66,8 @@ C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\AForge
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\BenchmarkDotNet.Annotations.dll
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\BenchmarkDotNet.dll
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\CommandLine.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Emgu.CV.UI.dll
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Emgu.CV.World.dll
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\FFMediaToolkit.dll
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\FFmpeg.AutoGen.dll
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Gee.External.Capstone.dll
@@ -98,7 +109,6 @@ C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.Imaging.xml
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.Math.xml
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.Math.Core.xml
-C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.Statistics.xml
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.Video.xml
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.Video.DirectShow.xml
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Accord.Video.FFMPEG.xml
@@ -111,6 +121,8 @@ C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\AForge
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\BenchmarkDotNet.xml
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\BenchmarkDotNet.Annotations.xml
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\CommandLine.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Emgu.CV.UI.xml
+C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Emgu.CV.World.xml
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\FFMediaToolkit.pdb
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\FFMediaToolkit.xml
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\FFmpeg.AutoGen.xml
@@ -205,15 +217,3 @@ C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\obj\Debug\CHINCH
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\obj\Debug\CHINCHI.csproj.CopyComplete
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\obj\Debug\CHINCHI.exe
 C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\obj\Debug\CHINCHI.pdb
-C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\x64\concrt140.dll
-C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\x64\cvextern.dll
-C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\x64\msvcp140.dll
-C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\x64\opencv_videoio_ffmpeg411_64.dll
-C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\x64\vcruntime140.dll
-C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\x86\concrt140.dll
-C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\x86\cvextern.dll
-C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\x86\opencv_videoio_ffmpeg411.dll
-C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Emgu.CV.UI.dll
-C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Emgu.CV.World.dll
-C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Emgu.CV.UI.xml
-C:\Users\Jan\Documents\GitHub\procesamiento-de-imagenes\Chinchi\bin\Debug\Emgu.CV.World.xml

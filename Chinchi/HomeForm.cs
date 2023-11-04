@@ -17,7 +17,7 @@ using System.Runtime.InteropServices;
 using Microsoft.VisualBasic;
 using System.Reflection;
 using System.IO;
-using Accord.Video;
+//using Accord.Video;
 using Accord.Imaging.Filters;
 using System.Drawing.Drawing2D;
 using Emgu.CV;
@@ -3389,7 +3389,6 @@ namespace Chinchi
 
         FilterInfoCollection filterInfoCollection;
         VideoCaptureDevice videoCaptureDevice;
-        Image auxReconocimientoFacial;
         bool reconocimientoFacial = false;
 
         private void Form1_Load(object sender, EventArgs e)
@@ -3401,7 +3400,8 @@ namespace Chinchi
             videoCaptureDevice = new VideoCaptureDevice();
 
             // Llena el combobox de resoluciones con las 5 resoluciones deseadas
-            string[] resolutions = { "1920 x 1080", "1280 x 720", "1024 x 576", "864 x 480", "640 x 480" };
+            //string[] resolutions = { "1920 x 1080", "1280 x 720", "1024 x 576", "864 x 480", "640 x 480" };
+            string[] resolutions = { "640 x 480", "864 x 480", "1024 x 576", "1280 x 720", "1920 x 1080" };
             cbResolucion.Items.AddRange(resolutions);
             cbResolucion.SelectedIndex = 0;
         }
@@ -3420,100 +3420,113 @@ namespace Chinchi
 
         private void btnReconocimientoFacial_CheckedChanged(object sender, EventArgs e)
         {
+            if (!videoCaptureDevice.IsRunning)
+            {
+                encenderCamara();
+                btnEncenderCamara.Checked = true;
+            }
+            btnEncenderCamara.Enabled = reconocimientoFacial;
+            cbCamara.Enabled = reconocimientoFacial;
+            cbResolucion.Enabled = reconocimientoFacial;
             reconocimientoFacial = !reconocimientoFacial;
         }
 
         static readonly CascadeClassifier cascadeClassifier = new CascadeClassifier("haarcascade_frontalface_alt_tree.xml");
 
-        private int faceCounter = 0; // Contador para asignar números únicos a cada rostro
+        //private int faceCounter = 0; // Contador para asignar números únicos a cada rostro
+        //private List<Rectangle> previousFaces = new List<Rectangle>();
+
+        Font drawFont = new Font("Arial", 25);
+        StringFormat drawFormat = new StringFormat();
+
+        // Define los colores para cada persona
+        Color[] colors = { Color.Blue, Color.Green, Color.Red, Color.Yellow };
+        Dictionary<int, Color> personaColors = new Dictionary<int, Color>();
 
 
-        private List<Rectangle> previousFaces = new List<Rectangle>();
-
-        private void VideoCaptureDevice_NewFrame(object sender, AForge.Video.NewFrameEventArgs eventArgs)
+        private void VideoCaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
-            Bitmap bitmap = eventArgs.Frame.Clone() as Bitmap;
-
+            //Bitmap bitmap = eventArgs.Frame.Clone() as Bitmap;
+            Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
             if (reconocimientoFacial)
             {
-                Image<Bgr, byte> grayImage = new Image<Bgr, byte>(bitmap);
 
-                Rectangle[] rectangles = cascadeClassifier.DetectMultiScale(grayImage, 1.2, 1);
+                //Image<Bgr, byte> grayImage = new Image<Bgr, byte>(bitmap);
 
-                UpdateFaceCount(rectangles.Length); // Actualizar el número total de rostros
+                //Rectangle[] rectangles = cascadeClassifier.DetectMultiScale(grayImage, 1.2, 1);
 
-                using (Graphics graphics = Graphics.FromImage(bitmap))
+                //UpdateFaceCount(rectangles.Length); // Actualizar el número total de rostros
+
+                //using (Graphics graphics = Graphics.FromImage(bitmap))
+                //{
+                //    foreach (Rectangle rectangle in rectangles)
+                //    {
+                //        bool isNewFace = IsNewFace(rectangle);
+
+                //        if (isNewFace)
+                //        {
+                //            faceCounter++; // Incrementar el contador solo si es un rostro nuevo
+
+                //            Color faceColor = GetRandomColor(); // Obtener un color aleatorio para cada rostro
+
+                //            using (Pen pen = new Pen(faceColor, 1))
+                //            {
+                //                graphics.DrawRectangle(pen, rectangle);
+
+                //                // Mostrar el número encima del triángulo rojo
+                //                using (Font font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Bold))
+                //                using (SolidBrush brush = new SolidBrush(faceColor))
+                //                {
+                //                    // Utilizar Invoke para actualizar el PictureBox en el hilo de la interfaz de usuario
+                //                    pbTiempoReal.Invoke((MethodInvoker)delegate
+                //                    {
+                //                        graphics.DrawString(faceCounter.ToString(), font, brush, rectangle.X, rectangle.Y - 15);
+                //                    });
+                //                }
+                //            }
+                //        }
+                //    }
+
+                //    // Actualizar las posiciones de los rostros detectados en el fotograma actual
+                //    previousFaces = new List<Rectangle>(rectangles);
+                //}
+                Image<Bgr, byte> emguImage = new Image<Bgr, byte>(bitmap);
+                int nuevasPersonasEnEsteFrame = 0;
+                Rectangle[] rectangles = cascadeClassifier.DetectMultiScale(emguImage, 1.2, 1);
+                string title = "Persona ";
+
+                foreach (Rectangle rectangle in rectangles)
                 {
-                    foreach (Rectangle rectangle in rectangles)
+                    nuevasPersonasEnEsteFrame++;
+
+                    // Asigna un color específico a cada persona y conserva ese color mientras la persona tenga el mismo valor
+                    if (!personaColors.ContainsKey(nuevasPersonasEnEsteFrame))
                     {
-                        bool isNewFace = IsNewFace(rectangle);
-
-                        if (isNewFace)
-                        {
-                            faceCounter++; // Incrementar el contador solo si es un rostro nuevo
-
-                            Color faceColor = GetRandomColor(); // Obtener un color aleatorio para cada rostro
-
-                            using (Pen pen = new Pen(faceColor, 1))
-                            {
-                                graphics.DrawRectangle(pen, rectangle);
-
-                                // Mostrar el número encima del triángulo rojo
-                                using (Font font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Bold))
-                                using (SolidBrush brush = new SolidBrush(faceColor))
-                                {
-                                    // Utilizar Invoke para actualizar el PictureBox en el hilo de la interfaz de usuario
-                                    pbTiempoReal.Invoke((MethodInvoker)delegate
-                                    {
-                                        graphics.DrawString(faceCounter.ToString(), font, brush, rectangle.X, rectangle.Y - 15);
-                                    });
-                                }
-                            }
-                        }
+                        personaColors[nuevasPersonasEnEsteFrame] = colors[(nuevasPersonasEnEsteFrame - 1) % colors.Length];
                     }
 
-                    // Actualizar las posiciones de los rostros detectados en el fotograma actual
-                    previousFaces = new List<Rectangle>(rectangles);
+                    Color faceColor = personaColors[nuevasPersonasEnEsteFrame];
+
+                    using (Graphics graphics = Graphics.FromImage(bitmap))
+                    {
+                        using (Pen pen = new Pen(faceColor, 5))
+                        {
+                            graphics.DrawRectangle(pen, rectangle);
+
+                            // Ajusta el tamaño del texto al ancho del cuadrado
+                            SizeF textSize = graphics.MeasureString((title + nuevasPersonasEnEsteFrame).ToString(), drawFont);
+                            float scale = rectangle.Width / textSize.Width;
+                            Font scaledFont = new Font(drawFont.FontFamily, drawFont.Size * scale);
+                            SolidBrush drawBrush = new SolidBrush(faceColor);
+
+                            graphics.DrawString((title + nuevasPersonasEnEsteFrame).ToString(), scaledFont, drawBrush, rectangle, drawFormat);
+                        }
+                    }
                 }
+
+                    Invoke(new Action(() => { lblFaceCount.Text = "Cantidad de rostros: " + nuevasPersonasEnEsteFrame; }));
             }
-
-            // Utilizar Invoke para actualizar el PictureBox en el hilo de la interfaz de usuario
-            pbTiempoReal.Invoke((MethodInvoker)delegate
-            {
-                pbTiempoReal.Image = bitmap;
-            });
-        }
-
-        private bool IsNewFace(Rectangle currentFace)
-        {
-            // Comprobar si el rostro actual se superpone significativamente con algún rostro detectado anteriormente
-            foreach (Rectangle previousFace in previousFaces)
-            {
-                Rectangle intersection = Rectangle.Intersect(currentFace, previousFace);
-                double overlapPercentage = (double)(intersection.Width * intersection.Height) / (currentFace.Width * currentFace.Height);
-
-                if (overlapPercentage > 0.5) // Ajusta el valor según sea necesario
-                {
-                    return false; // El rostro actual se superpone significativamente con un rostro anterior, no es nuevo
-                }
-            }
-
-            return true; // No hay superposición significativa, el rostro es nuevo
-        }
-
-
-        private Color GetRandomColor()
-        {
-            Random rand = new Random();
-            return Color.FromArgb(rand.Next(256), rand.Next(256), rand.Next(256));
-        }
-
-        private void UpdateFaceCount(int faceCount)
-        {
-            this.Invoke((MethodInvoker)delegate
-            {
-                labelFaceCount.Text = $"Rostros: {faceCount}";
-            });
+            pbTiempoReal.Image = bitmap;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -3545,14 +3558,24 @@ namespace Chinchi
         {
             if (videoCaptureDevice.IsRunning)
             {
+                if (reconocimientoFacial)
+                {
+                    btnReconocimientoFacial.Checked = false;
+                    reconocimientoFacial = !reconocimientoFacial;
+                }
+                btnReconocimientoFacial.Enabled = false;
+                //videoCaptureDevice.NewFrame -= VideoCaptureDevice_NewFrame; // Desasociar el evento
                 videoCaptureDevice.Stop();
-                pbTiempoReal.Image = auxReconocimientoFacial;
+                pbTiempoReal.Image = Properties.Resources.reconocimiento_facial_;
             }
         }
 
+
         private void encenderCamara()
         {
-            auxReconocimientoFacial = pbTiempoReal.Image;
+            
+            btnReconocimientoFacial.Enabled = true;
+
             videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[cbCamara.SelectedIndex].MonikerString);
 
             // Obtener la resolución seleccionada en cbResolucion
@@ -3585,11 +3608,6 @@ namespace Chinchi
             videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
             videoCaptureDevice.Start();
         }
-
-
-
-
-
 
 
         #endregion

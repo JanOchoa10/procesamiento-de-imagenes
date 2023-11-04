@@ -124,6 +124,7 @@
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
             this.cbResolucion = new MaterialSkin.Controls.MaterialComboBox();
+            this.lblFaceCount = new MaterialSkin.Controls.MaterialLabel();
             this.Acerca_de = new System.Windows.Forms.TabPage();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -135,7 +136,6 @@
             this.btnFlechaDerecha = new MaterialSkin.Controls.MaterialFloatingActionButton();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.labelFaceCount = new MaterialSkin.Controls.MaterialLabel();
             this.materialTabControl1.SuspendLayout();
             this.Filtros.SuspendLayout();
             this.materialCard3.SuspendLayout();
@@ -1078,7 +1078,7 @@
             this.tableLayoutPanel3.Controls.Add(this.materialLabel5, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.materialLabel10, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.cbResolucion, 1, 3);
-            this.tableLayoutPanel3.Controls.Add(this.labelFaceCount, 1, 6);
+            this.tableLayoutPanel3.Controls.Add(this.lblFaceCount, 1, 6);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(14, 14);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -1139,6 +1139,7 @@
             // 
             this.btnReconocimientoFacial.Depth = 0;
             this.btnReconocimientoFacial.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnReconocimientoFacial.Enabled = false;
             this.btnReconocimientoFacial.Location = new System.Drawing.Point(864, 227);
             this.btnReconocimientoFacial.Margin = new System.Windows.Forms.Padding(0);
             this.btnReconocimientoFacial.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -1224,6 +1225,19 @@
             this.cbResolucion.StartIndex = 0;
             this.cbResolucion.TabIndex = 4;
             this.cbResolucion.SelectedIndexChanged += new System.EventHandler(this.cbResolucion_SelectedIndexChanged);
+            // 
+            // lblFaceCount
+            // 
+            this.lblFaceCount.AutoSize = true;
+            this.lblFaceCount.Depth = 0;
+            this.lblFaceCount.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblFaceCount.Location = new System.Drawing.Point(867, 265);
+            this.lblFaceCount.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.lblFaceCount.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblFaceCount.Name = "lblFaceCount";
+            this.lblFaceCount.Size = new System.Drawing.Size(156, 19);
+            this.lblFaceCount.TabIndex = 5;
+            this.lblFaceCount.Text = "Cantidad de rostros: 0";
             // 
             // Acerca_de
             // 
@@ -1375,18 +1389,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // labelFaceCount
-            // 
-            this.labelFaceCount.AutoSize = true;
-            this.labelFaceCount.Depth = 0;
-            this.labelFaceCount.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelFaceCount.Location = new System.Drawing.Point(867, 255);
-            this.labelFaceCount.MouseState = MaterialSkin.MouseState.HOVER;
-            this.labelFaceCount.Name = "labelFaceCount";
-            this.labelFaceCount.Size = new System.Drawing.Size(143, 19);
-            this.labelFaceCount.TabIndex = 5;
-            this.labelFaceCount.Text = "Cantidad de rostros:";
             // 
             // HomeForm
             // 
@@ -1557,7 +1559,7 @@
         private System.Windows.Forms.ToolStripMenuItem borderDeSobelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem erosiónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dilataciónToolStripMenuItem;
-        private MaterialSkin.Controls.MaterialLabel labelFaceCount;
+        private MaterialSkin.Controls.MaterialLabel lblFaceCount;
     }
 }
 
